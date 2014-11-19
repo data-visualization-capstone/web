@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="/css/base.css" rel="stylesheet" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="loading">
+  <div id='map'></div>
+  <div id='selections' class="selections">
+    <a href='#' class="show">Choose User</a>
+    <div class='content'>
+      <a href='#' class="hide">Hide</a>
+      <div id="toggles">
+      </div>
+      <a href="#" id="toggleConnections">Toggle Connections</a>
+
+      <div>
+        <label>Filter By:</label>
+        <select id="month">
+          <option>All Months</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+        <select id="day">
+          <option>All Days</option>
+        </select>
+        <div>
+          <button id="dateFilter">Filter</button>
+          <button onclick="clearFilter()">Clear Filter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='loading'></div>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+
+  <script src="/lib/xml.min.js"></script>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/filtering.js"></script>
+  <script src="/js/coloring.js"></script>
+  <script src="/js/graphing.js"></script>
+
+  <script>
+
+    loadData(function(data){
+      map = L.mapbox.map('map', 'alexjohnson505.k2pknn10').fitBounds([[42.329077, -71.108871], [42.374200, -71.032072]]);
+      
+      // Format data. Provide subset & type of graph 
+      var subset = data.splice(data.length - 10000, data.length);
+      // var subset = _.sample(data, 20000);
+
+      var data = formatData(subset, "time");
+
+      // Render points on graph
+      drawPoints(map, data);
+    })
+
+
+    var showConnections = false;
+
+    // Show/Hide sequential lines
+    $("#toggleConnections").click(function(){
+      showConnections = !showConnections;
+      d3.selectAll("line").style("opacity", showConnections ? 1 : 0);
+    });
+
+  </script>
+</body>
+</html>
