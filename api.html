@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="/css/styles.css" rel="stylesheet" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test API</title>
+</head>
+<body>
+
+  <div id='loading'>
+  </div>
+
+  <br>
+
+  <button onClick="postLocation()">Post Location</button>
+
+  <br>
+
+  <button onClick="getLocations()">Get Locations</button>
+
+  <br>
+
+  <p style="padding: 40px; float: right;" id="output"></p>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+
+  <script>
+    var url = "http://localhost:8080/";
+
+    var data = {
+      date : Math.random() * 100,
+      latitude : Math.random() * 100, 
+      longitude :  Math.random() * 100,
+      count: 1,
+    }
+
+    // Create a new dummy location
+    function postLocation(){
+
+      $.ajax({
+        type: "POST",
+        url: url + "locations",
+        data: data,
+        dataType: 'jsonp'
+      }).done(function(resp) {
+        success(resp)
+      }).fail(function(resp) {
+        success(resp)
+      });
+    }
+
+    // Get list of locations
+    function getLocations(){
+
+      $.ajax({
+        type: "GET",
+        url: url + "locations",
+        dataType: 'jsonp'
+      }).done(function(resp) {
+        success(resp)
+      }).fail(function(resp) {
+        success(resp)
+      });
+    }
+
+    function success(resp){
+
+      console.log(resp);
+      
+      var acc = resp.length + " Total <br>";
+      _.each(resp, function(object){
+        acc = acc + object._id + " | " + ", <br>"; 
+      })
+
+      $('#output').html(acc);
+    }
+
+    function error(resp){
+      console.log(resp);
+      $('#output').html(resp);
+    }
+
+  </script>
+</body>
+</html>
