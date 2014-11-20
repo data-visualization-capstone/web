@@ -43,22 +43,23 @@
       var xhr = new XMLHttpRequest();
       
       xhr.onreadystatechange = function(){
-          // readyState 4 = call complete
-          if (xhr.readyState == 4 && xhr.status == 200) {
-              callback(xhr.responseText);
-          }
-      }; 
+        // http://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
+        // readyState 4 = call complete
+        // status 200 = gtg
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          success(xhr.responseText);
+
+        } else if (xhr.readyState == 4 && xhr.status != 200) {
+          console.log("API Call Error.");
+          console.log(xhr);
+          
+          error(xhr);
+        }
+
+      };
 
       xhr.open("GET", url + "locations", false);
       xhr.send();
-
-      // console.log(xhr.status);
-      // console.log(xhr.statusText);
-      // console.log(xhr);
-    }
-
-    function callback(data){
-      console.log(data);
     }
 
     function success(resp){
