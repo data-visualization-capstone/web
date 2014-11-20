@@ -37,33 +37,28 @@
       count: 1,
     }
 
-    // Create a new dummy location
-    function postLocation(){
-
-      $.ajax({
-        type: "POST",
-        url: url + "locations",
-        data: data,
-        dataType: 'jsonp'
-      }).done(function(resp) {
-        success(resp)
-      }).fail(function(resp) {
-        success(resp)
-      });
-    }
-
     // Get list of locations
     function getLocations(){
 
-      $.ajax({
-        type: "GET",
-        url: url + "locations",
-        dataType: 'jsonp'
-      }).done(function(resp) {
-        success(resp)
-      }).fail(function(resp) {
-        success(resp)
-      });
+      var xhr = new XMLHttpRequest();
+      
+      xhr.onreadystatechange = function(){
+          // readyState 4 = call complete
+          if (xhr.readyState == 4 && xhr.status == 200) {
+              callback(xhr.responseText);
+          }
+      }; 
+
+      xhr.open("GET", url + "locations", false);
+      xhr.send();
+
+      // console.log(xhr.status);
+      // console.log(xhr.statusText);
+      // console.log(xhr);
+    }
+
+    function callback(data){
+      console.log(data);
     }
 
     function success(resp){
