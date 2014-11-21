@@ -13,15 +13,15 @@
   <div id='loading'>
   </div>
 
-  <form name="postlocation" action="javascript:postLocation()">
+  <form id="postlocation" action="javascript:postLocation()">
     User ID:  <input type="text" name="userId"/>
-    Lat:      <input type="text" name="latitude"/>
-    Long:     <input type="text" name="longitude"/>
+    Latitude:      <input type="text" name="latitude"/>
+    Longitude:     <input type="text" name="longitude"/>
     Count:    <input type="text" name="count"/>
     <input type="submit" name="submit" value="POST Location"/>
   </form>
 
-  <form name="postuser" action="javascript:postUser()">
+  <form id="postuser" action="javascript:postUser()">
     Name:     <input type="text" name="name"/>
     Source:   <input type="text" name="source"/>
     <input type="submit" name="submit" value="POST User" />
@@ -42,6 +42,7 @@
   <script>
 
     var locations = {};
+    var users = {};
 
     // Get list of locations
     function getLocations(){
@@ -53,16 +54,29 @@
       })
     }
 
-    // Get list of locations
-    function postLocation(){
-      var sample_location = {
-        date : Math.random() * 100,
-        latitude : Math.random() * 100, 
-        longitude :  Math.random() * 100,
-        count: 1,
-      }
+    // Get list of users
+    function getUsers(){
+      DV.api.get("users", function(resp){
+        users = resp;
+        listUsers(users);
+      },function(resp){
 
-      DV.api.post("locations", sample_location, function(resp){
+      })
+    }
+
+    // POST new location
+    function postLocation(){
+      var serializedData = $('#postlocation').serialize();
+      console.log(serializedData);
+
+      // var sample_location = {
+      //   date : Math.random() * 100,
+      //   latitude : Math.random() * 100, 
+      //   longitude :  Math.random() * 100,
+      //   count: 1,
+      // }
+
+      DV.api.post("locations", serializedData, function(resp){
         locations = resp;
         listLocations(locations);
       },function(resp){
@@ -70,7 +84,30 @@
       })
     }
 
+    // POST new location
+    function postUser(){
+      var serializedData = $('#postuser').serialize();
+      console.log(serializedData);
+
+      DV.api.post("users", serializedData, function(resp){
+        users = resp;
+        listUsers(users)
+      },function(resp){
+
+      })
+    }
+
     function listLocations(data){
+      var acc = data.length + " Total <br>";
+
+      _.each(data, function(object){
+        acc += object._id + "<br>"; 
+      })
+
+      $('#output').html(acc);
+    }
+
+    function listUsers(data){
       var acc = data.length + " Total <br>";
 
       _.each(data, function(object){
