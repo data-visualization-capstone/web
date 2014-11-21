@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <link href="/css/styles.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <link href='/css/form.css' rel='stylesheet' />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test API</title>
 </head>
@@ -12,15 +13,24 @@
   <div id='loading'>
   </div>
 
-  <br>
+  <form name="postlocation" action="javascript:postLocation()">
+    User ID:  <input type="text" name="userId"/>
+    Lat:      <input type="text" name="latitude"/>
+    Long:     <input type="text" name="longitude"/>
+    Count:    <input type="text" name="count"/>
+    <input type="submit" name="submit" value="POST Location"/>
+  </form>
 
-  <button onClick="postLocation()">Post Location</button>
+  <form name="postuser" action="javascript:postUser()">
+    Name:     <input type="text" name="name"/>
+    Source:   <input type="text" name="source"/>
+    <input type="submit" name="submit" value="POST User" />
+  </form>
 
-  <br>
-
-  <button onClick="getLocations()">Get Locations</button>
-
-  <br>
+  <div style="margin: 40px;">
+    <button onClick="getLocations()">Get Locations</button>
+    <button onClick="getUsers()">Get Users</button>
+  </div>
 
   <p style="padding: 40px; margin-right: 100px; float: right;" id="output"></p>
 
