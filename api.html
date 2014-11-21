@@ -32,7 +32,8 @@
     <button onClick="getUsers()">Get Users</button>
   </div>
 
-  <p style="padding: 40px; margin-right: 100px; float: right;" id="output"></p>
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="locations"></p>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
@@ -48,7 +49,7 @@
     function getLocations(){
       DV.api.get("locations", function(resp){
         locations = resp;
-        listLocations(locations);
+        outputIDs(locations, 'locations');
       },function(resp){
 
       })
@@ -58,7 +59,7 @@
     function getUsers(){
       DV.api.get("users", function(resp){
         users = resp;
-        listUsers(users);
+        outputIDs(users, 'users');
       },function(resp){
 
       })
@@ -78,7 +79,7 @@
 
       DV.api.post("locations", serializedData, function(resp){
         locations = resp;
-        listLocations(locations);
+        outputIDs(locations, 'locations');
       },function(resp){
 
       })
@@ -91,30 +92,21 @@
 
       DV.api.post("users", serializedData, function(resp){
         users = resp;
-        listUsers(users)
+        outputIDs(users, 'users');
       },function(resp){
 
       })
     }
 
-    function listLocations(data){
+    function outputIDs(data, target){
+
       var acc = data.length + " Total <br>";
 
       _.each(data, function(object){
         acc += object._id + "<br>"; 
       })
 
-      $('#output').html(acc);
-    }
-
-    function listUsers(data){
-      var acc = data.length + " Total <br>";
-
-      _.each(data, function(object){
-        acc += object._id + "<br>"; 
-      })
-
-      $('#output').html(acc);
+      $('#' + target).html(acc);
     }
 
   </script>
