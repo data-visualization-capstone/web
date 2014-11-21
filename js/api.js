@@ -34,3 +34,29 @@ DV.api.get = function(url, success, error){
     xhr.open("GET", DV.url + url, false);
     xhr.send();
 }
+
+DV.api.post = function(url, params, success, error){
+	var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function(){
+      
+      // If call is complete & successfull
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        success(JSON.parse(xhr.response));
+
+      } else if (xhr.readyState == 4 && xhr.status != 200) {
+        console.log("API Call Error.");
+      
+        error(xhr);
+      }
+    };
+
+	xhr.open("POST", DV.url + url, false);
+
+    //Send the proper header information along with the request
+	// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	// xhr.setRequestHeader("Content-length", params.length);
+	// xhr.setRequestHeader("Connection", "close");
+    
+    xhr.send(params);
+}

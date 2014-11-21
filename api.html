@@ -22,10 +22,10 @@
 
   <br>
 
-  <p style="padding: 40px; float: right;" id="output"></p>
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="output"></p>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
 
   <script type="text/javascript" src="/js/api.js"></script>
 
@@ -33,16 +33,26 @@
 
     var locations = {};
 
-    var data = {
-      date : Math.random() * 100,
-      latitude : Math.random() * 100, 
-      longitude :  Math.random() * 100,
-      count: 1,
-    }
-
     // Get list of locations
     function getLocations(){
       DV.api.get("locations", function(resp){
+        locations = resp;
+        listLocations(locations);
+      },function(resp){
+
+      })
+    }
+
+    // Get list of locations
+    function postLocation(){
+      var sample_location = {
+        date : Math.random() * 100,
+        latitude : Math.random() * 100, 
+        longitude :  Math.random() * 100,
+        count: 1,
+      }
+
+      DV.api.post("locations", sample_location, function(resp){
         locations = resp;
         listLocations(locations);
       },function(resp){
