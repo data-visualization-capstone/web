@@ -27,8 +27,11 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 
+  <script type="text/javascript" src="/js/api.js"></script>
+
   <script>
-    var url = "http://localhost:8080/";
+
+    var locations = {};
 
     var data = {
       date : Math.random() * 100,
@@ -39,44 +42,22 @@
 
     // Get list of locations
     function getLocations(){
+      DV.api.get("locations", function(resp){
+        locations = resp;
+        listLocations(locations);
+      },function(resp){
 
-      var xhr = new XMLHttpRequest();
-      
-      xhr.onreadystatechange = function(){
-        // http://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
-        // readyState 4 = call complete
-        // status 200 = gtg
-        if (xhr.readyState == 4 && xhr.status == 200) {
-          success(xhr.responseText);
-
-        } else if (xhr.readyState == 4 && xhr.status != 200) {
-          console.log("API Call Error.");
-          console.log(xhr);
-          
-          error(xhr);
-        }
-
-      };
-
-      xhr.open("GET", url + "locations", false);
-      xhr.send();
+      })
     }
 
-    function success(resp){
+    function listLocations(data){
+      var acc = data.length + " Total <br>";
 
-      console.log(resp);
-      
-      var acc = resp.length + " Total <br>";
-      _.each(resp, function(object){
-        acc = acc + object._id + " | " + ", <br>"; 
+      _.each(data, function(object){
+        acc += object._id + "<br>"; 
       })
 
       $('#output').html(acc);
-    }
-
-    function error(resp){
-      console.log(resp);
-      $('#output').html(resp);
     }
 
   </script>
