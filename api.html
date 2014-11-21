@@ -5,6 +5,8 @@
   <link href="/css/styles.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <link href='/css/form.css' rel='stylesheet' />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test API</title>
 </head>
@@ -32,6 +34,9 @@
     <button onClick="getUsers()">Get Users</button>
   </div>
 
+  <div style="margin: 40px 40px 0 40px;" id="googleLocationHistoryLink">
+  </div>
+
   <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
   <p style="padding: 40px; margin-right: 100px; float: right;" id="locations"></p>
 
@@ -41,6 +46,19 @@
   <script type="text/javascript" src="/js/api.js"></script>
 
   <script>
+    var today = moment();
+    var start = moment().set('year', today.get('year') - 3);
+
+    console.log(start + " " + today);
+
+    var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
+
+    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
+
+
+
+
+    
 
     var locations = {};
     var users = {};

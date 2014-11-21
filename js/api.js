@@ -59,7 +59,7 @@ DV.api.post = function(url, params, success, error){
 
     //Send the proper header information along with the request
   	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  	xhr.setRequestHeader("Connection", "close");
+  	// xhr.setRequestHeader("Connection", "close");
     
     // var params = JSON.stringify(params);
     // console.log(params);
