@@ -34,7 +34,10 @@
     <button onClick="getUsers()">Get Users</button>
   </div>
 
-  <div style="margin: 40px 40px 0 40px;" id="googleLocationHistoryLink">
+  <div style="margin: 40px 40px 0 40px;">
+    <h3>Google Location History Link:</h3>
+    <p>Provides all available location data entries from today through 3 years ago.</p>
+    <span id="googleLocationHistoryLink"></span>
   </div>
 
   <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
@@ -54,8 +57,7 @@
     var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
 
     $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
-
-
+3
 
 
     
