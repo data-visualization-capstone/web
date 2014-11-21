@@ -22,11 +22,15 @@ DV.api.get = function(url, success, error){
       
       // If call is complete & successfull
       if (xhr.readyState == 4 && xhr.status == 200) {
-        success(JSON.parse(xhr.response));
+        var resp = JSON.parse(xhr.response);
+        console.log(resp);
+
+        success(resp);
 
       } else if (xhr.readyState == 4 && xhr.status != 200) {
         console.log("API Call Error.");
-      
+        console.log(xhr.response);
+
         error(xhr);
       }
     };
@@ -57,6 +61,7 @@ DV.api.post = function(url, params, success, error){
 	// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	// xhr.setRequestHeader("Content-length", params.length);
 	// xhr.setRequestHeader("Connection", "close");
-    
+    var params = JSON.stringify(params);
+    console.log(params);
     xhr.send(params);
 }
