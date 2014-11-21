@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="/css/styles.css" rel="stylesheet" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <link href='/css/form.css' rel='stylesheet' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test API</title>
+</head>
+<body>
+
+  <div id='loading'>
+  </div>
+
+  <form id="postlocation" action="javascript:postLocation()">
+    User ID:  <input type="text" name="userId"/>
+    Latitude:      <input type="text" name="latitude"/>
+    Longitude:     <input type="text" name="longitude"/>
+    Count:    <input type="text" name="count"/>
+    <input type="submit" name="submit" value="POST Location"/>
+  </form>
+
+  <form id="postuser" action="javascript:postUser()">
+    Name:     <input type="text" name="name"/>
+    Source:   <input type="text" name="source"/>
+    <input type="submit" name="submit" value="POST User" />
+  </form>
+
+  <div style="margin: 40px 40px 0 40px;">
+    <button onClick="getLocations()">Get Locations</button>
+    <button onClick="getUsers()">Get Users</button>
+  </div>
+
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="locations"></p>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
+
+  <script type="text/javascript" src="/js/api.js"></script>
+
+  <script>
+
+    var locations = {};
+    var users = {};
+
+    // Get list of locations
+    function getLocations(){
+      DV.api.get("locations", function(resp){
+        locations = resp;
+        outputIDs(locations, 'locations');
+      },function(resp){
+
+      })
+    }
+
+    // Get list of users
+    function getUsers(){
+      DV.api.get("users", function(resp){
+        users = resp;
+        outputIDs(users, 'users');
+      },function(resp){
+
+      })
+    }
+
+    // POST new location
+    function postLocation(){
+      var serializedData = $('#postlocation').serialize();
+      console.log(serializedData);
+
+      // var sample_location = {
+      //   date : Math.random() * 100,
+      //   latitude : Math.random() * 100, 
+      //   longitude :  Math.random() * 100,
+      //   count: 1,
+      // }
+
+      DV.api.post("locations", serializedData, function(resp){
+        locations = resp;
+        outputIDs(locations, 'locations');
+      },function(resp){
+
+      })
+    }
+
+    // POST new location
+    function postUser(){
+      var serializedData = $('#postuser').serialize();
+      console.log(serializedData);
+
+      DV.api.post("users", serializedData, function(resp){
+        users = resp;
+        outputIDs(users, 'users');
+      },function(resp){
+
+      })
+    }
+
+    function outputIDs(data, target){
+
+      var acc = data.length + " Total <br>";
+
+      _.each(data, function(object){
+        acc += object._id + "<br>"; 
+      })
+
+      $('#' + target).html(acc);
+    }
+
+  </script>
+</body>
+</html>
