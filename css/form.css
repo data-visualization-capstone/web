@@ -4,6 +4,12 @@ form {
 	border: 1px solid #ddd;
 }
 
+.section {
+	margin: 20px 40px;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
 input {
 	margin: 10px;
 }
