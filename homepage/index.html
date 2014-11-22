@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>  
   <link href="style.css" rel="stylesheet" />
+  <link href="animate.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -58,7 +59,7 @@
           </div>                    
         </div>
         <div id="steps">
-          <div class="step" id="step1">
+          <div class="step animated" id="step1">
             <div class="stepInner">
               <div class="indicators">
                 <div class="indicator dark"></div>
@@ -71,7 +72,7 @@
               <a href="#" class="button">I'm logged in</a>
             </div>
           </div>
-          <div class="step" id="step2">
+          <div class="step animated" id="step2">
             <div class="stepInner">
               <div class="indicators">
                 <div class="indicator dark"></div>
@@ -84,7 +85,7 @@
               <a href="#" class="button">Download my data</a>
             </div>
           </div> 
-          <div class="step" id="step3">
+          <div class="step animated" id="step3">
             <div class="stepInner">
               <div class="indicators">
                 <div class="indicator dark"></div>
@@ -97,7 +98,7 @@
               <a href="#" class="button">Pick a file</a>
             </div>
           </div>
-          <div class="step" id="ready">
+          <div class="step animated" id="ready">
             <div class="stepInner">
             <div class="indicators">
               <div class="indicator dark"></div>
@@ -121,5 +122,14 @@
   </div>
 </div>
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript">
+    $(window).scroll(function(){
+      $(".step").each(function(){
+        if($(window).scrollTop() >=  (250 + ($(this).height() * $(this).index()))){
+          $(this).addClass("fadeIn");
+        }   
+      })
+    })
+  </script>
 </body>
 </html>

@@ -91,6 +91,9 @@ div.subSection p.subtext{
 div#steps{
 	margin-top:76px;
 }
+div.step{
+	opacity: 0;
+}
 div.step div.indicators{
 	display: block;
 	max-width: 940px;
