@@ -1,0 +1,179 @@
+body{
+	padding: 0px;
+	margin:0px;
+	font-family: 'Open Sans', sans-serif;
+	text-rendering:optimizeLegibility;
+}
+h1{
+	margin:0px;
+	font-size: 24px;
+	font-weight: bold;
+	color:#343434;
+}
+p{
+	line-height: 24px;
+}
+.trans{
+	-webkit-transition: all 0.4s ease;
+}
+#header{
+	background-color: #000;
+	height:70px;
+	margin-top: 0px;
+	padding: 0px 20px;
+	padding-top: 20px;
+	box-sizing:border-box;
+}
+nav#header h1{
+	font-family: "Open Sans";
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	color:#FFF;	
+}
+nav#header ul{
+	margin: 0px;
+	float:right;
+}
+nav#header ul li{
+	display: inline;
+	margin-right: 20px;
+}
+nav#header ul li:last-child{
+	margin-right: 0px;
+}
+nav#header ul li a{
+	text-decoration: none;
+	font-family: "Open Sans";
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFF;
+}
+nav#header ul li a:hover{
+	border-bottom: solid 3px #FFF;
+	padding-bottom:5px;
+}
+div#hero{
+	max-width: 100%;
+	height: 200px;
+	background-color: rgba(0, 0, 0, 0.5);
+	box-sizing:border-box;
+	padding: 0px 20px;
+	padding-top: 76px;
+}
+div#hero div#heroInner{
+	max-width: 940px;
+	margin: 0 auto;
+}
+div#hero div#heroInner h1{
+	color: #fff;
+}
+div#mainContent{
+	margin-top: 76px;
+}
+div.mainSection{
+	max-width: 940px;
+	margin: 0 auto;
+	margin-bottom:76px;
+	position: relative;
+	height: auto;
+	box-sizing:border-box;
+	display: block;
+}
+div.mainSection:first-child p{
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+div.subSection p.subtext{
+	font-style: italic;
+	color:#9E9E9E;
+}
+div#steps{
+	margin-top:76px;
+}
+div.step div.indicators{
+	display: block;
+	max-width: 940px;
+	height:20px;
+	margin-bottom: 15px;
+}
+div.step div.indicators div.indicator{
+	float: left;
+	width: 40px;
+	height: 10px;
+	background-color: #fff;
+	margin-right: 15px;
+}
+div.step div.indicators div.indicator.dark{
+	background-color: #343434;
+}
+div.step p{
+	margin-bottom: 35px;
+}
+div.step#step1{
+	background-color: #F9BBBD;
+}
+div.step#step2{
+	background-color: #F8ADB0;
+}
+div.step#step3{
+	background-color: #F69296;
+}
+div.step#ready{
+	background-color: #F4777C;
+}
+div.stepInner{
+	max-width:940px;
+	margin: 0 auto;
+	padding: 76px 0px;
+	box-sizing:border-box;
+}
+a.button{
+	border: solid 3px #FFFFFF;
+	padding:5px 40px;
+	color:#FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+	height: 44px;
+	box-sizing:border-box;
+	-webkit-transition: all 130ms ease;
+	transition:all 130ms ease;
+}
+a.button:hover{
+	background-color: #fff;
+}
+div.step#step1 .stepInner .button:hover{
+	color: #F9BBBD;
+}
+div.step#step2 .stepInner .button:hover{
+	color: #F8ADB0;
+}
+div.step#step3 .stepInner .button:hover{
+	color: #F69296;
+}
+div.step#ready .stepInner .button:hover{
+	color: #F4777C;
+}
+a.button.pink{
+	margin-top: 5px;
+	color:#F4777C;
+	border-color: #F4777C;
+}
+a.button.pink:hover{
+	background-color: #F4777C;
+	color:#fff;
+}
+footer{
+	height: 140px;
+	max-width: 100%;
+	background-color: #000000;
+}
+footer div#footerInner{
+	max-width: 940px;
+	margin: 0 auto;
+	padding-top: 50px;
+	box-sizing:border-box;
+}
+footer div#footerInner h1{
+	color:#fff;
+}
