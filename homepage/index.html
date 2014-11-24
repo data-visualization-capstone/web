@@ -41,7 +41,7 @@
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a href="#" class="button pink">I'm ready</a>
+          <a href="#steps" class="button pink">I'm ready</a>
         </div>
         <div class="mainSection">
           <h1>THINGS YOU MIGHT BE WONDERING</h1>
@@ -68,8 +68,8 @@
                 <div class="indicator light"></div>
               </div>
               <h1>STEP ONE</h1>
-              <p>First, you’ll need to make sure you’re logged in the Gmail account associated with your phone. Go ahead and do that, then click the button below.</p>
-              <a href="#" class="button">I'm logged in</a>
+              <p>First, you’ll need to make sure you’re logged in the Gmail account associated with your phone. You can check by clicking the buttton below.</p>
+              <a href="http://mail.google.com" class="button" target="_blank">Am I logged in?</a>
             </div>
           </div>
           <div class="step animated" id="step2">
@@ -130,6 +130,20 @@
         }   
       })
     })
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+});    
   </script>
 </body>
 </html>

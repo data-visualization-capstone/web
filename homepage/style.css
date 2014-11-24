@@ -16,7 +16,7 @@ p{
 .trans{
 	-webkit-transition: all 0.4s ease;
 }
-#header{
+nav#header{
 	background-color: #000;
 	height:70px;
 	margin-top: 0px;
