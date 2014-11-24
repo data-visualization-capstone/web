@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <link href="/css/styles.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <link href='/css/form.css' rel='stylesheet' />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test API</title>
 </head>
@@ -12,17 +15,33 @@
   <div id='loading'>
   </div>
 
-  <br>
+  <form id="postlocation" action="javascript:postLocation()">
+    User ID:  <input type="text" name="userId"/>
+    Latitude:      <input type="text" name="latitude"/>
+    Longitude:     <input type="text" name="longitude"/>
+    Date:    <input type="text" name="date"/>
+    <input type="submit" name="submit" value="POST Location"/>
+  </form>
 
-  <button onClick="postLocation()">Post Location</button>
+  <form id="postuser" action="javascript:postUser()">
+    Name:     <input type="text" name="name"/>
+    Source:   <input type="text" name="source"/>
+    <input type="submit" name="submit" value="POST User" />
+  </form>
 
-  <br>
+  <div class="section">
+    <button onClick="getLocations()">Get Locations</button>
+    <button onClick="getUsers()">Get Users</button>
+  </div>
 
-  <button onClick="getLocations()">Get Locations</button>
+  <div style="margin: 40px 40px 0 40px;">
+    <h3>Google Location History Link:</h3>
+    <p>Provides all available location data entries from today through 3 years ago.</p>
+    <span id="googleLocationHistoryLink"></span>
+  </div>
 
-  <br>
-
-  <p style="padding: 40px; margin-right: 100px; float: right;" id="output"></p>
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="locations"></p>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
@@ -30,44 +49,84 @@
   <script type="text/javascript" src="/js/api.js"></script>
 
   <script>
+    var today = moment();
+    var start = moment().set('year', today.get('year') - 3);
+
+    console.log(start + " " + today);
+
+    var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
+
+    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
+3
+
+
+    
 
     var locations = {};
+    var users = {};
 
     // Get list of locations
     function getLocations(){
       DV.api.get("locations", function(resp){
         locations = resp;
-        listLocations(locations);
+        outputIDs(locations, 'locations');
       },function(resp){
 
       })
     }
 
-    // Get list of locations
+    // Get list of users
+    function getUsers(){
+      DV.api.get("users", function(resp){
+        users = resp;
+        outputIDs(users, 'users');
+      },function(resp){
+
+      })
+    }
+
+    // POST new location
     function postLocation(){
-      var sample_location = {
-        date : Math.random() * 100,
-        latitude : Math.random() * 100, 
-        longitude :  Math.random() * 100,
-        count: 1,
-      }
+      var serializedData = $('#postlocation').serialize();
+      console.log(serializedData);
 
-      DV.api.post("locations", sample_location, function(resp){
+      // var sample_location = {
+      //   date : Math.random() * 100,
+      //   latitude : Math.random() * 100, 
+      //   longitude :  Math.random() * 100,
+      //   count: 1,
+      // }
+
+      DV.api.post("locations", serializedData, function(resp){
         locations = resp;
-        listLocations(locations);
+        outputIDs(locations, 'locations');
       },function(resp){
 
       })
     }
 
-    function listLocations(data){
+    // POST new location
+    function postUser(){
+      var serializedData = $('#postuser').serialize();
+      console.log(serializedData);
+
+      DV.api.post("users", serializedData, function(resp){
+        users = resp;
+        outputIDs(users, 'users');
+      },function(resp){
+
+      })
+    }
+
+    function outputIDs(data, target){
+
       var acc = data.length + " Total <br>";
 
       _.each(data, function(object){
         acc += object._id + "<br>"; 
       })
 
-      $('#output').html(acc);
+      $('#' + target).html(acc);
     }
 
   </script>
