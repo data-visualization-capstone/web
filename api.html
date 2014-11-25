@@ -12,6 +12,7 @@
   <script src="/js/filtering.js"></script>
   <script src="/js/coloring.js"></script>
   <script src="/js/graphing.js"></script>
+  <script src="/js/api.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test API</title>
@@ -29,7 +30,7 @@
   <div id='loading'>
   </div>
 
-  <div style="margin: 40px 40px 40px 40px;">
+  <div style="margin: 40px;">
     <h3>Google Location History Link:</h3>
     <p>Provides all available location data entries from today through 3 years ago.</p>
     <span id="googleLocationHistoryLink"></span>
@@ -40,8 +41,7 @@
   <form id="postuser" action="javascript:postUser()">
     Name:     <input type="text" name="name"/>
     Source:   <input type="text" name="source"/>
-    <input type="submit" name="submit" value="POST User" />
-    Create a NEW User
+    <input type="submit" name="submit" value="Create a NEW User" />
   </form>
 
   <form id="postlocation" action="javascript:postLocation()">
@@ -49,8 +49,7 @@
     Latitude:      <input type="text" name="latitude"/>
     Longitude:     <input type="text" name="longitude"/>
     Date:    <input type="text" name="date"/>
-    <input type="submit" name="submit" value="POST Location"/>
-    Create a NEW Location
+    <input type="submit" name="submit" value="Create a NEW Location"/>
   </form>
 
   <div class="section">
@@ -69,9 +68,18 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
 
-  <script type="text/javascript" src="/js/api.js"></script>
-
   <script>
+
+    /****************************
+        Data for Google Link
+     ****************************/
+     
+    var today = moment();
+    var start = moment().set('year', today.get('year') - 3);
+
+    var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
+
+    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
 
     /****************************
             Initialize
@@ -83,20 +91,11 @@
     var currentUser = {};
     var data = {};
 
-
-    var today = moment();
-    var start = moment().set('year', today.get('year') - 3);
-
-    var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
-
-    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
-
-
     /****************************
             Interactions
      ****************************/
 
-    // Get list of locations
+    // GET Locations
     function getLocations(){
       DV.api.get("locations", function(resp){
         locations = resp;
@@ -106,7 +105,7 @@
       })
     }
 
-    // Get list of users
+    // GET Users
     function getUsers(){
       DV.api.get("users", function(resp){
         users = resp;
@@ -143,6 +142,7 @@
       })
     }
 
+    // Render list of IDs into target
     function outputIDs(data, target){
 
       var acc = data.length + " Total <br>";
@@ -154,18 +154,20 @@
       $('#' + target).html(acc);
     }
 
+    // Load data from file.
     function loadXMLData(){
       loadData(function(data){
 
-        // Render points on graph
         var data = formatData(data, "time");
 
+        // UI Feedback
         var msg = "\n" + data.length + " GPS points loaded from file";
         console.log(msg);
 
-        $('#input').html(msg);
+        $('#input').html(msg); 
 
-        var data = data.splice(0, 10);
+        // Take subset of data
+        var data = data.splice(0, 1000);
 
         _.each(data, function(p){
 
