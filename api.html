@@ -15,18 +15,18 @@
   <div id='loading'>
   </div>
 
+  <form id="postuser" action="javascript:postUser()">
+    Name:     <input type="text" name="name"/>
+    Source:   <input type="text" name="source"/>
+    <input type="submit" name="submit" value="POST User" />
+  </form>
+
   <form id="postlocation" action="javascript:postLocation()">
     User ID:  <input type="text" name="userId"/>
     Latitude:      <input type="text" name="latitude"/>
     Longitude:     <input type="text" name="longitude"/>
     Date:    <input type="text" name="date"/>
     <input type="submit" name="submit" value="POST Location"/>
-  </form>
-
-  <form id="postuser" action="javascript:postUser()">
-    Name:     <input type="text" name="name"/>
-    Source:   <input type="text" name="source"/>
-    <input type="submit" name="submit" value="POST User" />
   </form>
 
   <div class="section">
@@ -40,6 +40,7 @@
     <span id="googleLocationHistoryLink"></span>
   </div>
 
+  <p style="padding: 40px; margin-right: 100px; float: right;" id="currentUser"></p>
   <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
   <p style="padding: 40px; margin-right: 100px; float: right;" id="locations"></p>
 
@@ -52,18 +53,14 @@
     var today = moment();
     var start = moment().set('year', today.get('year') - 3);
 
-    console.log(start + " " + today);
-
     var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
 
-    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
-3
-
-
-    
+    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');    
 
     var locations = {};
     var users = {};
+
+    var currentUser = {};
 
     // Get list of locations
     function getLocations(){
@@ -88,16 +85,6 @@
     // POST new location
     function postLocation(){
       var serializedData = $('#postlocation').serialize();
-      console.log(serializedData);
-
-      $
-
-      // var sample_location = {
-      //   date : Math.random() * 100,
-      //   latitude : Math.random() * 100, 
-      //   longitude :  Math.random() * 100,
-      //   count: 1,
-      // }
 
       DV.api.post("locations", serializedData, function(resp){
         locations = resp;
@@ -110,11 +97,11 @@
     // POST new location
     function postUser(){
       var serializedData = $('#postuser').serialize();
-      console.log(serializedData);
 
       DV.api.post("users", serializedData, function(resp){
-        users = resp;
-        outputIDs(users, 'users');
+        currentUser = resp.user;
+
+        $('#currentUser').html("Current User: " + currentUser._id);
       },function(resp){
 
       })
