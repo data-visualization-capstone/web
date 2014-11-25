@@ -2,45 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/styles.css" rel="stylesheet" />
   <link href="/css/map.css" rel="stylesheet" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
 </head>
 <body class="loading">
-  <div id='map'></div>
+
+  <div id='map'></div><!-- Leaflet.js map -->
+
+  <!-- Menu -->
+
   <div id='selections' class="selections">
-    <a href='#' class="show">Choose User</a>
     <div class='content'>
-      <a href='#' class="hide">Hide</a>
-      <div id="toggles">
-      </div>
+      
+      <!-- Select Data Sets -->
+
+      <div id="toggles"></div>
       <a href="#" id="toggleConnections">Toggle Connections</a>
 
+      <!-- Filter Data -->
+
+      <label>Filter By:</label>
+      <select id="month">
+        <option>All Months</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <select id="day">
+        <option>All Days</option>
+      </select>
       <div>
-        <label>Filter By:</label>
-        <select id="month">
-          <option>All Months</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-        </select>
-        <select id="day">
-          <option>All Days</option>
-        </select>
-        <div>
-          <button id="dateFilter">Filter</button>
-          <button onclick="clearFilter()">Clear Filter</button>
-        </div>
+        <button id="dateFilter">Filter</button>
+        <button onclick="clearFilter()">Clear Filter</button>
       </div>
     </div>
   </div>
@@ -62,14 +66,32 @@
 
   <script>
 
+    /****************************
+            Settings
+     ****************************/
+    
+    var showConnections = false; // Show travel paths
+    //var mapKey = "pk.eyJ1Ijoic3RlcGhhbGVlIiwiYSI6IktPaVp1aHMifQ.rWxRNKSG9I63OQGgJmlhow";
+    var mapKey = 'alexjohnson505.k2pknn10'
+
+    /****************************
+            Initialize
+     ****************************/
+
+    // Load location data.
     loadData(function(data){
-      map = L.mapbox.map('map', 'alexjohnson505.k2pknn10').fitBounds([[42.329077, -71.108871], [42.374200, -71.032072]]);
-      var data = formatData(data, "time");
+
+      // Initialize Leaflet map
+      map = L.mapbox.map('map', mapKey).fitBounds([[42.329077, -71.108871], [42.374200, -71.032072]]);
+      
       // Render points on graph
+      var data = formatData(data, "time");
       drawPoints(map, data);
     })
 
-    var showConnections = false;
+    /****************************
+            Interaction
+     ****************************/    
 
     // Show/Hide sequential lines
     $("#toggleConnections").click(function(){
