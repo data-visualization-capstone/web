@@ -19,6 +19,7 @@
     Name:     <input type="text" name="name"/>
     Source:   <input type="text" name="source"/>
     <input type="submit" name="submit" value="POST User" />
+    Create a NEW User
   </form>
 
   <form id="postlocation" action="javascript:postLocation()">
@@ -27,6 +28,7 @@
     Longitude:     <input type="text" name="longitude"/>
     Date:    <input type="text" name="date"/>
     <input type="submit" name="submit" value="POST Location"/>
+    Create a NEW Location
   </form>
 
   <div class="section">
@@ -101,7 +103,9 @@
       DV.api.post("users", serializedData, function(resp){
         currentUser = resp.user;
 
+        // Auto fill Location's userId form with the most recent user
         $('#currentUser').html("Current User: " + currentUser._id);
+        $('#postlocation input[name="userId"]').val(currentUser._id);
       },function(resp){
 
       })
