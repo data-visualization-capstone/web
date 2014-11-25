@@ -16,7 +16,7 @@ This repo contains a fork from Chris Zetter's [Voronoi maps](http://chriszetter.
 
 #### Setup:
 
-First install (Node)[http://nodejs.org/download/]
+First install [Node](http://nodejs.org/download/)
 
 Install node development dependencies from `package.json`:
 
