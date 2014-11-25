@@ -23,16 +23,33 @@ module.exports = function(grunt) {
         dest: 'js/app.js',
       },
     },
+    less: {
+      development: {
+        options: {
+          paths: ["css"],
+        },
+        files: {
+        "css/style.css": "css/style.less"
+        }
+      }
+    },
     watch: {
-      files: [
-        'bower_components/**/*.js',
-        'js/**/*.js'
-      ],
-      tasks: ['concat']
-    }
+      concat_js: {
+        files: [
+          'bower_components/**/*.js',
+          'js/**/*.js',
+        ],
+        tasks: ['concat']
+      },
+      compile_less: {
+        files: ['css/*.less'],
+        tasks: ['less']
+      },
+    },
   });
 
   // Load plugins
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
