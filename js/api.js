@@ -13,6 +13,10 @@ var DV = {
 	url : "http://localhost:8080/",
 };
 
+/******************************
+      CRUD Functionality
+ ******************************/
+
 // GET
 // takes target URL, callback, callback
 DV.api.get = function(url, success, error){

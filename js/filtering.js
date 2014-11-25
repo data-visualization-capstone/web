@@ -67,16 +67,3 @@ clearFilter = function (){
   $("#month").val("month");
   $("#day").val("day");
 }
-
-/******************************
-         Watchers
- ******************************/
-
-$("#month").change(function(){
-  makeDays($("#month").val());
-});
-
-$("#dateFilter").click(function(){
-  filter($("#month").val(), $("#day").val());
-});
-
