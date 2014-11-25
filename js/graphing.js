@@ -119,7 +119,7 @@ drawPoints = function(map, data) {
       .attr("date", function(d) { return d.date })
       .attr("r", 7)
       .attr("pointer-events", "all")
-      .attr("opacity", .1);
+      .attr("opacity", 1);
 
     // Draw point-to-point connections
     svgPoints.each(function(){

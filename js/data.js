@@ -1,51 +1,23 @@
 /******************************
-          Data.js 
+          Data.js
  ******************************/
- 
+
 // Convert Google Location Data's .kml (renamed .xml)
 // into a usable JSON format.
 function loadData(next) {
+  console.log("\nLoading location JSON ...");
 
-  loadXML(convertData);
-
-  // Load data from XML (kml) format
-  function loadXML(next) {
-
-    console.log("\nLoading XML ...");
-
-    $.ajax({
-      url: "/data/alex.xml",
-      dataType: "xml"
-    }).done(function(xmlData) {
-      convertData(xmlData);
-    });
-  }
-
-  // Convert data into usable format
-  function convertData(xmlData) {
-
-    console.log("\nXML Converted to JSON");
-
-    // Convert XML to JSON. See: https://github.com/stsvilik/Xml-to-JSON
-    var jsonData = xml.xmlToJSON(xmlData);
-
-    // Extract location data from google location kml structure
-    var data = jsonData.kml.Document.Placemark['gx:Track'];
-
-    /******************************
-	       Convert into Usable Format
-	     ******************************/
-    data = _.map(_.zip(data.when, data["gx:coord"]), function(point, key) {
-      return {
-        "date": point[0].Text,
-        'location': point[1].Text.split(" "),
-      };
-    })
-
-    next(data); // Callback
-  }
+  $.ajax({
+    // url: "/API/2014-03-15-2014-03-18.json",
+    // url: "/API/2014-05-01-2014-05-15.json",
+    url: "/API/2014-07-01-2014-07-08.json",
+    dataType: "json"
+  }).done(function(result) {
+    console.log("\n .. loaded")
+    console.log(result)
+    next(result);
+  });
 }
-
 
 // Format data into presentable format
 function formatData(data, style) {
@@ -82,7 +54,7 @@ function formatData(data, style) {
   };
 
   function formatDataByTimeDifference(points) {
-    
+
     // Time difference between current and previous point
     return _.each(points, function(point, key) {
       if (key == 0) {
@@ -96,7 +68,7 @@ function formatData(data, style) {
 
       // Low Time Difference:
       // More recorded points -> Green
-      
+
       // High Time Difference
       // Fewer recorded points -> Red
 
