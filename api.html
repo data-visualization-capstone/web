@@ -72,18 +72,29 @@
   <script type="text/javascript" src="/js/api.js"></script>
 
   <script>
-    var today = moment();
-    var start = moment().set('year', today.get('year') - 3);
 
-    var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
-
-    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');    
+    /****************************
+            Initialize
+     ****************************/
 
     var locations = {};
     var users = {};
 
     var currentUser = {};
     var data = {};
+
+
+    var today = moment();
+    var start = moment().set('year', today.get('year') - 3);
+
+    var googleLocationHistoryLink = "https://maps.google.com/locationhistory/b/0/kml?startTime=" + start.valueOf() + "&endTime=" + today.valueOf(); 
+
+    $("#googleLocationHistoryLink").html('<a href="' + googleLocationHistoryLink + '">Download Google Location History</a>');
+
+
+    /****************************
+            Interactions
+     ****************************/
 
     // Get list of locations
     function getLocations(){
@@ -108,8 +119,6 @@
     // POST new location
     function postLocation(){
       var serializedData = $('#postlocation').serialize();
-
-      console.log(serializedData);
 
       DV.api.post("locations", serializedData, function(resp){
         locations = resp;
