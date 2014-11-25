@@ -12,7 +12,7 @@ A Data Visualization Project utilizing GPS data. Demo utilizes D3.js to create i
 Setup:
 ----
 
-First install (Node)[http://nodejs.org/download/]
+First install [Node](http://nodejs.org/download/)
 
 Install node development dependencies from `package.json`:
 
