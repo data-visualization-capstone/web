@@ -22950,7 +22950,9 @@ function getColor(i){
 function componentToHex(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
-};
+}
+
+;
 /******************************
          Graphing.js 
  ******************************/
@@ -23087,7 +23089,7 @@ drawPoints = function(map, data) {
           .attr("x2", next_position[0])
           .attr("y2", next_position[1])
           .style("stroke", "rgb(255,0,0)")
-          .style("stroke-width", 5)
+          .style("stroke-width", 3)
           .style("opacity", 0);
       }
     });
@@ -23100,10 +23102,11 @@ drawPoints = function(map, data) {
     function addTrackingLines(){
       
       $("g").each(function(){
-        $(this).hover(function(){
 
-          var lines = [$(this).children("line"), $(this).next().children("line")],
-              lines2 = [$(this).prev().children("line")];
+        var lines = [$(this).children("line"), $(this).next().children("line")],
+        lines2 = [$(this).prev().children("line")];
+
+        $(this).hover(function(){
 
           for(i=1; i < 5; i++){
             lines.push(lines[i].parent().next().children("line"));
@@ -23121,8 +23124,6 @@ drawPoints = function(map, data) {
         },
 
         function(){
-          var lines = [$(this).children("line"), $(this).next().children("line")],
-              lines2 = [$(this).prev().children("line")];
           
           for(i=1; i < 5; i++){
             lines.push(lines[i].parent().next().children("line"));
@@ -23140,7 +23141,6 @@ drawPoints = function(map, data) {
         });
       });
     }
-    
   }
 
   var mapLayer = {
