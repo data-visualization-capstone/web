@@ -7,13 +7,35 @@
   <link href='/css/form.css' rel='stylesheet' />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/filtering.js"></script>
+  <script src="/js/coloring.js"></script>
+  <script src="/js/graphing.js"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Test API</title>
+  
+  <style>
+    .output_col {
+      width: 20%;
+      float: right;
+      margin-top: 35px;
+    }
+  </style>
 </head>
 <body>
 
   <div id='loading'>
   </div>
+
+  <div style="margin: 40px 40px 40px 40px;">
+    <h3>Google Location History Link:</h3>
+    <p>Provides all available location data entries from today through 3 years ago.</p>
+    <span id="googleLocationHistoryLink"></span>
+  </div>
+
+  <hr>
 
   <form id="postuser" action="javascript:postUser()">
     Name:     <input type="text" name="name"/>
@@ -34,17 +56,15 @@
   <div class="section">
     <button onClick="getLocations()">Get Locations</button>
     <button onClick="getUsers()">Get Users</button>
+    <button onClick="loadXMLData()">Load Input Data</button>
   </div>
 
-  <div style="margin: 40px 40px 0 40px;">
-    <h3>Google Location History Link:</h3>
-    <p>Provides all available location data entries from today through 3 years ago.</p>
-    <span id="googleLocationHistoryLink"></span>
-  </div>
+  <hr>
 
-  <p style="padding: 40px; margin-right: 100px; float: right;" id="currentUser"></p>
-  <p style="padding: 40px; margin-right: 100px; float: right;" id="users"></p>
-  <p style="padding: 40px; margin-right: 100px; float: right;" id="locations"></p>
+  <p id="currentUser"  class="output_col"></p>
+  <p id="users"        class="output_col"></p>
+  <p id="locations"    class="output_col"></p>
+  <p id="input"        class="output_col"></p>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
@@ -63,6 +83,7 @@
     var users = {};
 
     var currentUser = {};
+    var data = {};
 
     // Get list of locations
     function getLocations(){
@@ -87,6 +108,8 @@
     // POST new location
     function postLocation(){
       var serializedData = $('#postlocation').serialize();
+
+      console.log(serializedData);
 
       DV.api.post("locations", serializedData, function(resp){
         locations = resp;
@@ -120,6 +143,44 @@
       })
 
       $('#' + target).html(acc);
+    }
+
+    function loadXMLData(){
+      loadData(function(data){
+
+        // Render points on graph
+        var data = formatData(data, "time");
+
+        var msg = "\n" + data.length + " GPS points loaded from file";
+        console.log(msg);
+
+        $('#input').html(msg);
+
+        var data = data.splice(0, 10);
+
+        _.each(data, function(p){
+
+          var date = new moment(p.date);
+
+          var location = {
+            userId : currentUser._id,
+            latitude : parseInt(p.latitude),
+            longitude : parseInt(p.longitude),
+            date : date,
+          }
+
+          DV.api.post("locations", JSON.stringify(location), function(resp){
+            console.log("\n POST Location");
+            console.log(resp.location);
+          },function(resp){
+
+          })
+        })
+
+
+
+        
+      })
     }
 
   </script>

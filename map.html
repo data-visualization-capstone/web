@@ -100,6 +100,20 @@
       d3.selectAll("line").style("opacity", showConnections ? 1 : 0);
     });
 
+    /******************************
+             Watchers
+     ******************************/
+
+    $("#month").change(function(){
+      makeDays($("#month").val());
+    });
+
+    $("#dateFilter").click(function(){
+      filter($("#month").val(), $("#day").val());
+    });
+
+
+
   </script>
 </body>
 </html>
