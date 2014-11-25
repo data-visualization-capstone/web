@@ -160,26 +160,28 @@
 
         _.each(data, function(p){
 
-          var date = new moment(p.date);
+          // Unix timestamp
+          var date = new moment(p.date).unix();
 
+          // Format location object
           var location = {
             userId : currentUser._id,
-            latitude : parseInt(p.latitude),
-            longitude : parseInt(p.longitude),
+            latitude : p.latitude,
+            longitude : p.longitude,
             date : date,
           }
 
-          DV.api.post("locations", JSON.stringify(location), function(resp){
+          // Convert to query param string
+          // (ex: "first=Rick&last=Astley&job=Rock+Star")
+          location = $.param(location);
+
+          DV.api.post("locations", location, function(resp){
             console.log("\n POST Location");
             console.log(resp.location);
           },function(resp){
 
           })
-        })
-
-
-
-        
+        })  
       })
     }
 
