@@ -13,11 +13,11 @@
 <body>
   <div id="container">
     <nav id="header">
-      <a href="#">
+      <a href="javascript:void(0)">
         <h1>LOCATION DATAVIS</h1>
       </a>
       <a href="#" class="mobileToggle trans">
-        <img src="/img/hamburger_white.png">
+<!--         <img src="/img/hamburger_white.png"> -->
       </a>
       <ul class="trans" id="deskMenu">
         <li><a class="trans" href="index.html">Landing</a></li>
@@ -107,10 +107,10 @@
               <h1>STEP THREE</h1>
               <p>Upload the file. This shares your anonymous google location history with us.</p>
               <a href="javascript:void(0)" id="expander">
-                <p>What data is shared?</p>
+                <p>What data is shared? <span class="trans" id="carrot"></span></p>
               </a>
-              <p class="hiddenText">The .kml file you just downloaded contains a set of GPS points, in addition to the time at which they were recorded. This file contains no personally identifying information. Open the file in a text editor such as Notepad (windows), or textEdit (mac). You’ll notice that the only information is that file is approximate GPS locations in which you’ve visited in the past. We do not collect any information in regards to your current location, nor any search engine behavioural data. </p>
-              <a href="javascript:void(0)" class="button">Pick a file</a>
+              <p class="hiddenText">The .kml file you just downloaded contains a set of GPS points, in addition to the time at which they were recorded. This file contains no personally identifying information. Open the file in a text editor such as Notepad (windows), or textEdit (mac). You’ll notice that the only information is that file is approximate GPS locations in which you’ve visited in the past. We do not collect any information in regards to your current location, nor any search engine behavioural data.</p>
+              <a href="javascript:void(0)" class="button">UPLOAD THE FILE</a>
             </div>
           </div>
           <div class="step animated" id="ready">
@@ -122,8 +122,8 @@
               <div class="indicator dark"></div>
             </div>
             <h1>READY TO GO!</h1>
-            <p>You’re data has been uploaded into our system. It’s time to see it in action!</p>
-            <a href="javascript:void(0)" class="button">Visualize my data</a>              
+            <p>Your data has been uploaded into our system successfully. It’s time to see it in action!</p>
+            <a href="javascript:void(0)" class="button">VISUALIZE MY DATA</a>              
             </div>
           </div>                                  
         </div>                    
@@ -131,7 +131,7 @@
     </div>
     <footer>
       <div id="footerInner">
-        <h1>FOOTER, BITCH</h1>
+        <h1>FOOTER</h1>
       </div>
     </footer>
   </div>
@@ -161,6 +161,7 @@
   });
   $("#expander").click(function(){
     $("p.hiddenText").slideToggle();
+    $("span#carrot").toggleClass("rotated");
   }); 
   $(".mobileToggle").click(function(){
     if($("ul#mobileMenu").hasClass("toggled")){

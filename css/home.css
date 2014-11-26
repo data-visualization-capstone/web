@@ -76,6 +76,9 @@ nav#header ul#mobileMenu li{
 	border-bottom: solid 2px #000;
 }
 nav#header ul#mobileMenu li a{
+	width: 100%;
+	height: 100%;
+	position: relative;
 	color: #fff;
 	text-decoration: none;
 	float: left;
@@ -214,10 +217,26 @@ div.step#ready .stepInner .button:hover{
 }
 div.step#step3 .stepInner a#expander{
 	color:#fff;
+	font-style: italic;
 	text-decoration: none;
 }
 div.step#step3 .stepInner p.hiddenText{
 	display: none;
+}
+a#expander span#carrot{
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 7px solid #fff;
+	position: absolute;
+	margin-top: 8px;
+	margin-left: 8px;
+}
+.rotated{
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+	transform: rotate(180deg);
 }
 a.button.pink{
 	margin-top: 5px;
