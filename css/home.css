@@ -24,8 +24,6 @@ nav#header{
 	padding: 0px 20px;
 	padding-top: 20px;
 	box-sizing:border-box;
-	z-index: 1;
-	position: relative;
 	overflow: hidden;
 }
 nav#header h1{
@@ -42,27 +40,52 @@ nav#header ul{
 	margin-top:0px;
 	display: block;
 }
-nav#header ul li{
+nav#header ul#deskMenu li{
 	display: inline;
 	margin-right: 20px;
 }
-nav#header ul li:last-child{
+nav#header ul#deskMenu li:last-child{
 	margin-right: 0px;
 }
-nav#header ul li a{
+nav#header ul#deskMenu li a{
 	text-decoration: none;
 	font-family: "Open Sans";
 	font-size: 18px;
 	font-weight: bold;
 	color: #FFF;
 }
-nav#header ul li a:hover{
+nav#header ul#deskMenu li a:hover{
 	border-bottom: solid 3px #FFF;
 	padding-bottom:5px;
 }
+nav#header ul#mobileMenu{
+	width: 200px;
+	height: 100%;
+	background-color: #343434;
+	top:70px;
+	position: absolute;
+	z-index: 4;
+	right:-240px;
+	padding-left: 0px;
+	display: none;
+}
+nav#header ul#mobileMenu li{
+	display: block;
+	padding: 30px 0px;
+	box-sizing:border-box;
+	border-bottom: solid 2px #000;
+}
+nav#header ul#mobileMenu li a{
+	color: #fff;
+	text-decoration: none;
+	float: left;
+	padding-left: 30px;
+	margin-top: -12px;
+	font-size: 20px;
+}
 nav#header a.mobileToggle{
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
 	background: transparent;
 	float: right;
 	margin-right: -82px;
@@ -72,9 +95,9 @@ nav#header a.mobileToggle{
 }
 nav#header a.mobileToggle img{
 	position: relative;
-	width: 50px;
-	height: 40px;
-	margin-top: 5px;
+	width: 30px;
+	height: auto;
+	margin-top: 15px;
 }
 div#hero{
 	max-width: 100%;
@@ -82,8 +105,8 @@ div#hero{
 	background-color: rgba(0, 0, 0, 0.5);
 	box-sizing:border-box;
 	padding-top: 76px;
-	z-index: 3;
 	position: relative;
+	z-index: 1;
 }
 div#hero div#heroInner{
 	max-width: 940px;
@@ -116,12 +139,12 @@ div.mainSection:first-child .mainSectionInner p{
 	margin-top: 5px;
 	margin-bottom: 30px;
 }
+div.subSection{
+	margin-top: 26px;
+}
 div.subSection p.subtext{
 	font-style: italic;
 	color:#9E9E9E;
-}
-div#steps{
-	margin-top:76px;
 }
 div.step{
 	opacity: 0;
@@ -223,7 +246,7 @@ footer div#footerInner h1{
 	color:#fff;
 }
 @media only screen and (max-width:760px){
-	nav#header ul{
+	nav#header ul#deskMenu{
 		margin-right: -394px;
 	}
 	nav#header a.mobileToggle{
