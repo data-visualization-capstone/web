@@ -12,20 +12,43 @@ A Data Visualization Project utilizing GPS data. Demo utilizes D3.js to create i
 Setup:
 ----
 
-First install [Node](http://nodejs.org/download/)
+1.) Download repository from GitHub
 
-Install node development dependencies from `package.json`:
+```javascript
+$ cd ~/path/to/folder/web
+$ git clone git@github.com:data-visualization-capstone/web.git
+```
 
-`npm install`
+2.) Install [Node](http://nodejs.org/download/). Node should come with Node Package Manager (npm)
 
-Install bower packages from `bower.json`
+> Node Package Manager (NPM) is used for managing packages and dependenices.
 
-`bower install`
+3.) Download Node dependencies
 
-Run a local Apache server. For Mac OSX users, I recommend using the MAMP app.
-Load index.html for your local server. In the case of MAMP, open localhost:888
+```javascript
+$ npm install
+```
 
-#### Grunt Tasks:
+4.) Download Front End Dependencies from bower.json:
+
+```javascript
+$ bower install
+```
+
+5.) Install Grunt (Task Manager)
+
+```javascript
+$ sudo npm install -g grunt
+$ sudo npm install -g grunt-cli
+```
+
+6.) Run a local Apache server. 
+
+> For Mac OSX users, I recommend using the MAMP app.
+> Load index.html for your local server. In the case of MAMP, open localhost:8080
+
+Grunt Tasks:
+---
 
 We use Grunt to do things like compile LESS and concatenate JS libraries. Run `grunt` or `grunt watch` to run the default task which will build the app every time source files are saved. This is configured in `Gruntfile.js`
 
