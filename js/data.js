@@ -32,7 +32,18 @@ function loadJSON(next){
     url: url,
     dataType: "json"
   }).done(function(result) {
-    next(result);
+    
+    // Format data into flat object.
+    var data = _.map(result, function(point){
+      return {
+        date : point.date,
+        latitude : point.location[1],
+        longitude : point.location[0],
+      }
+    })
+
+    next(data);
+
   });
 }
 
@@ -68,7 +79,7 @@ function loadXML(next){
       return {
         "date": point[0].Text,
         "latitude" : location[1],
-        "longitude" : location[0]
+        "longitude" : location[0],
       };
     })
 
@@ -84,7 +95,7 @@ function loadAPI(next){
   DV.api.get("locations", function(resp){
     resp = resp.splice(0, 1000);
 
-    var requiredKeys = ["latitude", "longitude", "userId", "date"];
+    var requiredKeys = ["latitude", "longitude", "date"]; // userId
 
     next(removeInvalidData(resp, requiredKeys));
 
