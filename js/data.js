@@ -93,11 +93,7 @@ function loadAPI(next){
   console.log("\nLoading API data ...");
 
   DV.api.get("locations", function(resp){
-    resp = resp.splice(0, 1000);
-
-    var requiredKeys = ["latitude", "longitude", "date"]; // userId
-
-    next(removeInvalidData(resp, requiredKeys));
+    next(resp);
 
   },function(resp){
     console.log("Error loading data from API.")

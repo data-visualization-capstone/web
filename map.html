@@ -109,9 +109,9 @@
         // Initialize Leaflet map
         map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
+        data = data.splice(0, 1000);
         data = removeInvalidData(data, ["latitude", "longitude", "date"])
-        // data = data.splice(99, 200);
-
+        
         // format data
         var data = formatData(data, "time");
 
