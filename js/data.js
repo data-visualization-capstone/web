@@ -2,22 +2,87 @@
           Data.js
  ******************************/
 
-// Convert Google Location Data's .kml (renamed .xml)
-// into a usable JSON format.
-function loadData(next) {
-  console.log("\nLoading location JSON ...");
+// Load data from source
+function loadData(source, next) {
+  
+  // JSON
+  if (source == "json") {
+    loadJSON(next);
+  
+  // XML
+  } else if (source == "xml"){
+    loadXML(next);
+  
+  // API
+  } else {
+    loadAPI(next);
+  }
+}
 
+// Load data from a JSON file
+function loadJSON(next){
+  console.log("\nLoading JSON file ...");
+
+  var url = "/API/2014-07-01-2014-07-08.json";
+  // "/API/2014-03-15-2014-03-18.json",
+  // "/API/2014-05-01-2014-05-15.json",
+ 
   $.ajax({
-    // url: "/API/2014-03-15-2014-03-18.json",
-    // url: "/API/2014-05-01-2014-05-15.json",
-    url: "/API/2014-07-01-2014-07-08.json",
+    url: url,
     dataType: "json"
   }).done(function(result) {
-    console.log("\n .. loaded")
-    console.log(result)
     next(result);
   });
 }
+
+// Load data from an XML file
+// Convert Google Location Data -> JSON
+function loadXML(next){
+  console.log("\nLoading XML file ...");
+
+  var url = "/data/alex.xml";
+
+  $.ajax({
+    url: url,
+    dataType: "xml"
+  }).done(function(xmlData) {
+    convertData(xmlData, next);
+  });
+
+  // Convert XML into JSON
+  function convertData(xmlData, next) {
+
+    // Convert XML to JSON. https://github.com/stsvilik/Xml-to-JSON
+    var jsonData = xml.xmlToJSON(xmlData);
+
+    // Extract location data from google location kml structure
+    var data = jsonData.kml.Document.Placemark['gx:Track'];
+
+    // Flatten each data point into usable format
+    data = _.map(_.zip(data.when, data["gx:coord"]), function(point, key) {
+      var location = point[1].Text.split(" ");
+
+      return {
+        "date": point[0].Text,
+        "latitude" : location[1],
+        "longitude" : location[0]
+      };
+    })
+
+    // callback
+    next(data);
+  }
+}
+
+// Load data from our API
+function loadAPI(next){
+  console.log("\nLoading API data ...");
+
+}
+
+/******************************
+      Formatting Data
+ ******************************/
 
 // Format data into presentable format
 function formatData(data, style) {
@@ -66,11 +131,8 @@ function formatData(data, style) {
 
       var difference = a.diff(b);
 
-      // Low Time Difference:
-      // More recorded points -> Green
-
-      // High Time Difference
-      // Fewer recorded points -> Red
+      // More recorded points = Green
+      // High Time Difference = Fewer recorded points -> Red
 
       // Map number to color. 0 = red, 1 = green
       var color = getColor(difference / 160000);

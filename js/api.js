@@ -6,8 +6,7 @@
 // Reference on XHR callbacks
 // http://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
 
-// Define global DV (Data Visualization) Object
-// 
+// Define global DV (Data Visualization) Configurations
 var DV = {
 	api : {},
 	url : "http://localhost:8080/",

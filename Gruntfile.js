@@ -9,12 +9,15 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
+        
           // External Libraries
           'bower_components/jquery/dist/jquery.js',
           'bower_components/underscore/underscore.js',
           'bower_components/moment/moment.js',
           'bower_components/d3/d3.js',
+          
           // Our JS Files
+          'js/api.js',
           'js/data.js',
           'js/filtering.js',
           'js/coloring.js',

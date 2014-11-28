@@ -55,7 +55,8 @@
   <div class="section">
     <button onClick="getLocations()">Get Locations</button>
     <button onClick="getUsers()">Get Users</button>
-    <button onClick="loadXMLData()">Load Input Data</button>
+    <button onClick="loadXMLData()">Load Input Data from File</button>
+    <button onClick="bulkUpload()">Bulk Upload</button>
   </div>
 
   <hr>
@@ -63,7 +64,7 @@
   <p id="currentUser"  class="output_col"></p>
   <p id="users"        class="output_col"></p>
   <p id="locations"    class="output_col"></p>
-  <p id="input"        class="output_col"></p>
+  <p id="log"        class="output_col"></p>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>  
@@ -162,9 +163,9 @@
 
         // UI Feedback
         var msg = "\n" + data.length + " GPS points loaded from file";
-        console.log(msg);
 
-        $('#input').html(msg); 
+        // Add status to log
+        $('#log').prepend(msg); 
 
         // Take subset of data
         var data = data.splice(0, 1000);
@@ -181,19 +182,25 @@
             longitude : p.longitude,
             date : date,
           }
+        })  
+      })
+    }
+
+    function bulkUpload(){
+      _.each(data, function(p){
 
           // Convert to query param string
           // (ex: "first=Rick&last=Astley&job=Rock+Star")
           location = $.param(location);
 
+          // Post location entry
           DV.api.post("locations", location, function(resp){
             console.log("\n POST Location");
             console.log(resp.location);
           },function(resp){
 
           })
-        })  
-      })
+        });
     }
 
   </script>

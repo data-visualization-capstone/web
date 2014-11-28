@@ -118,7 +118,7 @@ drawPoints = function(map, data) {
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .style('fill', function(d) { return '#' + d.color } )
       .attr("date", function(d) { return d.date })
-      .attr("r", 7)
+      .attr("r", options.dot_width)
       .attr("pointer-events", "all")
       .attr("opacity", 1);
 
@@ -136,7 +136,7 @@ drawPoints = function(map, data) {
           .attr("x2", next_position[0])
           .attr("y2", next_position[1])
           .style("stroke", "rgb(255,0,0)")
-          .style("stroke-width", 3)
+          .style("stroke-width", options.dot_width)
           .style("opacity", 0);
       }
     });
@@ -147,7 +147,8 @@ drawPoints = function(map, data) {
     // Provides a tracing highlight of user
     // activiity for sequential points on hover
     function addTrackingLines(){
-      
+      if (!options.show_paths_on_hover) return ;
+
       $("g").each(function(){
 
         var lines = [$(this).children("line"), $(this).next().children("line")],
