@@ -79,7 +79,7 @@
         viewport: [[42.329077, -71.108871], [42.374200, -71.032072]],
 
         // Define our data source ('json', 'xml', 'api')
-        data_source : "xml",
+        data_source : "api",
     } 
 
     // Save the raw data to a global file.
@@ -109,8 +109,8 @@
         // Initialize Leaflet map
         map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
-        console.log(data)
-        console.log(removeInvalidData(data, ["latitude", "longitude", "date"]));
+        data = removeInvalidData(data, ["latitude", "longitude", "date"])
+        // data = data.splice(99, 200);
 
         // format data
         var data = formatData(data, "time");
