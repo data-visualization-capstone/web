@@ -1,5 +1,6 @@
 /******************************
           Data.js
+     Loading Usable Data
  ******************************/
 
 // Load data from source
@@ -41,6 +42,7 @@ function loadXML(next){
   console.log("\nLoading XML file ...");
 
   var url = "/data/alex.xml";
+  // josh.xml
 
   $.ajax({
     url: url,
@@ -60,6 +62,7 @@ function loadXML(next){
 
     // Flatten each data point into usable format
     data = _.map(_.zip(data.when, data["gx:coord"]), function(point, key) {
+      
       var location = point[1].Text.split(" ");
 
       return {
@@ -78,11 +81,31 @@ function loadXML(next){
 function loadAPI(next){
   console.log("\nLoading API data ...");
 
+  DV.api.get("locations", function(resp){
+    resp = resp.splice(0, 1000);
+
+    var requiredKeys = ["latitude", "longitude", "userId", "date"];
+
+    next(removeInvalidData(resp, requiredKeys));
+
+  },function(resp){
+    console.log("Error loading data from API.")
+  })
 }
 
 /******************************
       Formatting Data
  ******************************/
+
+// Remove all entries from given data that do not
+// contain atleast an instance of each required key
+function removeInvalidData(data, requiredKeys){
+  return _.filter(data, function(point){
+    return _.reduce(requiredKeys, function(acc, key){
+      return acc && (key in point);
+    })
+  })
+}
 
 // Format data into presentable format
 function formatData(data, style) {

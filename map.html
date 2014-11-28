@@ -101,11 +101,16 @@
       loadData(options.data_source, function(data){
 
         raw_data = data;
-        console.log(raw_data);
+
+        console.log("\n Sample Data Point:")
+        console.log(raw_data[0]);
 
         // Initialize Leaflet map
         map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
-        
+
+        console.log(data)
+        console.log(removeInvalidData(data, ["latitude", "longitude", "userId", "date"]));
+
         // format data
         var data = formatData(data, "time");
 

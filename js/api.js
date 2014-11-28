@@ -26,8 +26,6 @@ DV.api.get = function(url, success, error){
       // If call is complete & successfull
       if (xhr.readyState == 4 && xhr.status == 200) {
         var resp = JSON.parse(xhr.response);
-        console.log(resp);
-
         success(resp);
 
       } else if (xhr.readyState == 4 && xhr.status != 200) {
