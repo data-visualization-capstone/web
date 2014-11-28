@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-        
+
           // External Libraries
           'bower_components/jquery/dist/jquery.js',
           'bower_components/underscore/underscore.js',
@@ -22,6 +22,7 @@ module.exports = function(grunt) {
           'js/filtering.js',
           'js/coloring.js',
           'js/graphing.js',
+          'lib/xml.min.js'
         ],
         dest: 'js/app.js',
       },

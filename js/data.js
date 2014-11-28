@@ -112,8 +112,8 @@ function formatData(data, style) {
         date: point.date,
         type: "Alex",
         color: color,
-        latitude: point.location[1],
-        longitude: point.location[0],
+        latitude: point.latitude,
+        longitude: point.longitude,
       }
     })
   };
@@ -141,8 +141,8 @@ function formatData(data, style) {
         color: color,
         id: key,
         date: point.date,
-        latitude: point.location[1],
-        longitude: point.location[0],
+        latitude: point.latitude,
+        longitude: point.longitude,
         type: "Alex",
       };
     })
