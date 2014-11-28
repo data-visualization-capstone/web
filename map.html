@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/styles.css" rel="stylesheet" />
   <link href="/css/map.css" rel="stylesheet" />
-<<<<<<< HEAD
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="js/app.js"></script>
-=======
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
->>>>>>> development
 </head>
 <body class="loading">
   
@@ -19,7 +17,6 @@
   <div id='map'></div>
 
   <!-- Menu -->
-
   <div id='selections' class="selections">
     <div class='content'>
       
@@ -67,9 +64,15 @@
             Settings
      ****************************/
     
-    var showConnections = false; // Show travel paths
-    var mapKey = "stephalee.aec4ccea";
-    // var mapKey = 'alexjohnson505.k2pknn10'
+    // Map settings
+    var options = {
+        map_key: "stephalee.aec4ccea",
+        dot_width: 2,
+        map_show_connections : false,  // Show travel paths
+
+        // Define default map viewport: Top left & bottom right coordinates
+        viewport: [[42.329077, -71.108871], [42.374200, -71.032072]] 
+    } 
 
     /****************************
             Initialize
@@ -79,10 +82,12 @@
     loadData(function(data){
 
       // Initialize Leaflet map
-      map = L.mapbox.map('map', mapKey).fitBounds([[42.329077, -71.108871], [42.374200, -71.032072]]);
+      map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
       
-      // Render points on graph
+      // format data
       var data = formatData(data, "time");
+
+      // Render points on graph
       drawPoints(map, data);
     })
 
@@ -92,8 +97,8 @@
 
     // Show/Hide sequential lines
     $("#toggleConnections").click(function(){
-      showConnections = !showConnections;
-      d3.selectAll("line").style("opacity", showConnections ? 1 : 0);
+      options.map_show_connections = !options.map_show_connections;
+      d3.selectAll("line").style("opacity", options.map_show_connections ? 1 : 0);
     });
 
     /******************************

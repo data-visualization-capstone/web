@@ -3,6 +3,7 @@
          Graphing.js 
  ******************************/
 
+// drawPoints
 drawPoints = function(map, data) {
   var pointTypes = d3.map(),
       points = data,
