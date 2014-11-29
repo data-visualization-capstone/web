@@ -134,7 +134,12 @@
 
         // Sample the data set for efficiency?
         if (options.data_sample){
+          
+          // Take random sample of data
           data = _.sample(data, options.data_sample);
+
+          // Sort by date
+          data = _.sortBy(data, function(p){ return p.date });
         }
 
         // Check for missing keys
@@ -144,6 +149,7 @@
         raw_data = data = formatData(data, "time");
 
         // Setup date ranger picker.
+        DV.log(data[0].date + " " + data[data.length - 1].date)
         initDateRangePicker(data[0].date, data[data.length - 1].date);
 
         draw(data);
@@ -182,12 +188,19 @@
 
     function initDateRangePicker(startdate, enddate){
 
-      DV.log("\nDate range: " + startdate + " to " + enddate);
+      var format = "MMMM Do YYYY";
+
+      // convert to Moment.js dates
+      var start = moment.unix(startdate);
+      var end = moment.unix(enddate);
+
+      DV.log("\nDate range: " + start.format(format) + " to " + end.format(format));
 
       var datepicker = $('#date-range').dateRangePicker({
-        format: "MMMM Do YYYY",
-        // startDate : startdate,
-        // endDate : enddate,
+        format: format,
+
+        startDate : start.format(format),
+        endDate : end.format(format),
         shortcuts : {
           'prev-days': [3, 7, 30, 60],
           'prev': ['week','month','year'],
