@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/jquery.nouislider.min.css" rel="stylesheet">     
   <link href="/css/styles.css" rel="stylesheet" />
   <link href="/css/map.css" rel="stylesheet" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' /> 
 </head>
 <body class="loading">
   
@@ -20,10 +21,10 @@
       <!-- Select Data Sets -->
 
       <div id="toggles"></div>
-      <a href="#" id="toggleConnections">Toggle Connections</a>
+<!--       <a href="#" id="toggleConnections">Toggle Connections</a> -->
 
       <!-- Filter Data -->
-
+<!-- 
       <label>Filter By:</label>
       <select id="month">
         <option>All Months</option>
@@ -46,7 +47,7 @@
       <div>
         <button id="dateFilter">Filter</button>
         <button onclick="clearFilter()">Clear Filter</button>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -147,23 +148,23 @@
         <section id="timeSection">
           <h4>TIME FILTERS</h4>
 
-          <p>This is where the range slider goes</p>
+          <div id="slider"></div>          
 
           <div class="divider clear"></div>
 
           <div class="inputGroup">
+            <input type="radio" name="time" value="heatmap" checked>            
             <label>Heatmap</label>
-            <input type="radio" name="time" value="heatmap">
           </div>
 
-          <div class="inputGroup">
+          <div class="inputGroup" style="float:right;">
+            <input type="radio" name="time" value="chronological">            
             <label>Chronological</label>
-            <input type="radio" name="time" value="chronological">
           </div>        
 
           <div class="inputGroup">
+            <input type="radio" name="time" value="plain">            
             <label>Plain</label>
-            <input type="radio" name="time" value="plain">
           </div>
 
         </section>
@@ -180,6 +181,7 @@
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
 
   <script src="/lib/xml.min.js"></script>
+  <script type="text/javascript" src="js/jquery.nouislider.min.js"></script>
 
   <script src="/js/data.js"></script>
   <script src="/js/filtering.js"></script>
@@ -210,6 +212,16 @@
       var data = formatData(data, "time");
       drawPoints(map, data);
     })
+
+    // Initialize slider for time range
+    $("#slider").noUiSlider({
+      start: [20, 80],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 100
+      }
+    });
 
     /****************************
             Interaction
