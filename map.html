@@ -27,7 +27,7 @@
 
       <!-- Filter Data -->
 
-      <label>Filter By:</label>
+      <!-- <label>Filter By:</label>
       <select id="month">
         <option>All Months</option>
         <option>1</option>
@@ -45,10 +45,10 @@
       </select>
       <select id="day">
         <option>All Days</option>
-      </select>
+      </select> -->
 
-      <div class="demo">
-        Default settings with default value: 
+      <div class="demo" style="margin: 20px 0;">
+        Filter by date:
         <input id="date-range" value="2013-10-01 to 2013-11-04" style="width: 100%;">
       </div>
       
@@ -143,7 +143,8 @@
         // Save data
         raw_data = data = formatData(data, "time");
 
-        test_data = _.sample(raw_data, 1000);
+        // Setup date ranger picker.
+        initDateRangePicker(data[0].date, data[data.length - 1].date);
 
         draw(data);
       })
@@ -179,17 +180,30 @@
       https://github.com/longbill/jquery-date-range-picker
      ******************************/
 
-    $(function()
-    {
-      $('#date-range').dateRangePicker({
+    function initDateRangePicker(startdate, enddate){
+
+      DV.log("\nDate range: " + startdate + " to " + enddate);
+
+      var datepicker = $('#date-range').dateRangePicker({
+        format: "MMMM Do YYYY",
+        // startDate : startdate,
+        // endDate : enddate,
         shortcuts : {
-          'prev-days': [3,5,7],
+          'prev-days': [3, 7, 30, 60],
           'prev': ['week','month','year'],
           'next-days':null,
-          'next':null
+          'next': null
+        },
+        getValue: function() {
+          return this.innerHTML;
+        },
+        setValue: function(s){
+          this.innerHTML = s;
         }
       });
-    });
+
+      
+    };
 
 
   </script>
