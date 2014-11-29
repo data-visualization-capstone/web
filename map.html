@@ -70,7 +70,7 @@
         map_key: "stephalee.aec4ccea",
         
         // Pixel width of scatterplot points
-        dot_width: 1,
+        dot_width: 1.5,
 
         // Toggle path "web" of connections
         map_show_connections : false,  
@@ -92,7 +92,7 @@
 
         // Take Sample from Data Set?
         // Randomly selects X entries. null for no sampling
-        data_sample : null,
+        data_sample : 10000,
     } 
 
     // Save the raw data to a global file.
@@ -113,30 +113,37 @@
       // Load location data.
       loadData(options.data_source, function(data){
 
+        // Initialize Leaflet map
+        var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+        // Splice the data set for efficiency?
         if (options.data_splice){
           data = data.splice(0, options.data_splice);
         }
 
+        // Sample the data set for efficiency?
         if (options.data_sample){
           data = _.sample(data, options.data_sample);
         }
-
-        raw_data = data;
-
-        // Initialize Leaflet map
-        map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
         // data = data.splice(0, 1000);
         data = removeInvalidData(data, ["latitude", "longitude", "date"])
         
         // format data
-        var data = formatData(data, "time");
+        raw_data = data = formatData(data, "time");
 
         // Render points on graph
         drawPoints(map, data);
-        
+
       })
     });
+
+    function listDates(){
+      _.each(raw_data, function(p){
+        console.log(p.date);
+      })
+
+    }
 
     /****************************
             Interaction

@@ -1,20 +1,32 @@
 
+var development = true; 
+
 /******************************
          api.js 
  ******************************/
 
-// Reference on XHR callbacks
-// http://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
-
 // Define global DV (Data Visualization) Configurations
+
 var DV = {
-	api : {},
-	url : "http://localhost:8080/",
+	
+  // Define common CRUD functions
+  api : {},
+
+  // Is this a development configuration?
+  // Disables logging, and debug information
+  // for production environments.
+  development : development,
+
+  // Target API
+  url : (development) ? "http://localhost:8080/" : null,
 };
 
 /******************************
       CRUD Functionality
  ******************************/
+
+// Reference on XHR callbacks
+// http://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
 
 // GET
 // takes target URL, callback, callback

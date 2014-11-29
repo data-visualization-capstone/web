@@ -22,6 +22,7 @@ module.exports = function(grunt) {
           'js/filtering.js',
           'js/coloring.js',
           'js/graphing.js',
+          'js/utils.js',
           'lib/xml.min.js'
         ],
         dest: 'js/app.js',

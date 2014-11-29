@@ -22,7 +22,7 @@ function loadData(source, next) {
 
 // Load data from a JSON file
 function loadJSON(next){
-  console.log("\nLoading JSON file ...");
+  DV.log("\nLoading JSON file ...");
 
   var url = options.data_file;
   
@@ -43,6 +43,8 @@ function loadJSON(next){
       }
     })
 
+    DV.log("JSON data loaded.")
+
     next(data);
 
   });
@@ -51,7 +53,7 @@ function loadJSON(next){
 // Load data from an XML file
 // Convert Google Location Data -> JSON
 function loadXML(next){
-  console.log("\nLoading XML file ...");
+  DV.log("\nLoading XML file ...");
 
   var url = options.data_file;
 
@@ -59,6 +61,7 @@ function loadXML(next){
     url: url,
     dataType: "xml"
   }).done(function(xmlData) {
+    DV.log("XML data loaded.")
     convertData(xmlData, next);
   });
 
@@ -90,13 +93,15 @@ function loadXML(next){
 
 // Load data from our API
 function loadAPI(next){
-  console.log("\nLoading API data ...");
+  DV.log("\nLoading API data ...");
 
   DV.api.get("locations", function(resp){
+    
+    DV.log("API data loaded.")
     next(resp);
 
   },function(resp){
-    console.log("Error loading data from API.")
+    DV.log("Error loading data from API.")
   })
 }
 
