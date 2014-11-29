@@ -24,10 +24,8 @@ function loadData(source, next) {
 function loadJSON(next){
   console.log("\nLoading JSON file ...");
 
-  var url = "/API/2014-07-01-2014-07-08.json";
-  // "/API/2014-03-15-2014-03-18.json",
-  // "/API/2014-05-01-2014-05-15.json",
- 
+  var url = options.data_file;
+  
   $.ajax({
     url: url,
     dataType: "json"
@@ -36,9 +34,12 @@ function loadJSON(next){
     // Format data into flat object.
     var data = _.map(result, function(point){
       return {
+        userId: point.userId,
         date : point.date,
-        latitude : point.location[1],
-        longitude : point.location[0],
+
+        // Data may come back with a lat/long key, or a location object
+        latitude : (point.latitude) ? point.latitude : point.location[1],
+        longitude : (point.longitude) ? point.longitude : point.location[0],
       }
     })
 
@@ -52,8 +53,7 @@ function loadJSON(next){
 function loadXML(next){
   console.log("\nLoading XML file ...");
 
-  var url = "/data/alex.xml";
-  // josh.xml
+  var url = options.data_file;
 
   $.ajax({
     url: url,

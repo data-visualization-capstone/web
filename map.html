@@ -55,6 +55,10 @@
 
   <script>
 
+    var json_files = ["/data/json/alex.json", "/data/json/2014-07-01-2014-07-08.json", "/data/json/2014-03-15-2014-03-18.json", "/data/json/2014-05-01-2014-05-15.json"]
+
+    var xml_files = ["/data/xml/alex.xml", "/data/xml/josh.xml"]
+
     /****************************
             Settings
      ****************************/
@@ -66,7 +70,7 @@
         map_key: "stephalee.aec4ccea",
         
         // Pixel width of scatterplot points
-        dot_width: 4,
+        dot_width: 1,
 
         // Toggle path "web" of connections
         map_show_connections : false,  
@@ -80,6 +84,15 @@
 
         // Define our data source ('json', 'xml', 'api')
         data_source : "json",
+        data_file   : json_files[0],
+
+        // Trim Data Set?
+        // Takes first X data entries. null for no trim
+        data_splice : null,
+
+        // Take Sample from Data Set?
+        // Randomly selects X entries. null for no sampling
+        data_sample : null,
     } 
 
     // Save the raw data to a global file.
@@ -100,11 +113,15 @@
       // Load location data.
       loadData(options.data_source, function(data){
 
-        raw_data = data;
+        if (options.data_splice){
+          data = data.splice(0, options.data_splice);
+        }
 
-        console.log("\n Sample Data Point:")
-        
-        console.log(raw_data[0]);
+        if (options.data_sample){
+          data = _.sample(data, options.data_sample);
+        }
+
+        raw_data = data;
 
         // Initialize Leaflet map
         map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
@@ -117,6 +134,7 @@
 
         // Render points on graph
         drawPoints(map, data);
+        
       })
     });
 
