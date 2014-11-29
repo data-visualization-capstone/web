@@ -178,3 +178,27 @@ function formatData(data, style) {
     })
   }
 }
+
+function addUserId(data, userId){
+return _.map(data, function(p){
+
+    // Format location object
+    return {
+      userId : userId,
+      latitude : p.latitude,
+      longitude : p.longitude,
+      date : p.date,
+    }
+  }) 
+}
+
+function contertDatesToUnix(data){
+  return _.map(data, function(p){
+    return {
+      userId : p.userId,
+      latitude : p.latitude,
+      longitude : p.longitude,
+      date : new moment(p.date).unix(),
+    }
+  })
+}
