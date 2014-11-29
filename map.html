@@ -55,12 +55,16 @@
 
   <script>
 
+    /****************************
+           Testing Data
+     ****************************/
+
     var json_files = ["/data/json/alex.json", "/data/json/2014-07-01-2014-07-08.json", "/data/json/2014-03-15-2014-03-18.json", "/data/json/2014-05-01-2014-05-15.json"]
 
     var xml_files = ["/data/xml/alex.xml", "/data/xml/josh.xml"]
 
     /****************************
-            Settings
+             Settings
      ****************************/
     
     // Map settings
@@ -73,7 +77,7 @@
         dot_width: 1.5,
 
         // Toggle path "web" of connections
-        map_show_connections : false,  
+        map_show_connections : true,  
         
         // Should the map connect-the-dots upon hovering
         // over a specific point
@@ -113,9 +117,6 @@
       // Load location data.
       loadData(options.data_source, function(data){
 
-        // Initialize Leaflet map
-        var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
-
         // Splice the data set for efficiency?
         if (options.data_splice){
           data = data.splice(0, options.data_splice);
@@ -126,16 +127,25 @@
           data = _.sample(data, options.data_sample);
         }
 
-        // data = data.splice(0, 1000);
+        // Check for missing keys
         data = removeInvalidData(data, ["latitude", "longitude", "date"])
         
-        // format data
+        // Save data
         raw_data = data = formatData(data, "time");
 
-        // Render points on graph
-        drawPoints(map, data);
+        draw(data);
 
       })
+
+      function draw(data){
+        
+        // Initialize Leaflet map
+        var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+        // Render points on graph
+        drawPoints(leaflet_map, data);        
+      }
+
     });
 
     function listDates(){

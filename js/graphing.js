@@ -122,33 +122,39 @@ drawPoints = function(map, data) {
       .attr("pointer-events", "all")
       .attr("opacity", 1);
 
-    // Draw point-to-point connections
-    svgPoints.each(function(){
-      if($(this).next().length == 1){
-        var this_transform = $(this).children("circle").attr("transform"),
-            next_transform = $(this).next().children("circle").attr("transform"),
-            this_position = this_transform.substring(10, this_transform.length - 1).split(","),
-            next_position = next_transform.substring(10, next_transform.length - 1).split(",");
-
-        d3.select(this).append("line")
-          .attr("x1", this_position[0])
-          .attr("y1", this_position[1])
-          .attr("x2", next_position[0])
-          .attr("y2", next_position[1])
-          .style("stroke", "rgb(255,0,0)")
-          .style("stroke-width", options.dot_width)
-          .style("opacity", 0);
-      }
-    });
-    
     if (options.map_show_connections){
+      connectTheDots();
+    }
+
+    function connectTheDots(){
+      // Draw point-to-point connections
+      svgPoints.each(function(){
+        if($(this).next().length == 1){
+          var this_transform = $(this).children("circle").attr("transform"),
+              next_transform = $(this).next().children("circle").attr("transform"),
+              this_position = this_transform.substring(10, this_transform.length - 1).split(","),
+              next_position = next_transform.substring(10, next_transform.length - 1).split(",");
+
+          d3.select(this).append("line")
+            .attr("x1", this_position[0])
+            .attr("y1", this_position[1])
+            .attr("x2", next_position[0])
+            .attr("y2", next_position[1])
+            .style("stroke", "rgb(255,0,0)")
+            .style("stroke-width", options.dot_width)
+            .style("opacity", 0);
+        }
+      });
+    }
+    
+    
+    if (options.show_paths_on_hover){
       addTrackingLines();  
     }
 
     // Provides a tracing highlight of user
     // activiity for sequential points on hover
     function addTrackingLines(){
-      if (!options.show_paths_on_hover) return ;
 
       $("g").each(function(){
 
