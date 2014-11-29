@@ -1,22 +1,122 @@
 /******************************
           Data.js
+     Loading Usable Data
  ******************************/
 
-// Convert Google Location Data's .kml (renamed .xml)
-// into a usable JSON format.
-function loadData(next) {
-  console.log("\nLoading location JSON ...");
+// Load data from source
+function loadData(source, next) {
+  
+  // JSON
+  if (source == "json") {
+    loadJSON(next);
+  
+  // XML
+  } else if (source == "xml"){
+    loadXML(next);
+  
+  // API
+  } else {
+    loadAPI(next);
+  }
+}
 
+// Load data from a JSON file
+function loadJSON(next){
+  DV.log("\nLoading JSON file ...");
+
+  var url = options.data_file;
+  
   $.ajax({
-    // url: "/API/2014-03-15-2014-03-18.json",
-    // url: "/API/2014-05-01-2014-05-15.json",
-    url: "/API/2014-07-01-2014-07-08.json",
+    url: url,
     dataType: "json"
   }).done(function(result) {
-    console.log("\n .. loaded")
-    console.log(result)
-    next(result);
+    
+    // Format data into flat object.
+    var data = _.map(result, function(point){
+      return {
+        userId: point.userId,
+        date : point.date,
+
+        // Data may come back with a lat/long key, or a location object
+        latitude : (point.latitude) ? point.latitude : point.location[1],
+        longitude : (point.longitude) ? point.longitude : point.location[0],
+      }
+    })
+
+    DV.log("JSON data loaded.")
+
+    next(data);
+
   });
+}
+
+// Load data from an XML file
+// Convert Google Location Data -> JSON
+function loadXML(next){
+  DV.log("\nLoading XML file ...");
+
+  var url = options.data_file;
+
+  $.ajax({
+    url: url,
+    dataType: "xml"
+  }).done(function(xmlData) {
+    DV.log("XML data loaded.")
+    convertData(xmlData, next);
+  });
+
+  // Convert XML into JSON
+  function convertData(xmlData, next) {
+
+    // Convert XML to JSON. https://github.com/stsvilik/Xml-to-JSON
+    var jsonData = xml.xmlToJSON(xmlData);
+
+    // Extract location data from google location kml structure
+    var data = jsonData.kml.Document.Placemark['gx:Track'];
+
+    // Flatten each data point into usable format
+    data = _.map(_.zip(data.when, data["gx:coord"]), function(point, key) {
+      
+      var location = point[1].Text.split(" ");
+
+      return {
+        "date": point[0].Text,
+        "latitude" : location[1],
+        "longitude" : location[0],
+      };
+    })
+
+    // callback
+    next(data);
+  }
+}
+
+// Load data from our API
+function loadAPI(next){
+  DV.log("\nLoading API data ...");
+
+  DV.api.get("locations", function(resp){
+    
+    DV.log("API data loaded.")
+    next(resp);
+
+  },function(resp){
+    DV.log("Error loading data from API.")
+  })
+}
+
+/******************************
+      Formatting Data
+ ******************************/
+
+// Remove all entries from given data that do not
+// contain atleast an instance of each required key
+function removeInvalidData(data, requiredKeys){
+  return _.filter(data, function(point){
+    return _.reduce(requiredKeys, function(acc, key){
+      return acc && (key in point);
+    })
+  })
 }
 
 // Format data into presentable format
@@ -47,8 +147,8 @@ function formatData(data, style) {
         date: point.date,
         type: "Alex",
         color: color,
-        latitude: point.location[1],
-        longitude: point.location[0],
+        latitude: point.latitude,
+        longitude: point.longitude,
       }
     })
   };
@@ -66,11 +166,8 @@ function formatData(data, style) {
 
       var difference = a.diff(b);
 
-      // Low Time Difference:
-      // More recorded points -> Green
-
-      // High Time Difference
-      // Fewer recorded points -> Red
+      // More recorded points = Green
+      // High Time Difference = Fewer recorded points -> Red
 
       // Map number to color. 0 = red, 1 = green
       var color = getColor(difference / 160000);
@@ -79,10 +176,34 @@ function formatData(data, style) {
         color: color,
         id: key,
         date: point.date,
-        latitude: point.location[1],
-        longitude: point.location[0],
+        latitude: point.latitude,
+        longitude: point.longitude,
         type: "Alex",
       };
     })
   }
+}
+
+function addUserId(data, userId){
+return _.map(data, function(p){
+
+    // Format location object
+    return {
+      userId : userId,
+      latitude : p.latitude,
+      longitude : p.longitude,
+      date : p.date,
+    }
+  }) 
+}
+
+function contertDatesToUnix(data){
+  return _.map(data, function(p){
+    return {
+      userId : p.userId,
+      latitude : p.latitude,
+      longitude : p.longitude,
+      date : new moment(p.date).unix(),
+    }
+  })
 }

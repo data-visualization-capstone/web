@@ -16,6 +16,6 @@ input {
 
 button,
 input[type="submit"] {
-	padding: 5px; 
+	padding: 5px;
 	border: 1px solid black;
 }

@@ -3,12 +3,33 @@
          Graphing.js 
  ******************************/
 
+// drawPoints
 drawPoints = function(map, data) {
   var pointTypes = d3.map(),
       points = data,
       lastSelectedPoint;
 
-  var drawPointTypeSelection = function() {
+  var mapLayer = {
+    onAdd: function(map) {
+      map.on('viewreset moveend', drawWithLoading);
+      drawWithLoading();
+    }
+  }
+
+  map.on('ready', function() {
+      
+      points.forEach(function(point) {
+        pointTypes.set(point.type, {type: point.type, color: point.color});
+      })
+        
+      // List data sets
+      listDataSets();
+
+      map.addLayer(mapLayer);
+  })
+
+  // Renders a toggle-able list of data sets
+  var listDataSets = function() {
 
     labels = d3.select('#toggles').selectAll('input')
       .data(pointTypes.values())
@@ -30,7 +51,8 @@ drawPoints = function(map, data) {
       .text(function(d) { return d.type; });
   }
 
-  var selectedTypes = function() {
+  // Returns list of enabled data sets
+  var activeDataSets = function() {
     return d3.selectAll('#toggles input[type=checkbox]')[0].filter(function(elem) {
       return elem.checked;
     }).map(function(elem) {
@@ -38,32 +60,35 @@ drawPoints = function(map, data) {
     })
   }
 
-  var pointsFilteredToSelectedTypes = function() {
-    var currentSelectedTypes = d3.set(selectedTypes());
+  // Returns sets of data points that adhere to the current filter
+  var filteredDataSets = function() {
+    
+    var currentSelectedTypes = d3.set(activeDataSets());
+    
     return points.filter(function(item){
       return currentSelectedTypes.has(item.type);
     });
   }
   
+  // Draw points into Map
   var drawWithLoading = function(e){
     d3.select('#loading').classed('visible', true);
+
+    // Clear map
     if (e && e.type == 'viewreset') {
       d3.select('#overlay').remove();
     }
+
     setTimeout(function(){
       draw();
-
-      // Add Date Filter
-      if($("#month").val() != "All Months" && $("#day").val() != "All Days"){
-        filter($("#month").val(), $("#day").val());
-      } 
 
       d3.select('#loading').classed('visible', false);
     }, 0);
   }
 
-
   var draw = function() {
+
+    // Clear map just to be safe
     d3.select('#overlay').remove();
 
     var bounds = map.getBounds(),
@@ -72,19 +97,26 @@ drawPoints = function(map, data) {
         existing = d3.set(),
         drawLimit = bounds.pad(0.4);
 
-    filteredPoints = pointsFilteredToSelectedTypes().filter(function(d) {
+    // Create map-able set of points
+    filteredPoints = filteredDataSets().filter(function(d) {
       var latlng = new L.LatLng(d.latitude, d.longitude);
 
+      // Remove points that are missing a GPS location
       if (!drawLimit.contains(latlng)) { return false };
 
+      // Convert Lat & Long into a Mapable point.
       var point = map.latLngToLayerPoint(latlng);
 
       key = point.toString();
+
+      // Prevent duplicate keys
       if (existing.has(key)) { return false };
+
       existing.add(key);
 
       d.x = point.x;
       d.y = point.y;
+
       return true;
     });
 
@@ -117,36 +149,46 @@ drawPoints = function(map, data) {
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .style('fill', function(d) { return '#' + d.color } )
       .attr("date", function(d) { return d.date })
-      .attr("r", 7)
+      .attr("r", options.dot_width)
       .attr("pointer-events", "all")
       .attr("opacity", 1);
 
-    // Draw point-to-point connections
-    svgPoints.each(function(){
-      if($(this).next().length == 1){
-        var this_transform = $(this).children("circle").attr("transform"),
-            next_transform = $(this).next().children("circle").attr("transform"),
-            this_position = this_transform.substring(10, this_transform.length - 1).split(","),
-            next_position = next_transform.substring(10, next_transform.length - 1).split(",");
+    if (options.map_show_connections){
+      showConnections();
+    }
 
-        d3.select(this).append("line")
-          .attr("x1", this_position[0])
-          .attr("y1", this_position[1])
-          .attr("x2", next_position[0])
-          .attr("y2", next_position[1])
-          .style("stroke", "rgb(255,0,0)")
-          .style("stroke-width", 3)
-          .style("opacity", 0);
-      }
-    });
-    
+    if (options.show_paths_on_hover){
+      showHoverPaths();  
+    }
 
-    addTrackingLines();
+    // Connects all sequential location points into 
+    // a single path.
+    function showConnections(){
+      
+      // Draw point-to-point connections
+      svgPoints.each(function(){
+        if($(this).next().length == 1){
+          var this_transform = $(this).children("circle").attr("transform"),
+              next_transform = $(this).next().children("circle").attr("transform"),
+              this_position = this_transform.substring(10, this_transform.length - 1).split(","),
+              next_position = next_transform.substring(10, next_transform.length - 1).split(",");
+
+          d3.select(this).append("line")
+            .attr("x1", this_position[0])
+            .attr("y1", this_position[1])
+            .attr("x2", next_position[0])
+            .attr("y2", next_position[1])
+            .style("stroke", "rgb(255,0,0)")
+            .style("stroke-width", options.dot_width)
+            .style("opacity", 0);
+        }
+      });
+    }
 
     // Provides a tracing highlight of user
-    // activiity for sequential points on hover
-    function addTrackingLines(){
-      
+    // activiity for sequential points on *hover*
+    function showHoverPaths(){
+
       $("g").each(function(){
 
         var lines = [$(this).children("line"), $(this).next().children("line")],
@@ -188,22 +230,5 @@ drawPoints = function(map, data) {
       });
     }
   }
-
-  var mapLayer = {
-    onAdd: function(map) {
-      map.on('viewreset moveend', drawWithLoading);
-      drawWithLoading();
-    }
-  }
-
-  map.on('ready', function() {
-      points.forEach(function(point) {
-        pointTypes.set(point.type, {type: point.type, color: point.color});
-      })
-        
-      drawPointTypeSelection();
-
-      map.addLayer(mapLayer);
-    })
 
 }
