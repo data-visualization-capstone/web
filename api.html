@@ -193,8 +193,8 @@
       locationData = contertDatesToUnix(locationData);
 
       locationData = locationData.splice(0, 90000);
-      
-      _.each(data, function(p){
+
+      _.each(locationData, function(location){
 
           // Convert to query param string
           // (ex: "first=Rick&last=Astley&job=Rock+Star")
@@ -203,7 +203,7 @@
           // Post location entry
           DV.api.post("locations", location, function(resp){
             console.log("\n POST Location");
-            console.log(resp.location);
+            console.log(resp);
           },function(resp){
 
           })
