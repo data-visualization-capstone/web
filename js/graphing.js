@@ -141,8 +141,9 @@ drawPoints = function(map, data) {
       }
     });
     
-
-    addTrackingLines();
+    if (options.map_show_connections){
+      addTrackingLines();  
+    }
 
     // Provides a tracing highlight of user
     // activiity for sequential points on hover
