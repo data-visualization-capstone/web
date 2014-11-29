@@ -14,60 +14,38 @@
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
-  <!-- Menu -->
-  <div id='selections' class="selections">
-    <div class='content'>
-      
-      <!-- Select Data Sets -->
-
-      <div id="toggles"></div>
-<!--       <a href="#" id="toggleConnections">Toggle Connections</a> -->
-
-      <!-- Filter Data -->
-
-      <div class="demo" style="margin: 20px 0;">
-        Filter by date:
-        <input id="date-range" value="" style="width: 100%;">
-      </div>
-      
-      <!-- <div>
-        <button id="dateFilter">Filter</button>
-        <button onclick="clearFilter()">Clear Filter</button>
-      </div> -->
-    </div>
-  </div>
-
     <div id="filterMenu">
-    <div id="fmToggle">
-      <a href="javascript:void(0)">
-        <h2>Hide Filters</h2>
-      </a>
-    </div>
-    <div id="fmBody">
+      <div id="fmToggle">
+        <a href="javascript:void(0)">
+          <h2>Hide Filters</h2>
+        </a>
+      </div>
 
+    <div id="fmBody">
       <div id="fmBodyInner">
+      
+        <!-- Select Data Sets -->
+        <div id="toggles"></div>
+        <a href="#" id="toggleConnections">Toggle Connections</a> 
 
         <section id="dateSection">
-
           <h4>DATE FILTERS</h4> 
 
-          <!-- SELECT TO QUERY ALL POINTS -->
+          <!-- Toggle Date Filtering -->
 
-          <div class="inputGroup">
-            <input checked type="radio" name="date" value="anyDate"> 
-            <label>Any Date</label>           
-          </div>  
+          <input checked type="radio" name="date" value="anyDate"> 
+          <label>Any Date</label>           
 
-          <!-- SELECT TO QUERY BY DATE RANGE -->
+          <input type="radio" name="date" value="dateRange">        
+          <label>Date Range</label>
 
-          <div>
-            <input type="radio" name="date" value="dateRange">        
-            <label>Date Range</label>
+          <!-- Filter Data -->
+          <div class="demo" style="margin: 20px 0;">
+            Filter by date: <input id="date-range" value="" style="width: 100%;">
           </div>
 
           <!-- SELECT RANGE FOR POINTS -->
-
-          <div class="inputGroup">
+<!--           <div class="inputGroup">
 
             <div class="dateRangeSelector">
               <label>From</label>
@@ -79,7 +57,7 @@
               <input type="date" id="dateTo">
             </div>
 
-          </div>
+          </div> -->
 
           <div class="clear"></div>
 
