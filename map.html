@@ -49,7 +49,7 @@
 
       <div class="demo" style="margin: 20px 0;">
         Filter by date:
-        <input id="date-range" value="2013-10-01 to 2013-11-04" style="width: 100%;">
+        <input id="date-range" value="" style="width: 100%;">
       </div>
       
       <!-- <div>
@@ -188,17 +188,23 @@
 
     function initDateRangePicker(startdate, enddate){
 
+      // Set String Format for Moment.js dates
       var format = "MMMM Do YYYY";
 
-      // convert to Moment.js dates
+      // convert unix timestamps to Moment.js dates
       var start = moment.unix(startdate);
       var end = moment.unix(enddate);
 
-      DV.log("\nDate range: " + start.format(format) + " to " + end.format(format));
+      // Initialize default values
+      var msg = start.format(format) + " to " + end.format(format);
 
+      $("#date-range").val(msg);
+
+      DV.log("\nDate range: " + msg);
+
+      // Initialize datepicker element
       var datepicker = $('#date-range').dateRangePicker({
         format: format,
-
         startDate : start.format(format),
         endDate : end.format(format),
         shortcuts : {
@@ -207,15 +213,7 @@
           'next-days':null,
           'next': null
         },
-        getValue: function() {
-          return this.innerHTML;
-        },
-        setValue: function(s){
-          this.innerHTML = s;
-        }
-      });
-
-      
+      });      
     };
 
 
