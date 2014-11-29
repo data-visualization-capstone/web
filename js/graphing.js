@@ -17,16 +17,19 @@ drawPoints = function(map, data) {
   }
 
   map.on('ready', function() {
+      
       points.forEach(function(point) {
         pointTypes.set(point.type, {type: point.type, color: point.color});
       })
         
-      drawPointTypeSelection();
+      // List data sets
+      listDataSets();
 
       map.addLayer(mapLayer);
   })
 
-  var drawPointTypeSelection = function() {
+  // Renders a toggle-able list of data sets
+  var listDataSets = function() {
 
     labels = d3.select('#toggles').selectAll('input')
       .data(pointTypes.values())
@@ -48,7 +51,8 @@ drawPoints = function(map, data) {
       .text(function(d) { return d.type; });
   }
 
-  var selectedTypes = function() {
+  // Returns list of enabled data sets
+  var activeDataSets = function() {
     return d3.selectAll('#toggles input[type=checkbox]')[0].filter(function(elem) {
       return elem.checked;
     }).map(function(elem) {
@@ -56,9 +60,10 @@ drawPoints = function(map, data) {
     })
   }
 
-  var pointsFilteredToSelectedTypes = function() {
+  // Returns sets of data points that adhere to the current filter
+  var filteredDataSets = function() {
     
-    var currentSelectedTypes = d3.set(selectedTypes());
+    var currentSelectedTypes = d3.set(activeDataSets());
     
     return points.filter(function(item){
       return currentSelectedTypes.has(item.type);
@@ -69,6 +74,7 @@ drawPoints = function(map, data) {
   var drawWithLoading = function(e){
     d3.select('#loading').classed('visible', true);
 
+    // Clear map
     if (e && e.type == 'viewreset') {
       d3.select('#overlay').remove();
     }
@@ -81,6 +87,8 @@ drawPoints = function(map, data) {
   }
 
   var draw = function() {
+
+    // Clear map just to be safe
     d3.select('#overlay').remove();
 
     var bounds = map.getBounds(),
@@ -89,21 +97,26 @@ drawPoints = function(map, data) {
         existing = d3.set(),
         drawLimit = bounds.pad(0.4);
 
-    filteredPoints = pointsFilteredToSelectedTypes().filter(function(d) {
+    // Create map-able set of points
+    filteredPoints = filteredDataSets().filter(function(d) {
       var latlng = new L.LatLng(d.latitude, d.longitude);
 
+      // Remove points that are missing a GPS location
       if (!drawLimit.contains(latlng)) { return false };
 
+      // Convert Lat & Long into a Mapable point.
       var point = map.latLngToLayerPoint(latlng);
 
       key = point.toString();
 
+      // Prevent duplicate keys
       if (existing.has(key)) { return false };
 
       existing.add(key);
 
       d.x = point.x;
       d.y = point.y;
+
       return true;
     });
 
@@ -141,12 +154,16 @@ drawPoints = function(map, data) {
       .attr("opacity", 1);
 
     if (options.map_show_connections){
-      connectTheDots();
+      showConnections();
+    }
+
+    if (options.show_paths_on_hover){
+      showHoverPaths();  
     }
 
     // Connects all sequential location points into 
     // a single path.
-    function connectTheDots(){
+    function showConnections(){
       
       // Draw point-to-point connections
       svgPoints.each(function(){
@@ -167,15 +184,10 @@ drawPoints = function(map, data) {
         }
       });
     }
-    
-    
-    if (options.show_paths_on_hover){
-      addTrackingLines();  
-    }
 
     // Provides a tracing highlight of user
     // activiity for sequential points on *hover*
-    function addTrackingLines(){
+    function showHoverPaths(){
 
       $("g").each(function(){
 
