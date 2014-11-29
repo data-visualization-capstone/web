@@ -107,6 +107,8 @@
 
     var raw_data = null;
 
+    var test_data = null;
+
     /****************************
             Initialize
      ****************************/
@@ -133,20 +135,19 @@
         // Save data
         raw_data = data = formatData(data, "time");
 
+        test_data = _.sample(raw_data, 1000);
+
         draw(data);
-
       })
-
-      function draw(data){
-        
-        // Initialize Leaflet map
-        var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
-
-        // Render points on graph
-        drawPoints(leaflet_map, data);        
-      }
-
     });
+
+    function draw(data){
+      // Initialize Leaflet map
+      var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+      // Render points on graph
+      drawPoints(leaflet_map, data);        
+    }
 
     function listDates(){
       _.each(raw_data, function(p){

@@ -9,6 +9,23 @@ drawPoints = function(map, data) {
       points = data,
       lastSelectedPoint;
 
+  var mapLayer = {
+    onAdd: function(map) {
+      map.on('viewreset moveend', drawWithLoading);
+      drawWithLoading();
+    }
+  }
+
+  map.on('ready', function() {
+      points.forEach(function(point) {
+        pointTypes.set(point.type, {type: point.type, color: point.color});
+      })
+        
+      drawPointTypeSelection();
+
+      map.addLayer(mapLayer);
+  })
+
   var drawPointTypeSelection = function() {
 
     labels = d3.select('#toggles').selectAll('input')
@@ -40,29 +57,28 @@ drawPoints = function(map, data) {
   }
 
   var pointsFilteredToSelectedTypes = function() {
+    
     var currentSelectedTypes = d3.set(selectedTypes());
+    
     return points.filter(function(item){
       return currentSelectedTypes.has(item.type);
     });
   }
   
+  // Draw points into Map
   var drawWithLoading = function(e){
     d3.select('#loading').classed('visible', true);
+
     if (e && e.type == 'viewreset') {
       d3.select('#overlay').remove();
     }
+
     setTimeout(function(){
       draw();
-
-      // Add Date Filter
-      if($("#month").val() != "All Months" && $("#day").val() != "All Days"){
-        filter($("#month").val(), $("#day").val());
-      } 
 
       d3.select('#loading').classed('visible', false);
     }, 0);
   }
-
 
   var draw = function() {
     d3.select('#overlay').remove();
@@ -81,7 +97,9 @@ drawPoints = function(map, data) {
       var point = map.latLngToLayerPoint(latlng);
 
       key = point.toString();
+
       if (existing.has(key)) { return false };
+
       existing.add(key);
 
       d.x = point.x;
@@ -126,7 +144,10 @@ drawPoints = function(map, data) {
       connectTheDots();
     }
 
+    // Connects all sequential location points into 
+    // a single path.
     function connectTheDots(){
+      
       // Draw point-to-point connections
       svgPoints.each(function(){
         if($(this).next().length == 1){
@@ -153,7 +174,7 @@ drawPoints = function(map, data) {
     }
 
     // Provides a tracing highlight of user
-    // activiity for sequential points on hover
+    // activiity for sequential points on *hover*
     function addTrackingLines(){
 
       $("g").each(function(){
@@ -197,22 +218,5 @@ drawPoints = function(map, data) {
       });
     }
   }
-
-  var mapLayer = {
-    onAdd: function(map) {
-      map.on('viewreset moveend', drawWithLoading);
-      drawWithLoading();
-    }
-  }
-
-  map.on('ready', function() {
-      points.forEach(function(point) {
-        pointTypes.set(point.type, {type: point.type, color: point.color});
-      })
-        
-      drawPointTypeSelection();
-
-      map.addLayer(mapLayer);
-    })
 
 }
