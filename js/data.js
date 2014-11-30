@@ -126,62 +126,59 @@ function formatData(data, style) {
     return formatDataByTimeOfDay(data);
   } else if (style == "difference") {
     return formatDataByTimeDifference(data);
+  } else {
+    DV.log("Error. Incorrent format style specified");
   }
+}
 
-  // Color-code points by time proximity
-  // to noon (middle of day);
-  function formatDataByTimeOfDay(points) {
-    return _.map(points, function(point, key) {
+// Color-code points by time proximity
+// to noon (middle of day);
+function formatDataByTimeOfDay(points) {
 
-      // Hour at which tracking event occured (0 -> 24)
-      var hours = moment(point.date, moment.ISO_8601).hours();
+  return _.map(points, function(point, key) {
 
-      // Hours since noon, normalized to 0 -> 1
-      var differenceScale = Math.abs(hours - 12) / 12;
+    // Hour at which tracking event occured (0 -> 24)
+    var hours = moment.unix(point.date).hours();
 
-      // Convert to corresponding color
-      var color = getColor(differenceScale);
+    // Hours since noon, normalized to 0 -> 1
+    var differenceScale = Math.abs(hours - 12) / 12;
 
-      return {
-        id: key,
-        date: point.date,
-        type: "Alex",
-        color: color,
-        latitude: point.latitude,
-        longitude: point.longitude,
-      }
-    })
-  };
+    // Convert to corresponding color
+    point.color = getColor(differenceScale);
+    point.type = "Alex";
+    
+    return point;    
+  })
+};
 
-  function formatDataByTimeDifference(points) {
+function formatDataByTimeDifference(points) {
 
-    // Time difference between current and previous point
-    return _.each(points, function(point, key) {
-      if (key == 0) {
-        return;
-      }
+  // Time difference between current and previous point
+  return _.each(points, function(point, key) {
+    if (key == 0) {
+      return;
+    }
 
-      var a = moment(point.date, moment.ISO_8601);
-      var b = moment(points[key - 1].date, moment.ISO_8601);
+    var a = moment(point.date, moment.ISO_8601);
+    var b = moment(points[key - 1].date, moment.ISO_8601);
 
-      var difference = a.diff(b);
+    var difference = a.diff(b);
 
-      // More recorded points = Green
-      // High Time Difference = Fewer recorded points -> Red
+    // More recorded points = Green
+    // High Time Difference = Fewer recorded points -> Red
 
-      // Map number to color. 0 = red, 1 = green
-      var color = getColor(difference / 160000);
+    // Map number to color. 0 = red, 1 = green
+    var color = getColor(difference / 160000);
 
-      points[key] = {
-        color: color,
-        id: key,
-        date: point.date,
-        latitude: point.latitude,
-        longitude: point.longitude,
-        type: "Alex",
-      };
-    })
-  }
+    points[key] = {
+      color: color,
+      id: key,
+      date: point.date,
+      latitude: point.latitude,
+      longitude: point.longitude,
+      type: "Alex",
+    };
+  })
 }
 
 function addUserId(data, userId){

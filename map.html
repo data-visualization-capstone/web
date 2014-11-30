@@ -155,6 +155,8 @@
         // Save data. The only time RAW and FILTERED data will be the same.
         raw_data = filtered_data = formatData(data, "time");
 
+        DV.log(filtered_data[0]);
+
         // Setup date ranger picker.
         initDateRangePicker(filtered_data[0].date, filtered_data[filtered_data.length - 1].date);
 
@@ -179,12 +181,8 @@
       // Clear map
       leaflet_map.remove();
 
-      // Re-initialize Leaflet map
-      leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
-
-      // Render points on graph
-      drawPoints(leaflet_map, data);
-
+      draw(filtered_data);
+      
       // @TODO:
       // Like, write this function
 
