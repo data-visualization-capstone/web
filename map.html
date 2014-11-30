@@ -120,6 +120,10 @@
 
     var filtered_data = null;
 
+    // Global variable for map object
+
+    var leaflet_map = null;
+
     /****************************
             Initialize
      ****************************/
@@ -163,14 +167,23 @@
     function draw(data){
       
       // Initialize Leaflet map
-      var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+      leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
       // Render points on graph
-      drawPoints(leaflet_map, data);        
+      drawPoints(leaflet_map, data);
     }
 
     // Apply updated data set
     function updateMap(data){
+
+      // Clear map
+      leaflet_map.remove();
+
+      // Re-initialize Leaflet map
+      leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+      // Render points on graph
+      drawPoints(leaflet_map, data);
 
       // @TODO:
       // Like, write this function
