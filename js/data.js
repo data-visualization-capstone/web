@@ -135,31 +135,25 @@ function formatData(data, style) {
 // to noon (middle of day);
 function formatDataByTimeOfDay(points) {
 
+  color_scale = [
+    "551800",// 23*,0,1,2
+    "551800", // 3*,4,5,6
+    "aa5939", // 7*,8,9,10
+    "d4ba6a", // 11*,12,13,14
+    "aa8e39", // 15*,16,17,18
+    "29506d"] // 19*,20,21,22
+
   return _.map(points, function(point, key) {
 
     // Hour at which tracking event occured (0 -> 24)
     var hours = moment.unix(point.date).hours();
 
-    // Hours since noon, normalized to 0 -> 1
-    // var differenceScale = Math.abs(hours - 12) / 12;
+    // Convert to 0->5 index
+    var i = Math.floor((hours + 1) / 4) % 6;
 
-    color_scale = [
-      "551800", // 4:00a : 23,0,1,2
-      "aa5939", // 8:00a : 3,4,5,6
-      "d4ba6a", // 12:00p : 7,8,9,10
-      "aa8e39", // 4:00p : 11,12,13,14
-      "29506d", // 8:00p : 15,16,17,18
-      "042037"] // 12:00a : 19,20,21,22
-
-    var i = Math.floor((hours + 1) / 4);
-
-    console.log(hours + " | " + i % 6);
-    
     // Convert to corresponding color
-    point.color = color_scale[i % 6];
+    point.color = color_scale[i];
     point.type = "Alex";
-
-
 
     return point;    
   })
