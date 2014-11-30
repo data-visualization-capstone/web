@@ -82,7 +82,7 @@
         map_key: "stephalee.aec4ccea",
         
         // Pixel width of scatterplot points
-        dot_width: 1.5,
+        dot_width: 4,
 
         // Toggle path "web" of connections
         map_show_connections : true,  
@@ -105,6 +105,19 @@
         // Take Sample from Data Set?
         // Randomly selects X entries. null for no sampling
         data_sample : 10000,
+
+        // Active data filters
+        filters : {
+
+          // Oldest plotted point
+          startdate: null,
+          
+          // Most recent plotted point
+          enddate: null,
+
+          // How should dots be colored?
+          colorBy: 'time',
+        }
     } 
 
     // Save the Raw Data.
@@ -182,7 +195,7 @@
       leaflet_map.remove();
 
       draw(filtered_data);
-      
+
       // @TODO:
       // Like, write this function
 

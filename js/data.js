@@ -141,12 +141,26 @@ function formatDataByTimeOfDay(points) {
     var hours = moment.unix(point.date).hours();
 
     // Hours since noon, normalized to 0 -> 1
-    var differenceScale = Math.abs(hours - 12) / 12;
+    // var differenceScale = Math.abs(hours - 12) / 12;
 
-    // Convert to corresponding color
-    point.color = getColor(differenceScale);
-    point.type = "Alex";
+    color_scale = [
+      "551800", // 4:00a : 23,0,1,2
+      "aa5939", // 8:00a : 3,4,5,6
+      "d4ba6a", // 12:00p : 7,8,9,10
+      "aa8e39", // 4:00p : 11,12,13,14
+      "29506d", // 8:00p : 15,16,17,18
+      "042037"] // 12:00a : 19,20,21,22
+
+    var i = Math.floor((hours + 1) / 4);
+
+    console.log(hours + " | " + i % 6);
     
+    // Convert to corresponding color
+    point.color = color_scale[i % 6];
+    point.type = "Alex";
+
+
+
     return point;    
   })
 };
