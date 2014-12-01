@@ -230,5 +230,4 @@ drawPoints = function(map, data) {
       });
     }
   }
-
 }

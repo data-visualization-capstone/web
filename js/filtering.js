@@ -27,43 +27,43 @@ showHide = function(selector) {
 // - should store month and corresponding number as key-value pair
 //    september : 9, october : 10, etc. 
 
-filter = function (month, day){
-  $("circle").each(function(){
-    var thisDate = $(this).attr("date").substring(0, 10).split("-"),
-        thisMonth = Number(thisDate[1]),
-        thisDay = Number(thisDate[2]);
+// filter = function (month, day){
+//   $("circle").each(function(){
+//     var thisDate = $(this).attr("date").substring(0, 10).split("-"),
+//         thisMonth = Number(thisDate[1]),
+//         thisDay = Number(thisDate[2]);
 
-    if(thisMonth != month && thisDay != day){
-      $(this).parent("g").hide();
-    } else if($(this).parent("g").css("display") == "none"){
-      $(this).parent("g").show();
-    }
-  });
-}
+//     if(thisMonth != month && thisDay != day){
+//       $(this).parent("g").hide();
+//     } else if($(this).parent("g").css("display") == "none"){
+//       $(this).parent("g").show();
+//     }
+//   });
+// }
 
-makeDays = function (month){
-  var thirtyDay = [9, 4, 6, 11];
-  for(i = 0; i < 3; i ++){
-    if(Number(month) == thirtyDay[i]){
-      for(i = 1; i < 31; i++){
-        $("#day").append("<option>"+i+"</option>");
-      }
-    } 
-    else if(Number(month) != 2){
-      for(i = 1; i < 30; i++){
-        $("#day").append("<option>"+i+"</option>");
-      }
-    }
-    else{
-      for(i = 1; i < 29; i++){
-        $("#day").append("<option>"+i+"</option>");
-      } 
-    }
-  }
-}
+// makeDays = function (month){
+//   var thirtyDay = [9, 4, 6, 11];
+//   for(i = 0; i < 3; i ++){
+//     if(Number(month) == thirtyDay[i]){
+//       for(i = 1; i < 31; i++){
+//         $("#day").append("<option>"+i+"</option>");
+//       }
+//     } 
+//     else if(Number(month) != 2){
+//       for(i = 1; i < 30; i++){
+//         $("#day").append("<option>"+i+"</option>");
+//       }
+//     }
+//     else{
+//       for(i = 1; i < 29; i++){
+//         $("#day").append("<option>"+i+"</option>");
+//       } 
+//     }
+//   }
+// }
 
-clearFilter = function (){
-  $("circle").parent("g").show();
-  $("#month").val("month");
-  $("#day").val("day");
-}
+// clearFilter = function (){
+//   $("circle").parent("g").show();
+//   $("#month").val("month");
+//   $("#day").val("day");
+// }

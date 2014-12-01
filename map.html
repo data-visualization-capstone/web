@@ -21,121 +21,121 @@
         </a>
       </div>
 
-    <div id="fmBody">
-      <div id="fmBodyInner">
-      
-        <!-- Select Data Sets -->
-        <div id="toggles"></div>
-        <a href="#" id="toggleConnections">Toggle Connections</a> 
+      <div id="fmBody">
+        <div id="fmBodyInner">
+        
+          <!-- Select Data Sets -->
+          <div id="toggles"></div>
+          <a href="#" id="toggleConnections">Toggle Connections</a> 
 
-        <section id="dateSection">
-          <h4>DATE FILTERS</h4> 
+          <section id="dateSection">
+            <h4>DATE FILTERS</h4> 
 
-          <!-- Toggle Date Filtering -->
+            <!-- Toggle Date Filtering -->
 
-          <input checked type="radio" name="date" value="anyDate"> 
-          <label>Any Date</label>           
+            <input checked type="radio" name="date" value="anyDate"> 
+            <label>Any Date</label>           
 
-          <br>
-          
-          <input type="radio" name="date" value="dateRange">        
-          <label>Date Range</label>
+            <br>
+            
+            <input type="radio" name="date" value="dateRange">        
+            <label>Date Range</label>
 
-          <!-- Filter Data -->
-          <div class="demo" style="margin: 20px 0;">
-            Filter by date: <input id="date-range" value="" style="width: 100%;">
-          </div>
-
-          <!-- SELECT RANGE FOR POINTS -->
-<!--           <div class="inputGroup">
-
-            <div class="dateRangeSelector">
-              <label>From</label>
-              <input type="date" id="dateFrom">
+            <!-- Filter Data -->
+            <div class="demo" style="margin: 20px 0;">
+              Filter by date: <input id="date-range" value="" style="width: 100%;">
             </div>
 
-            <div class="dateRangeSelector">
-              <label>To</label>
-              <input type="date" id="dateTo">
+            <!-- SELECT RANGE FOR POINTS -->
+  <!--           <div class="inputGroup">
+
+              <div class="dateRangeSelector">
+                <label>From</label>
+                <input type="date" id="dateFrom">
+              </div>
+
+              <div class="dateRangeSelector">
+                <label>To</label>
+                <input type="date" id="dateTo">
+              </div>
+
+            </div> -->
+
+            <div class="clear"></div>
+
+            <!-- SELECT SPECIFIC MONTH OR YEAR -->
+
+            <div class="inputGroup">
+              <input type="radio" name="date" value="monthOrYear">          
+              <label>Month or Year</label>
             </div>
 
-          </div> -->
+            <div class="inputGroup itemLeft">
+              <label>Month</label>
+              <select id="month">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>  
 
-          <div class="clear"></div>
+            <div class="inputGroup itemRight">
+              <label>Year</label>
+              <select id="month">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>           
+          </section>
 
-          <!-- SELECT SPECIFIC MONTH OR YEAR -->
+          <div class="divider clear"></div> 
 
-          <div class="inputGroup">
-            <input type="radio" name="date" value="monthOrYear">          
-            <label>Month or Year</label>
-          </div>
+          <section id="timeSection">
+            <h4>TIME FILTERS</h4>
 
-          <div class="inputGroup itemLeft">
-            <label>Month</label>
-            <select id="month">
-              <option>Any</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
-          </div>  
+            <div id="slider"></div>          
 
-          <div class="inputGroup itemRight">
-            <label>Year</label>
-            <select id="month">
-              <option>Any</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
-          </div>           
-        </section>
+            <div class="divider clear"></div>
 
-        <div class="divider clear"></div> 
+            <div class="inputGroup">
+              <input type="radio" name="time" value="heatmap" checked>            
+              <label>Heatmap</label>
+            </div>
 
-        <section id="timeSection">
-          <h4>TIME FILTERS</h4>
+            <div class="inputGroup" style="float:right;">
+              <input type="radio" name="time" value="chronological">            
+              <label>Chronological</label>
+            </div>        
 
-          <div id="slider"></div>          
+            <div class="inputGroup">
+              <input type="radio" name="time" value="plain">            
+              <label>Plain</label>
+            </div>
 
-          <div class="divider clear"></div>
-
-          <div class="inputGroup">
-            <input type="radio" name="time" value="heatmap" checked>            
-            <label>Heatmap</label>
-          </div>
-
-          <div class="inputGroup" style="float:right;">
-            <input type="radio" name="time" value="chronological">            
-            <label>Chronological</label>
-          </div>        
-
-          <div class="inputGroup">
-            <input type="radio" name="time" value="plain">            
-            <label>Plain</label>
-          </div>
-
-        </section>
+          </section>
+        </div>
       </div>
-    </div>
   </div>
 
   <div id='loading'></div>
@@ -167,7 +167,7 @@
         map_key: "stephalee.aec4ccea",
         
         // Pixel width of scatterplot points
-        dot_width: 1.5,
+        dot_width: 3,
 
         // Toggle path "web" of connections
         map_show_connections : true,  
@@ -189,7 +189,20 @@
 
         // Take Sample from Data Set?
         // Randomly selects X entries. null for no sampling
-        data_sample : 10000,
+        data_sample : null,
+
+        // Active data filters
+        filters : {
+
+          // Oldest plotted point
+          startdate: null,
+          
+          // Most recent plotted point
+          enddate: null,
+
+          // How should dots be colored?
+          colorBy: 'time',
+        }
     } 
 
     // Save the Raw Data.
@@ -204,6 +217,10 @@
     // This is whatever data is currently being plotted.
 
     var filtered_data = null;
+
+    // Global variable for map object
+
+    var leaflet_map = null;
 
     /****************************
             Initialize
@@ -236,6 +253,8 @@
         // Save data. The only time RAW and FILTERED data will be the same.
         raw_data = filtered_data = formatData(data, "time");
 
+        DV.log(filtered_data[0]);
+
         // Setup date ranger picker.
         initDateRangePicker(filtered_data[0].date, filtered_data[filtered_data.length - 1].date);
 
@@ -248,14 +267,19 @@
     function draw(data){
       
       // Initialize Leaflet map
-      var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+      leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
       // Render points on graph
-      drawPoints(leaflet_map, data);        
+      drawPoints(leaflet_map, data);
     }
 
     // Apply updated data set
     function updateMap(data){
+
+      // Clear map
+      leaflet_map.remove();
+
+      draw(filtered_data);
 
       // @TODO:
       // Like, write this function
