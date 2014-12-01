@@ -3,77 +3,149 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <link href="/css/jquery.nouislider.min.css" rel="stylesheet">     
   <link href="/css/style.css" rel="stylesheet" />
   <link href="/css/map.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/daterangepicker.css" />
+  <link href="/css/daterangepicker.css" rel="stylesheet"  />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
-  
-  <script src="js/app.js"></script>
 </head>
 <body class="loading">
   
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
-  <!-- Menu -->
-  <div id='selections' class="selections">
-    <div class='content'>
-      
-      <!-- Select Data Sets -->
+    <div id="filterMenu">
+      <div id="fmToggle">
+        <a href="javascript:void(0)">
+          <h2>Hide Filters</h2>
+        </a>
+      </div>
 
-      <div id="toggles"></div>
-      <a href="#" id="toggleConnections">Toggle Connections</a>
-
-      <div class="colo-scale" style="margin-top: 20px;">
-        <p>Color Guide:</p>
-        <span style="color: #551800">3:00am</span>
-        <span style="color: #aa5939">7:00am</span>
-        <span style="color: #d4ba6a">11:00am</span>
-        <span style="color: #aa8e39">3:00pm</span>
-        <span style="color: #29506d">7:00pm</span>
-        <span style="color: #551800">11:00pm</span>
+      <div id="fmBody">
+        <div id="fmBodyInner">
         
+          <!-- Select Data Sets -->
+          <div id="toggles"></div>
+          <a href="#" id="toggleConnections">Toggle Connections</a> 
+
+          <section id="dateSection">
+            <h4>DATE FILTERS</h4> 
+
+            <!-- Toggle Date Filtering -->
+
+            <input checked type="radio" name="date" value="anyDate"> 
+            <label>Any Date</label>           
+
+            <br>
+            
+            <input type="radio" name="date" value="dateRange">        
+            <label>Date Range</label>
+
+            <!-- Filter Data -->
+            <div class="demo" style="margin: 20px 0;">
+              Filter by date: <input id="date-range" value="" style="width: 100%;">
+            </div>
+
+            <!-- SELECT RANGE FOR POINTS -->
+  <!--           <div class="inputGroup">
+
+              <div class="dateRangeSelector">
+                <label>From</label>
+                <input type="date" id="dateFrom">
+              </div>
+
+              <div class="dateRangeSelector">
+                <label>To</label>
+                <input type="date" id="dateTo">
+              </div>
+
+            </div> -->
+
+            <div class="clear"></div>
+
+            <!-- SELECT SPECIFIC MONTH OR YEAR -->
+
+            <div class="inputGroup">
+              <input type="radio" name="date" value="monthOrYear">          
+              <label>Month or Year</label>
+            </div>
+
+            <div class="inputGroup itemLeft">
+              <label>Month</label>
+              <select id="month">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>  
+
+            <div class="inputGroup itemRight">
+              <label>Year</label>
+              <select id="month">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>           
+          </section>
+
+          <div class="divider clear"></div> 
+
+          <section id="timeSection">
+            <h4>TIME FILTERS</h4>
+
+            <div id="slider"></div>          
+
+            <div class="divider clear"></div>
+
+            <div class="inputGroup">
+              <input type="radio" name="time" value="heatmap" checked>            
+              <label>Heatmap</label>
+            </div>
+
+            <div class="inputGroup" style="float:right;">
+              <input type="radio" name="time" value="chronological">            
+              <label>Chronological</label>
+            </div>        
+
+            <div class="inputGroup">
+              <input type="radio" name="time" value="plain">            
+              <label>Plain</label>
+            </div>
+
+          </section>
+        </div>
       </div>
-
-      </div>
-
-      <!-- Filter Data -->
-
-      <!-- <label>Filter By:</label>
-      <select id="month">
-        <option>All Months</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-      </select>
-      <select id="day">
-        <option>All Days</option>
-      </select> -->
-
-      <div class="demo" style="margin: 20px 0;">
-        Filter by date:
-        <input id="date-range" value="" style="width: 100%;">
-      </div>
-      
-      <!-- <div>
-        <button id="dateFilter">Filter</button>
-        <button onclick="clearFilter()">Clear Filter</button>
-      </div> -->
-    </div>
   </div>
 
   <div id='loading'></div>
 
+  <script src="js/app.js"></script>
+  <script src="/lib/xml.min.js"></script>
+  <script src="js/jquery.nouislider.min.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+  <script src="/lib/jquery.daterangepicker.js"></script>
+  
   <script>
 
     /****************************
@@ -236,6 +308,16 @@
       return filtered_data;
     }
 
+    // Initialize slider for time range
+    $("#slider").noUiSlider({
+      start: [20, 80],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 100
+      }
+    });
+
     /****************************
             Interaction
      ****************************/    
@@ -293,7 +375,5 @@
 
 
   </script>
-  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-  <script src="/lib/jquery.daterangepicker.js"></script>
 </body>
 </html>
