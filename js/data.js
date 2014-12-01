@@ -135,7 +135,7 @@ function formatData(data, style) {
 // to noon (middle of day);
 function formatDataByTimeOfDay(points) {
 
-  color_scale = [
+  var color_scale = [
     "551800",// 23*,0,1,2
     "551800", // 3*,4,5,6
     "aa5939", // 7*,8,9,10
