@@ -32,14 +32,17 @@
             <h4>DATE FILTERS</h4> 
 
             <!-- Toggle Date Filtering -->
+            <div class="checkbox_outer">
+              <input checked type="radio" name="date" value="anyDate"> 
+              <label>Any Date</label>           
+            </div>
 
-            <input checked type="radio" name="date" value="anyDate"> 
-            <label>Any Date</label>           
 
-            <br>
             
-            <input type="radio" name="date" value="dateRange">        
-            <label>Date Range</label>
+            <div class="checkbox_outer">
+              <input checked type="radio" name="date" value="dateRange"> 
+              <label>Date Range</label>           
+            </div>
 
             <!-- Filter Data -->
             <div class="demo" style="margin: 20px 0;">
@@ -65,7 +68,7 @@
 
             <!-- SELECT SPECIFIC MONTH OR YEAR -->
 
-            <div class="inputGroup">
+            <div class="checkbox_outer">
               <input type="radio" name="date" value="monthOrYear">          
               <label>Month or Year</label>
             </div>
@@ -119,18 +122,24 @@
             <div class="divider"></div>
 
             <div class="inputGroup">
-              <input type="radio" name="time" value="heatmap" checked>            
-              <label>Heatmap</label>
+              <div class="checkbox_outer">
+                <input type="radio" name="time" value="heatmap" checked>     
+                <label>Heatmap</label>
+              </div>
             </div>
 
             <div class="inputGroup" style="float:right;">
-              <input type="radio" name="time" value="chronological">            
-              <label>Chronological</label>
+              <div class="checkbox_outer">
+                <input type="radio" name="time" value="chronological">            
+                <label>Chronological</label>
+              </div>
             </div>        
 
             <div class="inputGroup">
-              <input type="radio" name="time" value="plain">            
-              <label>Plain</label>
+              <div class="checkbox_outer">
+                <input type="radio" name="time" value="plain">            
+                <label>Plain</label>
+              </div>
             </div>
 
           </section>

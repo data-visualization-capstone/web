@@ -59,13 +59,13 @@ nav#header ul#deskMenu li a:hover{
 	padding-bottom:5px;
 }
 nav#header ul#mobileMenu{
-	width: 200px;
+	width: 400px;
 	height: 100%;
 	background-color: #343434;
 	top:70px;
 	position: absolute;
 	z-index: 4;
-	right:-240px;
+	right:-400px;
 	padding-left: 0px;
 	display: none;
 }

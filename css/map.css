@@ -122,7 +122,6 @@ body{
 /****************************
         FILTER UI
 ****************************/   
-
 #filterMenu{
   width: 270px;
   background-color: #F0F0F0;
@@ -191,6 +190,9 @@ body{
   display: inline-block;
 }
 
+div.checkbox_outer{
+  margin-bottom: 10px;
+}
 /* ---- Checkboxes ---- */
 
 /* Base for label styling */
@@ -259,7 +261,6 @@ body{
   border: 1px dotted blue;
 }
 /* ==== End Checkboxes ==== */
-
 @media (min-width: 480px) {
   .selections .content {
     display: block;
