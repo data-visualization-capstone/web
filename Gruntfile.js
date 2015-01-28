@@ -39,6 +39,9 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      options : {
+        atBegin: true,
+      },
       concat_js: {
         files: [
           'bower_components/**/*.js',
