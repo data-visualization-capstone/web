@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/jquery.nouislider.min.css" rel="stylesheet">     
-  <link href="/css/style.css" rel="stylesheet" />
   <link href="/css/map.css" rel="stylesheet" />
   <link href="/css/daterangepicker.css" rel="stylesheet"  />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
@@ -23,7 +22,7 @@
 
       <div id="fmBody">
         <div id="fmBodyInner">
-        
+        <form action="#">
           <!-- Select Data Sets -->
           <div id="toggles"></div>
           <!-- <a href="#" id="toggleConnections">Toggle Connections</a>  -->
@@ -33,14 +32,14 @@
 
             <!-- Toggle Date Filtering -->
             <div class="checkbox_outer">
-              <input checked type="radio" name="date" value="anyDate"> 
+              <input checked type="checkbox" name="date" value="anyDate"> 
               <label>Any Date</label>           
             </div>
 
 
             
             <div class="checkbox_outer">
-              <input checked type="radio" name="date" value="dateRange"> 
+              <input checked type="checkbox" name="date" value="dateRange"> 
               <label>Date Range</label>           
             </div>
 
@@ -69,7 +68,7 @@
             <!-- SELECT SPECIFIC MONTH OR YEAR -->
 
             <div class="checkbox_outer">
-              <input type="radio" name="date" value="monthOrYear">          
+              <input type="checkbox" name="date" value="monthOrYear">          
               <label>Month or Year</label>
             </div>
 
@@ -123,27 +122,28 @@
 
             <div class="inputGroup">
               <div class="checkbox_outer">
-                <input type="radio" name="time" value="heatmap" checked>     
+                <input type="checkbox" name="time" value="heatmap" checked>     
                 <label>Heatmap</label>
               </div>
             </div>
 
             <div class="inputGroup" style="float:right;">
               <div class="checkbox_outer">
-                <input type="radio" name="time" value="chronological">            
+                <input type="checkbox" name="time" value="chronological">            
                 <label>Chronological</label>
               </div>
             </div>        
 
             <div class="inputGroup">
               <div class="checkbox_outer">
-                <input type="radio" name="time" value="plain">            
+                <input type="checkbox" name="time" value="plain">            
                 <label>Plain</label>
               </div>
             </div>
 
           </section>
         </div>
+      </form>
       </div>
   </div>
 

@@ -196,21 +196,21 @@ div.checkbox_outer{
 /* ---- Checkboxes ---- */
 
 /* Base for label styling */
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
 }
-[type="radio"]:not(:checked) + label,
-[type="radio"]:checked + label {
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
 }
 
 /* checkbox aspect */
-[type="radio"]:not(:checked) + label:before,
-[type="radio"]:checked + label:before {
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
   left:0; top: 2px;
@@ -220,8 +220,8 @@ div.checkbox_outer{
   border-radius: 50%;
 }
 /* checked mark aspect */
-[type="radio"]:not(:checked) + label:after,
-[type="radio"]:checked + label:after {
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
   content: '';
   position: absolute;
   top: 6px; left: 4px;
@@ -234,30 +234,30 @@ div.checkbox_outer{
   transition: all .2s;
 }
 /* checked mark aspect changes */
-[type="radio"]:not(:checked) + label:after {
+[type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
   transform: scale(0);
 }
-[type="radio"]:checked + label:after {
+[type="checkbox"]:checked + label:after {
   opacity: 1;
   transform: scale(1);
 }
 /* disabled checkbox */
-[type="radio"]:disabled:not(:checked) + label:before,
-[type="radio"]:disabled:checked + label:before {
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
   box-shadow: none;
   border-color: #bbb;
   background-color: #ddd;
 }
-[type="radio"]:disabled:checked + label:after {
+[type="checkbox"]:disabled:checked + label:after {
   color: #999;
 }
-[type="radio"]:disabled + label {
+[type="checkbox"]:disabled + label {
   color: #aaa;
 }
 /* accessibility */
-[type="radio"]:checked:focus + label:before,
-[type="radio"]:not(:checked):focus + label:before {
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
   border: 1px dotted blue;
 }
 /* ==== End Checkboxes ==== */
