@@ -15,8 +15,12 @@ function loadData(source, next) {
     loadXML(next);
   
   // API
-  } else {
+  } else if (source == "api"){
     loadAPI(next);
+  
+  // Otherwise, throw alert.
+  } else {
+    DV.log("Data Source Not Defined.");
   }
 }
 
