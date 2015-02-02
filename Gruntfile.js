@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         tasks: ['concat']
       },
       compile_less: {
-        files: ['css/*.less'],
+        files: ['less/*.less'],
         tasks: ['less']
       },
     },

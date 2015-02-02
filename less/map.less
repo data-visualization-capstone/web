@@ -1,7 +1,9 @@
 #map-content {
-
   body{
     font-family: "Open Sans";
+  }
+  .clear{
+    clear:both;
   }
   .point-cell {
     fill: none;
@@ -121,7 +123,6 @@
   /****************************
           FILTER UI
   ****************************/   
-
   #filterMenu{
     width: 270px;
     background-color: #F0F0F0;
@@ -130,19 +131,24 @@
     top:40px;
     left: 40px;
   }
+  #filterMenu h4{
+    margin: 10px 0px;
+  }
   #fmToggle{
     background-color: #FFF;
     width: 100%;
-    padding: 5px 15px;
+    padding: 10px 15px;
     box-sizing:border-box;
     border-radius: 4px 4px 0px 0px;
   }
   #fmToggle a{
     text-decoration: none;
   }
-  #fmToggle h2{
+  #fmToggle h4{
     margin: 0px;
     color: #000;
+    font-size: 16px;
+
   }
   #fmBody{
     position: relative;
@@ -184,6 +190,78 @@
   #timeSection .inputGroup{
     display: inline-block;
   }
+
+  div.checkbox_outer{
+    margin-bottom: 10px;
+  }
+  /* ---- Checkboxes ---- */
+
+  /* Base for label styling */
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+  }
+
+  /* checkbox aspect */
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left:0; top: 2px;
+    width: 16px; height: 16px;
+    border: 2px solid #000;
+    background: transparent;
+    border-radius: 50%;
+  }
+  /* checked mark aspect */
+  [type="checkbox"]:not(:checked) + label:after,
+  [type="checkbox"]:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 6px; left: 4px;
+    font-size: 14px;
+    height: 12px;
+    width: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    color: #09ad7e;
+    transition: all .2s;
+  }
+  /* checked mark aspect changes */
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* disabled checkbox */
+  [type="checkbox"]:disabled:not(:checked) + label:before,
+  [type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+  }
+  [type="checkbox"]:disabled:checked + label:after {
+    color: #999;
+  }
+  [type="checkbox"]:disabled + label {
+    color: #aaa;
+  }
+  /* accessibility */
+  [type="checkbox"]:checked:focus + label:before,
+  [type="checkbox"]:not(:checked):focus + label:before {
+    border: 1px dotted blue;
+  }
+  /* ==== End Checkboxes ==== */
   @media (min-width: 480px) {
     .selections .content {
       display: block;
