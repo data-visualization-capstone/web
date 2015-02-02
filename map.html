@@ -3,12 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/css/jquery.nouislider.min.css" rel="stylesheet">     
-  <link href="/css/map.css" rel="stylesheet" />
-  <link href="/css/daterangepicker.css" rel="stylesheet"  />
+  <link href="/css/style.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
 </head>
-<body class="loading">
+<body id="map-content" class="loading">
   
   <!-- Leaflet.js map -->
   <div id='map'></div>
@@ -190,7 +188,7 @@
 
         // Define our data source ('json', 'xml', 'api')
         data_source : "json",
-        data_file   : json_files[0],
+        data_file   : "data/json/alex.json",
 
         // Trim Data Set?
         // Takes first X data entries. null for no trim
@@ -198,7 +196,7 @@
 
         // Take Sample from Data Set?
         // Randomly selects X entries. null for no sampling
-        data_sample : null,
+        data_sample : 3000,
 
         // Active data filters
         filters : {

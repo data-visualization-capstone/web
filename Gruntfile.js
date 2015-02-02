@@ -23,6 +23,8 @@ module.exports = function(grunt) {
           'js/coloring.js',
           'js/graphing.js',
           'js/utils.js',
+
+          // Locally Stored Lib
           'lib/xml.min.js'
         ],
         dest: 'js/app.js',
@@ -34,11 +36,18 @@ module.exports = function(grunt) {
           paths: ["css"],
         },
         files: {
-        "css/style.css": "css/style.less"
+        "css/style.css": "less/style.less"
         }
       }
     },
     watch: {
+      
+      // Concat files at startup
+      options : {
+        atBegin: true,
+      },
+
+      // Concat all JS
       concat_js: {
         files: [
           'bower_components/**/*.js',
@@ -47,7 +56,7 @@ module.exports = function(grunt) {
         tasks: ['concat']
       },
       compile_less: {
-        files: ['css/*.less'],
+        files: ['less/*.less'],
         tasks: ['less']
       },
     },
