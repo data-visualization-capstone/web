@@ -17,9 +17,9 @@ module.exports = function(grunt) {
           'bower_components/d3/d3.js',
 
           // External Libraries (stored in version control)
-          'lib/jquery.nouislider.min.js',
-          'lib/jquery.daterangepicker.js',
-          'lib/xml.min.js',
+          'js/lib/jquery.nouislider.min.js',
+          'js/lib/jquery.daterangepicker.js',
+          'js/lib/xml.min.js',
           
           // Our JS Files
           'js/api.js',
