@@ -17,7 +17,7 @@
   <div id="filterMenu">
     <div id="fmToggle">
       <a href="javascript:void(0)">
-        <h4>Hide Filters</h4>
+        <h4>Data Filters</h4>
       </a>
     </div>
 
@@ -25,12 +25,12 @@
       <div id="filterMenuBodyInner">
         <form action="#">
           <!-- Select Data Sets -->
-          <div id="toggles"></div>
-
+          <div id="toggles" style="display: none;"></div>
+  
           <section id="dateSection">
-            <h4>DATE FILTERS</h4>
+            <h4>by Date:</h4>
 
-            <!-- Toggle Date Filtering -->
+            <!-- Toggle Date Filtering
             <div class="checkbox_outer">
               <input checked type="checkbox" name="date" value="anyDate">
               <label>Any Date</label>
@@ -39,11 +39,10 @@
             <div class="checkbox_outer">
               <input checked type="checkbox" name="date" value="dateRange">
               <label>Date Range</label>
-            </div>
+            </div>-->
 
             <!-- Filter Data -->
-            <div class="demo" style="margin: 20px 0;">
-              Filter by date:
+            <div class="demo">
               <input id="date-range" value="" style="width: 100%;">
             </div>
 
@@ -51,11 +50,13 @@
             <div class="divider clear"></div>
 
             <section id="timeSection">
-              <h4>TIME FILTERS</h4>
+              <h4>by Time:</h4>
 
               <div id="slider"></div>
 
               <div class="divider"></div>
+
+              <h4>MAP TYPE</h4>
 
               <div class="inputGroup">
                 <div class="checkbox_outer">

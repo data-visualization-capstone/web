@@ -87,24 +87,6 @@ function updateMap(data) {
         Filters
  ****************************/
 
-// Subset "filtered_data" by the provided start & end date.
-function filterByDate(startdate, enddate) {
-
-  // DV.log("\nFiltering by date range: " + startdate + " to " + enddate);
-
-  filtered_data = _.filter(raw_data, function(p) {
-
-    // Passes filter if:
-    a = startdate < p.date;
-    b = enddate > p.date;
-    return a && b;
-  })
-
-  DV.log("\n" + raw_data.length + " points filtered by time range to " + filtered_data.length + " points");
-
-  return filtered_data;
-}
-
 // Initialize slider for time range
 $("#slider").noUiSlider({
   start: [20, 80],
