@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/style.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <title>Data Visualization Capstone</title>
 </head>
 <body id="map-content" class="loading">
   
@@ -23,7 +24,6 @@
         <form action="#">
           <!-- Select Data Sets -->
           <div id="toggles"></div>
-          <!-- <a href="#" id="toggleConnections">Toggle Connections</a>  -->
 
           <section id="dateSection">
             <h4>DATE FILTERS</h4> 
@@ -34,8 +34,6 @@
               <label>Any Date</label>           
             </div>
 
-
-            
             <div class="checkbox_outer">
               <input checked type="checkbox" name="date" value="dateRange"> 
               <label>Date Range</label>           
@@ -46,68 +44,13 @@
               Filter by date: <input id="date-range" value="" style="width: 100%;">
             </div>
 
-            <!-- SELECT RANGE FOR POINTS -->
-  <!--           <div class="inputGroup">
-
-              <div class="dateRangeSelector">
-                <label>From</label>
-                <input type="date" id="dateFrom">
-              </div>
-
-              <div class="dateRangeSelector">
-                <label>To</label>
-                <input type="date" id="dateTo">
-              </div>
-
-            </div> -->
-
             <div class="clear"></div>
 
             <!-- SELECT SPECIFIC MONTH OR YEAR -->
-
             <div class="checkbox_outer">
               <input type="checkbox" name="date" value="monthOrYear">          
               <label>Month or Year</label>
             </div>
-
-            <div class="inputGroup itemLeft">
-              <label>Month</label>
-              <select id="month">
-                <option>Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-            </div>  
-
-            <div class="inputGroup itemRight">
-              <label>Year</label>
-              <select id="month">
-                <option>Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-            </div>           
-          </section>
 
           <div class="divider clear"></div> 
 
@@ -148,11 +91,8 @@
   <div id='loading'></div>
 
   <script src="js/app.js"></script>
-  <script src="/lib/xml.min.js"></script>
-  <script src="js/jquery.nouislider.min.js"></script>
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-  <script src="/lib/jquery.daterangepicker.js"></script>
-  
+
   <script>
 
     /****************************
