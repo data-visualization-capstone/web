@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,78 +8,80 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <title>Data Visualization Capstone</title>
 </head>
+
 <body id="map-content" class="loading">
-  
+
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
-    <div id="filterMenu">
-      <div id="fmToggle">
-        <a href="javascript:void(0)">
-          <h4>Hide Filters</h4>
-        </a>
-      </div>
+  <div id="filterMenu">
+    <div id="fmToggle">
+      <a href="javascript:void(0)">
+        <h4>Hide Filters</h4>
+      </a>
+    </div>
 
-      <div id="filterMenuBody">
-        <div id="filterMenuBodyInner">
+    <div id="filterMenuBody">
+      <div id="filterMenuBodyInner">
         <form action="#">
           <!-- Select Data Sets -->
           <div id="toggles"></div>
 
           <section id="dateSection">
-            <h4>DATE FILTERS</h4> 
+            <h4>DATE FILTERS</h4>
 
             <!-- Toggle Date Filtering -->
             <div class="checkbox_outer">
-              <input checked type="checkbox" name="date" value="anyDate"> 
-              <label>Any Date</label>           
+              <input checked type="checkbox" name="date" value="anyDate">
+              <label>Any Date</label>
             </div>
 
             <div class="checkbox_outer">
-              <input checked type="checkbox" name="date" value="dateRange"> 
-              <label>Date Range</label>           
+              <input checked type="checkbox" name="date" value="dateRange">
+              <label>Date Range</label>
             </div>
 
             <!-- Filter Data -->
             <div class="demo" style="margin: 20px 0;">
-              Filter by date: <input id="date-range" value="" style="width: 100%;">
+              Filter by date:
+              <input id="date-range" value="" style="width: 100%;">
             </div>
 
 
-          <div class="divider clear"></div> 
+            <div class="divider clear"></div>
 
-          <section id="timeSection">
-            <h4>TIME FILTERS</h4>
+            <section id="timeSection">
+              <h4>TIME FILTERS</h4>
 
-            <div id="slider"></div>          
+              <div id="slider"></div>
 
-            <div class="divider"></div>
+              <div class="divider"></div>
 
-            <div class="inputGroup">
-              <div class="checkbox_outer">
-                <input type="checkbox" name="time" value="heatmap" checked>     
-                <label>Heatmap</label>
+              <div class="inputGroup">
+                <div class="checkbox_outer">
+                  <input type="checkbox" name="time" value="heatmap" checked>
+                  <label>Heatmap</label>
+                </div>
               </div>
-            </div>
 
-            <div class="inputGroup" style="float:right;">
-              <div class="checkbox_outer">
-                <input type="checkbox" name="time" value="chronological">            
-                <label>Chronological</label>
+              <div class="inputGroup" style="float:right;">
+                <div class="checkbox_outer">
+                  <input type="checkbox" name="time" value="chronological">
+                  <label>Chronological</label>
+                </div>
               </div>
-            </div>        
 
-            <div class="inputGroup">
-              <div class="checkbox_outer">
-                <input type="checkbox" name="time" value="plain">            
-                <label>Plain</label>
+              <div class="inputGroup">
+                <div class="checkbox_outer">
+                  <input type="checkbox" name="time" value="plain">
+                  <label>Plain</label>
+                </div>
               </div>
-            </div>
 
-          </section>
-        </div>
-      </form>
+            </section>
       </div>
+      </form>
+    </div>
   </div>
 
   <div id='loading'></div>
@@ -87,10 +90,9 @@
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
 
   <script>
-
     /****************************
-           Testing Data
-     ****************************/
+               Testing Data
+         ****************************/
 
     var json_files = ["/data/json/alex.json", "/data/json/2014-07-01-2014-07-08.json", "/data/json/2014-03-15-2014-03-18.json", "/data/json/2014-05-01-2014-05-15.json"]
 
@@ -99,51 +101,54 @@
     /****************************
              Settings
      ****************************/
-    
+
     // Map settings
     var options = {
-        
-        // Mapbox's style key for applying map designs
-        map_key: "stephalee.aec4ccea",
-        
-        // Pixel width of scatterplot points
-        dot_width: 3,
 
-        // Toggle path "web" of connections
-        map_show_connections : true,  
-        
-        // Should the map connect-the-dots upon hovering
-        // over a specific point
-        show_paths_on_hover: false,
+      // Mapbox's style key for applying map designs
+      map_key: "stephalee.aec4ccea",
 
-        // Define default map viewport: Top left & bottom right coordinates
-        viewport: [[42.329077, -71.108871], [42.374200, -71.032072]],
+      // Pixel width of scatterplot points
+      dot_width: 3,
 
-        // Define our data source ('json', 'xml', 'api')
-        data_source : "json",
-        data_file   : "data/json/alex.json",
+      // Toggle path "web" of connections
+      map_show_connections: true,
 
-        // Trim Data Set?
-        // Takes first X data entries. null for no trim
-        data_splice : null,
+      // Should the map connect-the-dots upon hovering
+      // over a specific point
+      show_paths_on_hover: false,
 
-        // Take Sample from Data Set?
-        // Randomly selects X entries. null for no sampling
-        data_sample : 3000,
+      // Define default map viewport: Top left & bottom right coordinates
+      viewport: [
+        [42.329077, -71.108871],
+        [42.374200, -71.032072]
+      ],
 
-        // Active data filters
-        filters : {
+      // Define our data source ('json', 'xml', 'api')
+      data_source: "json",
+      data_file: "data/json/alex.json",
 
-          // Oldest plotted point
-          startdate: null,
-          
-          // Most recent plotted point
-          enddate: null,
+      // Trim Data Set?
+      // Takes first X data entries. null for no trim
+      data_splice: null,
 
-          // How should dots be colored?
-          colorBy: 'time',
-        }
-    } 
+      // Take Sample from Data Set?
+      // Randomly selects X entries. null for no sampling
+      data_sample: 3000,
+
+      // Active data filters
+      filters: {
+
+        // Oldest plotted point
+        startdate: null,
+
+        // Most recent plotted point
+        enddate: null,
+
+        // How should dots be colored?
+        colorBy: 'time',
+      }
+    }
 
     // Save the Raw Data.
     // Since we'll be manipulating, and filtering our
@@ -165,31 +170,33 @@
     /****************************
             Initialize
      ****************************/
-    
+
     // On document ready
     $(function() {
 
       // Load location data.
-      loadData(options.data_source, function(data){
+      loadData(options.data_source, function(data) {
 
         // Splice the data set for efficiency?
-        if (options.data_splice){
+        if (options.data_splice) {
           data = data.splice(0, options.data_splice);
         }
 
         // Sample the data set for efficiency?
-        if (options.data_sample){
-          
+        if (options.data_sample) {
+
           // Take random sample of data
           data = _.sample(data, options.data_sample);
 
           // Sort by date
-          data = _.sortBy(data, function(p){ return p.date });
+          data = _.sortBy(data, function(p) {
+            return p.date
+          });
         }
 
         // Check for missing keys
         data = removeInvalidData(data, ["latitude", "longitude", "date"])
-        
+
         // Save data. The only time RAW and FILTERED data will be the same.
         raw_data = filtered_data = formatData(data, "time");
 
@@ -202,10 +209,10 @@
         draw(filtered_data);
       })
     });
-  
+
     // Initialize map and plot data
-    function draw(data){
-      
+    function draw(data) {
+
       // Initialize Leaflet map
       leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
@@ -214,7 +221,7 @@
     }
 
     // Apply updated data set
-    function updateMap(data){
+    function updateMap(data) {
 
       // Clear map
       leaflet_map.remove();
@@ -228,14 +235,14 @@
 
     /****************************
             Filters
-     ****************************/    
+     ****************************/
 
     // Subset "filtered_data" by the provided start & end date.
-    function filterByDate(startdate, enddate){
+    function filterByDate(startdate, enddate) {
 
       // DV.log("\nFiltering by date range: " + startdate + " to " + enddate);
 
-      filtered_data = _.filter(raw_data, function(p){
+      filtered_data = _.filter(raw_data, function(p) {
 
         // Passes filter if:
         a = startdate < p.date;
@@ -260,10 +267,10 @@
 
     /****************************
             Interaction
-     ****************************/    
+     ****************************/
 
     // Show/Hide sequential lines
-    $("#toggleConnections").click(function(){
+    $("#toggleConnections").click(function() {
       options.map_show_connections = !options.map_show_connections;
       d3.selectAll("line").style("opacity", options.map_show_connections ? 1 : 0);
     });
@@ -273,7 +280,7 @@
       https://github.com/longbill/jquery-date-range-picker
      ******************************/
 
-    function initDateRangePicker(startdate, enddate){
+    function initDateRangePicker(startdate, enddate) {
 
       // Set String Format for Moment.js dates
       var format = "MMMM Do YYYY";
@@ -292,18 +299,18 @@
       // Initialize datepicker element
       var datepicker = $('#date-range').dateRangePicker({
         format: format,
-        startDate : start.format(format),
-        endDate : end.format(format),
+        startDate: start.format(format),
+        endDate: end.format(format),
         autoClose: true,
-        shortcuts : {
+        shortcuts: {
           'prev-days': [3, 7, 30, 60],
-          'prev': ['week','month','year'],
-          'next-days':null,
+          'prev': ['week', 'month', 'year'],
+          'next-days': null,
           'next': null,
         },
 
-      // Bind callback when date range is updated
-      }).bind('datepicker-change',function(event, obj){
+        // Bind callback when date range is updated
+      }).bind('datepicker-change', function(event, obj) {
 
         DV.log("\n Date Range Updated:");
         DV.log(obj.value);
@@ -312,8 +319,7 @@
         updateMap(filterByDate(moment(obj.date1).unix(), moment(obj.date2).unix()));
       })
     };
-
-
   </script>
 </body>
+
 </html>
