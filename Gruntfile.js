@@ -22,6 +22,7 @@ module.exports = function(grunt) {
           'js/lib/xml.min.js',
           
           // Our JS Files
+          'js/map.js',
           'js/api.js',
           'js/data.js',
           'js/filtering.js',
