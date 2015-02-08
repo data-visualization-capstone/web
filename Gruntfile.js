@@ -17,20 +17,26 @@ module.exports = function(grunt) {
           'bower_components/d3/d3.js',
 
           // External Libraries (stored in version control)
-          'js/lib/jquery.nouislider.min.js',
-          'js/lib/jquery.daterangepicker.js',
-          'js/lib/xml.min.js',
-          
+          'lib/ui/jquery.nouislider.min.js',
+          'lib/ui/jquery.daterangepicker.js',
+          'lib/xml.min.js',
+
+          // For Heatmap
+          // 'lib/heatmap/shCore.js',
+  		  // 'lib/heatmap/shBrushJScript.js',
+   	      // 'lib/heatmap/webgl-heatmap.js',
+          // 'lib/heatmap/webgl-heatmap-leaflet.js',
+
           // Our JS Files
-          'js/map.js',
-          'js/api.js',
-          'js/data.js',
-          'js/filtering.js',
-          'js/coloring.js',
-          'js/graphing.js',
-          'js/utils.js',
+          'src/js/map.js',
+          'src/js/api.js',
+          'src/js/data.js',
+          'src/js/filtering.js',
+          'src/js/coloring.js',
+          'src/js/graphing.js',
+          'src/js/utils.js',
         ],
-        dest: 'js/app.js',
+        dest: 'src/js/app.js',
       },
     },
     less: {
@@ -39,7 +45,7 @@ module.exports = function(grunt) {
           paths: ["css"],
         },
         files: {
-        "css/style.css": "less/style.less"
+        "src/css/style.css": "src/less/style.less"
         }
       }
     },
@@ -54,12 +60,12 @@ module.exports = function(grunt) {
       concat_js: {
         files: [
           'bower_components/**/*.js',
-          'js/**/*.js',
+          'src/js/**/*.js',
         ],
         tasks: ['concat']
       },
       compile_less: {
-        files: ['less/*.less'],
+        files: ['src/less/*.less'],
         tasks: ['less']
       },
     },
