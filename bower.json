@@ -23,6 +23,5 @@
     "moment": "~2.8.4",
     "underscore": "~1.7.0",
     "d3": "~3.4.13",
-    "leaflet-div-heatmap": "git@github.com:dpiccone/leaflet-div-heatmap.git"
   }
 }
