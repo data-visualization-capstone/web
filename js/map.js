@@ -68,6 +68,27 @@ function draw(data) {
 
   // Render points on graph
   drawPoints(leaflet_map, data);
+
+  var heatmap = new L.DivHeatmapLayer();
+
+  heatmap.addTo(leaflet_map);
+  
+  heatmap.testAddData();
+
+  addLayers();
+}
+
+// Add layers to map
+function addLayers(){
+  for (var i = options.layers.length - 1; i >= 0; i--) {
+    if (options.layers[i] == "heatmap"){
+
+    }
+
+    if (options.layers[i] == "scatterplot"){    
+
+    }
+  };
 }
 
 // Apply updated data set
