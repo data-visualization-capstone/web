@@ -108,6 +108,12 @@
       // Mapbox's style key for applying map designs
       map_key: "stephalee.aec4ccea",
 
+      // Define default map viewport: Top left & bottom right coordinates
+      viewport: [
+        [42.329077, -71.108871],
+        [42.374200, -71.032072]
+      ],
+
       // Pixel width of scatterplot points
       dot_width: 3,
 
@@ -118,11 +124,7 @@
       // over a specific point
       show_paths_on_hover: false,
 
-      // Define default map viewport: Top left & bottom right coordinates
-      viewport: [
-        [42.329077, -71.108871],
-        [42.374200, -71.032072]
-      ],
+
 
       // Define our data source ('json', 'xml', 'api')
       data_source: "json",
@@ -149,19 +151,27 @@
         colorBy: 'time',
       },
 
-      
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
-      layers : [{
+      layers : [],
         
+    }
+
+    // Add Default Layers
+  	options.layers.push({
+
         // Define representation of layer
         type : "heatmap",
 
         // Data from sample-data.js
-        data : apartments,
+        data : sample_data.apartments,
+  	})
 
-      },{}],
-    }
+  	options.layers.push({
+  		type: "scatterplot",
+  		data : sample_data.subway.orange,
+  		color: "#ffa500",
+  	})
 
 	// On document ready
 	$(function() {

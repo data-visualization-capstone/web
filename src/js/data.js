@@ -216,12 +216,3 @@ function contertDatesToUnix(data){
     }
   })
 }
-
-
-/****************************
-       Testing Data
- ****************************/
-
-var json_files = ["/data/json/alex.json", "/data/json/2014-07-01-2014-07-08.json", "/data/json/2014-03-15-2014-03-18.json", "/data/json/2014-05-01-2014-05-15.json"]
-
-var xml_files = ["/data/xml/alex.xml", "/data/xml/josh.xml"]

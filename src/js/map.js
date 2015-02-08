@@ -19,7 +19,6 @@ var raw_data = null;
 var filtered_data = null;
 
 // Global variable for map object
-
 var leaflet_map = null;
 
 // Initialize map and plot data
@@ -31,28 +30,60 @@ function draw(data) {
   // Render points on graph
   drawPoints(leaflet_map, data);
 
+  addLayers();
+}
 
-  var heatmap = new L.TileLayer.WebGLHeatMap({ 
-    size: 500,
-    autoresize: true,
-    opacity: .5,
-    // gradientTexture (url to gradient PNG)
-    alphaRange: .5,
-  });
+// Iterate through, and place layers onto Leaflet map
+function addLayers(){
 
-  var dataPoints = [];
+	for (var i = options.layers.length - 1; i >= 0; i--) {
+		var layer = options.layers[i];
+		
+		if (layer.type == "scatterplot"){
+			leaflet_map.addLayer(drawScatterplot(layer));
+		}
 
-  _.each(options.layers[0].data, function(point){
-      var v = Math.random() * .1; // point.value
-      dataPoints.push([point.latitude, point.longitude, v]);
-  })
+		if (layer.type == "path"){
+			leaflet_map.addLayer(drawPath(layer));
+		}
 
-  heatmap.setData(dataPoints)  
-  leaflet_map.addLayer(heatmap);
+		if (layer.type == "heatmap"){
+			leaflet_map.addLayer(drawHeatmap(layer));
+		}
+	};
 
 }
 
+
+function drawScatterplot(layer){};
+
+function drawPath(layer){};
+
+// WebGL Heatmap Implementation:
+// https://github.com/ursudio/webgl-heatmap-leaflet
+// Returns a leaflet layer
+function drawHeatmap(layer){
+	
+	var heatmap = new L.TileLayer.WebGLHeatMap({ 
+    	size: 500,
+    	autoresize: true,
+    	opacity: .3,
+  	});
+
+	var dataPoints = [];
+
+	for (var i = layer.data.length - 1; i >= 0; i--) {
+		var point = layer.data[i]
+		dataPoints.push([point.latitude, point.longitude, point.value / 6000]);
+	};
+
+	heatmap.setData(dataPoints);
+
+	return heatmap;
+}
+
 // Apply updated data set
+// Called by Date Range Picker
 function updateMap(data) {
 
   // Clear map
