@@ -15,7 +15,6 @@ var raw_data = null;
 
 // Save the Filtered Data.
 // This is whatever data is currently being plotted.
-
 var filtered_data = null;
 
 // Global variable for map object
@@ -28,7 +27,10 @@ function draw(data) {
   leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
   // Render points on graph
+  // console.log(options.layers[1].data)
+  
   drawPoints(leaflet_map, data);
+  
 
   addLayers();
 }
@@ -40,29 +42,31 @@ function addLayers(){
 		var layer = options.layers[i];
 		
 		if (layer.type == "scatterplot"){
-			leaflet_map.addLayer(drawScatterplot(layer));
+			// leaflet_map.addLayer(drawScatterplot(leaflet_map,layer));
 		}
 
 		if (layer.type == "path"){
-			leaflet_map.addLayer(drawPath(layer));
+			leaflet_map.addLayer(drawPath(leaflet_map,layer));
 		}
 
 		if (layer.type == "heatmap"){
-			leaflet_map.addLayer(drawHeatmap(layer));
+			leaflet_map.addLayer(drawHeatmap(leaflet_map,layer));
 		}
 	};
 
 }
 
+function drawScatterplot(map, layer){
+	console.log(layer.data[1]);
+	drawPoints(leaflet_map, filtered_data);
+};
 
-function drawScatterplot(layer){};
-
-function drawPath(layer){};
+function drawPath(map, layer){};
 
 // WebGL Heatmap Implementation:
 // https://github.com/ursudio/webgl-heatmap-leaflet
 // Returns a leaflet layer
-function drawHeatmap(layer){
+function drawHeatmap(map, layer){
 	
 	var heatmap = new L.TileLayer.WebGLHeatMap({ 
     	size: 500,
