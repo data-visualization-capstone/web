@@ -78,14 +78,23 @@ function draw(data) {
 
   // addLayers();
 
-  var heatmap = new L.TileLayer.WebGLHeatMap({ size: 100 });
+  var heatmap = new L.TileLayer.WebGLHeatMap({ 
+    size: 500,
+    autoresize: true,
+    opacity: .5,
+    // gradientTexture (url to gradient PNG)
+    alphaRange: .5,
+  });
 
   var dataPoints = [];
 
   _.each(options.layers[0].data, function(point){
-      dataPoints.push([point.latitude, point.longitude, point.value]);
+      var v = Math.random() * .1; // point.value
+      dataPoints.push([point.latitude, point.longitude, v]);
   })
   
+  console.log(dataPoints);
+
   heatmap.setData(dataPoints)  
   //heatmap.setData(dataPoints);
   leaflet_map.addLayer(heatmap);
