@@ -69,28 +69,41 @@ function draw(data) {
   // Render points on graph
   drawPoints(leaflet_map, data);
 
-  var heatmap = new L.DivHeatmapLayer();
+  // var heatmap = new L.DivHeatmapLayer();
 
-  heatmap.addTo(leaflet_map);
+  // heatmap.addTo(leaflet_map);
   
-  // heatmap.testAddData();
-  heatmap.setData(_.sample(options.layers[0].data, 2000));
+  // // heatmap.testAddData();
+  // heatmap.setData(_.sample(options.layers[0].data, 2000));
 
-  addLayers();
+  // addLayers();
+
+  var heatmap = new L.TileLayer.WebGLHeatMap({ size: 100 });
+
+  var dataPoints = [];
+
+  _.each(options.layers[0].data, function(point){
+      dataPoints.push([point.latitude, point.longitude, point.value]);
+  })
+  
+  heatmap.setData(dataPoints)  
+  //heatmap.setData(dataPoints);
+  leaflet_map.addLayer(heatmap);
+
 }
 
 // Add layers to map
-function addLayers(){
-  for (var i = options.layers.length - 1; i >= 0; i--) {
-    if (options.layers[i] == "heatmap"){
+// function addLayers(){
+//   for (var i = options.layers.length - 1; i >= 0; i--) {
+//     if (options.layers[i] == "heatmap"){
 
-    }
+//     }
 
-    if (options.layers[i] == "scatterplot"){    
+//     if (options.layers[i] == "scatterplot"){    
 
-    }
-  };
-}
+//     }
+//   };
+// }
 
 // Apply updated data set
 function updateMap(data) {
