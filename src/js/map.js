@@ -69,14 +69,6 @@ function draw(data) {
   // Render points on graph
   drawPoints(leaflet_map, data);
 
-  // var heatmap = new L.DivHeatmapLayer();
-
-  // heatmap.addTo(leaflet_map);
-  
-  // // heatmap.testAddData();
-  // heatmap.setData(_.sample(options.layers[0].data, 2000));
-
-  // addLayers();
 
   var heatmap = new L.TileLayer.WebGLHeatMap({ 
     size: 500,

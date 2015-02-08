@@ -22,10 +22,10 @@ module.exports = function(grunt) {
           'lib/xml.min.js',
 
           // For Heatmap
-          'lib/heatmap/shCore.js',
-  		  'lib/heatmap/shBrushJScript.js',
-   	      'lib/heatmap/webgl-heatmap.js',
-          'lib/heatmap/webgl-heatmap-leaflet.js',
+          // 'lib/heatmap/shCore.js',
+  		  // 'lib/heatmap/shBrushJScript.js',
+   	      // 'lib/heatmap/webgl-heatmap.js',
+          // 'lib/heatmap/webgl-heatmap-leaflet.js',
 
           // Our JS Files
           'src/js/map.js',
