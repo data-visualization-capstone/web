@@ -68,6 +68,34 @@ function draw(data) {
 
   // Render points on graph
   drawPoints(leaflet_map, data);
+
+  // var heatmap = new L.DivHeatmapLayer();
+
+  // heatmap.addTo(leaflet_map);
+  
+  // // heatmap.testAddData();
+  // heatmap.setData(_.sample(options.layers[0].data, 2000));
+
+  // addLayers();
+
+  var heatmap = new L.TileLayer.WebGLHeatMap({ 
+    size: 500,
+    autoresize: true,
+    opacity: .5,
+    // gradientTexture (url to gradient PNG)
+    alphaRange: .5,
+  });
+
+  var dataPoints = [];
+
+  _.each(options.layers[0].data, function(point){
+      var v = Math.random() * .1; // point.value
+      dataPoints.push([point.latitude, point.longitude, v]);
+  })
+
+  heatmap.setData(dataPoints)  
+  leaflet_map.addLayer(heatmap);
+
 }
 
 // Apply updated data set

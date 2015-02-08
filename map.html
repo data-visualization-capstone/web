@@ -90,6 +90,16 @@
   <script src="js/app.js"></script>
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
 
+  <script src="js/sample-data.js"></script>
+  <!-- <script src="js/lib/leaflet-div-heatmap.js"></script> -->
+
+  <script src="js/lib/openGL/shCore.js"></script>
+  <script src="js/lib/openGL/shBrushJScript.js"></script>
+  
+  
+  <script src="js/lib/openGL/webgl-heatmap.js"></script>
+  <script src="js/lib/openGL/webgl-heatmap-leaflet.js"></script>
+
   <script>
 
     /************************************
@@ -128,7 +138,7 @@
 
       // Take Sample from Data Set?
       // Randomly selects X entries. null for no sampling
-      data_sample: 9000,
+      data_sample: 1000,
 
       // Active data filters
       filters: {
@@ -141,7 +151,20 @@
 
         // How should dots be colored?
         colorBy: 'time',
-      }
+      },
+
+      
+      // Support multiple layers of data representation.
+      // Useful for building correlations between data sets.
+      layers : [{
+        
+        // Define representation of layer
+        type : "heatmap",
+
+        // Data from sample-data.js
+        data : apartments,
+
+      },{}],
     }
 
   </script>
