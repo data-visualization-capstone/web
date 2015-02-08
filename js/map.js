@@ -92,27 +92,11 @@ function draw(data) {
       var v = Math.random() * .1; // point.value
       dataPoints.push([point.latitude, point.longitude, v]);
   })
-  
-  console.log(dataPoints);
 
   heatmap.setData(dataPoints)  
-  //heatmap.setData(dataPoints);
   leaflet_map.addLayer(heatmap);
 
 }
-
-// Add layers to map
-// function addLayers(){
-//   for (var i = options.layers.length - 1; i >= 0; i--) {
-//     if (options.layers[i] == "heatmap"){
-
-//     }
-
-//     if (options.layers[i] == "scatterplot"){    
-
-//     }
-//   };
-// }
 
 // Apply updated data set
 function updateMap(data) {
