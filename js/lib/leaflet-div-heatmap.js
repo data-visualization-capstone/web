@@ -9,7 +9,7 @@
 L.DivHeatmapLayer = L.FeatureGroup.extend({
   options: {
     color: '#4169e1',
-    radius: 20,
+    radius: 40,
     gradient: true,
     clickable: false
   },
@@ -33,6 +33,7 @@ L.DivHeatmapLayer = L.FeatureGroup.extend({
     if(m) {
       return (parseInt(m[1].substr(0,2),16) + ',' + parseInt(m[1].substr(2,2),16)+ ',' + parseInt(m[1].substr(4,2),16));
     }else{
+      console.log(color)
       return color;
     }
   },
@@ -58,6 +59,9 @@ L.DivHeatmapLayer = L.FeatureGroup.extend({
 
     var gradient =  'radial-gradient(closest-side, rgba('+ this._parseColor(this.options.color) +', '+alpha_start+') 0%, rgba('+ this._parseColor(this.options.color) +', '+alpha_end+') 100%)';
     var html = '<div class="heatblob" data-value="'+value+'" style="width:100%;height:100%;border-radius:50%;background-image:'+gradient+'">';
+    
+    // var gradient =  'radial-gradient(closest-side, rgba('+ this._parseColor(this.options.color) +', '+alpha_start+') 0%, rgba('+ this._parseColor(this.options.color) +', '+alpha_end+') 100%)';
+    // var html = '<div class="heatblob" data-value="'+value+'" style="width:100%;height:100%;border-radius:50%;background-color:'+ "rgba(0,0,0,.5)" +'">';
     var size = this.options.radius * value;
     var divicon = L.divIcon({
       iconSize: [ size, size ],
@@ -203,20 +207,20 @@ L.DivHeatmapLayer = L.FeatureGroup.extend({
   //   this.setData(this.testRandomData(number));
   // },
 
-  testAnimatePoints: function(number) {
-    this.clearData();
-    var self = this;
-    var data = this.testRandomData(number);
-    data.forEach(function(point) {
-      self._animateBlob(point.latitude,point.longitude,0,point.value);
-    });
-  },
+  // testAnimatePoints: function(number) {
+  //   this.clearData();
+  //   var self = this;
+  //   var data = this.testRandomData(number);
+  //   data.forEach(function(point) {
+  //     self._animateBlob(point.latitude,point.longitude,0,point.value);
+  //   });
+  // },
 
-  testMorphData: function(number) {
-    this.clearData();
-    this.setData(this.testRandomData(number));
-    this.morphData(this.testRandomData(number));
-  },
+  // testMorphData: function(number) {
+  //   this.clearData();
+  //   this.setData(this.testRandomData(number));
+  //   this.morphData(this.testRandomData(number));
+  // },
 
  });
 

@@ -74,7 +74,7 @@ function draw(data) {
   heatmap.addTo(leaflet_map);
   
   // heatmap.testAddData();
-  heatmap.setData(_.sample(options.layers[0].data, 1000));
+  heatmap.setData(_.sample(options.layers[0].data, 2000));
 
   addLayers();
 }
