@@ -136,16 +136,48 @@
         
     }
 
-    // Add Default Layers
+    /************************************
+         Add Default Data
+     ************************************/
+
     options.layers.push({
-  		type: "scatterplot",
+  		
+      // Set name for layer
+      name : "Apartments",
+
+      // Define representation of layer
+      type: "scatterplot",
+
+      // Data from sample-data.js
   		data : sample_data.apartments,
   		
   		// Pixel width of scatterplot points
   		dot_width: 1,
+
+      color : "#000",
   	});
+
+    options.layers.push({
+      
+      // Set name for layer
+      name : "Orange Line",
+
+      // Define representation of layer
+      type: "scatterplot",
+
+      // Data from sample-data.js
+      data : sample_data.subway.orange,
+      
+      // Pixel width of scatterplot points
+      dot_width: 5,
+
+      color: "#ffa500",
+    });
 	
 	  options.layers.push({
+
+        // Set name for layer
+        name : "Rent Prices",
 
         // Define representation of layer
         type : "heatmap",
@@ -154,27 +186,19 @@
         data : sample_data.apartments,
   	});
 
+    /************************************
+         Initialize Map
+     ************************************/
 
+    // Global variable for map object
+    // Initialize Leaflet map
+    var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
-  // Global variable for map object
-  // Initialize Leaflet map
-  var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
-
-	// On document ready
-	$(function() {
-
-    // Render Data Layers
-    addLayers();
-	});
-
-
-  
-  $(function(){
-
-
-  });
-   
-    
+  	// On document ready
+  	$(function() {
+        // Render Data Layers
+        addLayers(options.layers);
+  	});
 
   </script>
 </body>

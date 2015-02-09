@@ -4,45 +4,54 @@
     Initialize and Handle Map Interactions
  ****************************/
 
+
 // Iterate through, and place layers onto Leaflet map
-function addLayers(){
+function addLayers(layers){
+
+  // Map Boundaries
+  bounds = leaflet_map.getBounds();
+  topLeft = leaflet_map.latLngToLayerPoint(bounds.getNorthWest());
+  bottomRight = leaflet_map.latLngToLayerPoint(bounds.getSouthEast());
 
   // Clear map just to be safe
-  d3.select('#overlay').remove();
+  // d3.select('#overlay').remove();
 
-	for (var i = options.layers.length - 1; i >= 0; i--) {
-		var layer = options.layers[i];
+  // Iterate through layers
+	for (var i = layers.length - 1; i >= 0; i--) {
+		
+    var layer = layers[i]; // Current Layer
+    
+    // Create unique ID for current layer
+    layer.id = layer.name.replace(/\s/g, '').toLowerCase();
+
+    // @ TODO:
+    // Prevent Duplicates
+
+    console.log(layer)
 		
 		if (layer.type == "scatterplot"){
-			drawScatterplot(leaflet_map,layer);
+			drawScatterplot(leaflet_map, layer);
 		}
 
 		if (layer.type == "path"){
-			leaflet_map.addLayer(drawPath(leaflet_map,layer));
+      var layer = drawPath(leaflet_map, layer);
+			leaflet_map.addLayer(layer);
 		}
 
 		if (layer.type == "heatmap"){
-			leaflet_map.addLayer(drawHeatmap(leaflet_map,layer));
+			var layer = drawHeatmap(leaflet_map,layer)
+      leaflet_map.addLayer(layer);
 		}
 
     if (layer.type == "hex"){
-      drawHexmap(leaflet_map,layer);
+      drawHexmap(leaflet_map, layer);
     }
 	};
-
 }
 
 // http://bost.ocks.org/mike/leaflet/
 // chriszetter.com/blog/2014/06/15/building-a-voronoi-map-with-d3-and-leaflet/
 function drawScatterplot(map, layer){
-	
-	
-    var map = leaflet_map;
-
-    // Map limits
-    var bounds = leaflet_map.getBounds();
-    var topLeft = map.latLngToLayerPoint(bounds.getNorthWest());
-    var bottomRight = map.latLngToLayerPoint(bounds.getSouthEast());
 
     // Select leaflet's 'overlay pane' layer.
     // Leaflet auto-repositions the overlay panes
@@ -87,8 +96,6 @@ function drawScatterplot(map, layer){
       return true;
     });
 
-    console.log(points[0]);
-
     var svgPoints = g.attr("class", "points")
       .selectAll("g")
       .data(points)
@@ -99,13 +106,11 @@ function drawScatterplot(map, layer){
     // Add circles for each point
     svgPoints.append("circle")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .style('fill', function(d) { return '#' + d.color } )
-      .attr("date", function(d) { return d.date })
+      .style('fill', function(d) { return layer.color } )
       .attr("r", layer.dot_width)
-      .attr("pointer-events", "all")
-      .attr("opacity", 1);
-
-
+      // .attr("date", function(d) { return d.date })
+      // .attr("pointer-events", "all")
+      // .attr("opacity", 1);
 
 };
 
@@ -162,30 +167,17 @@ function drawHexmap(map, layer){
     // Can also set scale via hexLayer.colorScale(d3.scale.linear()...)
     hexLayer.colorScale().range('white', 'blue');
 
-  var center = [42.329077, -71.108871];
-
+    var center = [42.329077, -71.108871];
+  
     var latFn = d3.random.normal(center[0], 1);
     var longFn = d3.random.normal(center[1], 1);
-
-      var data = [];
-      for(i=0; i<1000; i++){
+  
+    var data = [];
+    
+    for(i=0; i<1000; i++){
         data.push([longFn(),  latFn(), Math.random()]);
-      
     }
+  
     // Set the data (can be set multiple times)
     hexLayer.data(data);
-}
-
-  // @TODO:
-  // Like, write this function
-
-// Apply updated data set
-// Called by Date Range Picker
-function updateMap() {
-
-  // Clear map
-  leaflet_map.remove();
-
-  draw();
-
 }
