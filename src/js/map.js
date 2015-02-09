@@ -10,7 +10,6 @@
 // data set, we'll want to keep and original copy
 // as to avoid re-fetching ALL our data when we
 // reset filters.
-
 var raw_data = null;
 
 // Save the Filtered Data.
@@ -24,15 +23,9 @@ var leaflet_map = null;
 function draw() {
 
   // Initialize Leaflet map
-  leaflet_map = L.mapbox
-    .map('map', options.map_key)
-    .fitBounds(options.viewport);
+  leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
-  // Render points on graph
-  // console.log(options.layers[1].data)
-  
-  // drawPoints(leaflet_map, data);
-  
+  // Render Data Layers
   addLayers();
 }
 
@@ -43,7 +36,7 @@ function addLayers(){
 		var layer = options.layers[i];
 		
 		if (layer.type == "scatterplot"){
-			leaflet_map.addLayer(drawScatterplot(leaflet_map,layer));
+			drawScatterplot(leaflet_map,layer);
 		}
 
 		if (layer.type == "path"){
