@@ -97,7 +97,7 @@ function drawHeatmap(map, layer){
 function drawHexmap(map, layer){
 
     // Options for the hexbin layer
-    var options = {
+    var hexSettings = {
         radius : 10,                            // Size of the hexagons/bins
         opacity: 0.5,                           // Opacity of the hexagonal layer
         duration: 200,                          // millisecond duration of d3 transitions (see note below)
@@ -110,7 +110,7 @@ function drawHexmap(map, layer){
     };
 
     // Create the hexbin layer and add it to the map
-    var hexLayer = L.hexbinLayer(options).addTo(map);
+    var hexLayer = L.hexbinLayer(hexSettings).addTo(map);
 
     // Optionally, access the d3 color scale directly
     // Can also set scale via hexLayer.colorScale(d3.scale.linear()...)

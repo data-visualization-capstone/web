@@ -1,7 +1,7 @@
 Web
 ===========
 
-> Front End Website for Data Visualization Capstone
+> Front End Website for Data Visualization Capstone.
 
 
 Overview

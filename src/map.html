@@ -137,25 +137,25 @@
     }
 
     // Add Default Layers
-    options.layers.push({
-  		type: "scatterplot",
-  		data : sample_data.google_location_history,
+   //  options.layers.push({
+  	// 	type: "scatterplot",
+  	// 	data : sample_data.google_location_history,
   		
-  		// Pixel width of scatterplot points
-  		dot_width: 3,
-  	});
+  	// 	// Pixel width of scatterplot points
+  	// 	dot_width: 3,
+  	// });
 
-    options.layers.push({
+   //  options.layers.push({
 
-        // Define representation of layer
-        type : "scatterplot",
+   //      // Define representation of layer
+   //      type : "scatterplot",
 
-        // Data from sample-data.js
-        data : sample_data.subway.orange,
+   //      // Data from sample-data.js
+   //      data : sample_data.subway.orange,
 
-        // Default color
-        color: "#ffa500",
-  	});
+   //      // Default color
+   //      color: "#ffa500",
+  	// });
 	
 	  options.layers.push({
 
@@ -175,12 +175,21 @@
     //     data : sample_data.apartments,
     // });
 
+  // Global variable for map object
+  var leaflet_map = null;
+
 	// On document ready
 	$(function() {
 
-		draw();
+// Initialize Leaflet map
+    leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+    // Render Data Layers
+    addLayers();
 
 	});
+
+  
 
   </script>
 </body>
