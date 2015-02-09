@@ -62,7 +62,7 @@ function drawPath(map, layer){};
 function drawHeatmap(map, layer){
 	
 	var heatmap = new L.TileLayer.WebGLHeatMap({ 
-    	size: 500,
+    	size: 300,
     	autoresize: true,
     	opacity: .3,
   	});
@@ -71,7 +71,7 @@ function drawHeatmap(map, layer){
 
 	for (var i = layer.data.length - 1; i >= 0; i--) {
 		var point = layer.data[i]
-		dataPoints.push([point.latitude, point.longitude, point.value / 6000]);
+		dataPoints.push([point.latitude, point.longitude, point.value / 8000]);
 	};
 
 	heatmap.setData(dataPoints);
@@ -150,7 +150,7 @@ drawPoints = function(map, data) {
   var activeDataSets = function() {
     return d3.selectAll('#toggles input[type=checkbox]')[0].filter(function(elem) {
       // return elem.checked;
-      return true;
+      return true
     }).map(function(elem) {
       return elem.value;
     })
