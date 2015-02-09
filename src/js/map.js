@@ -62,16 +62,20 @@ function drawPath(map, layer){};
 function drawHeatmap(map, layer){
 	
 	var heatmap = new L.TileLayer.WebGLHeatMap({ 
-    	size: 300,
-    	autoresize: true,
-    	opacity: .3,
+    	size: 500,
+    	autoresize: false,
+    	opacity: .5,
   	});
 
 	var dataPoints = [];
 
 	for (var i = layer.data.length - 1; i >= 0; i--) {
+
 		var point = layer.data[i]
-		dataPoints.push([point.latitude, point.longitude, point.value / 8000]);
+
+		var value = point.value / 40000; 
+		
+		dataPoints.push([point.latitude, point.longitude, value]);
 	};
 
 	heatmap.setData(dataPoints);
