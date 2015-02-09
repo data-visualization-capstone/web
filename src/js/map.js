@@ -1,9 +1,7 @@
 
 /****************************
           Map.js
-    Initialize and Handle Map Interactions
  ****************************/
-
 
 // Iterate through, and place layers onto Leaflet map
 function addLayers(layers){
@@ -49,55 +47,72 @@ function addLayers(layers){
 	};
 }
 
+/****************************
+        Scatterplot
+ ****************************/
+
+// Plot Points as a scatterplot
 // http://bost.ocks.org/mike/leaflet/
 // chriszetter.com/blog/2014/06/15/building-a-voronoi-map-with-d3-and-leaflet/
 function drawScatterplot(map, layer){
 
-    // Select leaflet's 'overlay pane' layer.
-    // Leaflet auto-repositions the overlay panes
-    // upon map movement.
-    // Add an svg element
-    var svg = d3.select(leaflet_map.getPanes().overlayPane).append("svg");
+    // Clear layer if previously existing.
+    d3.select('#' + layer.id).remove();
+
+    // Select leaflet's 'overlay pane' layer. Leaflet will 
+    // auto-repositions the overlay panes upon map movement.
+
+    // Create an SVG elemnt for plotting points on
+    var svg = d3.select(map.getPanes().overlayPane).append("svg")
+      .attr('id', layer.id)
+      .attr("class", "leaflet-zoom-hide")
 
     // Fix the size of our SVG layer to match the leaflet map
-    var svg = d3.select(map.getPanes().overlayPane).append("svg")
-      .attr('id', 'overlay')
-      .attr("class", "leaflet-zoom-hide")
       .style("width",  map.getSize().x + 'px')
       .style("height", map.getSize().y + 'px')
 
-    // New "g" (group) element.
-    // Used to keep D3.js elements aligned with
-    // the origin of the map.
-
+    // Add a "g" (group) element. Organizes points
+    // and ensures that layer aligns with leaflet.
+    var g = svg.append("g")
+    
     // Apply leaflet-zoom-hide so that the overlay
     // is hidden during zoom animations
-    var g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
-    var points = layer.data;
+      .attr("class", "leaflet-zoom-hide");
       
-    // Create map-able set of points
-    // For each point, fix the x and y 
-    points = points.filter(function(p) {
+    // Create map-able set of points. For each point,
+    // convert the lat/long into a plottable x/y position
+    var points = layer.data.filter(function(p) {
+
+      // Check for missing data points
+      if (!p.latitude || !p.longitude){
+        console.log("ERROR. Missing Latitude/Longitude Data.");
+        return false;
+      }
 
       // Create new leaflet Lat/Long Object
       var latlng = new L.LatLng(p.latitude, p.longitude);
 
-      // Remove points that are missing a GPS location
+      // Remove points that are outside current viewport
       if (!bounds.contains(latlng)) { return false };
       
-      // Convert Lat & Long into a Mapable point.
-      // Use Leaflet's latLngToLayerPoint() to create a single point
-      var point = leaflet_map.latLngToLayerPoint(latlng);
+      // Convert Latitude and Longitude into a Mapable
+      // point using leaflet's LayerPoint API.
+      var point = map.latLngToLayerPoint(latlng);
 
+      // Save the resulting x & y values
+      // onto the current point object.
       p.x = point.x;
       p.y = point.y;
 
       return true;
     });
 
+    // Create a group for this layer
     var svgPoints = g.attr("class", "points")
       .selectAll("g")
+      
+      // Append a <g class="point"> for 
+      // ever data point in the set.
       .data(points)
       .enter().append("g")
       .attr("class", "point")
@@ -105,22 +120,34 @@ function drawScatterplot(map, layer){
 
     // Add circles for each point
     svgPoints.append("circle")
+      
+      // Position each circle with the x/y position.
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      
+      // Visual Settings
       .style('fill', function(d) { return layer.color } )
       .attr("r", layer.dot_width)
+      .attr("opacity", 1);
+
       // .attr("date", function(d) { return d.date })
       // .attr("pointer-events", "all")
-      // .attr("opacity", 1);
-
 };
+
+/****************************
+          Path
+ ****************************/
 
 function drawPath(map, layer){
 	// Enable path
 	layer.options.pathing = true;
 
 	// Render Layer
-	drawPoints(leaflet_map, layer);
+	drawPoints(map, layer);
 };
+
+/****************************
+         Heatmap
+ ****************************/
 
 // WebGL Heatmap Implementation:
 // https://github.com/ursudio/webgl-heatmap-leaflet
@@ -129,8 +156,8 @@ function drawHeatmap(map, layer){
 	
 	var heatmap = new L.TileLayer.WebGLHeatMap({ 
     	size: 500,
-    	autoresize: false,
-    	opacity: .5,
+    	autoresize: true,
+    	opacity: .4,
   	});
 
 	var dataPoints = [];
