@@ -10,11 +10,11 @@
 // data set, we'll want to keep and original copy
 // as to avoid re-fetching ALL our data when we
 // reset filters.
-var raw_data = null;
+// var raw_data = null;
 
 // Save the Filtered Data.
 // This is whatever data is currently being plotted.
-var filtered_data = null;
+// var filtered_data = null;
 
 // Global variable for map object
 var leaflet_map = null;
@@ -123,6 +123,7 @@ drawPoints = function(map, data) {
   })
 
   // Renders a toggle-able list of data sets
+  
   var listDataSets = function() {
 
     labels = d3.select('#toggles').selectAll('input')
@@ -148,7 +149,8 @@ drawPoints = function(map, data) {
   // Returns list of enabled data sets
   var activeDataSets = function() {
     return d3.selectAll('#toggles input[type=checkbox]')[0].filter(function(elem) {
-      return elem.checked;
+      // return elem.checked;
+      return true;
     }).map(function(elem) {
       return elem.value;
     })
@@ -251,10 +253,6 @@ drawPoints = function(map, data) {
       showConnections();
     }
 
-    if (options.show_paths_on_hover){
-      showHoverPaths();  
-    }
-
     // Connects all sequential location points into 
     // a single path.
     function showConnections(){
@@ -276,51 +274,6 @@ drawPoints = function(map, data) {
             .style("stroke-width", options.dot_width)
             .style("opacity", 0);
         }
-      });
-    }
-
-    // Provides a tracing highlight of user
-    // activiity for sequential points on *hover*
-    function showHoverPaths(){
-
-      $("g").each(function(){
-
-        var lines = [$(this).children("line"), $(this).next().children("line")],
-        lines2 = [$(this).prev().children("line")];
-
-        $(this).hover(function(){
-
-          for(i=1; i < 5; i++){
-            lines.push(lines[i].parent().next().children("line"));
-          }
-
-          for(i=0; i < 4; i++){
-            lines2.push(lines2[i].parent().prev().children("line"));
-          }
-
-          lines = lines.concat(lines2);
-          
-          for(var x in lines){
-            lines[x].css("opacity", .4); // Set HOVER .4
-          }
-        },
-
-        function(){
-          
-          for(i=1; i < 5; i++){
-            lines.push(lines[i].parent().next().children("line"));
-          }
-
-          for(i=0; i < 4; i++){
-            lines2.push(lines2[i].parent().prev().children("line"));
-          }
-
-          lines = lines.concat(lines2); 
-
-          for(var x in lines){
-            lines[x].css("opacity", 0);
-          }
-        });
       });
     }
   }

@@ -140,7 +140,7 @@
   		type: "scatterplot",
   		data : sample_data.google_location_history,
   		color: "#ffa500",
-  	})
+  	});
 
     // Add Default Layers
   	options.layers.push({
@@ -150,8 +150,19 @@
 
         // Data from sample-data.js
         data : sample_data.apartments,
-  	})
+  	});
 
+    // Add Default Layers 
+    /*
+  	options.layers.push({
+
+        // Define representation of layer
+        type : "scatterplot",
+
+        // Data from sample-data.js
+        data : sample_data.subway.orange,
+  	});
+	*/
 
 	// On document ready
 	$(function() {
