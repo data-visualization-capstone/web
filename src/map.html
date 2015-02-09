@@ -117,27 +117,6 @@
       // Pixel width of scatterplot points
       dot_width: 3,
 
-      // Toggle path "web" of connections
-      map_show_connections: true,
-
-      // Should the map connect-the-dots upon hovering
-      // over a specific point
-      show_paths_on_hover: false,
-
-
-
-      // Define our data source ('json', 'xml', 'api')
-      data_source: "json",
-      data_file: "data/json/alex.json",
-
-      // Trim Data Set?
-      // Takes first X data entries. null for no trim
-      data_splice: null,
-
-      // Take Sample from Data Set?
-      // Randomly selects X entries. null for no sampling
-      data_sample: 1000,
-
       // Active data filters
       filters: {
 
@@ -157,6 +136,12 @@
         
     }
 
+    options.layers.push({
+  		type: "scatterplot",
+  		data : sample_data.google_location_history,
+  		color: "#ffa500",
+  	})
+
     // Add Default Layers
   	options.layers.push({
 
@@ -167,15 +152,13 @@
         data : sample_data.apartments,
   	})
 
-  	options.layers.push({
-  		type: "scatterplot",
-  		data : sample_data.subway.orange,
-  		color: "#ffa500",
-  	})
 
 	// On document ready
 	$(function() {
 
+		draw();
+
+/*
 	  // Load location data.
 	  loadData(options.data_source, function(data) {
 
@@ -205,9 +188,12 @@
 	    // Setup date ranger picker.
 	    initDateRangePicker(filtered_data[0].date, filtered_data[filtered_data.length - 1].date);
 
+	    console.log(filtered_data)
+
 	    // Render the current filtered subset of data
 	    draw(filtered_data);
 	  })
+*/
 	});
 
   </script>

@@ -34,7 +34,6 @@ module.exports = function(grunt) {
           'src/js/data.js',
           'src/js/filtering.js',
           'src/js/coloring.js',
-          'src/js/graphing.js',
           'src/js/utils.js',
         ],
         dest: 'src/js/app.js',

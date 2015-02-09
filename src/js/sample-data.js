@@ -7609,8 +7609,8727 @@ sample_data.subway.green = _.filter(subway_stations, function(station){
 	return station.lines.indexOf("Green Line (all)") > -1;
 })
 
-console.log(sample_data.subway);
+sample_data.google_location_history = [
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394022983,
+    "latitude": 42.3316348,
+    "longitude": -71.097879,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 453,
+    "y": 607
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394039344,
+    "latitude": 42.3518002,
+    "longitude": -71.0574763,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 923,
+    "y": 289
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394063288,
+    "latitude": 42.3433476,
+    "longitude": -71.101291,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 413,
+    "y": 423
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394065099,
+    "latitude": 42.3433476,
+    "longitude": -71.101291,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394071489,
+    "latitude": 42.3433476,
+    "longitude": -71.101291,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394073157,
+    "latitude": 42.3433476,
+    "longitude": -71.101291,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394073438,
+    "latitude": 42.3433476,
+    "longitude": -71.101291,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394114222,
+    "latitude": 42.3316512,
+    "longitude": -71.0979086,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 452,
+    "y": 607
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394119756,
+    "latitude": 42.3469209,
+    "longitude": -71.0595331,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 899,
+    "y": 366
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394124013,
+    "latitude": 42.3503066,
+    "longitude": -71.0564377,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 935,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394131629,
+    "latitude": 42.3503186,
+    "longitude": -71.05647,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1189,
+    "y": 287
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394133363,
+    "latitude": 42.3502992,
+    "longitude": -71.0564694,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1189,
+    "y": 288
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394145835,
+    "latitude": 42.3503558,
+    "longitude": -71.0565421,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 934,
+    "y": 312
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394147893,
+    "latitude": 42.364759,
+    "longitude": -71.1055942,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 363,
+    "y": 85
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394153475,
+    "latitude": 42.3648988,
+    "longitude": -71.1056694,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 362,
+    "y": 83
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394228822,
+    "latitude": 42.3502848,
+    "longitude": -71.056445,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394230341,
+    "latitude": 42.3441563,
+    "longitude": -71.0797785,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 664,
+    "y": 410
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394238246,
+    "latitude": 42.3449997,
+    "longitude": -71.0748253,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 721,
+    "y": 397
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394281514,
+    "latitude": 42.3316431,
+    "longitude": -71.0979046,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394284345,
+    "latitude": 42.3316307,
+    "longitude": -71.09791,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394305992,
+    "latitude": 42.3316226,
+    "longitude": -71.0978777,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394329156,
+    "latitude": 42.3452844,
+    "longitude": -71.088955,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 557,
+    "y": 392
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394333802,
+    "latitude": 42.3423337,
+    "longitude": -71.1015537,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 410,
+    "y": 439
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394350576,
+    "latitude": 42.3438234,
+    "longitude": -71.1014849,
+    "color": "551800",
+    "type": "Alex",
+    "x": 411,
+    "y": 415
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394371627,
+    "latitude": 42.3438234,
+    "longitude": -71.1014849,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394375475,
+    "latitude": 42.3438234,
+    "longitude": -71.1014849,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394386463,
+    "latitude": 42.3366557,
+    "longitude": -71.0974348,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 458,
+    "y": 528
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394389029,
+    "latitude": 42.3366557,
+    "longitude": -71.0974348,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394409731,
+    "latitude": 42.3355656,
+    "longitude": -71.1056473,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 362,
+    "y": 545
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394418086,
+    "latitude": 42.3316605,
+    "longitude": -71.0979586,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 560,
+    "y": 420
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394424601,
+    "latitude": 42.3316461,
+    "longitude": -71.0979301,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394437317,
+    "latitude": 42.3316533,
+    "longitude": -71.0978605,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394471214,
+    "latitude": 42.3505536,
+    "longitude": -71.0565814,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 934,
+    "y": 309
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394474825,
+    "latitude": 42.3503315,
+    "longitude": -71.0565295,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1188,
+    "y": 287
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394477516,
+    "latitude": 42.3502629,
+    "longitude": -71.0564854,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 935,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394504042,
+    "latitude": 42.3316271,
+    "longitude": -71.0978555,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394508684,
+    "latitude": 42.3316287,
+    "longitude": -71.0979403,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394544455,
+    "latitude": 42.3502662,
+    "longitude": -71.0564404,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1190,
+    "y": 289
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394557365,
+    "latitude": 42.3504953,
+    "longitude": -71.0565093,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 935,
+    "y": 310
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394609358,
+    "latitude": 42.3316569,
+    "longitude": -71.0979203,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394630726,
+    "latitude": 42.3502871,
+    "longitude": -71.0564158,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 936,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394639163,
+    "latitude": 42.3502557,
+    "longitude": -71.056479,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394662424,
+    "latitude": 42.3426956,
+    "longitude": -71.1007579,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 419,
+    "y": 433
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394666428,
+    "latitude": 42.3425861,
+    "longitude": -71.0903333,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 541,
+    "y": 435
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394667863,
+    "latitude": 42.346728,
+    "longitude": -71.0892632,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 553,
+    "y": 369
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394670141,
+    "latitude": 42.3439418,
+    "longitude": -71.0897609,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 547,
+    "y": 413
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394670663,
+    "latitude": 42.3454775,
+    "longitude": -71.0959797,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 475,
+    "y": 389
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394674666,
+    "latitude": 42.3472202,
+    "longitude": -71.0955929,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 479,
+    "y": 362
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394711465,
+    "latitude": 42.3435188,
+    "longitude": -71.1015618,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 410,
+    "y": 420
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394748499,
+    "latitude": 42.3505629,
+    "longitude": -71.0564584,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 935,
+    "y": 309
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394761682,
+    "latitude": 42.3316457,
+    "longitude": -71.0978851,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394800333,
+    "latitude": 42.3316255,
+    "longitude": -71.0979042,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394804754,
+    "latitude": 42.350344,
+    "longitude": -71.0564373,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 936,
+    "y": 312
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394824712,
+    "latitude": 42.3562564,
+    "longitude": -71.059581,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 899,
+    "y": 219
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394833833,
+    "latitude": 42.350257,
+    "longitude": -71.0564249,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 936,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394844313,
+    "latitude": 42.3349339,
+    "longitude": -71.1020525,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 404,
+    "y": 555
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394844849,
+    "latitude": 42.3350148,
+    "longitude": -71.1019198,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 406,
+    "y": 554
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394846927,
+    "latitude": 42.3337974,
+    "longitude": -71.1030889,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 392,
+    "y": 573
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394847001,
+    "latitude": 42.3337463,
+    "longitude": -71.1032601,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 390,
+    "y": 574
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394896115,
+    "latitude": 42.3316223,
+    "longitude": -71.0979462,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394897015,
+    "latitude": 42.3316176,
+    "longitude": -71.0979704,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394903307,
+    "latitude": 42.3316255,
+    "longitude": -71.097987,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 451,
+    "y": 607
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394907873,
+    "latitude": 42.3316174,
+    "longitude": -71.0979273,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394920480,
+    "latitude": 42.3316729,
+    "longitude": -71.0978933,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394943559,
+    "latitude": 42.3414427,
+    "longitude": -71.0884583,
+    "color": "551800",
+    "type": "Alex",
+    "x": 562,
+    "y": 453
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394944418,
+    "latitude": 42.3317592,
+    "longitude": -71.097666,
+    "color": "551800",
+    "type": "Alex",
+    "x": 455,
+    "y": 605
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394952167,
+    "latitude": 42.3316248,
+    "longitude": -71.0979313,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394962307,
+    "latitude": 42.3316168,
+    "longitude": -71.0979537,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394985174,
+    "latitude": 42.3317143,
+    "longitude": -71.0978822,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 453,
+    "y": 606
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1394994377,
+    "latitude": 42.3316061,
+    "longitude": -71.0979238,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 452,
+    "y": 608
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395007656,
+    "latitude": 42.3316727,
+    "longitude": -71.0978572,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395041977,
+    "latitude": 42.3316229,
+    "longitude": -71.0979461,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395056997,
+    "latitude": 42.3316189,
+    "longitude": -71.0979218,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395082647,
+    "latitude": 42.3502218,
+    "longitude": -71.0564009,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1191,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395088464,
+    "latitude": 42.3503119,
+    "longitude": -71.0564584,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395098414,
+    "latitude": 42.3371859,
+    "longitude": -71.0917468,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 524,
+    "y": 520
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395100802,
+    "latitude": 42.3371789,
+    "longitude": -71.0917505,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 367,
+    "y": 702
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395105979,
+    "latitude": 42.337294,
+    "longitude": -71.091706,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 525,
+    "y": 518
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395111997,
+    "latitude": 42.3316097,
+    "longitude": -71.0979473,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395138245,
+    "latitude": 42.3316085,
+    "longitude": -71.0979284,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395148895,
+    "latitude": 42.3600701,
+    "longitude": -71.0699782,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 778,
+    "y": 159
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395163411,
+    "latitude": 42.3504237,
+    "longitude": -71.0564981,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 935,
+    "y": 311
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395182701,
+    "latitude": 42.3709013,
+    "longitude": -71.1235172,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 154,
+    "y": -12
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395196176,
+    "latitude": 42.3317039,
+    "longitude": -71.0940313,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 498,
+    "y": 606
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395200672,
+    "latitude": 42.3363588,
+    "longitude": -71.0973461,
+    "color": "551800",
+    "type": "Alex",
+    "x": 459,
+    "y": 533
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395203151,
+    "latitude": 42.3316559,
+    "longitude": -71.0978904,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395209698,
+    "latitude": 42.3316112,
+    "longitude": -71.0979176,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395210921,
+    "latitude": 42.3316114,
+    "longitude": -71.0979175,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395224702,
+    "latitude": 42.3316147,
+    "longitude": -71.0979134,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395225426,
+    "latitude": 42.3316143,
+    "longitude": -71.097914,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395226694,
+    "latitude": 42.3316144,
+    "longitude": -71.0979143,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395230847,
+    "latitude": 42.3316162,
+    "longitude": -71.0979128,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395235335,
+    "latitude": 42.350544,
+    "longitude": -71.0566123,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 933,
+    "y": 309
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395243911,
+    "latitude": 42.3517442,
+    "longitude": -71.0571178,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 928,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395245493,
+    "latitude": 42.3506124,
+    "longitude": -71.0565731,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 934,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395251893,
+    "latitude": 42.3503716,
+    "longitude": -71.0564842,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 935,
+    "y": 312
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395254480,
+    "latitude": 42.3503664,
+    "longitude": -71.0564798,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395264088,
+    "latitude": 42.3503982,
+    "longitude": -71.0564805,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1189,
+    "y": 285
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395273130,
+    "latitude": 42.3452911,
+    "longitude": -71.1003757,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 424,
+    "y": 392
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395278101,
+    "latitude": 42.3452873,
+    "longitude": -71.1003468,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 167,
+    "y": 446
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395321162,
+    "latitude": 42.343918,
+    "longitude": -71.0798499,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 663,
+    "y": 414
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395336282,
+    "latitude": 42.3541401,
+    "longitude": -71.0565608,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 934,
+    "y": 252
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395337823,
+    "latitude": 42.3541401,
+    "longitude": -71.0565608,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395338724,
+    "latitude": 42.3558477,
+    "longitude": -71.0740924,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 730,
+    "y": 226
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395342503,
+    "latitude": 42.3541401,
+    "longitude": -71.0565608,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395351902,
+    "latitude": 42.3502421,
+    "longitude": -71.0564099,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395353082,
+    "latitude": 42.3502314,
+    "longitude": -71.0564203,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1190,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395360656,
+    "latitude": 42.3493219,
+    "longitude": -71.0498259,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 1013,
+    "y": 328
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395361350,
+    "latitude": 42.3492823,
+    "longitude": -71.0498869,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 1012,
+    "y": 329
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395405530,
+    "latitude": 42.3316384,
+    "longitude": -71.0979811,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395422817,
+    "latitude": 42.3491004,
+    "longitude": -71.0496888,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1014,
+    "y": 332
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395428974,
+    "latitude": 42.3502698,
+    "longitude": -71.0509383,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1000,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395433054,
+    "latitude": 42.3505917,
+    "longitude": -71.0565484,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1187,
+    "y": 279
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395435586,
+    "latitude": 42.3502238,
+    "longitude": -71.0563559,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1192,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395440292,
+    "latitude": 42.3502626,
+    "longitude": -71.0564239,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395441428,
+    "latitude": 42.350397,
+    "longitude": -71.0564487,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1190,
+    "y": 285
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395464975,
+    "latitude": 42.3366849,
+    "longitude": -71.0970001,
+    "color": "551800",
+    "type": "Alex",
+    "x": 463,
+    "y": 528
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395471912,
+    "latitude": 42.3316282,
+    "longitude": -71.0979409,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395478067,
+    "latitude": 42.3315981,
+    "longitude": -71.0979255,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395490466,
+    "latitude": 42.331605,
+    "longitude": -71.0979185,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395502458,
+    "latitude": 42.3316054,
+    "longitude": -71.0979386,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395511495,
+    "latitude": 42.3316497,
+    "longitude": -71.0978646,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395513180,
+    "latitude": 42.3316122,
+    "longitude": -71.0978741,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 453,
+    "y": 608
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395529220,
+    "latitude": 42.3317947,
+    "longitude": -71.0978667,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 453,
+    "y": 605
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395530654,
+    "latitude": 42.3317947,
+    "longitude": -71.0978667,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395536233,
+    "latitude": 42.3317947,
+    "longitude": -71.0978667,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395540902,
+    "latitude": 42.3315939,
+    "longitude": -71.0979153,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395547709,
+    "latitude": 42.3316323,
+    "longitude": -71.0979654,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395605306,
+    "latitude": 42.3316581,
+    "longitude": -71.0979196,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395612981,
+    "latitude": 42.3317456,
+    "longitude": -71.0978855,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395615022,
+    "latitude": 42.3318129,
+    "longitude": -71.0978089,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 453,
+    "y": 604
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395699813,
+    "latitude": 42.3439359,
+    "longitude": -71.0797702,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 664,
+    "y": 413
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395725172,
+    "latitude": 42.3316419,
+    "longitude": -71.0979462,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395763526,
+    "latitude": 42.3502439,
+    "longitude": -71.0564415,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395767294,
+    "latitude": 42.3498283,
+    "longitude": -71.0577638,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 920,
+    "y": 320
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395796196,
+    "latitude": 42.331655,
+    "longitude": -71.0979621,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395796378,
+    "latitude": 42.3317481,
+    "longitude": -71.0978896,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395799232,
+    "latitude": 42.3315873,
+    "longitude": -71.0979492,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395840130,
+    "latitude": 42.3505793,
+    "longitude": -71.0565491,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395854236,
+    "latitude": 42.3513848,
+    "longitude": -71.0604266,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 889,
+    "y": 296
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395857233,
+    "latitude": 42.3505975,
+    "longitude": -71.0565589,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395860825,
+    "latitude": 42.3502372,
+    "longitude": -71.0565465,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 934,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395862139,
+    "latitude": 42.3534807,
+    "longitude": -71.0562433,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 938,
+    "y": 263
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395865865,
+    "latitude": 42.3534998,
+    "longitude": -71.0562161,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1195,
+    "y": 187
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395867502,
+    "latitude": 42.3341679,
+    "longitude": -71.0956134,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 479,
+    "y": 567
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395875033,
+    "latitude": 42.3316532,
+    "longitude": -71.097983,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395878788,
+    "latitude": 42.3316436,
+    "longitude": -71.0979162,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395910082,
+    "latitude": 42.331605,
+    "longitude": -71.0979785,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395932395,
+    "latitude": 42.3502385,
+    "longitude": -71.0565302,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1188,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395954895,
+    "latitude": 42.3502102,
+    "longitude": -71.0564769,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1189,
+    "y": 291
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395955653,
+    "latitude": 42.3502079,
+    "longitude": -71.0564965,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395956767,
+    "latitude": 42.3502735,
+    "longitude": -71.0565498,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 934,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395959031,
+    "latitude": 42.350391,
+    "longitude": -71.0569246,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 930,
+    "y": 312
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395961400,
+    "latitude": 42.3316702,
+    "longitude": -71.0979221,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395965038,
+    "latitude": 42.331659,
+    "longitude": -71.097896,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1395992728,
+    "latitude": 42.331612,
+    "longitude": -71.0979355,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396005014,
+    "latitude": 42.3316095,
+    "longitude": -71.0979555,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396010589,
+    "latitude": 42.3316801,
+    "longitude": -71.0978832,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396012092,
+    "latitude": 42.3357231,
+    "longitude": -71.0899441,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 545,
+    "y": 543
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396021124,
+    "latitude": 42.3508128,
+    "longitude": -71.0580307,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 917,
+    "y": 305
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396028690,
+    "latitude": 42.3506724,
+    "longitude": -71.0565524,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 934,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396040546,
+    "latitude": 42.3502369,
+    "longitude": -71.0564395,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396040857,
+    "latitude": 42.3502305,
+    "longitude": -71.0564877,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1189,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396051358,
+    "latitude": 42.3461549,
+    "longitude": -71.0813773,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 645,
+    "y": 378
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396055216,
+    "latitude": 42.3316284,
+    "longitude": -71.0979835,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396065620,
+    "latitude": 42.3316799,
+    "longitude": -71.0979296,
+    "color": "551800",
+    "type": "Alex",
+    "x": 452,
+    "y": 606
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396070632,
+    "latitude": 42.3316466,
+    "longitude": -71.0979767,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396081819,
+    "latitude": 42.331631,
+    "longitude": -71.097969,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396099146,
+    "latitude": 42.3318489,
+    "longitude": -71.0976732,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 455,
+    "y": 604
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396100474,
+    "latitude": 42.3354126,
+    "longitude": -71.0888729,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 558,
+    "y": 548
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396101187,
+    "latitude": 42.3358358,
+    "longitude": -71.0890223,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 556,
+    "y": 541
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396102273,
+    "latitude": 42.3357661,
+    "longitude": -71.0889784,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 556,
+    "y": 542
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396103930,
+    "latitude": 42.3358207,
+    "longitude": -71.0890886,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 555,
+    "y": 541
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396107203,
+    "latitude": 42.3356449,
+    "longitude": -71.0890265,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 556,
+    "y": 544
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396113432,
+    "latitude": 42.3359949,
+    "longitude": -71.0892928,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 553,
+    "y": 538
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396114037,
+    "latitude": 42.3359497,
+    "longitude": -71.0891692,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 554,
+    "y": 539
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396130222,
+    "latitude": 42.3355444,
+    "longitude": -71.0890109,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 556,
+    "y": 546
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396138623,
+    "latitude": 42.3304807,
+    "longitude": -71.081536,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 643,
+    "y": 625
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396154245,
+    "latitude": 42.3357345,
+    "longitude": -71.0890081,
+    "color": "551800",
+    "type": "Alex",
+    "x": 556,
+    "y": 543
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396156960,
+    "latitude": 42.3360174,
+    "longitude": -71.0892396,
+    "color": "551800",
+    "type": "Alex",
+    "x": 426,
+    "y": 738
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396158960,
+    "latitude": 42.3355286,
+    "longitude": -71.0890071,
+    "color": "551800",
+    "type": "Alex",
+    "x": 431,
+    "y": 754
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396164134,
+    "latitude": 42.3355286,
+    "longitude": -71.0890071,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396168630,
+    "latitude": 42.3366958,
+    "longitude": -71.0970239,
+    "color": "551800",
+    "type": "Alex",
+    "x": 463,
+    "y": 527
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396177633,
+    "latitude": 42.3316436,
+    "longitude": -71.0979726,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396184402,
+    "latitude": 42.3316343,
+    "longitude": -71.0979925,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396200906,
+    "latitude": 42.3549863,
+    "longitude": -71.1342753,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 29,
+    "y": 239
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396204806,
+    "latitude": 42.3414121,
+    "longitude": -71.1204322,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 190,
+    "y": 453
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396208299,
+    "latitude": 42.3316824,
+    "longitude": -71.0979203,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396212035,
+    "latitude": 42.3317501,
+    "longitude": -71.0978851,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396216306,
+    "latitude": 42.3323316,
+    "longitude": -71.0994288,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 435,
+    "y": 596
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396242230,
+    "latitude": 42.3316542,
+    "longitude": -71.0979678,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396247208,
+    "latitude": 42.3316541,
+    "longitude": -71.0979646,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396257875,
+    "latitude": 42.3316503,
+    "longitude": -71.0979772,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396272377,
+    "latitude": 42.3595605,
+    "longitude": -71.0697658,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 780,
+    "y": 167
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396273041,
+    "latitude": 42.3519397,
+    "longitude": -71.0628365,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 861,
+    "y": 287
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396287964,
+    "latitude": 42.3506584,
+    "longitude": -71.0568476,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 931,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396288204,
+    "latitude": 42.3505893,
+    "longitude": -71.0567095,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 932,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396290894,
+    "latitude": 42.3502192,
+    "longitude": -71.0565506,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396306082,
+    "latitude": 42.3491065,
+    "longitude": -71.0719936,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 754,
+    "y": 332
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396306818,
+    "latitude": 42.3375937,
+    "longitude": -71.0935598,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 503,
+    "y": 513
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396310721,
+    "latitude": 42.3458952,
+    "longitude": -71.0869976,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 579,
+    "y": 382
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396312264,
+    "latitude": 42.3403722,
+    "longitude": -71.0910521,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 532,
+    "y": 469
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396316080,
+    "latitude": 42.3417431,
+    "longitude": -71.0880772,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 567,
+    "y": 448
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396316200,
+    "latitude": 42.3417191,
+    "longitude": -71.0880518,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 618,
+    "y": 341
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396334406,
+    "latitude": 42.3316665,
+    "longitude": -71.097959,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396339407,
+    "latitude": 42.3317217,
+    "longitude": -71.0979344,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396355308,
+    "latitude": 42.3316511,
+    "longitude": -71.0979857,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396370236,
+    "latitude": 42.3501551,
+    "longitude": -71.056493,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 935,
+    "y": 315
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396382278,
+    "latitude": 42.3501958,
+    "longitude": -71.0565509,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 934,
+    "y": 315
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396384795,
+    "latitude": 42.3501503,
+    "longitude": -71.0564705,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396388938,
+    "latitude": 42.3501503,
+    "longitude": -71.0564705,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396398828,
+    "latitude": 42.3446638,
+    "longitude": -71.0830737,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 625,
+    "y": 402
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396421849,
+    "latitude": 42.3316496,
+    "longitude": -71.097954,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396434565,
+    "latitude": 42.3316613,
+    "longitude": -71.0979526,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396445592,
+    "latitude": 42.3501661,
+    "longitude": -71.0564701,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1189,
+    "y": 292
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396446372,
+    "latitude": 42.3501817,
+    "longitude": -71.056482,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396446492,
+    "latitude": 42.3501665,
+    "longitude": -71.056488,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396465023,
+    "latitude": 42.3502009,
+    "longitude": -71.0565031,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1188,
+    "y": 291
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396466592,
+    "latitude": 42.3501775,
+    "longitude": -71.0565015,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396469383,
+    "latitude": 42.3501633,
+    "longitude": -71.056479,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396472332,
+    "latitude": 42.3535308,
+    "longitude": -71.0562308,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 938,
+    "y": 262
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396491755,
+    "latitude": 42.3317557,
+    "longitude": -71.0979477,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 452,
+    "y": 605
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396501394,
+    "latitude": 42.3316285,
+    "longitude": -71.0979715,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396528396,
+    "latitude": 42.3316636,
+    "longitude": -71.0979644,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396550976,
+    "latitude": 42.3501713,
+    "longitude": -71.0565202,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1188,
+    "y": 292
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396552972,
+    "latitude": 42.3501819,
+    "longitude": -71.0564772,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396565825,
+    "latitude": 42.3934408,
+    "longitude": -71.130984,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 368,
+    "y": -67
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396567146,
+    "latitude": 42.4074932,
+    "longitude": -71.1265854,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 394,
+    "y": -178
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396574594,
+    "latitude": 42.4077159,
+    "longitude": -71.1266937,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 393,
+    "y": -180
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396577705,
+    "latitude": 42.4076698,
+    "longitude": -71.1266182,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 393,
+    "y": -179
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396621082,
+    "latitude": 42.3502433,
+    "longitude": -71.0565208,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396631673,
+    "latitude": 42.3501582,
+    "longitude": -71.056471,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396637688,
+    "latitude": 42.3501584,
+    "longitude": -71.0564668,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396654354,
+    "latitude": 42.3626473,
+    "longitude": -71.099907,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 429,
+    "y": 118
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396658172,
+    "latitude": 42.3610248,
+    "longitude": -71.0711388,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 764,
+    "y": 144
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396668010,
+    "latitude": 42.3304984,
+    "longitude": -71.1020717,
+    "color": "551800",
+    "type": "Alex",
+    "x": 404,
+    "y": 625
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396675172,
+    "latitude": 42.3315999,
+    "longitude": -71.0979466,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396685642,
+    "latitude": 42.3315946,
+    "longitude": -71.0979408,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396686602,
+    "latitude": 42.3315596,
+    "longitude": -71.0979832,
+    "color": "551800",
+    "type": "Alex",
+    "x": 451,
+    "y": 608
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396706918,
+    "latitude": 42.3316241,
+    "longitude": -71.0979236,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396709959,
+    "latitude": 42.3316198,
+    "longitude": -71.0979845,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396718284,
+    "latitude": 42.3316512,
+    "longitude": -71.0978697,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396727490,
+    "latitude": 42.3310343,
+    "longitude": -71.1017777,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 407,
+    "y": 617
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396732681,
+    "latitude": 42.3397233,
+    "longitude": -71.093227,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 507,
+    "y": 480
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396735926,
+    "latitude": 42.3415171,
+    "longitude": -71.086498,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 585,
+    "y": 451
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396781101,
+    "latitude": 42.3356737,
+    "longitude": -71.0978405,
+    "color": "551800",
+    "type": "Alex",
+    "x": 453,
+    "y": 544
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396795557,
+    "latitude": 42.3435921,
+    "longitude": -71.1018081,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 407,
+    "y": 419
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396843309,
+    "latitude": 42.3317654,
+    "longitude": -71.0979038,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396843501,
+    "latitude": 42.3316501,
+    "longitude": -71.0979648,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396863500,
+    "latitude": 42.3316345,
+    "longitude": -71.0979438,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396868402,
+    "latitude": 42.3316449,
+    "longitude": -71.0979377,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396876938,
+    "latitude": 42.351354,
+    "longitude": -71.0606445,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 886,
+    "y": 296
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396899953,
+    "latitude": 42.3501612,
+    "longitude": -71.0565163,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396905793,
+    "latitude": 42.3501855,
+    "longitude": -71.0565222,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396938373,
+    "latitude": 42.3316399,
+    "longitude": -71.0979329,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396970977,
+    "latitude": 42.350177,
+    "longitude": -71.0565292,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396971157,
+    "latitude": 42.3501769,
+    "longitude": -71.0565459,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1187,
+    "y": 292
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396979920,
+    "latitude": 42.3513018,
+    "longitude": -71.0528571,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 977,
+    "y": 297
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1396985151,
+    "latitude": 42.3501329,
+    "longitude": -71.0565141,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 935,
+    "y": 316
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397004791,
+    "latitude": 42.331628,
+    "longitude": -71.0979526,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397005137,
+    "latitude": 42.331629,
+    "longitude": -71.0979461,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397051423,
+    "latitude": 42.3504732,
+    "longitude": -71.0565854,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 934,
+    "y": 310
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397051908,
+    "latitude": 42.3501579,
+    "longitude": -71.0565431,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397059772,
+    "latitude": 42.3501552,
+    "longitude": -71.056537,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397064672,
+    "latitude": 42.3501494,
+    "longitude": -71.0565209,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397070722,
+    "latitude": 42.3498531,
+    "longitude": -71.0570305,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 929,
+    "y": 320
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397075478,
+    "latitude": 42.3524664,
+    "longitude": -71.1268751,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 115,
+    "y": 279
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397080662,
+    "latitude": 42.3432793,
+    "longitude": -71.1012077,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 414,
+    "y": 424
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397081673,
+    "latitude": 42.3433212,
+    "longitude": -71.1012331,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 414,
+    "y": 423
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397085705,
+    "latitude": 42.3433062,
+    "longitude": -71.1012015,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 147,
+    "y": 508
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397089752,
+    "latitude": 42.3427719,
+    "longitude": -71.0992476,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 437,
+    "y": 432
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397094408,
+    "latitude": 42.3444746,
+    "longitude": -71.0978792,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 453,
+    "y": 405
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397102343,
+    "latitude": 42.3434197,
+    "longitude": -71.1011968,
+    "color": "551800",
+    "type": "Alex",
+    "x": 414,
+    "y": 421
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397106440,
+    "latitude": 42.3432698,
+    "longitude": -71.1012432,
+    "color": "551800",
+    "type": "Alex",
+    "x": 413,
+    "y": 424
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397116196,
+    "latitude": 42.343319,
+    "longitude": -71.1011847,
+    "color": "551800",
+    "type": "Alex",
+    "x": 542,
+    "y": 328
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397117102,
+    "latitude": 42.3432972,
+    "longitude": -71.1012685,
+    "color": "551800",
+    "type": "Alex",
+    "x": 145,
+    "y": 509
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397120874,
+    "latitude": 42.3433473,
+    "longitude": -71.101197,
+    "color": "551800",
+    "type": "Alex",
+    "x": 147,
+    "y": 507
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397155840,
+    "latitude": 42.3502111,
+    "longitude": -71.0565446,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397157803,
+    "latitude": 42.3501903,
+    "longitude": -71.0565783,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 801,
+    "y": 274
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397163132,
+    "latitude": 42.3510353,
+    "longitude": -71.0564631,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 935,
+    "y": 301
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397174080,
+    "latitude": 42.3510628,
+    "longitude": -71.0630419,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 859,
+    "y": 301
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397179610,
+    "latitude": 42.3508505,
+    "longitude": -71.0610408,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 882,
+    "y": 304
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397188649,
+    "latitude": 42.3317226,
+    "longitude": -71.0978758,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397196842,
+    "latitude": 42.3317324,
+    "longitude": -71.0978944,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397212465,
+    "latitude": 42.3317352,
+    "longitude": -71.0978857,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397212783,
+    "latitude": 42.331728,
+    "longitude": -71.0978874,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397223585,
+    "latitude": 42.3501872,
+    "longitude": -71.0565726,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397237945,
+    "latitude": 42.3502034,
+    "longitude": -71.0565543,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397243282,
+    "latitude": 42.3478556,
+    "longitude": -71.0696497,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 782,
+    "y": 352
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397250001,
+    "latitude": 42.3385795,
+    "longitude": -71.088555,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 561,
+    "y": 498
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397255439,
+    "latitude": 42.3385795,
+    "longitude": -71.088555,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397257714,
+    "latitude": 42.3385795,
+    "longitude": -71.088555,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397260477,
+    "latitude": 42.335323,
+    "longitude": -71.1061565,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 356,
+    "y": 549
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397264852,
+    "latitude": 42.3316256,
+    "longitude": -71.0940825,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 497,
+    "y": 607
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397267476,
+    "latitude": 42.3316256,
+    "longitude": -71.0940825,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397268470,
+    "latitude": 42.3316256,
+    "longitude": -71.0940825,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397269687,
+    "latitude": 42.3316256,
+    "longitude": -71.0940825,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397274736,
+    "latitude": 42.3316977,
+    "longitude": -71.0978866,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397277670,
+    "latitude": 42.3317152,
+    "longitude": -71.0978727,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397278082,
+    "latitude": 42.3317209,
+    "longitude": -71.0978794,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397279802,
+    "latitude": 42.3317138,
+    "longitude": -71.0978815,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397287613,
+    "latitude": 42.3317192,
+    "longitude": -71.0978887,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397293589,
+    "latitude": 42.3317148,
+    "longitude": -71.0978866,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397310109,
+    "latitude": 42.3317138,
+    "longitude": -71.097883,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397314345,
+    "latitude": 42.331731,
+    "longitude": -71.097919,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397316317,
+    "latitude": 42.3317365,
+    "longitude": -71.0978842,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397316461,
+    "latitude": 42.3316136,
+    "longitude": -71.097882,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397317702,
+    "latitude": 42.3316159,
+    "longitude": -71.097854,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397322063,
+    "latitude": 42.3651837,
+    "longitude": -71.0599739,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 894,
+    "y": 78
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397326908,
+    "latitude": 42.4075419,
+    "longitude": -71.0262434,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 978,
+    "y": -178
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397329137,
+    "latitude": 42.4075419,
+    "longitude": -71.0262434,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397329381,
+    "latitude": 42.4075419,
+    "longitude": -71.0262434,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397331624,
+    "latitude": 42.4075419,
+    "longitude": -71.0262434,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397341047,
+    "latitude": 42.3635437,
+    "longitude": -71.0552617,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 949,
+    "y": 104
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397342404,
+    "latitude": 42.3371544,
+    "longitude": -71.0941529,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 496,
+    "y": 520
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397345355,
+    "latitude": 42.3371544,
+    "longitude": -71.0941529,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397358499,
+    "latitude": 42.3364744,
+    "longitude": -71.0757658,
+    "color": "551800",
+    "type": "Alex",
+    "x": 710,
+    "y": 531
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397360427,
+    "latitude": 42.3484355,
+    "longitude": -71.080568,
+    "color": "551800",
+    "type": "Alex",
+    "x": 654,
+    "y": 342
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397366136,
+    "latitude": 42.3496788,
+    "longitude": -71.0792986,
+    "color": "551800",
+    "type": "Alex",
+    "x": 669,
+    "y": 323
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397368545,
+    "latitude": 42.337169,
+    "longitude": -71.0941304,
+    "color": "551800",
+    "type": "Alex",
+    "x": 312,
+    "y": 702
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397370083,
+    "latitude": 42.337169,
+    "longitude": -71.0941304,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397370197,
+    "latitude": 42.337169,
+    "longitude": -71.0941304,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397371822,
+    "latitude": 42.3316876,
+    "longitude": -71.0979027,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397376371,
+    "latitude": 42.3317087,
+    "longitude": -71.0978906,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397421984,
+    "latitude": 42.3318251,
+    "longitude": -71.0978325,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397428240,
+    "latitude": 42.3316327,
+    "longitude": -71.0979545,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397450844,
+    "latitude": 42.3315957,
+    "longitude": -71.0979134,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397480415,
+    "latitude": 42.3316255,
+    "longitude": -71.0979222,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397481204,
+    "latitude": 42.3316201,
+    "longitude": -71.0978965,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397483846,
+    "latitude": 42.3501667,
+    "longitude": -71.056548,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397484096,
+    "latitude": 42.3501872,
+    "longitude": -71.0565591,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397490764,
+    "latitude": 42.3507088,
+    "longitude": -71.0569127,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 930,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397508379,
+    "latitude": 42.3501919,
+    "longitude": -71.056562,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397523276,
+    "latitude": 42.3404324,
+    "longitude": -71.0910501,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 383,
+    "y": 599
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397569951,
+    "latitude": 42.3439295,
+    "longitude": -71.0798198,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 663,
+    "y": 413
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397584904,
+    "latitude": 42.3502083,
+    "longitude": -71.0565649,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397710032,
+    "latitude": 42.3316461,
+    "longitude": -71.0979408,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397732615,
+    "latitude": 42.331653,
+    "longitude": -71.0979481,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397759856,
+    "latitude": 42.3502016,
+    "longitude": -71.0565474,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397767209,
+    "latitude": 42.3501933,
+    "longitude": -71.056563,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397770264,
+    "latitude": 42.3501684,
+    "longitude": -71.0565754,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397786753,
+    "latitude": 42.3410735,
+    "longitude": -71.0890624,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 555,
+    "y": 458
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397788017,
+    "latitude": 42.3386477,
+    "longitude": -71.0925209,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 515,
+    "y": 497
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397789198,
+    "latitude": 42.3316342,
+    "longitude": -71.097889,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397823730,
+    "latitude": 42.3316451,
+    "longitude": -71.0979289,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397828462,
+    "latitude": 42.3501971,
+    "longitude": -71.0565636,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397828654,
+    "latitude": 42.3505981,
+    "longitude": -71.0567623,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1182,
+    "y": 279
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397829663,
+    "latitude": 42.3501916,
+    "longitude": -71.0565881,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1186,
+    "y": 291
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397837732,
+    "latitude": 42.3505946,
+    "longitude": -71.056638,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 933,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397840950,
+    "latitude": 42.3506354,
+    "longitude": -71.0567045,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1184,
+    "y": 277
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397852018,
+    "latitude": 42.3501833,
+    "longitude": -71.0565644,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397877577,
+    "latitude": 42.6143902,
+    "longitude": -70.8665109,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397904667,
+    "latitude": 42.6143648,
+    "longitude": -70.8664648,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397908949,
+    "latitude": 42.6143996,
+    "longitude": -70.8664413,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397914277,
+    "latitude": 42.6142465,
+    "longitude": -70.8664495,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397933646,
+    "latitude": 42.6143202,
+    "longitude": -70.8663858,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397953032,
+    "latitude": 42.6142949,
+    "longitude": -70.8664195,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397959392,
+    "latitude": 42.6143533,
+    "longitude": -70.8663532,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397960178,
+    "latitude": 42.614388,
+    "longitude": -70.866331,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1397968150,
+    "latitude": 42.6143756,
+    "longitude": -70.8663368,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398024630,
+    "latitude": 42.3316314,
+    "longitude": -71.0979297,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398024968,
+    "latitude": 42.331641,
+    "longitude": -71.0979327,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398051358,
+    "latitude": 42.3316552,
+    "longitude": -71.0979545,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398085423,
+    "latitude": 42.3316276,
+    "longitude": -71.097913,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398087111,
+    "latitude": 42.3316225,
+    "longitude": -71.0979137,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398094444,
+    "latitude": 42.3316176,
+    "longitude": -71.0979221,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398099775,
+    "latitude": 42.3316232,
+    "longitude": -71.0978801,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398101146,
+    "latitude": 42.331729,
+    "longitude": -71.0979083,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398106911,
+    "latitude": 42.3438063,
+    "longitude": -71.0912573,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 530,
+    "y": 415
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398112624,
+    "latitude": 42.3414249,
+    "longitude": -71.0863904,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 587,
+    "y": 453
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398118961,
+    "latitude": 42.3316041,
+    "longitude": -71.0979371,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398126237,
+    "latitude": 42.3316073,
+    "longitude": -71.0979037,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398144689,
+    "latitude": 42.3316036,
+    "longitude": -71.0979107,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398149030,
+    "latitude": 42.3316329,
+    "longitude": -71.0979572,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398154845,
+    "latitude": 42.3316564,
+    "longitude": -71.0979403,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398161741,
+    "latitude": 42.3316343,
+    "longitude": -71.0979474,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398174407,
+    "latitude": 42.3501599,
+    "longitude": -71.0565456,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398188741,
+    "latitude": 42.3529717,
+    "longitude": -71.0528312,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 978,
+    "y": 271
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398191419,
+    "latitude": 42.3529717,
+    "longitude": -71.0528312,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398193192,
+    "latitude": 42.3501666,
+    "longitude": -71.0565512,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398200766,
+    "latitude": 42.3501568,
+    "longitude": -71.0565796,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398201607,
+    "latitude": 42.3501474,
+    "longitude": -71.0565831,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1187,
+    "y": 293
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398235319,
+    "latitude": 42.3316311,
+    "longitude": -71.0979459,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398246661,
+    "latitude": 42.3316056,
+    "longitude": -71.0979214,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398290184,
+    "latitude": 42.350162,
+    "longitude": -71.0565903,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1186,
+    "y": 292
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398300133,
+    "latitude": 42.3511779,
+    "longitude": -71.0516943,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 991,
+    "y": 299
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398301258,
+    "latitude": 42.3317002,
+    "longitude": -71.0967299,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 466,
+    "y": 606
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398309326,
+    "latitude": 42.3316522,
+    "longitude": -71.097878,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398316832,
+    "latitude": 42.3316523,
+    "longitude": -71.097881,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398329358,
+    "latitude": 42.3316128,
+    "longitude": -71.0978946,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398338745,
+    "latitude": 42.3316326,
+    "longitude": -71.0978876,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398339257,
+    "latitude": 42.3316345,
+    "longitude": -71.0979129,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398341366,
+    "latitude": 42.331623,
+    "longitude": -71.0978954,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398342510,
+    "latitude": 42.3316865,
+    "longitude": -71.0979215,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398420641,
+    "latitude": 42.3316961,
+    "longitude": -71.0978669,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398427272,
+    "latitude": 42.3316781,
+    "longitude": -71.0979255,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398428958,
+    "latitude": 42.3316113,
+    "longitude": -71.0979332,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398435758,
+    "latitude": 42.3501751,
+    "longitude": -71.0565365,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398443669,
+    "latitude": 42.3529319,
+    "longitude": -71.0554703,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 947,
+    "y": 271
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398451713,
+    "latitude": 42.3501619,
+    "longitude": -71.0565576,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398458820,
+    "latitude": 42.3501559,
+    "longitude": -71.0565535,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398475403,
+    "latitude": 42.3413423,
+    "longitude": -71.0818551,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 639,
+    "y": 454
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398504911,
+    "latitude": 42.3316069,
+    "longitude": -71.0979301,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398510357,
+    "latitude": 42.3316584,
+    "longitude": -71.0979063,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398522565,
+    "latitude": 42.331608,
+    "longitude": -71.097924,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398523643,
+    "latitude": 42.331665,
+    "longitude": -71.0978572,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398545789,
+    "latitude": 42.3316372,
+    "longitude": -71.0979027,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398548387,
+    "latitude": 42.3316617,
+    "longitude": -71.0978772,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398548507,
+    "latitude": 42.3316505,
+    "longitude": -71.0979052,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398549726,
+    "latitude": 42.331652,
+    "longitude": -71.0978702,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398558896,
+    "latitude": 42.3316484,
+    "longitude": -71.097916,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398611163,
+    "latitude": 42.3316828,
+    "longitude": -71.0979207,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398620113,
+    "latitude": 42.3318284,
+    "longitude": -71.0977914,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 454,
+    "y": 604
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398621491,
+    "latitude": 42.3456688,
+    "longitude": -71.0821988,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 635,
+    "y": 386
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398625605,
+    "latitude": 42.3511279,
+    "longitude": -71.0751562,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 717,
+    "y": 300
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398630043,
+    "latitude": 42.3469666,
+    "longitude": -71.0801344,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 659,
+    "y": 366
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398635490,
+    "latitude": 42.3405715,
+    "longitude": -71.0907014,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 536,
+    "y": 466
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398643733,
+    "latitude": 42.3405715,
+    "longitude": -71.0907014,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398645592,
+    "latitude": 42.3405715,
+    "longitude": -71.0907014,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398649523,
+    "latitude": 42.3316149,
+    "longitude": -71.0979166,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398686587,
+    "latitude": 42.3316232,
+    "longitude": -71.097869,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398695686,
+    "latitude": 42.3501308,
+    "longitude": -71.0565717,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 934,
+    "y": 316
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398705752,
+    "latitude": 42.3501382,
+    "longitude": -71.0565689,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398725128,
+    "latitude": 42.3501911,
+    "longitude": -71.0565759,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398729086,
+    "latitude": 42.3556155,
+    "longitude": -71.0592383,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 903,
+    "y": 229
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398741753,
+    "latitude": 42.331649,
+    "longitude": -71.0979346,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398790543,
+    "latitude": 42.3501565,
+    "longitude": -71.0565553,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398793187,
+    "latitude": 42.3501748,
+    "longitude": -71.0565716,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398799051,
+    "latitude": 42.35016,
+    "longitude": -71.0565653,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398801176,
+    "latitude": 42.3501579,
+    "longitude": -71.0565643,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398808086,
+    "latitude": 42.3501326,
+    "longitude": -71.0565863,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398832412,
+    "latitude": 42.3316787,
+    "longitude": -71.0979588,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398835891,
+    "latitude": 42.3317179,
+    "longitude": -71.0979355,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398845594,
+    "latitude": 42.3316685,
+    "longitude": -71.0979052,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398857727,
+    "latitude": 42.3316147,
+    "longitude": -71.0978849,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398859667,
+    "latitude": 42.331642,
+    "longitude": -71.0979119,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398865310,
+    "latitude": 42.3467356,
+    "longitude": -71.0597234,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 897,
+    "y": 369
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398878604,
+    "latitude": 42.3501742,
+    "longitude": -71.0565696,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398878957,
+    "latitude": 42.3511502,
+    "longitude": -71.0574059,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 924,
+    "y": 300
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398906917,
+    "latitude": 42.3316114,
+    "longitude": -71.0978713,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398936584,
+    "latitude": 42.3316441,
+    "longitude": -71.0979656,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398951560,
+    "latitude": 42.3501517,
+    "longitude": -71.0565648,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398966861,
+    "latitude": 42.3501403,
+    "longitude": -71.0565581,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398968727,
+    "latitude": 42.3501667,
+    "longitude": -71.0565826,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398978515,
+    "latitude": 42.3501436,
+    "longitude": -71.0565764,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398979992,
+    "latitude": 42.3501756,
+    "longitude": -71.0565821,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398984232,
+    "latitude": 42.3506563,
+    "longitude": -71.0572971,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 925,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1398994725,
+    "latitude": 42.3368183,
+    "longitude": -71.0978727,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 453,
+    "y": 525
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399014067,
+    "latitude": 42.3316169,
+    "longitude": -71.0979066,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399022827,
+    "latitude": 42.3316199,
+    "longitude": -71.0979437,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399032193,
+    "latitude": 42.3316913,
+    "longitude": -71.0979617,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399035697,
+    "latitude": 42.331612,
+    "longitude": -71.0979268,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399048440,
+    "latitude": 42.3491646,
+    "longitude": -71.0497187,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1014,
+    "y": 331
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399058271,
+    "latitude": 42.3644402,
+    "longitude": -71.0205876,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1353,
+    "y": 90
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399105411,
+    "latitude": 29.9583892,
+    "longitude": -90.0629698,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399118412,
+    "latitude": 29.9583892,
+    "longitude": -90.0629698,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399130963,
+    "latitude": 29.9594243,
+    "longitude": -90.068844,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399146889,
+    "latitude": 29.9562579,
+    "longitude": -90.0644325,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399147450,
+    "latitude": 29.9562579,
+    "longitude": -90.0644325,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399153313,
+    "latitude": 29.9600832,
+    "longitude": -90.060331,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399175951,
+    "latitude": 29.9638108,
+    "longitude": -90.058915,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399177426,
+    "latitude": 29.9638108,
+    "longitude": -90.058915,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399200901,
+    "latitude": 29.9638108,
+    "longitude": -90.058915,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399216550,
+    "latitude": 29.9602739,
+    "longitude": -90.0604031,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399225831,
+    "latitude": 29.9602739,
+    "longitude": -90.0604031,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399242100,
+    "latitude": 29.9235813,
+    "longitude": -90.0869445,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399245439,
+    "latitude": 29.9225301,
+    "longitude": -90.1351809,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399249048,
+    "latitude": 29.9260689,
+    "longitude": -90.1318949,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399256032,
+    "latitude": 29.947334,
+    "longitude": -90.1296705,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399285801,
+    "latitude": 29.9607664,
+    "longitude": -90.0612452,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399293000,
+    "latitude": 29.9607664,
+    "longitude": -90.0612452,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399311901,
+    "latitude": 29.9507775,
+    "longitude": -90.0651101,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399326022,
+    "latitude": 29.959056,
+    "longitude": -90.0661557,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399341536,
+    "latitude": 29.9624314,
+    "longitude": -90.063641,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399388838,
+    "latitude": 29.9601989,
+    "longitude": -90.0603556,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399390697,
+    "latitude": 29.9384202,
+    "longitude": -90.0518546,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399395467,
+    "latitude": 29.9625865,
+    "longitude": -90.0607488,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399397818,
+    "latitude": 29.9949752,
+    "longitude": -90.2444405,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399398545,
+    "latitude": 29.9949752,
+    "longitude": -90.2444405,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399409113,
+    "latitude": 32.899116,
+    "longitude": -97.0369089,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399410275,
+    "latitude": 32.8991703,
+    "longitude": -97.036711,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399415921,
+    "latitude": 32.8966793,
+    "longitude": -97.0360861,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399471092,
+    "latitude": 42.3501731,
+    "longitude": -71.0565564,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399472836,
+    "latitude": 42.3501688,
+    "longitude": -71.0565485,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399473240,
+    "latitude": 42.3501561,
+    "longitude": -71.0565415,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399477348,
+    "latitude": 42.35016,
+    "longitude": -71.0565599,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399484350,
+    "latitude": 42.3501502,
+    "longitude": -71.0565203,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399486341,
+    "latitude": 42.3501696,
+    "longitude": -71.0565343,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399490971,
+    "latitude": 42.350153,
+    "longitude": -71.0565231,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399492950,
+    "latitude": 42.3501593,
+    "longitude": -71.0565671,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399497253,
+    "latitude": 42.3501858,
+    "longitude": -71.0565502,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399498556,
+    "latitude": 42.3501487,
+    "longitude": -71.0565461,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399501436,
+    "latitude": 42.3515664,
+    "longitude": -71.063004,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 859,
+    "y": 293
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399504796,
+    "latitude": 42.3515593,
+    "longitude": -71.0629863,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399559617,
+    "latitude": 42.3501821,
+    "longitude": -71.0565549,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399565527,
+    "latitude": 42.3501722,
+    "longitude": -71.0565661,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399568595,
+    "latitude": 42.350162,
+    "longitude": -71.05654,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399581520,
+    "latitude": 42.3501604,
+    "longitude": -71.0565318,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399585064,
+    "latitude": 42.3445449,
+    "longitude": -71.087521,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 573,
+    "y": 404
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399587763,
+    "latitude": 42.3316012,
+    "longitude": -71.0979106,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399593747,
+    "latitude": 42.3317106,
+    "longitude": -71.0977263,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 454,
+    "y": 606
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399597156,
+    "latitude": 42.3319491,
+    "longitude": -71.0976904,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 455,
+    "y": 602
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399602520,
+    "latitude": 42.3335266,
+    "longitude": -71.1037342,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 384,
+    "y": 577
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399624181,
+    "latitude": 42.3316265,
+    "longitude": -71.0979464,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399629851,
+    "latitude": 42.3316159,
+    "longitude": -71.0979449,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399644835,
+    "latitude": 42.3501714,
+    "longitude": -71.0565268,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399675840,
+    "latitude": 42.3501587,
+    "longitude": -71.0565516,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399676384,
+    "latitude": 42.3513334,
+    "longitude": -71.0562195,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 938,
+    "y": 297
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399680342,
+    "latitude": 42.3317158,
+    "longitude": -71.0978787,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399680522,
+    "latitude": 42.3317004,
+    "longitude": -71.0979142,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399681243,
+    "latitude": 42.3317085,
+    "longitude": -71.0979155,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399691642,
+    "latitude": 42.3316694,
+    "longitude": -71.0979289,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399721994,
+    "latitude": 42.3316463,
+    "longitude": -71.0978985,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399729753,
+    "latitude": 42.3316084,
+    "longitude": -71.0979301,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399733805,
+    "latitude": 42.3316504,
+    "longitude": -71.0979226,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399751596,
+    "latitude": 42.1302574,
+    "longitude": -71.020127,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399751869,
+    "latitude": 42.1249654,
+    "longitude": -71.0373142,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399754784,
+    "latitude": 42.3305202,
+    "longitude": -71.0629204,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 860,
+    "y": 625
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399779426,
+    "latitude": 42.3316276,
+    "longitude": -71.0978935,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399780690,
+    "latitude": 42.3316276,
+    "longitude": -71.0978935,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399785525,
+    "latitude": 42.3305346,
+    "longitude": -71.0815877,
+    "color": "551800",
+    "type": "Alex",
+    "x": 642,
+    "y": 625
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399816164,
+    "latitude": 42.3316416,
+    "longitude": -71.0979006,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399828611,
+    "latitude": 42.3316467,
+    "longitude": -71.0978954,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399841011,
+    "latitude": 42.3316469,
+    "longitude": -71.0978915,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399841101,
+    "latitude": 42.3316469,
+    "longitude": -71.0978915,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399844775,
+    "latitude": 42.3316469,
+    "longitude": -71.0978915,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399860129,
+    "latitude": 42.33166,
+    "longitude": -71.0979487,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399860310,
+    "latitude": 42.33166,
+    "longitude": -71.0979487,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399863532,
+    "latitude": 42.3316594,
+    "longitude": -71.0979374,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399875052,
+    "latitude": 42.3316382,
+    "longitude": -71.0979277,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399896477,
+    "latitude": 42.3318007,
+    "longitude": -71.0979328,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399924515,
+    "latitude": 42.3489315,
+    "longitude": -71.059687,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 898,
+    "y": 335
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399925370,
+    "latitude": 42.3501602,
+    "longitude": -71.0565328,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399927207,
+    "latitude": 42.35016,
+    "longitude": -71.0565386,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399927628,
+    "latitude": 42.3502014,
+    "longitude": -71.0565458,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399944912,
+    "latitude": 42.3316519,
+    "longitude": -71.0978963,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399981211,
+    "latitude": 42.3316424,
+    "longitude": -71.0978975,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399988283,
+    "latitude": 42.3370898,
+    "longitude": -71.0972044,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 461,
+    "y": 521
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1399997918,
+    "latitude": 42.3501447,
+    "longitude": -71.0565283,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400000498,
+    "latitude": 42.3501807,
+    "longitude": -71.0565202,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400009738,
+    "latitude": 42.3501621,
+    "longitude": -71.0565707,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400010808,
+    "latitude": 42.3501594,
+    "longitude": -71.0565678,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400010885,
+    "latitude": 42.3501768,
+    "longitude": -71.0565656,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400018211,
+    "latitude": 42.3502149,
+    "longitude": -71.0565948,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400021181,
+    "latitude": 42.3498082,
+    "longitude": -71.0821357,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 636,
+    "y": 321
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400032202,
+    "latitude": 42.3316596,
+    "longitude": -71.0978838,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400069327,
+    "latitude": 42.3316497,
+    "longitude": -71.0978959,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400073984,
+    "latitude": 42.3468472,
+    "longitude": -71.0766452,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 700,
+    "y": 367
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400078167,
+    "latitude": 42.3501555,
+    "longitude": -71.0565739,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400078737,
+    "latitude": 42.3501481,
+    "longitude": -71.0565549,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400085550,
+    "latitude": 42.3501486,
+    "longitude": -71.0565838,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400093585,
+    "latitude": 42.3533592,
+    "longitude": -71.0545173,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 958,
+    "y": 265
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400106374,
+    "latitude": 42.3477482,
+    "longitude": -71.0892167,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 554,
+    "y": 353
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400107008,
+    "latitude": 42.344172,
+    "longitude": -71.0836401,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 619,
+    "y": 410
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400109805,
+    "latitude": 42.3316542,
+    "longitude": -71.0979337,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400114059,
+    "latitude": 42.3340182,
+    "longitude": -71.1049474,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 370,
+    "y": 570
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400120524,
+    "latitude": 42.3318847,
+    "longitude": -71.0977394,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 454,
+    "y": 603
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400170884,
+    "latitude": 42.3502595,
+    "longitude": -71.048654,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1026,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400200701,
+    "latitude": 42.3517307,
+    "longitude": -71.0626364,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 863,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400202692,
+    "latitude": 42.3517307,
+    "longitude": -71.0626364,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400204237,
+    "latitude": 42.3517307,
+    "longitude": -71.0626364,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400217416,
+    "latitude": 42.3316328,
+    "longitude": -71.097922,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400227227,
+    "latitude": 42.3316297,
+    "longitude": -71.0978928,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400233019,
+    "latitude": 42.3316297,
+    "longitude": -71.0978928,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400245901,
+    "latitude": 42.3316297,
+    "longitude": -71.0978928,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400249754,
+    "latitude": 42.3316297,
+    "longitude": -71.0978928,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400272006,
+    "latitude": 42.3501439,
+    "longitude": -71.0565139,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400286601,
+    "latitude": 42.3319922,
+    "longitude": -71.097902,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 452,
+    "y": 602
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400291706,
+    "latitude": 42.3316405,
+    "longitude": -71.0978983,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400298260,
+    "latitude": 42.3482074,
+    "longitude": -71.0786238,
+    "color": "551800",
+    "type": "Alex",
+    "x": 677,
+    "y": 346
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400303223,
+    "latitude": 42.3316175,
+    "longitude": -71.0979206,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400306819,
+    "latitude": 42.3316449,
+    "longitude": -71.0979444,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400309749,
+    "latitude": 42.3316644,
+    "longitude": -71.0979599,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400310580,
+    "latitude": 42.3315994,
+    "longitude": -71.0979269,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400315483,
+    "latitude": 42.3316392,
+    "longitude": -71.0979271,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400333421,
+    "latitude": 42.3316571,
+    "longitude": -71.0979275,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400335435,
+    "latitude": 42.3316489,
+    "longitude": -71.0979423,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400343802,
+    "latitude": 42.3316364,
+    "longitude": -71.0979057,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400347496,
+    "latitude": 42.3316279,
+    "longitude": -71.0979081,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400352664,
+    "latitude": 42.3303643,
+    "longitude": -71.1014533,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 411,
+    "y": 627
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400353998,
+    "latitude": 42.3363109,
+    "longitude": -71.0910196,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 533,
+    "y": 533
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400355489,
+    "latitude": 42.33034,
+    "longitude": -71.1014293,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 411,
+    "y": 628
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400359428,
+    "latitude": 42.33034,
+    "longitude": -71.1014293,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400361916,
+    "latitude": 42.33034,
+    "longitude": -71.1014293,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400362089,
+    "latitude": 42.33034,
+    "longitude": -71.1014293,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400368566,
+    "latitude": 42.3402011,
+    "longitude": -71.0935071,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 504,
+    "y": 472
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400374767,
+    "latitude": 42.3316579,
+    "longitude": -71.0979285,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400377820,
+    "latitude": 42.3303207,
+    "longitude": -71.1014571,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400420569,
+    "latitude": 42.3316454,
+    "longitude": -71.0979486,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400421393,
+    "latitude": 42.3316337,
+    "longitude": -71.0979341,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400428197,
+    "latitude": 42.3316475,
+    "longitude": -71.0979208,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400432603,
+    "latitude": 42.3316534,
+    "longitude": -71.0979363,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400434122,
+    "latitude": 42.3319384,
+    "longitude": -71.0977998,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 454,
+    "y": 602
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400436857,
+    "latitude": 42.3335722,
+    "longitude": -71.1028548,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 395,
+    "y": 577
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400437418,
+    "latitude": 42.3335454,
+    "longitude": -71.1036723,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 385,
+    "y": 577
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400439253,
+    "latitude": 42.3316255,
+    "longitude": -71.0979012,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400441502,
+    "latitude": 42.3316596,
+    "longitude": -71.0979599,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400443346,
+    "latitude": 42.3316463,
+    "longitude": -71.0979469,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400445713,
+    "latitude": 42.3316542,
+    "longitude": -71.0979116,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400451777,
+    "latitude": 42.5751208,
+    "longitude": -70.9011053,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400453896,
+    "latitude": 42.6143662,
+    "longitude": -70.8663454,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400458415,
+    "latitude": 42.6143553,
+    "longitude": -70.8663538,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400460262,
+    "latitude": 42.6143817,
+    "longitude": -70.8663312,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400512688,
+    "latitude": 42.3505891,
+    "longitude": -71.0566631,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400514294,
+    "latitude": 42.3501527,
+    "longitude": -71.0565444,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400531538,
+    "latitude": 42.3501637,
+    "longitude": -71.0565781,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400532483,
+    "latitude": 42.3501694,
+    "longitude": -71.0565457,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400534469,
+    "latitude": 42.350613,
+    "longitude": -71.0566436,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1185,
+    "y": 278
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400544296,
+    "latitude": 42.3316554,
+    "longitude": -71.0979016,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400577571,
+    "latitude": 42.3316868,
+    "longitude": -71.0978676,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400610817,
+    "latitude": 42.3506732,
+    "longitude": -71.0567178,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 932,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400623407,
+    "latitude": 42.3501665,
+    "longitude": -71.0565559,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400639201,
+    "latitude": 42.3316329,
+    "longitude": -71.0978736,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400654456,
+    "latitude": 42.3316165,
+    "longitude": -71.0979884,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400655356,
+    "latitude": 42.331645,
+    "longitude": -71.0979162,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400694109,
+    "latitude": 42.3501497,
+    "longitude": -71.0565673,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400699144,
+    "latitude": 42.3528839,
+    "longitude": -71.0553611,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 948,
+    "y": 272
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400701840,
+    "latitude": 42.3501636,
+    "longitude": -71.0565552,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400702770,
+    "latitude": 42.350152,
+    "longitude": -71.0565626,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400722564,
+    "latitude": 42.3316902,
+    "longitude": -71.0978848,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400739664,
+    "latitude": 42.3316902,
+    "longitude": -71.0978848,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400740594,
+    "latitude": 42.3316902,
+    "longitude": -71.0978848,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400804410,
+    "latitude": 42.343807,
+    "longitude": -71.1009288,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 417,
+    "y": 415
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400829241,
+    "latitude": 42.3433286,
+    "longitude": -71.1012128,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400830757,
+    "latitude": 42.3435336,
+    "longitude": -71.1016614,
+    "color": "551800",
+    "type": "Alex",
+    "x": 409,
+    "y": 420
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400832617,
+    "latitude": 42.3432897,
+    "longitude": -71.1011812,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400870981,
+    "latitude": 42.3501563,
+    "longitude": -71.0565612,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400873207,
+    "latitude": 42.3501493,
+    "longitude": -71.0565595,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400875506,
+    "latitude": 42.3501494,
+    "longitude": -71.0565371,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400896437,
+    "latitude": 42.3316929,
+    "longitude": -71.0979165,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400900867,
+    "latitude": 42.3316806,
+    "longitude": -71.0979092,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400933517,
+    "latitude": 42.331698,
+    "longitude": -71.0979331,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400941123,
+    "latitude": 42.3317206,
+    "longitude": -71.097892,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400941613,
+    "latitude": 42.331686,
+    "longitude": -71.0978997,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400948302,
+    "latitude": 42.3316963,
+    "longitude": -71.0979271,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400961825,
+    "latitude": 42.331673,
+    "longitude": -71.0979658,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400968348,
+    "latitude": 42.3316718,
+    "longitude": -71.0979166,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400974435,
+    "latitude": 42.3434587,
+    "longitude": -71.072567,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 748,
+    "y": 421
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400992486,
+    "latitude": 42.3316823,
+    "longitude": -71.0979134,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1400993436,
+    "latitude": 42.3316884,
+    "longitude": -71.0979322,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401026022,
+    "latitude": 42.3316849,
+    "longitude": -71.0979613,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401031078,
+    "latitude": 42.3316855,
+    "longitude": -71.0979611,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401037254,
+    "latitude": 42.3316868,
+    "longitude": -71.097938,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401042602,
+    "latitude": 42.3317165,
+    "longitude": -71.097999,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 451,
+    "y": 606
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401054901,
+    "latitude": 42.3317208,
+    "longitude": -71.09796,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401067808,
+    "latitude": 42.3532944,
+    "longitude": -71.0724238,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 749,
+    "y": 266
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401069390,
+    "latitude": 42.3506169,
+    "longitude": -71.0707876,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 768,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401075509,
+    "latitude": 42.3509684,
+    "longitude": -71.0673689,
+    "color": "551800",
+    "type": "Alex",
+    "x": 808,
+    "y": 302
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401091769,
+    "latitude": 42.3316846,
+    "longitude": -71.097945,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401110773,
+    "latitude": 42.3316467,
+    "longitude": -71.0982997,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 448,
+    "y": 607
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401116570,
+    "latitude": 42.3314922,
+    "longitude": -71.0978752,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 453,
+    "y": 609
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401118430,
+    "latitude": 42.3316339,
+    "longitude": -71.0979343,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401125581,
+    "latitude": 42.331665,
+    "longitude": -71.0978799,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401126629,
+    "latitude": 42.3316582,
+    "longitude": -71.0979192,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401139087,
+    "latitude": 42.3317032,
+    "longitude": -71.0979294,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401188635,
+    "latitude": 42.3317095,
+    "longitude": -71.0979137,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401197307,
+    "latitude": 42.3486413,
+    "longitude": -71.0730453,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 742,
+    "y": 339
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401205279,
+    "latitude": 42.3502427,
+    "longitude": -71.0566747,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 933,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401207939,
+    "latitude": 42.3506223,
+    "longitude": -71.0571297,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 927,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401220398,
+    "latitude": 42.3502003,
+    "longitude": -71.0566604,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 933,
+    "y": 315
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401227102,
+    "latitude": 42.3501964,
+    "longitude": -71.0566307,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401228719,
+    "latitude": 42.3509905,
+    "longitude": -71.0585172,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 911,
+    "y": 302
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401235497,
+    "latitude": 42.3466745,
+    "longitude": -71.0928947,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 511,
+    "y": 370
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401239581,
+    "latitude": 42.331681,
+    "longitude": -71.0979621,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401247820,
+    "latitude": 42.3316652,
+    "longitude": -71.097949,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401257938,
+    "latitude": 42.331684,
+    "longitude": -71.0979494,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401281059,
+    "latitude": 42.3316676,
+    "longitude": -71.0979335,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401286218,
+    "latitude": 42.350205,
+    "longitude": -71.0566429,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401292844,
+    "latitude": 42.3502421,
+    "longitude": -71.0566343,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1185,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401304109,
+    "latitude": 42.3502184,
+    "longitude": -71.0566343,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401315493,
+    "latitude": 42.3238177,
+    "longitude": -71.0997909,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 430,
+    "y": 730
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401322392,
+    "latitude": 42.3315921,
+    "longitude": -71.0980176,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401336777,
+    "latitude": 42.3367998,
+    "longitude": -71.0977468,
+    "color": "551800",
+    "type": "Alex",
+    "x": 454,
+    "y": 526
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401339613,
+    "latitude": 42.3367998,
+    "longitude": -71.0977468,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401363556,
+    "latitude": 42.3367998,
+    "longitude": -71.0977468,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401369791,
+    "latitude": 42.3340773,
+    "longitude": -71.0961038,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 473,
+    "y": 569
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401375038,
+    "latitude": 42.3466442,
+    "longitude": -71.0597997,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 896,
+    "y": 371
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401378051,
+    "latitude": 42.3466442,
+    "longitude": -71.0597997,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401378732,
+    "latitude": 42.3466442,
+    "longitude": -71.0597997,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401389585,
+    "latitude": 42.350209,
+    "longitude": -71.0566483,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401403214,
+    "latitude": 42.3316662,
+    "longitude": -71.097923,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401408042,
+    "latitude": 42.3316943,
+    "longitude": -71.0978894,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401414302,
+    "latitude": 42.3316765,
+    "longitude": -71.0979725,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401445710,
+    "latitude": 42.3316881,
+    "longitude": -71.0979598,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401453752,
+    "latitude": 42.3316828,
+    "longitude": -71.0979672,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401461808,
+    "latitude": 42.332354,
+    "longitude": -71.0979664,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 452,
+    "y": 596
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401502684,
+    "latitude": 42.3316583,
+    "longitude": -71.0979335,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401517241,
+    "latitude": 42.3316621,
+    "longitude": -71.0979224,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401547068,
+    "latitude": 42.3316438,
+    "longitude": -71.0979473,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401547248,
+    "latitude": 42.331668,
+    "longitude": -71.0979477,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401549940,
+    "latitude": 42.331665,
+    "longitude": -71.097949,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401551419,
+    "latitude": 42.3316676,
+    "longitude": -71.0979683,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401558623,
+    "latitude": 42.3403389,
+    "longitude": -71.0908624,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 534,
+    "y": 470
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401559215,
+    "latitude": 42.3403389,
+    "longitude": -71.0908624,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401562695,
+    "latitude": 42.3316367,
+    "longitude": -71.0979665,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401567989,
+    "latitude": 42.3316598,
+    "longitude": -71.0979088,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401577016,
+    "latitude": 42.3316096,
+    "longitude": -71.0978952,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401583458,
+    "latitude": 42.3316267,
+    "longitude": -71.0980224,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401584313,
+    "latitude": 42.3321925,
+    "longitude": -71.0940488,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 497,
+    "y": 598
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401595809,
+    "latitude": 42.331653,
+    "longitude": -71.098003,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401598862,
+    "latitude": 42.3316565,
+    "longitude": -71.0979243,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401610373,
+    "latitude": 42.3316638,
+    "longitude": -71.0979397,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401629447,
+    "latitude": 42.3316789,
+    "longitude": -71.0979451,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401630087,
+    "latitude": 42.3316533,
+    "longitude": -71.0979325,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401634375,
+    "latitude": 42.3339611,
+    "longitude": -71.0954725,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 481,
+    "y": 571
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401642901,
+    "latitude": 42.3448538,
+    "longitude": -71.1007157,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 420,
+    "y": 399
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401649070,
+    "latitude": 42.3316577,
+    "longitude": -71.0979368,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401650870,
+    "latitude": 42.3316822,
+    "longitude": -71.0979801,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401657664,
+    "latitude": 42.3316554,
+    "longitude": -71.0979645,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401661376,
+    "latitude": 42.3316679,
+    "longitude": -71.0979574,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401682578,
+    "latitude": 42.3316489,
+    "longitude": -71.0979522,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401685864,
+    "latitude": 42.33167,
+    "longitude": -71.0979288,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401690677,
+    "latitude": 42.3316743,
+    "longitude": -71.0979468,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401704547,
+    "latitude": 42.331655,
+    "longitude": -71.0979836,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401710103,
+    "latitude": 42.3316609,
+    "longitude": -71.0979287,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401714702,
+    "latitude": 42.3345314,
+    "longitude": -71.0894226,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 551,
+    "y": 562
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401720556,
+    "latitude": 42.3506315,
+    "longitude": -71.0569979,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 929,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401792703,
+    "latitude": 42.3316788,
+    "longitude": -71.0979526,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401796156,
+    "latitude": 42.3316738,
+    "longitude": -71.0979337,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401803588,
+    "latitude": 42.3501679,
+    "longitude": -71.0566412,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1185,
+    "y": 292
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401812847,
+    "latitude": 42.3501485,
+    "longitude": -71.0566602,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1185,
+    "y": 293
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401831228,
+    "latitude": 42.3501709,
+    "longitude": -71.0566104,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401846455,
+    "latitude": 42.3316953,
+    "longitude": -71.0979413,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401880337,
+    "latitude": 42.3316935,
+    "longitude": -71.0979397,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401885603,
+    "latitude": 42.331681,
+    "longitude": -71.0979456,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401888225,
+    "latitude": 42.3305096,
+    "longitude": -71.096073,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 474,
+    "y": 625
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401896702,
+    "latitude": 42.3502797,
+    "longitude": -71.0569368,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 930,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401903300,
+    "latitude": 42.3502273,
+    "longitude": -71.0566883,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401904071,
+    "latitude": 42.350259,
+    "longitude": -71.0569873,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 929,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401908561,
+    "latitude": 42.3501619,
+    "longitude": -71.0566513,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401927453,
+    "latitude": 42.3500904,
+    "longitude": -71.0563899,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 936,
+    "y": 316
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401933824,
+    "latitude": 42.3317742,
+    "longitude": -71.0980462,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 451,
+    "y": 605
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401948792,
+    "latitude": 42.3316717,
+    "longitude": -71.0978636,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401949481,
+    "latitude": 42.3316834,
+    "longitude": -71.0978909,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401972823,
+    "latitude": 42.3317056,
+    "longitude": -71.097904,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401973868,
+    "latitude": 42.331672,
+    "longitude": -71.0979213,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401979310,
+    "latitude": 42.331729,
+    "longitude": -71.0979088,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1401986406,
+    "latitude": 42.3505859,
+    "longitude": -71.0567845,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 931,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402008919,
+    "latitude": 42.3316539,
+    "longitude": -71.0979052,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402021801,
+    "latitude": 42.3436383,
+    "longitude": -71.1011583,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 414,
+    "y": 418
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402045034,
+    "latitude": 42.3316684,
+    "longitude": -71.0978929,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402050960,
+    "latitude": 42.331712,
+    "longitude": -71.0979123,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402055410,
+    "latitude": 42.3316863,
+    "longitude": -71.0979124,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402068336,
+    "latitude": 42.3501784,
+    "longitude": -71.0567572,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 932,
+    "y": 315
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402087718,
+    "latitude": 42.3501556,
+    "longitude": -71.0567475,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402094890,
+    "latitude": 42.3317026,
+    "longitude": -71.0979143,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402134568,
+    "latitude": 42.3316613,
+    "longitude": -71.0979057,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402150586,
+    "latitude": 42.3316392,
+    "longitude": -71.0979075,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402152135,
+    "latitude": 42.3316737,
+    "longitude": -71.0979138,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402154901,
+    "latitude": 42.3559221,
+    "longitude": -71.0592991,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 902,
+    "y": 224
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402160451,
+    "latitude": 42.3608021,
+    "longitude": -71.0572224,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 926,
+    "y": 147
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402167171,
+    "latitude": 42.331721,
+    "longitude": -71.097904,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402181765,
+    "latitude": 42.3316556,
+    "longitude": -71.0979002,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402184272,
+    "latitude": 42.3338414,
+    "longitude": -71.105444,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 365,
+    "y": 572
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402210785,
+    "latitude": 42.3317049,
+    "longitude": -71.0979061,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402223671,
+    "latitude": 42.3317239,
+    "longitude": -71.0978698,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402225163,
+    "latitude": 42.3316963,
+    "longitude": -71.0979117,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402249693,
+    "latitude": 42.338078,
+    "longitude": -71.0849322,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 604,
+    "y": 506
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402267832,
+    "latitude": 42.3446528,
+    "longitude": -71.0977505,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 454,
+    "y": 402
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402268096,
+    "latitude": 42.3441987,
+    "longitude": -71.0975613,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 456,
+    "y": 409
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402276580,
+    "latitude": 42.3316461,
+    "longitude": -71.0979171,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402279867,
+    "latitude": 42.3316724,
+    "longitude": -71.0979191,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402282396,
+    "latitude": 42.3317185,
+    "longitude": -71.0979267,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402288070,
+    "latitude": 42.3316581,
+    "longitude": -71.0978934,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402317661,
+    "latitude": 42.3316678,
+    "longitude": -71.0978826,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402321644,
+    "latitude": 42.3518286,
+    "longitude": -71.0560756,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 940,
+    "y": 289
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402322866,
+    "latitude": 42.3501296,
+    "longitude": -71.0566778,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 933,
+    "y": 316
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402348466,
+    "latitude": 42.350249,
+    "longitude": -71.0571623,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 927,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402349669,
+    "latitude": 42.3501546,
+    "longitude": -71.0566879,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402354433,
+    "latitude": 42.3503424,
+    "longitude": -71.057417,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 924,
+    "y": 312
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402354862,
+    "latitude": 42.3502121,
+    "longitude": -71.0567935,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 931,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402356543,
+    "latitude": 42.3528497,
+    "longitude": -71.045692,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 1061,
+    "y": 273
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402363920,
+    "latitude": 42.3528577,
+    "longitude": -71.0456674,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 1441,
+    "y": 207
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402366898,
+    "latitude": 42.331656,
+    "longitude": -71.0978922,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402378334,
+    "latitude": 42.3316671,
+    "longitude": -71.097907,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402383774,
+    "latitude": 42.3316743,
+    "longitude": -71.0979058,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402418000,
+    "latitude": 42.350306,
+    "longitude": -71.0574507,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 924,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402427778,
+    "latitude": 42.350226,
+    "longitude": -71.0567624,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 932,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402484021,
+    "latitude": 42.3316288,
+    "longitude": -71.0979063,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402491147,
+    "latitude": 42.3316308,
+    "longitude": -71.0979343,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402514730,
+    "latitude": 42.3319258,
+    "longitude": -71.0975117,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 457,
+    "y": 603
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402523553,
+    "latitude": 42.3316471,
+    "longitude": -71.0979179,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402526832,
+    "latitude": 42.3316474,
+    "longitude": -71.0979009,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402535339,
+    "latitude": 42.3316674,
+    "longitude": -71.0979286,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402550855,
+    "latitude": 42.3316474,
+    "longitude": -71.0978793,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402560239,
+    "latitude": 42.3316471,
+    "longitude": -71.0978752,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402579641,
+    "latitude": 42.351456,
+    "longitude": -71.0558985,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 942,
+    "y": 295
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402593454,
+    "latitude": 42.3501971,
+    "longitude": -71.056704,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1184,
+    "y": 291
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402613191,
+    "latitude": 42.3513206,
+    "longitude": -71.0607692,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 885,
+    "y": 297
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402616808,
+    "latitude": 42.331691,
+    "longitude": -71.0979366,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402616944,
+    "latitude": 42.3316364,
+    "longitude": -71.0979215,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402617487,
+    "latitude": 42.3316369,
+    "longitude": -71.097886,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402620420,
+    "latitude": 42.3316201,
+    "longitude": -71.0979246,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402633928,
+    "latitude": 42.3316445,
+    "longitude": -71.0979215,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402652954,
+    "latitude": 42.3316341,
+    "longitude": -71.0978937,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402679161,
+    "latitude": 42.3502966,
+    "longitude": -71.0574152,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1167,
+    "y": 288
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402681168,
+    "latitude": 42.3502832,
+    "longitude": -71.0574029,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1168,
+    "y": 288
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402683179,
+    "latitude": 42.3502889,
+    "longitude": -71.0573968,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402685162,
+    "latitude": 42.3503021,
+    "longitude": -71.0573579,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 925,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402713837,
+    "latitude": 42.3506822,
+    "longitude": -71.063997,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 847,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402715042,
+    "latitude": 42.3557768,
+    "longitude": -71.0743913,
+    "color": "551800",
+    "type": "Alex",
+    "x": 726,
+    "y": 227
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402726121,
+    "latitude": 42.3316936,
+    "longitude": -71.0978669,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402739437,
+    "latitude": 42.3316195,
+    "longitude": -71.0979277,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402749996,
+    "latitude": 42.3316439,
+    "longitude": -71.0978809,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402760176,
+    "latitude": 42.3316415,
+    "longitude": -71.0979376,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402763955,
+    "latitude": 42.3356572,
+    "longitude": -71.0853202,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 599,
+    "y": 544
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402774358,
+    "latitude": 42.3356572,
+    "longitude": -71.0853202,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402774542,
+    "latitude": 42.3356572,
+    "longitude": -71.0853202,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402785873,
+    "latitude": 42.5976104,
+    "longitude": -70.8554606,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402786214,
+    "latitude": 42.5976104,
+    "longitude": -70.8554606,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402788269,
+    "latitude": 42.5417558,
+    "longitude": -70.8830392,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402788758,
+    "latitude": 42.5417558,
+    "longitude": -70.8830392,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402844384,
+    "latitude": 42.6148361,
+    "longitude": -70.8666135,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402846357,
+    "latitude": 42.6872844,
+    "longitude": -70.8535433,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402848198,
+    "latitude": 42.6872844,
+    "longitude": -70.8535433,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402848528,
+    "latitude": 42.6872844,
+    "longitude": -70.8535433,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402849790,
+    "latitude": 42.614714,
+    "longitude": -70.8664765,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402900339,
+    "latitude": 42.3316198,
+    "longitude": -71.0978961,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402901015,
+    "latitude": 42.3316139,
+    "longitude": -71.0978887,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402902424,
+    "latitude": 42.3316341,
+    "longitude": -71.0978821,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402936494,
+    "latitude": 42.350299,
+    "longitude": -71.0574637,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402945592,
+    "latitude": 42.3502922,
+    "longitude": -71.0573796,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402959734,
+    "latitude": 42.3493536,
+    "longitude": -71.0798495,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 663,
+    "y": 328
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402973729,
+    "latitude": 42.3316547,
+    "longitude": -71.0979232,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402974688,
+    "latitude": 42.3316512,
+    "longitude": -71.0979134,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402979001,
+    "latitude": 42.3316215,
+    "longitude": -71.0978578,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1402990250,
+    "latitude": 42.3316195,
+    "longitude": -71.0978922,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403003904,
+    "latitude": 42.3316301,
+    "longitude": -71.0978744,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403008283,
+    "latitude": 42.3316249,
+    "longitude": -71.0978776,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403014610,
+    "latitude": 42.3503096,
+    "longitude": -71.0574619,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403016816,
+    "latitude": 42.3503078,
+    "longitude": -71.0574028,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403017549,
+    "latitude": 42.3505797,
+    "longitude": -71.0568428,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 931,
+    "y": 309
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403024710,
+    "latitude": 42.3502858,
+    "longitude": -71.0573629,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403025991,
+    "latitude": 42.3504964,
+    "longitude": -71.0568234,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 931,
+    "y": 310
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403091093,
+    "latitude": 42.33164,
+    "longitude": -71.0979172,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403093078,
+    "latitude": 42.3316388,
+    "longitude": -71.0979131,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403116310,
+    "latitude": 42.3502964,
+    "longitude": -71.0569785,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 929,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403116377,
+    "latitude": 42.3502537,
+    "longitude": -71.0573923,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 924,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403140058,
+    "latitude": 42.331625,
+    "longitude": -71.0978805,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403143523,
+    "latitude": 42.3316396,
+    "longitude": -71.0978809,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403152724,
+    "latitude": 42.3316971,
+    "longitude": -71.0979045,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403156921,
+    "latitude": 42.331648,
+    "longitude": -71.0978715,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403174905,
+    "latitude": 42.3317198,
+    "longitude": -71.0979009,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403183798,
+    "latitude": 42.3316584,
+    "longitude": -71.0979354,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403192821,
+    "latitude": 42.3316983,
+    "longitude": -71.0978495,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403206588,
+    "latitude": 42.3323406,
+    "longitude": -71.0979854,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 451,
+    "y": 596
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403210380,
+    "latitude": 42.3323496,
+    "longitude": -71.0980058,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403213703,
+    "latitude": 42.3323508,
+    "longitude": -71.0979698,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403218743,
+    "latitude": 42.3316368,
+    "longitude": -71.0978526,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403221101,
+    "latitude": 42.3316495,
+    "longitude": -71.0978849,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403245849,
+    "latitude": 42.3316074,
+    "longitude": -71.0979214,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403263290,
+    "latitude": 42.3316755,
+    "longitude": -71.0979163,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403266411,
+    "latitude": 42.3317192,
+    "longitude": -71.0979141,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403280736,
+    "latitude": 42.3502472,
+    "longitude": -71.0573334,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 925,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403285599,
+    "latitude": 42.350271,
+    "longitude": -71.0572281,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 926,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403293813,
+    "latitude": 42.3323467,
+    "longitude": -71.0979894,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403304443,
+    "latitude": 42.3316818,
+    "longitude": -71.097907,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403311085,
+    "latitude": 42.3316448,
+    "longitude": -71.0978941,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403312397,
+    "latitude": 42.3316924,
+    "longitude": -71.0978967,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403317365,
+    "latitude": 42.3316651,
+    "longitude": -71.0978926,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403320556,
+    "latitude": 42.3486995,
+    "longitude": -71.0641197,
+    "color": "551800",
+    "type": "Alex",
+    "x": 846,
+    "y": 338
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403322675,
+    "latitude": 42.3509944,
+    "longitude": -71.0673115,
+    "color": "551800",
+    "type": "Alex",
+    "x": 809,
+    "y": 302
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403333963,
+    "latitude": 42.3316304,
+    "longitude": -71.0979039,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403340251,
+    "latitude": 42.3316486,
+    "longitude": -71.0978533,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403340312,
+    "latitude": 42.3316515,
+    "longitude": -71.0978886,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403343857,
+    "latitude": 42.3316487,
+    "longitude": -71.0978344,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403344882,
+    "latitude": 42.331653,
+    "longitude": -71.0978942,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403347730,
+    "latitude": 42.3316326,
+    "longitude": -71.097898,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403352430,
+    "latitude": 42.3316378,
+    "longitude": -71.0978693,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403359496,
+    "latitude": 42.3316382,
+    "longitude": -71.097846,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403360363,
+    "latitude": 42.3316635,
+    "longitude": -71.0978746,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403360609,
+    "latitude": 42.3316505,
+    "longitude": -71.0978736,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403368285,
+    "latitude": 42.3316329,
+    "longitude": -71.0979002,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403369290,
+    "latitude": 42.331612,
+    "longitude": -71.0978571,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403373234,
+    "latitude": 42.3364043,
+    "longitude": -71.085684,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 595,
+    "y": 532
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403376626,
+    "latitude": 42.3387926,
+    "longitude": -71.0842044,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 612,
+    "y": 494
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403380236,
+    "latitude": 42.3385723,
+    "longitude": -71.0845473,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 608,
+    "y": 498
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403386305,
+    "latitude": 42.3390456,
+    "longitude": -71.0957735,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 477,
+    "y": 490
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403395352,
+    "latitude": 42.3478228,
+    "longitude": -71.0859237,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 592,
+    "y": 352
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403397746,
+    "latitude": 42.3478228,
+    "longitude": -71.0859237,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403402622,
+    "latitude": 42.3478228,
+    "longitude": -71.0859237,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403408211,
+    "latitude": 42.3478228,
+    "longitude": -71.0859237,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403410554,
+    "latitude": 42.3478228,
+    "longitude": -71.0859237,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403411823,
+    "latitude": 42.3478228,
+    "longitude": -71.0859237,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403419259,
+    "latitude": 42.3316412,
+    "longitude": -71.097868,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403438792,
+    "latitude": 42.3316267,
+    "longitude": -71.0979265,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403480064,
+    "latitude": 42.3316504,
+    "longitude": -71.0979209,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403485577,
+    "latitude": 42.3316408,
+    "longitude": -71.0978604,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403537964,
+    "latitude": 42.3506268,
+    "longitude": -71.0568958,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 930,
+    "y": 308
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403542564,
+    "latitude": 42.3505633,
+    "longitude": -71.0568085,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1181,
+    "y": 280
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403570766,
+    "latitude": 42.3514693,
+    "longitude": -71.0635231,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 853,
+    "y": 295
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403573674,
+    "latitude": 42.331665,
+    "longitude": -71.0978999,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403590830,
+    "latitude": 42.3316284,
+    "longitude": -71.0979463,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403622506,
+    "latitude": 42.3502781,
+    "longitude": -71.0574414,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1167,
+    "y": 289
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403627828,
+    "latitude": 42.3506057,
+    "longitude": -71.0567778,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1182,
+    "y": 278
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403630433,
+    "latitude": 42.3502981,
+    "longitude": -71.0574706,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 923,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403639295,
+    "latitude": 42.3503011,
+    "longitude": -71.0574471,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403639518,
+    "latitude": 42.3502881,
+    "longitude": -71.0574769,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403653360,
+    "latitude": 42.3373877,
+    "longitude": -71.0838237,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 616,
+    "y": 517
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403666864,
+    "latitude": 42.3316752,
+    "longitude": -71.0979259,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403667348,
+    "latitude": 42.3316897,
+    "longitude": -71.097903,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403702938,
+    "latitude": 42.3511169,
+    "longitude": -71.0665085,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 818,
+    "y": 300
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403718693,
+    "latitude": 42.3503353,
+    "longitude": -71.0574601,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 1166,
+    "y": 287
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403725917,
+    "latitude": 42.3503147,
+    "longitude": -71.0574095,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403730573,
+    "latitude": 42.350333,
+    "longitude": -71.0574625,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403734423,
+    "latitude": 42.3502844,
+    "longitude": -71.0574524,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403739819,
+    "latitude": 42.350309,
+    "longitude": -71.0688386,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 791,
+    "y": 313
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403750361,
+    "latitude": 42.3325162,
+    "longitude": -71.0965394,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 468,
+    "y": 593
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403753972,
+    "latitude": 42.3432656,
+    "longitude": -71.1012241,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403780136,
+    "latitude": 42.3435379,
+    "longitude": -71.1015637,
+    "color": "551800",
+    "type": "Alex",
+    "x": 138,
+    "y": 501
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403784233,
+    "latitude": 42.3435226,
+    "longitude": -71.1016119,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 137,
+    "y": 502
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403785433,
+    "latitude": 42.3435435,
+    "longitude": -71.1016314,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 409,
+    "y": 419
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403787586,
+    "latitude": 42.3431538,
+    "longitude": -71.1011546,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 415,
+    "y": 426
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403789454,
+    "latitude": 42.3512017,
+    "longitude": -71.0562022,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 938,
+    "y": 299
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403790200,
+    "latitude": 42.3502002,
+    "longitude": -71.0570026,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 929,
+    "y": 315
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403792166,
+    "latitude": 42.3502474,
+    "longitude": -71.0574122,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 1167,
+    "y": 290
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403820040,
+    "latitude": 42.3323446,
+    "longitude": -71.0979988,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403855150,
+    "latitude": 42.3316703,
+    "longitude": -71.0978827,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403868099,
+    "latitude": 42.3316547,
+    "longitude": -71.0979114,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403890175,
+    "latitude": 42.3502129,
+    "longitude": -71.057108,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 928,
+    "y": 314
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403895602,
+    "latitude": 42.3504436,
+    "longitude": -71.0571819,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 927,
+    "y": 311
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403900633,
+    "latitude": 42.3502531,
+    "longitude": -71.0574092,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403934123,
+    "latitude": 42.3428864,
+    "longitude": -71.100865,
+    "color": "551800",
+    "type": "Alex",
+    "x": 418,
+    "y": 430
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403941861,
+    "latitude": 42.3431628,
+    "longitude": -71.1011039,
+    "color": "551800",
+    "type": "Alex",
+    "x": 415,
+    "y": 425
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403943596,
+    "latitude": 42.3431628,
+    "longitude": -71.1011039,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403959080,
+    "latitude": 42.3431628,
+    "longitude": -71.1011039,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403960814,
+    "latitude": 42.3431628,
+    "longitude": -71.1011039,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403962555,
+    "latitude": 42.3431628,
+    "longitude": -71.1011039,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403969222,
+    "latitude": 42.3431628,
+    "longitude": -71.1011039,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403977019,
+    "latitude": 42.331681,
+    "longitude": -71.0979263,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403979301,
+    "latitude": 42.3316719,
+    "longitude": -71.0979188,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403979542,
+    "latitude": 42.3317202,
+    "longitude": -71.0979325,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403984413,
+    "latitude": 42.3289351,
+    "longitude": -71.1021087,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 403,
+    "y": 650
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403986320,
+    "latitude": 42.3302284,
+    "longitude": -71.0982997,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 448,
+    "y": 629
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403987516,
+    "latitude": 42.3316608,
+    "longitude": -71.0979036,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403993674,
+    "latitude": 42.3465704,
+    "longitude": -71.0889565,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 557,
+    "y": 372
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403993733,
+    "latitude": 42.3465704,
+    "longitude": -71.0889565,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403994512,
+    "latitude": 42.3465704,
+    "longitude": -71.0889565,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1403999595,
+    "latitude": 42.3294742,
+    "longitude": -71.0997306,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 431,
+    "y": 641
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404001589,
+    "latitude": 42.3316499,
+    "longitude": -71.0978975,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404039790,
+    "latitude": 42.3316568,
+    "longitude": -71.0979067,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404075602,
+    "latitude": 42.3316343,
+    "longitude": -71.0979056,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404085499,
+    "latitude": 42.3316313,
+    "longitude": -71.0978935,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404090615,
+    "latitude": 42.3316509,
+    "longitude": -71.0979253,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404095701,
+    "latitude": 42.3316649,
+    "longitude": -71.0978897,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404097737,
+    "latitude": 42.3316524,
+    "longitude": -71.0979143,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404099593,
+    "latitude": 42.3316779,
+    "longitude": -71.0978523,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404110118,
+    "latitude": 42.3316504,
+    "longitude": -71.0978928,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404120020,
+    "latitude": 42.3316615,
+    "longitude": -71.0979076,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404130586,
+    "latitude": 42.3316646,
+    "longitude": -71.0978975,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404144815,
+    "latitude": 42.352215,
+    "longitude": -71.0570291,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 929,
+    "y": 283
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404145743,
+    "latitude": 42.3526995,
+    "longitude": -71.0568761,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 930,
+    "y": 275
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404154054,
+    "latitude": 42.350547,
+    "longitude": -71.057288,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 926,
+    "y": 309
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404157146,
+    "latitude": 42.3502855,
+    "longitude": -71.0574781,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404160336,
+    "latitude": 42.3503108,
+    "longitude": -71.0574556,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404177321,
+    "latitude": 42.3318441,
+    "longitude": -71.0937414,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 501,
+    "y": 604
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404207565,
+    "latitude": 42.3318441,
+    "longitude": -71.0937414,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404220106,
+    "latitude": 42.3316466,
+    "longitude": -71.0978805,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404226775,
+    "latitude": 42.3503136,
+    "longitude": -71.057446,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404308013,
+    "latitude": 42.3338782,
+    "longitude": -71.0827885,
+    "color": "aa5939",
+    "type": "Alex",
+    "x": 628,
+    "y": 572
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404334585,
+    "latitude": 42.3460938,
+    "longitude": -71.0599855,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 894,
+    "y": 379
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404352844,
+    "latitude": 42.3316504,
+    "longitude": -71.0978904,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404403884,
+    "latitude": 42.3530725,
+    "longitude": -71.0567219,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 932,
+    "y": 269
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404406870,
+    "latitude": 42.3502918,
+    "longitude": -71.0574642,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404422317,
+    "latitude": 42.3502933,
+    "longitude": -71.0574497,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404439457,
+    "latitude": 42.3507047,
+    "longitude": -71.0585992,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 910,
+    "y": 307
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404487616,
+    "latitude": 42.3317343,
+    "longitude": -71.0979193,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404492720,
+    "latitude": 42.3316729,
+    "longitude": -71.0978795,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404498383,
+    "latitude": 42.3316262,
+    "longitude": -71.0978845,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404523176,
+    "latitude": 42.3396718,
+    "longitude": -71.0935587,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 503,
+    "y": 481
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404525753,
+    "latitude": 42.3336804,
+    "longitude": -71.0946943,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 490,
+    "y": 575
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404526642,
+    "latitude": 42.3320182,
+    "longitude": -71.093538,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 503,
+    "y": 601
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404529528,
+    "latitude": 42.3320871,
+    "longitude": -71.0935241,
+    "color": "551800",
+    "type": "Alex",
+    "x": 503,
+    "y": 600
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404565635,
+    "latitude": 42.3316852,
+    "longitude": -71.0978941,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404573984,
+    "latitude": 42.3687946,
+    "longitude": -71.0634352,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 854,
+    "y": 21
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404614423,
+    "latitude": 42.6144648,
+    "longitude": -70.8663294,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404626516,
+    "latitude": 42.6145576,
+    "longitude": -70.8665041,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404655895,
+    "latitude": 42.6144102,
+    "longitude": -70.8662716,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404666901,
+    "latitude": 42.6324005,
+    "longitude": -70.7788902,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404670776,
+    "latitude": 42.3557024,
+    "longitude": -71.0733908,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 738,
+    "y": 228
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404670835,
+    "latitude": 42.3557024,
+    "longitude": -71.0733908,
+    "color": "d4ba6a",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404672116,
+    "latitude": 42.3387142,
+    "longitude": -71.0842005,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 612,
+    "y": 496
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404681344,
+    "latitude": 42.3398622,
+    "longitude": -71.0904317,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 539,
+    "y": 478
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404727855,
+    "latitude": 42.3316494,
+    "longitude": -71.0978976,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404733022,
+    "latitude": 42.3316705,
+    "longitude": -71.0979026,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404742562,
+    "latitude": 42.3502645,
+    "longitude": -71.0574199,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404770901,
+    "latitude": 42.3451511,
+    "longitude": -71.0693952,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 785,
+    "y": 394
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404774114,
+    "latitude": 42.3425012,
+    "longitude": -71.0913904,
+    "color": "29506d",
+    "type": "Alex",
+    "x": 528,
+    "y": 436
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404776210,
+    "latitude": 42.3316076,
+    "longitude": -71.0979043,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404785642,
+    "latitude": 42.3316842,
+    "longitude": -71.0979004,
+    "color": "29506d",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404789777,
+    "latitude": 42.3316684,
+    "longitude": -71.0978926,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404800912,
+    "latitude": 42.3316485,
+    "longitude": -71.0979227,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404807506,
+    "latitude": 42.3316489,
+    "longitude": -71.0979153,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404813686,
+    "latitude": 42.3316421,
+    "longitude": -71.0979396,
+    "color": "551800",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404822630,
+    "latitude": 42.3316732,
+    "longitude": -71.097934,
+    "color": "aa5939",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404845720,
+    "latitude": 42.3504853,
+    "longitude": -71.0570745,
+    "color": "d4ba6a",
+    "type": "Alex",
+    "x": 928,
+    "y": 310
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404848494,
+    "latitude": 42.3503096,
+    "longitude": -71.0573416,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404851073,
+    "latitude": 42.3503094,
+    "longitude": -71.0573062,
+    "color": "aa8e39",
+    "type": "Alex",
+    "x": 1170,
+    "y": 288
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404856663,
+    "latitude": 42.3503136,
+    "longitude": -71.0573295,
+    "color": "aa8e39",
+    "type": "Alex"
+  },
+  {
+    "userId": "5479f986cd6c142d1b000001",
+    "date": 1404856802,
+    "latitude": 42.3503116,
+    "longitude": -71.0573415,
+    "color": "aa8e39",
+    "type": "Alex"
+  }
+]
 
-
-
-
+console.log("SAMPLE DATA: ")
+console.log(sample_data);
+console.log("\n");
