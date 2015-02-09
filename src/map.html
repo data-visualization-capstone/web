@@ -194,11 +194,21 @@
     // Initialize Leaflet map
     var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
-  	// On document ready
-  	$(function() {
-        // Render Data Layers
-        addLayers(options.layers);
-  	});
+    // Add layers when the map is ready.
+    leaflet_map.on('ready', function(){
+      addLayers(options.layers);
+    })
+
+    // Re-add layers when the map has changed.
+    leaflet_map.on('viewreset', function(){
+      console.log("\nView Reset: Replotting Layers");
+      addLayers(options.layers);
+    })
+
+    // leaflet_map.on('moveend', function(){
+    //   console.log("moveend");
+    // })
+
 
   </script>
 </body>

@@ -37,7 +37,10 @@ function addLayers(layers){
 		}
 
 		if (layer.type == "heatmap"){
-			var layer = drawHeatmap(leaflet_map,layer)
+			var layer = drawHeatmap(leaflet_map,layer) 
+      
+      d3.select(".leaflet-overlay-pane canvas").remove();
+
       leaflet_map.addLayer(layer);
 		}
 
