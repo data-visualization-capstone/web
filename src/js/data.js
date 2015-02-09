@@ -218,3 +218,40 @@ function contertDatesToUnix(data){
 }
 
 
+
+/*
+    // Load location data.
+    loadData(options.data_source, function(data) {
+
+      // Splice the data set for efficiency?
+      if (options.data_splice) {
+        data = data.splice(0, options.data_splice);
+      }
+
+      // Sample the data set for efficiency?
+      if (options.data_sample) {
+
+        // Take random sample of data
+        data = _.sample(data, options.data_sample);
+
+        // Sort by date
+        data = _.sortBy(data, function(p) {
+          return p.date
+        });
+      }
+
+      // Check for missing keys
+      data = removeInvalidData(data, ["latitude", "longitude", "date"])
+
+      // Save data. The only time RAW and FILTERED data will be the same.
+      raw_data = filtered_data = formatData(data, "time");
+
+      // Setup date ranger picker.
+      initDateRangePicker(filtered_data[0].date, filtered_data[filtered_data.length - 1].date);
+
+      console.log(filtered_data)
+
+      // Render the current filtered subset of data
+      draw(filtered_data);
+    })
+*/

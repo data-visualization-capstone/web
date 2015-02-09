@@ -54,10 +54,18 @@ function addLayers(){
 }
 
 function drawScatterplot(map, layer){
+	
+	// Render Layer
 	drawPoints(leaflet_map, layer);
 };
 
-function drawPath(map, layer){};
+function drawPath(map, layer){
+	// Enable path
+	layer.options.pathing = true;
+
+	// Render Layer
+	drawPoints(leaflet_map, layer);
+};
 
 // WebGL Heatmap Implementation:
 // https://github.com/ursudio/webgl-heatmap-leaflet
@@ -107,7 +115,7 @@ drawPoints = function(map, layer, callback) {
   var points = layer.data;
 
   // Last point user selected
-  var lastSelectedPoint;
+  // var lastSelectedPoint;
 
   var mapLayer = {
     onAdd: function(map) {
@@ -148,7 +156,7 @@ drawPoints = function(map, layer, callback) {
         drawLimit = bounds.pad(0.4);
 
     // Create map-able set of points
-    filteredPoints = points.filter(function(d) {
+    points = points.filter(function(d) {
       var latlng = new L.LatLng(d.latitude, d.longitude);
 
       // Remove points that are missing a GPS location
@@ -164,8 +172,8 @@ drawPoints = function(map, layer, callback) {
 
       existing.add(key);
 
-      d.x = point.x;
-      d.y = point.y;
+      d.lat = point.x;
+      d.long = point.y;
 
       return true;
     });
@@ -173,10 +181,10 @@ drawPoints = function(map, layer, callback) {
     var svg = d3.select(map.getPanes().overlayPane).append("svg")
       .attr('id', 'overlay')
       .attr("class", "leaflet-zoom-hide")
-      .style("width", map.getSize().x + 'px')
+      .style("width",  map.getSize().x + 'px')
       .style("height", map.getSize().y + 'px')
-      .style("margin-left", topLeft.x + "px")
-      .style("margin-top", topLeft.y + "px");
+      .style("margin-left",  topLeft.x + "px")
+      .style("margin-top",   topLeft.y + "px");
 
     var g = svg.append("g")
       .attr("transform", "translate(" + (-topLeft.x) + "," + (-topLeft.y) + ")")
@@ -184,7 +192,7 @@ drawPoints = function(map, layer, callback) {
 
     var svgPoints = g.attr("class", "points")
       .selectAll("g")
-      .data(filteredPoints)
+      .data(points)
       .enter().append("g")
       .attr("class", "point")
       .style("z-index", 999);
@@ -193,19 +201,19 @@ drawPoints = function(map, layer, callback) {
       .attr("class", "point-cell")
 
       // On Click - mark as selected
-      .on('click', function(d){ console.log(d) })
-      .classed("selected", function(d) { return lastSelectedPoint == d} );
+      // .on('click', function(d){ console.log(d) })
+      // .classed("selected", function(d) { return lastSelectedPoint == d} );
     
     // Add circles for each point
     svgPoints.append("circle")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .attr("transform", function(d) { return "translate(" + d.lat + "," + d.long + ")"; })
       .style('fill', function(d) { return '#' + d.color } )
       .attr("date", function(d) { return d.date })
-      .attr("r", options.dot_width)
+      .attr("r", layer.dot_width)
       .attr("pointer-events", "all")
       .attr("opacity", 1);
 
-    if (options.map_show_connections){
+    if (layer.pathing){
       showConnections();
     }
 
@@ -227,7 +235,7 @@ drawPoints = function(map, layer, callback) {
             .attr("x2", next_position[0])
             .attr("y2", next_position[1])
             .style("stroke", "rgb(255,0,0)")
-            .style("stroke-width", options.dot_width)
+            .style("stroke-width", layer.dot_width)
             .style("opacity", 0);
         }
       });
