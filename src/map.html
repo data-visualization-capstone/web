@@ -173,6 +173,23 @@
 
       color: "#ffa500",
     });
+
+    options.layers.push({
+      
+      // Set name for layer
+      name : "Red Line",
+
+      // Define representation of layer
+      type: "path",
+
+      // Data from sample-data.js
+      data : sample_data.subway.red,
+      
+      // Pixel width of scatterplot points
+      width: 2,
+
+      color: "#ff0000",
+    });
 	
 	  options.layers.push({
 
@@ -197,6 +214,9 @@
     // Add layers when the map is ready.
     leaflet_map.on('ready', function(){
       addLayers(options.layers);
+
+      console.log("ACTIVE LAYERS");
+      console.log(options.layers);
     })
 
     // Re-add layers when the map has changed.

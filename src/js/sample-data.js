@@ -7601,8 +7601,16 @@ sample_data.subway.orange = _.filter(subway_stations, function(station){
 	return station.lines.indexOf("Orange Line (all)") > -1;
 })
 
+sample_data.subway.orange = _.sortBy(sample_data.subway.orange, function(station){
+  return station.latitude;
+})
+
 sample_data.subway.red = _.filter(subway_stations, function(station){
 	return station.lines.indexOf("Red Line (all)") > -1;
+})
+
+sample_data.subway.red = _.sortBy(sample_data.subway.red, function(station){
+  return station.latitude;
 })
 
 sample_data.subway.green = _.filter(subway_stations, function(station){

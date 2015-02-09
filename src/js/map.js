@@ -25,8 +25,6 @@ function addLayers(layers){
     // @ TODO:
     // Prevent Duplicates
 
-    console.log(layer)
-		
 		if (layer.type == "scatterplot"){
 			drawScatterplot(leaflet_map, layer);
 		}
@@ -39,6 +37,7 @@ function addLayers(layers){
 		if (layer.type == "heatmap"){
 			var layer = drawHeatmap(leaflet_map,layer) 
       
+      // Prevent multiple heatmaps from overlaying.
       d3.select(".leaflet-overlay-pane canvas").remove();
 
       leaflet_map.addLayer(layer);
@@ -135,15 +134,13 @@ function drawScatterplot(map, layer){
       // .attr("date", function(d) { return d.date })
       // .attr("pointer-events", "all")
 
-
-
     if (layer.path){
       
       for (var i = 0; i < points.length - 1; i++) {
 
-        var lastIndex = points.length - 2;
-
-        if (i >= lastIndex ) return;
+        // Stop iteration if there's not
+        // a next point to connect.
+        if (i >= points.length - 2) return;
 
         var current = points[i];
         var next = points[i + 1];
@@ -158,11 +155,6 @@ function drawScatterplot(map, layer){
           .style("opacity", 1);
 
       };
-
-
-
-
-
       
     }
 
