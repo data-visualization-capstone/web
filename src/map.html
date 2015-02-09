@@ -14,7 +14,7 @@
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
-  <div id="filterMenu">
+  <div id="filterMenu" style="display: none;">
     <div id="fmToggle">
       <a href="javascript:void(0)">
         <h4>Data Filters</h4>
@@ -87,10 +87,12 @@
 
   <div id='loading'></div>
 
+  <!-- Custom -->
   <script src="js/app.js"></script>
-  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
   <script src="js/sample-data.js"></script>
-
+	
+  <!-- External -->
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
 
@@ -106,33 +108,11 @@
       // Mapbox's style key for applying map designs
       map_key: "stephalee.aec4ccea",
 
-      // Pixel width of scatterplot points
-      dot_width: 3,
-
-      // Toggle path "web" of connections
-      map_show_connections: true,
-
-      // Should the map connect-the-dots upon hovering
-      // over a specific point
-      show_paths_on_hover: false,
-
       // Define default map viewport: Top left & bottom right coordinates
       viewport: [
         [42.329077, -71.108871],
         [42.374200, -71.032072]
       ],
-
-      // Define our data source ('json', 'xml', 'api')
-      data_source: "json",
-      data_file: "data/json/alex.json",
-
-      // Trim Data Set?
-      // Takes first X data entries. null for no trim
-      data_splice: null,
-
-      // Take Sample from Data Set?
-      // Randomly selects X entries. null for no sampling
-      data_sample: 1000,
 
       // Active data filters
       filters: {
@@ -143,23 +123,50 @@
         // Most recent plotted point
         enddate: null,
 
-        // How should dots be colored?
-        colorBy: 'time',
       },
 
-      
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
-      layers : [{
+      layers : [],
         
+    }
+
+    // Add Default Layers
+    options.layers.push({
+  		type: "scatterplot",
+  		data : sample_data.google_location_history,
+  		
+  		// Pixel width of scatterplot points
+  		dot_width: 3,
+  	});
+
+    options.layers.push({
+
+        // Define representation of layer
+        type : "scatterplot",
+
+        // Data from sample-data.js
+        data : sample_data.subway.orange,
+
+        // Default color
+        color: "#ffa500",
+  	});
+	
+	options.layers.push({
+
         // Define representation of layer
         type : "heatmap",
 
         // Data from sample-data.js
-        data : apartments,
+        data : sample_data.apartments,
+  	});
 
-      },{}],
-    }
+	// On document ready
+	$(function() {
+
+		draw();
+
+	});
 
   </script>
 </body>

@@ -29,11 +29,11 @@ module.exports = function(grunt) {
 
           // Our JS Files
           'src/js/map.js',
+          'src/js/ui.js',
           'src/js/api.js',
           'src/js/data.js',
           'src/js/filtering.js',
           'src/js/coloring.js',
-          'src/js/graphing.js',
           'src/js/utils.js',
         ],
         dest: 'src/js/app.js',
