@@ -15,17 +15,12 @@ module.exports = function(grunt) {
           'bower_components/underscore/underscore.js',
           'bower_components/moment/moment.js',
           'bower_components/d3/d3.js',
+          // 'bower_components/leaflet-d3/dist/leaflet-d3.js',
 
           // External Libraries (stored in version control)
           'lib/ui/jquery.nouislider.min.js',
           'lib/ui/jquery.daterangepicker.js',
           'lib/xml.min.js',
-
-          // For Heatmap
-          // 'lib/heatmap/shCore.js',
-  		  // 'lib/heatmap/shBrushJScript.js',
-   	      // 'lib/heatmap/webgl-heatmap.js',
-          // 'lib/heatmap/webgl-heatmap-leaflet.js',
 
           // Our JS Files
           'src/js/map.js',

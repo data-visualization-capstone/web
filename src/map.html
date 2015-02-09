@@ -93,8 +93,13 @@
 	
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+  
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
+  
+  <script src='js/heatmap/leaflet-d3.js'></script>
+  <script src='js/heatmap/hexbin.js'></script>
+  
 
   <script>
 
@@ -152,7 +157,7 @@
         color: "#ffa500",
   	});
 	
-	options.layers.push({
+	  options.layers.push({
 
         // Define representation of layer
         type : "heatmap",
@@ -160,6 +165,15 @@
         // Data from sample-data.js
         data : sample_data.apartments,
   	});
+
+    options.layers.push({
+
+        // Define representation of layer
+        type : "hex",
+
+        // Data from sample-data.js
+        data : sample_data.apartments,
+    });
 
 	// On document ready
 	$(function() {
