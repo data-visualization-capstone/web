@@ -32,6 +32,9 @@ function draw() {
 // Iterate through, and place layers onto Leaflet map
 function addLayers(){
 
+    // Clear map just to be safe
+    d3.select('#overlay').remove();
+
 	for (var i = options.layers.length - 1; i >= 0; i--) {
 		var layer = options.layers[i];
 		
@@ -51,7 +54,7 @@ function addLayers(){
 }
 
 function drawScatterplot(map, layer){
-	drawPoints(leaflet_map, layer.data);
+	drawPoints(leaflet_map, layer);
 };
 
 function drawPath(map, layer){};
@@ -70,12 +73,8 @@ function drawHeatmap(map, layer){
 	var dataPoints = [];
 
 	for (var i = layer.data.length - 1; i >= 0; i--) {
-
 		var point = layer.data[i]
-
-		var value = point.value / 40000; 
-		
-		dataPoints.push([point.latitude, point.longitude, value]);
+		dataPoints.push([point.latitude, point.longitude, point.value / 40000]);
 	};
 
 	heatmap.setData(dataPoints);
@@ -101,11 +100,15 @@ function updateMap() {
       Graphing w/ D3.js
  ******************************/
 
-// drawPoints
-drawPoints = function(map, points) {
+// Use D3.js to place geo points on the leaflet map
+drawPoints = function(map, layer, callback) {
   
+  // Take out points for easy access 
+  var points = layer.data;
+
+  // Last point user selected
   var lastSelectedPoint;
-  
+
   var mapLayer = {
     onAdd: function(map) {
       map.on('viewreset moveend', drawWithLoading);

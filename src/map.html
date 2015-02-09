@@ -143,17 +143,10 @@
   	});
 
     // Add Default Layers
-  	options.layers.push({
-
-        // Define representation of layer
-        type : "heatmap",
-
-        // Data from sample-data.js
-        data : sample_data.apartments,
-  	});
+  	
 
     // Add Default Layers 
-    /*
+    
   	options.layers.push({
 
         // Define representation of layer
@@ -162,7 +155,15 @@
         // Data from sample-data.js
         data : sample_data.subway.orange,
   	});
-	*/
+	
+	options.layers.push({
+
+        // Define representation of layer
+        type : "heatmap",
+
+        // Data from sample-data.js
+        data : sample_data.apartments,
+  	});
 
 	// On document ready
 	$(function() {
