@@ -138,24 +138,12 @@
 
     // Add Default Layers
     options.layers.push({
-  		type: "scatterplot-temp-remove",
-  		data : sample_data.google_location_history,
+  		type: "scatterplot",
+  		data : sample_data.apartments,
   		
   		// Pixel width of scatterplot points
-  		dot_width: 3,
+  		dot_width: 1,
   	});
-
-   //  options.layers.push({
-
-   //      // Define representation of layer
-   //      type : "scatterplot",
-
-   //      // Data from sample-data.js
-   //      data : sample_data.subway.orange,
-
-   //      // Default color
-   //      color: "#ffa500",
-  	// });
 	
 	  options.layers.push({
 
@@ -166,6 +154,8 @@
         data : sample_data.apartments,
   	});
 
+
+
   // Global variable for map object
   // Initialize Leaflet map
   var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
@@ -174,82 +164,12 @@
 	$(function() {
 
     // Render Data Layers
-    // addLayers();
-
+    addLayers();
 	});
 
 
-  // http://bost.ocks.org/mike/leaflet/
+  
   $(function(){
-
-    var map = leaflet_map;
-
-    // Map limits
-    var bounds = leaflet_map.getBounds();
-    var topLeft = map.latLngToLayerPoint(bounds.getNorthWest());
-    var bottomRight = map.latLngToLayerPoint(bounds.getSouthEast());
-
-    // Select leaflet's 'overlay pane' layer.
-    // Leaflet auto-repositions the overlay panes
-    // upon map movement.
-    // Add an svg element
-    var svg = d3.select(leaflet_map.getPanes().overlayPane).append("svg");
-
-    // Fix the size of our SVG layer to match the leaflet map
-    var svg = d3.select(map.getPanes().overlayPane).append("svg")
-      .attr('id', 'overlay')
-      .attr("class", "leaflet-zoom-hide")
-      .style("width",  map.getSize().x + 'px')
-      .style("height", map.getSize().y + 'px')
-
-    // New "g" (group) element.
-    // Used to keep D3.js elements aligned with
-    // the origin of the map.
-
-    // Apply leaflet-zoom-hide so that the overlay
-    // is hidden during zoom animations
-    var g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
-    var points = sample_data.apartments;
-      
-    // Create map-able set of points
-    // For each point, fix the x and y 
-    points = points.filter(function(p) {
-
-      // Create new leaflet Lat/Long Object
-      var latlng = new L.LatLng(p.latitude, p.longitude);
-
-      // Remove points that are missing a GPS location
-      if (!bounds.contains(latlng)) { return false };
-      
-      // Convert Lat & Long into a Mapable point.
-      // Use Leaflet's latLngToLayerPoint() to create a single point
-      var point = leaflet_map.latLngToLayerPoint(latlng);
-
-      p.x = point.x;
-      p.y = point.y;
-
-      return true;
-    });
-
-    console.log(points);
-
-    var svgPoints = g.attr("class", "points")
-      .selectAll("g")
-      .data(points)
-      .enter().append("g")
-      .attr("class", "point")
-      .style("z-index", 999);
-
-    // Add circles for each point
-    svgPoints.append("circle")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .style('fill', function(d) { return '#' + d.color } )
-      .attr("date", function(d) { return d.date })
-      .attr("r", 3)
-      .attr("pointer-events", "all")
-      .attr("opacity", 1);
-
 
 
   });

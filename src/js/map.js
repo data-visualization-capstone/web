@@ -4,19 +4,6 @@
     Initialize and Handle Map Interactions
  ****************************/
 
-
-// Save the Raw Data.
-// Since we'll be manipulating, and filtering our
-// data set, we'll want to keep and original copy
-// as to avoid re-fetching ALL our data when we
-// reset filters.
-// var raw_data = null;
-
-// Save the Filtered Data.
-// This is whatever data is currently being plotted.
-// var filtered_data = null;
-
-
 // Iterate through, and place layers onto Leaflet map
 function addLayers(){
 
@@ -45,10 +32,81 @@ function addLayers(){
 
 }
 
+// http://bost.ocks.org/mike/leaflet/
+// chriszetter.com/blog/2014/06/15/building-a-voronoi-map-with-d3-and-leaflet/
 function drawScatterplot(map, layer){
 	
-	// Render Layer
-	drawPoints(leaflet_map, layer);
+	
+    var map = leaflet_map;
+
+    // Map limits
+    var bounds = leaflet_map.getBounds();
+    var topLeft = map.latLngToLayerPoint(bounds.getNorthWest());
+    var bottomRight = map.latLngToLayerPoint(bounds.getSouthEast());
+
+    // Select leaflet's 'overlay pane' layer.
+    // Leaflet auto-repositions the overlay panes
+    // upon map movement.
+    // Add an svg element
+    var svg = d3.select(leaflet_map.getPanes().overlayPane).append("svg");
+
+    // Fix the size of our SVG layer to match the leaflet map
+    var svg = d3.select(map.getPanes().overlayPane).append("svg")
+      .attr('id', 'overlay')
+      .attr("class", "leaflet-zoom-hide")
+      .style("width",  map.getSize().x + 'px')
+      .style("height", map.getSize().y + 'px')
+
+    // New "g" (group) element.
+    // Used to keep D3.js elements aligned with
+    // the origin of the map.
+
+    // Apply leaflet-zoom-hide so that the overlay
+    // is hidden during zoom animations
+    var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+    var points = layer.data;
+      
+    // Create map-able set of points
+    // For each point, fix the x and y 
+    points = points.filter(function(p) {
+
+      // Create new leaflet Lat/Long Object
+      var latlng = new L.LatLng(p.latitude, p.longitude);
+
+      // Remove points that are missing a GPS location
+      if (!bounds.contains(latlng)) { return false };
+      
+      // Convert Lat & Long into a Mapable point.
+      // Use Leaflet's latLngToLayerPoint() to create a single point
+      var point = leaflet_map.latLngToLayerPoint(latlng);
+
+      p.x = point.x;
+      p.y = point.y;
+
+      return true;
+    });
+
+    console.log(points[0]);
+
+    var svgPoints = g.attr("class", "points")
+      .selectAll("g")
+      .data(points)
+      .enter().append("g")
+      .attr("class", "point")
+      .style("z-index", 999);
+
+    // Add circles for each point
+    svgPoints.append("circle")
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .style('fill', function(d) { return '#' + d.color } )
+      .attr("date", function(d) { return d.date })
+      .attr("r", layer.dot_width)
+      .attr("pointer-events", "all")
+      .attr("opacity", 1);
+
+
+
 };
 
 function drawPath(map, layer){
