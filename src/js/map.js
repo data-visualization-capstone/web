@@ -83,6 +83,9 @@ function drawHeatmap(map, layer){
 	return heatmap;
 }
 
+  // @TODO:
+  // Like, write this function
+
 // Apply updated data set
 // Called by Date Range Picker
 function updateMap() {
@@ -92,9 +95,6 @@ function updateMap() {
 
   draw();
 
-  // @TODO:
-  // Like, write this function
-
 }
 
 /******************************
@@ -102,11 +102,10 @@ function updateMap() {
  ******************************/
 
 // drawPoints
-drawPoints = function(map, data) {
-  var pointTypes = d3.map(),
-      points = data,
-      lastSelectedPoint;
-
+drawPoints = function(map, points) {
+  
+  var lastSelectedPoint;
+  
   var mapLayer = {
     onAdd: function(map) {
       map.on('viewreset moveend', drawWithLoading);
@@ -115,60 +114,8 @@ drawPoints = function(map, data) {
   }
 
   map.on('ready', function() {
-      
-      points.forEach(function(point) {
-        pointTypes.set(point.type, {type: point.type, color: point.color});
-      })
-        
-      // List data sets
-      listDataSets();
-
       map.addLayer(mapLayer);
   })
-
-  // Renders a toggle-able list of data sets
-  
-  var listDataSets = function() {
-
-    labels = d3.select('#toggles').selectAll('input')
-      .data(pointTypes.values())
-      .enter().append("label");
-
-    labels.append("input")
-      .attr('type', 'checkbox')
-
-      // Enable all
-      .property('checked', function(d) { return true; })
-      .attr("value", function(d) { return d.type; })
-      .on("change", drawWithLoading);
-
-    labels.append("span")
-      .attr('class', 'key')
-      .style('background-color', function(d) { return '#' + d.color; });
-
-    labels.append("span")
-      .text(function(d) { return d.type; });
-  }
-
-  // Returns list of enabled data sets
-  var activeDataSets = function() {
-    return d3.selectAll('#toggles input[type=checkbox]')[0].filter(function(elem) {
-      // return elem.checked;
-      return true
-    }).map(function(elem) {
-      return elem.value;
-    })
-  }
-
-  // Returns sets of data points that adhere to the current filter
-  var filteredDataSets = function() {
-    
-    var currentSelectedTypes = d3.set(activeDataSets());
-    
-    return points.filter(function(item){
-      return currentSelectedTypes.has(item.type);
-    });
-  }
   
   // Draw points into Map
   var drawWithLoading = function(e){
@@ -180,13 +127,13 @@ drawPoints = function(map, data) {
     }
 
     setTimeout(function(){
-      draw();
+      plot();
 
       d3.select('#loading').classed('visible', false);
     }, 0);
   }
 
-  var draw = function() {
+  var plot = function() {
 
     // Clear map just to be safe
     d3.select('#overlay').remove();
@@ -198,7 +145,7 @@ drawPoints = function(map, data) {
         drawLimit = bounds.pad(0.4);
 
     // Create map-able set of points
-    filteredPoints = filteredDataSets().filter(function(d) {
+    filteredPoints = points.filter(function(d) {
       var latlng = new L.LatLng(d.latitude, d.longitude);
 
       // Remove points that are missing a GPS location
@@ -241,6 +188,8 @@ drawPoints = function(map, data) {
 
     svgPoints.append("path")
       .attr("class", "point-cell")
+
+      // On Click - mark as selected
       .on('click', function(d){ console.log(d) })
       .classed("selected", function(d) { return lastSelectedPoint == d} );
     
