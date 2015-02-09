@@ -31,6 +31,9 @@ function addLayers(layers){
 
 		if (layer.type == "path"){
       layer.path = true;
+
+      // Currently utilized same functionality as
+      // scatterploy. @ TODO Fix this.
       drawScatterplot(leaflet_map, layer);
 		}
 
@@ -134,6 +137,7 @@ function drawScatterplot(map, layer){
       // .attr("date", function(d) { return d.date })
       // .attr("pointer-events", "all")
 
+    // Logic for drawing paths between points
     if (layer.path){
       
       for (var i = 0; i < points.length - 1; i++) {
