@@ -32,8 +32,8 @@ function addLayers(layers){
 		}
 
 		if (layer.type == "path"){
-      var layer = drawPath(leaflet_map, layer);
-			leaflet_map.addLayer(layer);
+      layer.path = true;
+      drawScatterplot(leaflet_map, layer);
 		}
 
 		if (layer.type == "heatmap"){
@@ -129,24 +129,58 @@ function drawScatterplot(map, layer){
       
       // Visual Settings
       .style('fill', function(d) { return layer.color } )
-      .attr("r", layer.dot_width)
+      .attr("r", layer.width)
       .attr("opacity", 1);
 
       // .attr("date", function(d) { return d.date })
       // .attr("pointer-events", "all")
+
+
+
+    if (layer.path){
+      
+      for (var i = 0; i < points.length - 1; i++) {
+
+        var lastIndex = points.length - 2;
+
+        if (i >= lastIndex ) return;
+
+        var current = points[i];
+        var next = points[i + 1];
+
+        svgPoints.append("line")
+          .attr("x1", current.x)
+          .attr("y1", current.y)
+          .attr("x2", next.x)
+          .attr("y2", next.y)
+          .style("stroke", layer.color)
+          .style("stroke-width", layer.width * 2)
+          .style("opacity", 1);
+
+      };
+
+
+
+
+
+      
+    }
+
 };
 
 /****************************
           Path
  ****************************/
 
-function drawPath(map, layer){
-	// Enable path
-	layer.options.pathing = true;
+// function drawPath(map, layer){
+// 	// Enable path
+// 	layer.pathing = true;
 
-	// Render Layer
-	drawPoints(map, layer);
-};
+//   console.log(layer)
+
+// 	// Render Layer
+// 	drawPoints(map, layer);
+// };
 
 /****************************
          Heatmap
