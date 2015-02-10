@@ -136,28 +136,65 @@
         
     }
 
-    // Add Default Layers
+    /************************************
+         Add Default Data
+     ************************************/
+
     options.layers.push({
-  		type: "scatterplot",
-  		data : sample_data.google_location_history,
+  		
+      // Set name for layer
+      name : "Apartments",
+
+      // Define representation of layer
+      type: "scatterplot",
+
+      // Data from sample-data.js
+  		data : sample_data.apartments,
   		
   		// Pixel width of scatterplot points
-  		dot_width: 3,
+  		width: 1,
+
+      color : "#000",
   	});
 
-   //  options.layers.push({
+    options.layers.push({
+      
+      // Set name for layer
+      name : "Orange Line",
 
-   //      // Define representation of layer
-   //      type : "scatterplot",
+      // Define representation of layer
+      type: "path",
 
-   //      // Data from sample-data.js
-   //      data : sample_data.subway.orange,
+      // Data from sample-data.js
+      data : sample_data.subway.orange,
+      
+      // Pixel width of scatterplot points
+      width: 2,
 
-   //      // Default color
-   //      color: "#ffa500",
-  	// });
+      color: "#ffa500",
+    });
+
+    options.layers.push({
+      
+      // Set name for layer
+      name : "Red Line",
+
+      // Define representation of layer
+      type: "path",
+
+      // Data from sample-data.js
+      data : sample_data.subway.red,
+      
+      // Pixel width of scatterplot points
+      width: 2,
+
+      color: "#ff0000",
+    });
 	
 	  options.layers.push({
+
+        // Set name for layer
+        name : "Rent Prices",
 
         // Define representation of layer
         type : "heatmap",
@@ -166,32 +203,43 @@
         data : sample_data.apartments,
   	});
 
-    // options.layers.push({
+    /************************************
+         Initialize Map
+     ************************************/
 
-    //     // Define representation of layer
-    //     type : "hex",
+    // Global variable for map object
+    // Initialize Leaflet map
+    var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
-    //     // Data from sample-data.js
-    //     data : sample_data.apartments,
-    // });
+    // Add layers when the map is ready.
+    leaflet_map.on('ready', function(){
+      addLayers(options.layers);
 
-  // Global variable for map object
-  var leaflet_map = null;
+      console.log("ACTIVE LAYERS");
+      console.log(options.layers);
+    })
 
-	// On document ready
-	$(function() {
+    // Re-add layers when the map has changed.
+    leaflet_map.on('viewreset', function(){
+      console.log("\nView Reset: Replotting Layers");
+      addLayers(options.layers);
+    })
 
-// Initialize Leaflet map
-    leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+    // leaflet_map.on('moveend', function(){
+    //   console.log("moveend");
+    // })
 
-    // Render Data Layers
-    addLayers();
-
-	});
-
-  
 
   </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
