@@ -42,10 +42,12 @@ $ sudo npm install -g grunt
 $ sudo npm install -g grunt-cli
 ```
 
-6.) Run a local Apache server. 
+6.) Run a Local Web Server
 
-> For Mac OSX users, I recommend using the MAMP app.
-> Load index.html for your local server. In the case of MAMP, open localhost:8080
+```javascript
+$ npm start
+```
+> Starts a local web server. You may now access this project from: http://localhost:8080
 
 Grunt Tasks:
 ---
