@@ -45,7 +45,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      
+
       // Concat files at startup
       options : {
         atBegin: true,
