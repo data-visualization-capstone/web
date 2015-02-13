@@ -15,6 +15,7 @@ module.exports = function(grunt) {
           'bower_components/underscore/underscore.js',
           'bower_components/moment/moment.js',
           'bower_components/d3/d3.js',
+          'bower_components/semantic-ui/dist/semantic.js',
           // 'bower_components/leaflet-d3/dist/leaflet-d3.js',
 
           // External Libraries (stored in version control)
@@ -40,7 +41,8 @@ module.exports = function(grunt) {
           paths: ["css"],
         },
         files: {
-        "src/css/style.css": "src/less/style.less"
+          "src/css/style.css": "src/less/style.less",
+          "src/css/semantic-ui.css": "bower_components/semantic-ui/dist/semantic.css",
         }
       }
     },
