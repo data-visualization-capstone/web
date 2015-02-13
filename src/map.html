@@ -15,11 +15,12 @@
       <h2>Boston</h2>
     </div>
   </div>
-  <div class='row' data-equalizer>
-    <div class='small-4 columns'>1</div>
-    <div class='small-8 columns'>
-      2
-      <div id='map'></div>
+  <div class='row' data-equalizer style='height:100%;'>
+    <div class='small-12 medium-4 large-3 columns' data-equalizer-watch>
+        <h2>Bedrooms</h2>
+        <h2>Date</h2>
+    </div>
+    <div id='map' class='small-12 medium-8 large-9 columns' data-equalizer-watch>
     </div>
   </div>
 
@@ -38,6 +39,9 @@
   <script src='js/heatmap/leaflet-d3.js'></script>
   <script src='js/heatmap/hexbin.js'></script>
 
+  <script>
+   $(document).foundation()
+  </script>
 
   <script>
 
