@@ -9,15 +9,79 @@
   <title>Data Visualization Capstone</title>
 </head>
 
-<body>
-  <div id='header' class='row'>
-    <h1>Boston Rent Map</h1>
-  </div>
-  <div id='content' class='row' data-equalizer>
-    <div class='small-12 medium-4 large-3 columns' data-equalizer-watch>
-        <h3>Bedrooms</h3>
+<body id="map-content" class="loading">
+
+  <!-- Leaflet.js map -->
+  <div id='map'></div>
+
+  <div id="filterMenu" style="display: none;">
+    <div id="fmToggle">
+      <a href="javascript:void(0)">
+        <h4>Data Filters</h4>
+      </a>
     </div>
-    <div id='map' class='small-12 medium-8 large-9 columns' data-equalizer-watch>
+
+    <div id="filterMenuBody">
+      <div id="filterMenuBodyInner">
+        <form action="#">
+          <!-- Select Data Sets -->
+          <div id="toggles" style="display: none;"></div>
+  
+          <section id="dateSection">
+            <h4>by Date:</h4>
+
+            <!-- Toggle Date Filtering
+            <div class="checkbox_outer">
+              <input checked type="checkbox" name="date" value="anyDate">
+              <label>Any Date</label>
+            </div>
+
+            <div class="checkbox_outer">
+              <input checked type="checkbox" name="date" value="dateRange">
+              <label>Date Range</label>
+            </div>-->
+
+            <!-- Filter Data -->
+            <div class="demo">
+              <input id="date-range" value="" style="width: 100%;">
+            </div>
+
+
+            <div class="divider clear"></div>
+
+            <section id="timeSection">
+              <h4>by Time:</h4>
+
+              <div id="slider"></div>
+
+              <div class="divider"></div>
+
+              <h4>MAP TYPE</h4>
+
+              <div class="inputGroup">
+                <div class="checkbox_outer">
+                  <input type="checkbox" name="time" value="heatmap" checked>
+                  <label>Heatmap</label>
+                </div>
+              </div>
+
+              <div class="inputGroup">
+                <div class="checkbox_outer">
+                  <input type="checkbox" name="time" value="chronological">
+                  <label>Chronological</label>
+                </div>
+              </div>
+
+              <div class="inputGroup">
+                <div class="checkbox_outer">
+                  <input type="checkbox" name="time" value="plain">
+                  <label>Plain</label>
+                </div>
+              </div>
+
+            </section>
+      </div>
+      </form>
     </div>
   </div>
 
@@ -26,19 +90,16 @@
   <!-- Custom -->
   <script src="js/app.js"></script>
   <script src="js/sample-data.js"></script>
-
+  
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-
+  
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
-
+  
   <script src='js/heatmap/leaflet-d3.js'></script>
   <script src='js/heatmap/hexbin.js'></script>
-
-  <script>
-   $(document).foundation()
-  </script>
+  
 
   <script>
 
@@ -72,7 +133,7 @@
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
       layers : [],
-
+        
     }
 
     /************************************
@@ -80,7 +141,7 @@
      ************************************/
 
     options.layers.push({
-
+      
       // Set name for layer
       name : "Apartments",
 
@@ -88,16 +149,16 @@
       type: "scatterplot",
 
       // Data from sample-data.js
-  		data : sample_data.apartments,
-
-  		// Pixel width of scatterplot points
-  		width: 1,
+      data : sample_data.apartments,
+      
+      // Pixel width of scatterplot points
+      width: 1,
 
       color : "#000",
-  	});
+    });
 
     options.layers.push({
-
+      
       // Set name for layer
       name : "Orange Line",
 
@@ -106,7 +167,7 @@
 
       // Data from sample-data.js
       data : sample_data.subway.orange,
-
+      
       // Pixel width of scatterplot points
       width: 2,
 
@@ -114,7 +175,7 @@
     });
 
     options.layers.push({
-
+      
       // Set name for layer
       name : "Red Line",
 
@@ -123,14 +184,14 @@
 
       // Data from sample-data.js
       data : sample_data.subway.red,
-
+      
       // Pixel width of scatterplot points
       width: 2,
 
       color: "#ff0000",
     });
-
-	  options.layers.push({
+  
+    options.layers.push({
 
         // Set name for layer
         name : "Rent Prices",
@@ -140,7 +201,7 @@
 
         // Data from sample-data.js
         data : sample_data.apartments,
-  	});
+    });
 
     /************************************
          Initialize Map
@@ -173,12 +234,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
