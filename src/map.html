@@ -12,6 +12,19 @@
 
 <body id="map-content" class="loading">
 
+  <div class="ui left vertical labeled sidebar menu">
+    <a class="item">
+      <i class="home"></i>
+      Home
+    </a>
+    <a class="item">
+      <i class="block layout"></i>
+      Topics
+    </a>
+  </div>
+
+  <div class="ui secondary button" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
+
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
@@ -230,6 +243,12 @@
       addLayers(options.layers);
     })
 
+  </script>
+  <script type="text/javascript">
+  
+  function toggleSideNav(){
+    $('.left.sidebar').sidebar('toggle');
+  }
   </script>
 </body>
 
