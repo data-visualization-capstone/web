@@ -41,7 +41,7 @@ function initDateRangePicker(startdate, enddate) {
 
   $("#date-range").val(msg);
 
-  DV.log("\nDate range: " + msg);
+  console.log("\nDate range: " + msg);
 
   // Initialize datepicker element
   var datepicker = $('#date-range').dateRangePicker({
@@ -59,8 +59,8 @@ function initDateRangePicker(startdate, enddate) {
     // Bind callback when date range is updated
   }).bind('datepicker-change', function(event, obj) {
 
-    DV.log("\n Date Range Updated:");
-    DV.log(obj.value);
+    console.log("\n Date Range Updated:");
+    console.log(obj.value);
 
     // Filter data set
     updateMap(filterByDate(moment(obj.date1).unix(), moment(obj.date2).unix()));
