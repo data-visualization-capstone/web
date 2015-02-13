@@ -106,7 +106,7 @@
 
   <!-- Load in Sample Data -->
   <script src="js/sample-data.js"></script>
-	
+  
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
   
@@ -159,7 +159,7 @@
      ************************************/
 
     options.layers.push({
-  		
+      
       // Set name for layer
       name : "Apartments",
 
@@ -167,13 +167,13 @@
       type: "scatterplot",
 
       // Data from sample-data.js
-  		data : sample_data.apartments,
-  		
-  		// Pixel width of scatterplot points
-  		width: 1,
+      data : sample_data.apartments,
+      
+      // Pixel width of scatterplot points
+      width: 1,
 
       color : "#000",
-  	});
+    });
 
     options.layers.push({
       
@@ -208,8 +208,8 @@
 
       color: "#ff0000",
     });
-	
-	  options.layers.push({
+  
+    options.layers.push({
 
         // Set name for layer
         name : "Rent Prices",
@@ -219,7 +219,7 @@
 
         // Data from sample-data.js
         data : sample_data.apartments,
-  	});
+    });
 
     /************************************
          Initialize Map
