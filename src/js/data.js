@@ -20,13 +20,13 @@ function loadData(source, next) {
   
   // Otherwise, throw alert.
   } else {
-    DV.log("Data Source Not Defined.");
+    console.log("Data Source Not Defined.");
   }
 }
 
 // Load data from a JSON file
 function loadJSON(next){
-  DV.log("\nLoading JSON file ...");
+  console.log("\nLoading JSON file ...");
 
   var url = options.data_file;
   
@@ -47,7 +47,7 @@ function loadJSON(next){
       }
     })
 
-    DV.log("JSON data loaded.")
+    console.log("JSON data loaded.")
 
     next(data);
 
@@ -57,7 +57,7 @@ function loadJSON(next){
 // Load data from an XML file
 // Convert Google Location Data -> JSON
 function loadXML(next){
-  DV.log("\nLoading XML file ...");
+  console.log("\nLoading XML file ...");
 
   var url = options.data_file;
 
@@ -65,7 +65,7 @@ function loadXML(next){
     url: url,
     dataType: "xml"
   }).done(function(xmlData) {
-    DV.log("XML data loaded.")
+    console.log("XML data loaded.")
     convertData(xmlData, next);
   });
 
@@ -97,15 +97,15 @@ function loadXML(next){
 
 // Load data from our API
 function loadAPI(next){
-  DV.log("\nLoading API data ...");
+  console.log("\nLoading API data ...");
 
   DV.api.get("locations", function(resp){
     
-    DV.log("API data loaded.")
+    console.log("API data loaded.")
     next(resp);
 
   },function(resp){
-    DV.log("Error loading data from API.")
+    console.log("Error loading data from API.")
   })
 }
 
@@ -131,7 +131,7 @@ function formatData(data, style) {
   } else if (style == "difference") {
     return formatDataByTimeDifference(data);
   } else {
-    DV.log("Error. Incorrent format style specified");
+    console.log("Error. Incorrent format style specified");
   }
 }
 

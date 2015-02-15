@@ -6,7 +6,7 @@
 // Subset "filtered_data" by the provided start & end date.
 function filterByDate(startdate, enddate) {
 
-  // DV.log("\nFiltering by date range: " + startdate + " to " + enddate);
+  // console.log("\nFiltering by date range: " + startdate + " to " + enddate);
 
   filtered_data = _.filter(raw_data, function(p) {
 
@@ -16,7 +16,7 @@ function filterByDate(startdate, enddate) {
     return a && b;
   })
 
-  DV.log("\n" + raw_data.length + " points filtered by time range to " + filtered_data.length + " points");
+  console.log("\n" + raw_data.length + " points filtered by time range to " + filtered_data.length + " points");
 
   return filtered_data;
 }

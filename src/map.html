@@ -5,11 +5,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/style.css" rel="stylesheet" />
+  <link href="/css/semantic-ui.css" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <title>Data Visualization Capstone</title>
 </head>
 
 <body id="map-content" class="loading">
+
+  <div class="ui left vertical labeled sidebar menu">
+    <a class="item">
+      <i class="home"></i>
+      Home
+    </a>
+    <a class="item">
+      <i class="block layout"></i>
+      Topics
+    </a>
+  </div>
+
+  <div class="ui secondary button" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
 
   <!-- Leaflet.js map -->
   <div id='map'></div>
@@ -87,8 +101,10 @@
 
   <div id='loading'></div>
 
-  <!-- Custom -->
+  <!-- Data Visualization Script -->
   <script src="js/app.js"></script>
+
+  <!-- Load in Sample Data -->
   <script src="js/sample-data.js"></script>
   
   <!-- External -->
@@ -97,8 +113,10 @@
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
   
+  <!-- 
   <script src='js/heatmap/leaflet-d3.js'></script>
   <script src='js/heatmap/hexbin.js'></script>
+  -->
   
 
   <script>
@@ -225,11 +243,12 @@
       addLayers(options.layers);
     })
 
-    // leaflet_map.on('moveend', function(){
-    //   console.log("moveend");
-    // })
-
-
+  </script>
+  <script type="text/javascript">
+  
+  function toggleSideNav(){
+    $('.left.sidebar').sidebar('toggle');
+  }
   </script>
 </body>
 
