@@ -41,7 +41,8 @@ module.exports = function(grunt) {
         },
         files: {
           "src/css/style.css": "src/less/style.less",
-          "src/css/semantic-ui.css": "bower_components/semantic-ui/dist/semantic.css",
+          "src/css/semantic-ui.css": "bower_components/semantic-ui/dist/semantic.min.css",
+          "src/css/animate.css": "bower_components/animate.css/animate.min.css"
         }
       }
     },
