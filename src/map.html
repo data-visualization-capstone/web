@@ -40,7 +40,7 @@
         <form action="#">
           <!-- Select Data Sets -->
           <div id="toggles" style="display: none;"></div>
-  
+
           <section id="dateSection">
             <h4>by Date:</h4>
 
@@ -106,18 +106,12 @@
 
   <!-- Load in Sample Data -->
   <script src="js/sample-data.js"></script>
-  
+
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-  
+
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
-  
-  <!-- 
-  <script src='js/heatmap/leaflet-d3.js'></script>
-  <script src='js/heatmap/hexbin.js'></script>
-  -->
-  
 
   <script>
 
@@ -151,7 +145,7 @@
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
       layers : [],
-        
+
     }
 
     /************************************
@@ -159,7 +153,7 @@
      ************************************/
 
     options.layers.push({
-      
+
       // Set name for layer
       name : "Apartments",
 
@@ -168,7 +162,7 @@
 
       // Data from sample-data.js
       data : sample_data.apartments,
-      
+
       // Pixel width of scatterplot points
       width: 1,
 
@@ -176,7 +170,7 @@
     });
 
     options.layers.push({
-      
+
       // Set name for layer
       name : "Orange Line",
 
@@ -185,7 +179,7 @@
 
       // Data from sample-data.js
       data : sample_data.subway.orange,
-      
+
       // Pixel width of scatterplot points
       width: 2,
 
@@ -193,7 +187,7 @@
     });
 
     options.layers.push({
-      
+
       // Set name for layer
       name : "Red Line",
 
@@ -202,13 +196,13 @@
 
       // Data from sample-data.js
       data : sample_data.subway.red,
-      
+
       // Pixel width of scatterplot points
       width: 2,
 
       color: "#ff0000",
     });
-  
+
     options.layers.push({
 
         // Set name for layer
@@ -245,7 +239,7 @@
 
   </script>
   <script type="text/javascript">
-  
+
   function toggleSideNav(){
     $('.left.sidebar').sidebar('toggle');
   }
