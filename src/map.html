@@ -13,15 +13,31 @@
 
 <body id="map-content" class="loading">
 
-  <div class="ui left vertical labeled sidebar menu">
+  <div class="ui left vertical sidebar menu">
     <a class="item">
-      <i class="home"></i>
-      Home
+      <i>Home</i>
     </a>
-    <a class="item">
-      <i class="block layout"></i>
-      Topics
-    </a>
+    <div class="item">
+      <table class="ui table">
+        <tbody>
+          <tr>
+            <td>
+              <div class="ui checkbox">       
+                <input type="checkbox">
+                <label>Apartments</label>         
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Price: <span id="currentPrice"></span></p>
+              <input id="price" type="range">
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <div class="pusher">
   <div class="ui secondary button" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
@@ -250,6 +266,49 @@
   function toggleSideNav(){
     $('.left.sidebar').sidebar('toggle');
   }
+  </script>
+
+  <script type="text/javascript">
+
+    /************************************
+         Fix Checkboxs in Side Menu
+     ************************************/
+
+    $("label").click(function(){
+        var checkbox = $(this).siblings("input[type=checkbox]").prop("checked");
+        if(checkbox == true){
+          $(this).siblings("input[type=checkbox]").prop("checked", false);
+        } 
+        else {
+          $(this).siblings("input[type=checkbox]").prop("checked", true);
+        }
+    });
+
+      /*****************************************************
+         Set initial min and max values for price-range slider
+     ******************************************************/
+    var  priceRange = function(min, max){
+
+      var low = min,
+          high = max,
+          price = document.getElementById("price");
+
+      price.defaultValue = low;
+      price.min = low;
+      price.max = high;
+
+      document.getElementById("currentPrice").innerHTML = "" + price.value + "";
+    }
+
+    priceRange(500, 4000);
+
+    document.getElementById("price").oninput=function(){
+      var current = document.getElementById("price").value;
+
+      document.getElementById("currentPrice").innerHTML = current;
+
+    }
+
   </script>
 </body>
 
