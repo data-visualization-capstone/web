@@ -7,31 +7,24 @@ module.exports = function(grunt) {
       options: {
         separator: ';',
       },
-      dist: {
+      // Components installed with bower
+      external_libs: {
         src: [
-
-          // External Libraries
           'bower_components/jquery/dist/jquery.js',
           'bower_components/underscore/underscore.js',
           'bower_components/moment/moment.js',
           'bower_components/d3/d3.js',
           'bower_components/semantic-ui/dist/semantic.js',
           // 'bower_components/leaflet-d3/dist/leaflet-d3.js',
-
-          // External Libraries (stored in version control)
-          'lib/ui/jquery.nouislider.min.js',
-          'lib/ui/jquery.daterangepicker.js',
-          'lib/xml.min.js',
-
-          // Our JS Files
-          'src/js/map.js',
-          'src/js/ui.js',
-          'src/js/api.js',
-          'src/js/data.js',
-          'src/js/filtering.js',
-          'src/js/coloring.js',
         ],
-        dest: 'src/js/app.js',
+        dest: 'src/js/bundle.js',
+      },
+      map: {
+        src: [
+          'src/js/heatmap/heatmap.js'
+          'src/js/heatmap/map.js'
+        ],
+        dest: 'src/js/heatmap/map.js'
       },
     },
     less: {
