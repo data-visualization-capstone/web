@@ -20,9 +20,6 @@
 
       <div class="menuSection">
         <p class="sectionHeader">Apartments</p>
-      </div>
-
-      <div class="menuSection">
         <p class="ui_subheader">Explore rent prices in different areas of Boston.</p>
         <div class="ui checkbox">       
           <input type="checkbox" name="apartment" checked>
@@ -110,11 +107,14 @@
       <div class="menuSection">
         <p>Add one custom hashtag to the map</p>
         <div class="ui input">
-          <input placeholder="Enter word" id="addHashtagInput">
+          <input placeholder="Enter word" id="hashtagInput">
         </div>
         <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
           Add
-        </div> 
+        </div>
+        <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
+          Delete
+        </div>          
       </div>
 
     </div>
@@ -137,7 +137,7 @@
     </div>
   </div>
   <div class="pusher">
-  <div class="ui secondary button" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
+  <div class="ui secondary button left" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
 
   <!-- Leaflet.js map -->
   <div id='map'></div>
@@ -367,6 +367,11 @@
 
     /************************************
          Fix Checkboxs in Side Menu
+
+         - problem with z-index
+
+         - click label instead of checkbox
+           to toggle checkbox
      ************************************/
 
     $("label").click(function(){
@@ -447,9 +452,9 @@
 
       $(".hashtag").each(function(){
         if($(this).hasClass("active")){
-          $(this).css("background-color", $(this).attr("color"));
+          $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
         } else{
-          $(this).css("background-color", "#E0E0E0");
+          $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
         }
       });            
     }
@@ -463,18 +468,57 @@
     $(".hashtag").hover(
       function(){
         if($(this).hasClass("active") != true){
-          $(this).css("background-color", $(this).attr("color"));
+          $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
         }
       },
       function(){
         if($(this).hasClass("active") != true){
-          $(this).css("background-color", "#E0E0E0");
+          $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
         }
       }
 
     );
 
     colorize();
+
+    /*****************************************************
+       change add button to remove button
+       when input-box value == string in 
+       hashtag array
+    ******************************************************/
+    // flag indicating string's presence in array
+    var currentHT = null;
+    // array containing hashtags as strings
+    var hashtagNames = [];
+
+    // function to toggle visibility of buttons
+    // based on currentHT value
+    function show_hide(){
+      if(currentHT == true){
+        $("#addHashtagButton").hide();
+        $("#removeHashtagButton").show();
+      }else if(currentHT != true){
+        $("#removeHashtagButton").hide();
+        $("#addHashtagButton").show();
+      }
+    }
+
+    // create array of strings from hashtag html objects
+    for(i = 0; i < hashtags.length; i++){
+      hashtagNames.push(hashtags[i].innerHTML);
+    }
+
+    document.getElementById("hashtagInput").oninput=function(){
+      var currentVal = this.value.toLowerCase();
+      if($.inArray(currentVal, hashtagNames) != -1 && currentHT != true){
+        currentHT = true;
+        show_hide();
+      }
+      else if($.inArray(currentVal, hashtagNames) === -1  && currentHT == true){
+        currentHT = false;
+        show_hide();
+      }
+    };
 
   </script>
 </body>
