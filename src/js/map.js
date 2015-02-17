@@ -79,7 +79,13 @@ function drawScatterplot(map, layer){
     // Add a "g" (group) element. Organizes points
     // and ensures that layer aligns with leaflet.
     var g = svg.append("g")
-    
+      .attr('id', layer.id)
+      .attr("class", "leaflet-zoom-hide")
+
+    // Fix the size of our SVG layer to match the leaflet map
+      .style("width",  map.getSize().x + 'px')
+      .style("height", map.getSize().y + 'px')
+
     // Apply leaflet-zoom-hide so that the overlay
     // is hidden during zoom animations
       .attr("class", "leaflet-zoom-hide");
@@ -112,30 +118,27 @@ function drawScatterplot(map, layer){
       return true;
     });
 
-    // Create a group for this layer
-    var svgPoints = g.attr("class", "points")
-      .selectAll("g")
-      
-      // Append a <g class="point"> for 
-      // ever data point in the set.
+    svg.selectAll("circle")
       .data(points)
-      .enter().append("g")
+      .enter().append("circle")
       .attr("class", "point")
-      .style("z-index", 999);
 
-    // Add circles for each point
-    svgPoints.append("circle")
-      
       // Position each circle with the x/y position.
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       
       // Visual Settings
       .style('fill', function(d) { return layer.color } )
-      .attr("r", layer.width)
-      .attr("opacity", 1);
+      .attr("r", layer.width * 5)
+      .attr("opacity", 1)
+      .attr("z-index", 99999)
 
-      // .attr("date", function(d) { return d.date })
-      // .attr("pointer-events", "all")
+      // Mouse events
+      .on("mouseover", function() {
+        d3.select(this).style("fill", "red");
+      })
+      .on("mouseout", function() {
+        d3.select(this).style("fill", "black");
+      })
 
     // Logic for drawing paths between points
     if (layer.path){
@@ -149,7 +152,7 @@ function drawScatterplot(map, layer){
         var current = points[i];
         var next = points[i + 1];
 
-        svgPoints.append("line")
+        svg.append("line")
           .attr("x1", current.x)
           .attr("y1", current.y)
           .attr("x2", next.x)
