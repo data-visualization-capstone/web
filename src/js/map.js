@@ -118,6 +118,12 @@ function drawScatterplot(map, layer){
       return true;
     });
 
+    var zoomModifier = map.getZoom() - 10;
+    
+    if (zoomModifier < 1){
+      zoomModifier = 1;
+    }
+
     svg.selectAll("circle")
       .data(points)
       .enter().append("circle")
@@ -128,7 +134,7 @@ function drawScatterplot(map, layer){
       
       // Visual Settings
       .style('fill', function(d) { return layer.color } )
-      .attr("r", layer.width * 5)
+      .attr("r", layer.width * zoomModifier)
       .attr("opacity", 1)
       .attr("z-index", 99999)
 
