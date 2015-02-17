@@ -118,7 +118,7 @@ function drawScatterplot(map, layer){
       return true;
     });
 
-    var zoomModifier = map.getZoom() - 10;
+    var zoomModifier = map.getZoom() - 12;
     
     if (zoomModifier < 1){
       zoomModifier = 1;
@@ -135,15 +135,15 @@ function drawScatterplot(map, layer){
       // Visual Settings
       .style('fill', function(d) { return layer.color } )
       .attr("r", layer.width * zoomModifier)
-      .attr("opacity", 1)
       .attr("z-index", 99999)
 
       // Mouse events
       .on("mouseover", function() {
         d3.select(this).style("fill", "red");
       })
+
       .on("mouseout", function() {
-        d3.select(this).style("fill", "black");
+        d3.select(this).style("fill", layer.color);
       })
 
     // Logic for drawing paths between points
