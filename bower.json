@@ -23,7 +23,7 @@
     "moment": "~2.8.4",
     "underscore": "~1.7.0",
     "d3": "~3.4.13",
-    "leaflet-d3": "latest",
-    "semantic-ui": "latest"
+    "semantic-ui": "latest",
+    "leaflet": "~0.7.3"
   }
 }

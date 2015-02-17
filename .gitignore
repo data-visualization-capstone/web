@@ -1,6 +1,4 @@
+src/css/
 node_modules
-bower_components
-src/js/app.js
-.DS_Store
-npm-debug.log
-src/css/*
+bower_components/
+src/js/bundle.js
