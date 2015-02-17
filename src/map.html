@@ -482,43 +482,12 @@
     colorize();
 
     /*****************************************************
-       change add button to remove button
-       when input-box value == string in 
-       hashtag array
+       Adding a Hashtag to the map
     ******************************************************/
-    // flag indicating string's presence in array
-    var currentHT = null;
-    // array containing hashtags as strings
-    var hashtagNames = [];
 
-    // function to toggle visibility of buttons
-    // based on currentHT value
-    function show_hide(){
-      if(currentHT == true){
-        $("#addHashtagButton").hide();
-        $("#removeHashtagButton").show();
-      }else if(currentHT != true){
-        $("#removeHashtagButton").hide();
-        $("#addHashtagButton").show();
-      }
-    }
-
-    // create array of strings from hashtag html objects
-    for(i = 0; i < hashtags.length; i++){
-      hashtagNames.push(hashtags[i].innerHTML);
-    }
-
-    document.getElementById("hashtagInput").oninput=function(){
-      var currentVal = this.value.toLowerCase();
-      if($.inArray(currentVal, hashtagNames) != -1 && currentHT != true){
-        currentHT = true;
-        show_hide();
-      }
-      else if($.inArray(currentVal, hashtagNames) === -1  && currentHT == true){
-        currentHT = false;
-        show_hide();
-      }
-    };
+    $("#addHashtagButton").click(function(){
+      
+    });
 
   </script>
 </body>
