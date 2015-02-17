@@ -1064,9 +1064,6 @@ function drawScatterplot(map, layer){
          Heatmap
  ****************************/
 
-// WebGL Heatmap Implementation:
-// https://github.com/ursudio/webgl-heatmap-leaflet
-// Returns a leaflet layer
 function drawHeatmap(layer) {
   var apartments = _.map(layer.data, function (apt) {
     return {
@@ -1096,8 +1093,16 @@ function drawHeatmap(layer) {
   };
 
   var heatmapLayer = new HeatmapOverlay(cfg);
+  var heatmapData = {
+    max: 6000, // TODO: calculate real min / max
+    min: 0,
+    data: apartments,
+  }
 
-  return heatmapLayer
+  // ALEX: This needs to be called AFTER the above layer has been created and added to the leaflet map.
+  // heatmapLayer.setData(heatmapData);
+
+  return heatmapLayer;
 }
 
 function drawHexmap(map, layer){
