@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/src/css/style.css" rel="stylesheet" />
   <link href="/src/css/animate.css" rel="stylesheet" />
   <link href="/src/css/semantic-ui.css" rel="stylesheet" />
+  <link href="/src/css/style.css" rel="stylesheet" />
+
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <title>Data Visualization Capstone</title>
 </head>
@@ -14,29 +15,125 @@
 <body id="map-content" class="loading">
 
   <div class="ui left vertical sidebar menu">
-    <a class="item">
-      <i>Home</i>
-    </a>
-    <div class="item">
-      <table class="ui table">
-        <tbody>
-          <tr>
-            <td>
-              <div class="ui checkbox">       
-                <input type="checkbox">
-                <label>Apartments</label>         
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Price: <span id="currentPrice"></span></p>
-              <input id="price" type="range">
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div class="item menu_module" id="aparments_module">
+
+      <div class="menuSection">
+        <p class="sectionHeader">Apartments</p>
+      </div>
+
+      <div class="menuSection">
+        <p class="ui_subheader">Explore rent prices in different areas of Boston.</p>
+        <div class="ui checkbox">       
+          <input type="checkbox" name="apartment" checked>
+          <label>Display</label>         
+        </div>
+      </div>
+
+      <div class="menuSection">
+        <p class="rangeTitle">Price</p>
+        <p id="currentPrice"></p>
+        <input id="price" type="range"> 
+      </div> 
+
+      <div class="menuSection">      
+        <p>Number of bedrooms</p>
+        <div class="ui checkbox">
+          <input type="checkbox" name="any_br" checked>
+          <label>Any</label>
+        </div>          
+        <div class="ui checkbox">
+          <input type="checkbox" name="1_br">
+          <label>1</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="2_br">
+          <label>2</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="3_br">
+          <label>3</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="4_br">
+          <label>4</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="5_plus_br">
+          <label>5+</label>
+        </div>                                                        
+      </div>
+
+      <div class="menuSection">
+        <p class="rangeTitle">Square footage</p>
+        <p id="currentFootage"></p>
+        <input id="footage" type="range"> 
+      </div> 
+
+    </div>
+
+    <div class="item menu_module" id="social_media_module">
+
+      <div class="menuSection">
+        <p class="sectionHeader">Social Media</p>
+      </div> 
+
+      <div class="menuSection">
+        <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
+      </div> 
+
+      <div class="menuSection">
+        <div class="ui checkbox">       
+          <input type="checkbox" name="instagram">
+          <label>Display Instagram posts</label>         
+        </div>        
+      </div> 
+
+      <div class="menuSection">
+        <div class="ui checkbox">       
+          <input type="checkbox" name="twitter">
+          <label>Display Twitter posts</label>         
+        </div>        
+      </div>
+
+      <div class="menuSection">
+        <ul id="hashtags">
+          <li class="hashtag active">traffic</li>
+          <li class="hashtag">snow</li>
+          <li class="hashtag">southend</li>
+          <li class="hashtag">patriots</li>
+          <li class="hashtag">commuting</li>
+          <li class="hashtag">boston</li>
+        </ul>
+      </div>
+
+      <div class="menuSection">
+        <p>Add one custom hashtag to the map</p>
+        <div class="ui input">
+          <input placeholder="Enter word" id="addHashtagInput">
+        </div>
+        <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
+          Add
+        </div> 
+      </div>
+
+    </div>
+    <div class="item menu_module">
+      <div class="menuSection">
+        <p class="sectionHeader">Additional Information</p>
+      </div>
+      <div class="menuSection">
+        <div class="ui checkbox">       
+          <input type="checkbox" name="neighborhoods">
+          <label>Boston Neighborhoods</label>         
+        </div>        
+      </div>
+      <div class="menuSection">
+        <div class="ui checkbox">       
+          <input type="checkbox" name="mbta">
+          <label>MBTA Train Map</label>         
+        </div>        
+      </div>            
     </div>
   </div>
   <div class="pusher">
@@ -45,7 +142,7 @@
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
-  <div id="filterMenu" style="display: none;">
+  <div id="filterMenu" style="display:none;">
     <div id="fmToggle">
       <a href="javascript:void(0)">
         <h4>Data Filters</h4>
@@ -120,7 +217,6 @@
 </div>
   <!-- Data Visualization Script -->
   <script src="js/app.js"></script>
-
   <!-- Load in Sample Data -->
   <script src="js/sample-data.js"></script>
   
@@ -134,7 +230,6 @@
   <script src='js/heatmap/leaflet-d3.js'></script>
   <script src='js/heatmap/hexbin.js'></script>
   -->
-  
 
   <script>
 
@@ -308,6 +403,78 @@
       document.getElementById("currentPrice").innerHTML = current;
 
     }
+
+      /*****************************************************
+         Set initial min and max values for price-range slider
+     ******************************************************/
+    var  footageRange = function(min, max){
+
+      var low = min,
+          high = max,
+          footage = document.getElementById("footage");
+
+      footage.defaultValue = low;
+      footage.min = low;
+      footage.max = high;
+
+      document.getElementById("currentFootage").innerHTML = "" + footage.value + "";
+    }
+
+    footageRange(500, 4000);
+
+    document.getElementById("footage").oninput=function(){
+
+      var current = document.getElementById("footage").value;
+
+      document.getElementById("currentFootage").innerHTML = current;
+
+    }    
+
+
+      /*****************************************************
+         set colors for hashtags
+     ******************************************************/
+
+    var colors = ["#57BE6F", "#F3C700", "#3782C2", "#E27B4E", "#564D8C", "#CF2522", "#DB459B", "#038500"],
+       hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
+
+
+    for(var i = 0; i < hashtags.length; i++){
+    hashtags[i].setAttribute("color", ""+colors[i]+"");
+    }
+
+    function colorize(){
+
+      $(".hashtag").each(function(){
+        if($(this).hasClass("active")){
+          $(this).css("background-color", $(this).attr("color"));
+        } else{
+          $(this).css("background-color", "#E0E0E0");
+        }
+      });            
+    }
+
+    $(".hashtag").click(function(){
+
+      $(this).toggleClass("active");
+      colorize();
+    });
+
+    $(".hashtag").hover(
+      function(){
+        if($(this).hasClass("active") != true){
+          $(this).css("background-color", $(this).attr("color"));
+        }
+      },
+      function(){
+        if($(this).hasClass("active") != true){
+          $(this).css("background-color", "#E0E0E0");
+        }
+      }
+
+    );
+
+    colorize();
 
   </script>
 </body>
