@@ -16,9 +16,9 @@ function addLayers(layers){
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
-		
+
     var layer = layers[i]; // Current Layer
-    
+
     // Create unique ID for current layer
     layer.id = layer.name.replace(/\s/g, '').toLowerCase();
 
@@ -38,8 +38,8 @@ function addLayers(layers){
 		}
 
 		if (layer.type == "heatmap"){
-			var layer = drawHeatmap(leaflet_map,layer) 
-      
+			var layer = drawHeatmap(leaflet_map,layer)
+
       // Prevent multiple heatmaps from overlaying.
       d3.select(".leaflet-overlay-pane canvas").remove();
 
@@ -64,7 +64,7 @@ function drawScatterplot(map, layer){
     // Clear layer if previously existing.
     d3.select('#' + layer.id).remove();
 
-    // Select leaflet's 'overlay pane' layer. Leaflet will 
+    // Select leaflet's 'overlay pane' layer. Leaflet will
     // auto-repositions the overlay panes upon map movement.
 
     // Create an SVG elemnt for plotting points on
@@ -79,11 +79,11 @@ function drawScatterplot(map, layer){
     // Add a "g" (group) element. Organizes points
     // and ensures that layer aligns with leaflet.
     var g = svg.append("g")
-    
+
     // Apply leaflet-zoom-hide so that the overlay
     // is hidden during zoom animations
       .attr("class", "leaflet-zoom-hide");
-      
+
     // Create map-able set of points. For each point,
     // convert the lat/long into a plottable x/y position
     var points = layer.data.filter(function(p) {
@@ -99,7 +99,7 @@ function drawScatterplot(map, layer){
 
       // Remove points that are outside current viewport
       if (!bounds.contains(latlng)) { return false };
-      
+
       // Convert Latitude and Longitude into a Mapable
       // point using leaflet's LayerPoint API.
       var point = map.latLngToLayerPoint(latlng);
@@ -115,8 +115,8 @@ function drawScatterplot(map, layer){
     // Create a group for this layer
     var svgPoints = g.attr("class", "points")
       .selectAll("g")
-      
-      // Append a <g class="point"> for 
+
+      // Append a <g class="point"> for
       // ever data point in the set.
       .data(points)
       .enter().append("g")
@@ -125,10 +125,10 @@ function drawScatterplot(map, layer){
 
     // Add circles for each point
     svgPoints.append("circle")
-      
+
       // Position each circle with the x/y position.
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      
+
       // Visual Settings
       .style('fill', function(d) { return layer.color } )
       .attr("r", layer.width)
@@ -139,7 +139,7 @@ function drawScatterplot(map, layer){
 
     // Logic for drawing paths between points
     if (layer.path){
-      
+
       for (var i = 0; i < points.length - 1; i++) {
 
         // Stop iteration if there's not
@@ -159,7 +159,7 @@ function drawScatterplot(map, layer){
           .style("opacity", 1);
 
       };
-      
+
     }
 
 };
@@ -186,23 +186,22 @@ function drawScatterplot(map, layer){
 // https://github.com/ursudio/webgl-heatmap-leaflet
 // Returns a leaflet layer
 function drawHeatmap(map, layer){
-	
-	var heatmap = new L.TileLayer.WebGLHeatMap({ 
-    	size: 500,
-    	autoresize: true,
-    	opacity: .4,
-  	});
 
-	var dataPoints = [];
+  var heatmapInstance = h337.create({
+    container: $('#map');
+  });
 
-	for (var i = layer.data.length - 1; i >= 0; i--) {
-		var point = layer.data[i]
-		dataPoints.push([point.latitude, point.longitude, point.value / 40000]);
-	};
+  var apartments = _.map(layer.data, function (apt) {
+    return {
+      apt.latitude,
+      apt.longitude,
+      apt.value
+    };
+  });
 
-	heatmap.setData(dataPoints);
+  console.log(apartments);
 
-	return heatmap;
+	// return heatmap;
 }
 
 function drawHexmap(map, layer){
@@ -228,16 +227,16 @@ function drawHexmap(map, layer){
     hexLayer.colorScale().range('white', 'blue');
 
     var center = [42.329077, -71.108871];
-  
+
     var latFn = d3.random.normal(center[0], 1);
     var longFn = d3.random.normal(center[1], 1);
-  
+
     var data = [];
-    
+
     for(i=0; i<1000; i++){
         data.push([longFn(),  latFn(), Math.random()]);
     }
-  
+
     // Set the data (can be set multiple times)
     hexLayer.data(data);
 }
