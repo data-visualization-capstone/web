@@ -16,7 +16,6 @@ module.exports = function(grunt) {
           'bower_components/moment/moment.js',
           'bower_components/d3/d3.js',
           'bower_components/semantic-ui/dist/semantic.js',
-          // 'bower_components/leaflet-d3/dist/leaflet-d3.js',
 
           // External Libraries (stored in version control)
           'lib/ui/jquery.nouislider.min.js',
