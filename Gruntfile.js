@@ -22,9 +22,10 @@ module.exports = function(grunt) {
       map: {
         src: [
           'src/js/heatmap/heatmap.js',
+          'src/js/heatmap/leaflet-heatmap.js',
           'src/js/heatmap/map.js',
         ],
-        dest: 'src/js/heatmap/map.js'
+        dest: 'src/js/map.js'
       },
     },
     less: {
