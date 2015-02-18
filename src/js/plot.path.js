@@ -4,6 +4,8 @@
  ****************************/
 
 function drawPath(map, layer){
-	// Enable path
+	// @TODO:
+	// Seperate path-drawing code from
+	// the scatterplot function
 
 };

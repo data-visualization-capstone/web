@@ -18,8 +18,6 @@ module.exports = function(grunt) {
           'bower_components/semantic-ui/dist/semantic.js',
 
           // External Libraries (stored in version control)
-          // 'lib/ui/jquery.nouislider.min.js',
-          // 'lib/ui/jquery.daterangepicker.js',
           'lib/xml.min.js',
 
           // Our JS Files
