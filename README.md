@@ -9,6 +9,10 @@ Overview
 
 A Data Visualization Project utilizing GPS data. Demo utilizes D3.js to create interactive maps on top of [Leaflet.js](http://leafletjs.com/).
 
+Preview
+---
+Available online at: [vent8225.dyndns.org](http://vent8225.dyndns.org)
+
 Setup:
 ----
 
