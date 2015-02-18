@@ -67,6 +67,9 @@ function drawHexmap(map, layer){
       .style("height", map.getSize().y + 'px')
       .append("g")
 
+  // clipPath is a trick for rendering custom
+  // svg shapes. It restricts the region of 
+  // a shape where color can be applied.
   svg.append("clipPath")
       .attr("id", "clip")
       .append("rect")
@@ -77,6 +80,10 @@ function drawHexmap(map, layer){
   svg.append("g")
       .attr("clip-path", "url(#clip)")
       .selectAll(".hexagon")
+
+      // Use the hexbin d3.js plugin for
+      // bulking data points into their 
+      // overlapping "bin"
       .data(hexbin(points))
       .enter().append("path")
       .attr("class", "hexagon")
