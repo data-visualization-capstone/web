@@ -228,6 +228,8 @@
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
 
+  <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+
   <script>
 
     /************************************
@@ -318,24 +320,25 @@
       color: "#ff0000",
     });
   
-    options.layers.push({
+    // options.layers.push({
 
-        // Set name for layer
-        name : "Rent Prices",
+    //     // Set name for layer
+    //     name : "Rent Prices",
 
-        // Define representation of layer
-        type : "heatmap",
+    //     // Define representation of layer
+    //     type : "heatmap",
 
-        // Data from sample-data.js
-        data : sample_data.apartments,
-    });
+    //     // Data from sample-data.js
+    //     data : sample_data.apartments,
+    // });
+
     options.layers.push({
 
       name : "Hex Map",
 
       type: "hex",
 
-      data : [],
+      data : sample_data.apartments,
     });
 
     /************************************
