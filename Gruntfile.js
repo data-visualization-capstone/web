@@ -18,15 +18,19 @@ module.exports = function(grunt) {
           'bower_components/semantic-ui/dist/semantic.js',
 
           // External Libraries (stored in version control)
-          'lib/ui/jquery.nouislider.min.js',
-          'lib/ui/jquery.daterangepicker.js',
+          // 'lib/ui/jquery.nouislider.min.js',
+          // 'lib/ui/jquery.daterangepicker.js',
           'lib/xml.min.js',
 
           // Our JS Files
-          'src/js/map.js',
-          'src/js/hex.js',
           'src/js/api.js',
           'src/js/data.js',
+          'src/js/map.js',
+          'src/js/plot.heatmap.js',
+          'src/js/plot.hex.js',
+          'src/js/plot.path.js',
+          'src/js/plot.scatterplot.js',
+
         ],
         dest: 'src/js/app.js',
       },
