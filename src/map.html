@@ -228,6 +228,8 @@
   <script src='js/heatmap/webgl-heatmap.js'></script>
   <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
 
+  <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+
   <script>
 
     /************************************
@@ -279,7 +281,7 @@
       data : sample_data.apartments,
       
       // Pixel width of scatterplot points
-      width: 1,
+      width: .5,
 
       color : "#000",
     });
@@ -296,7 +298,7 @@
       data : sample_data.subway.orange,
       
       // Pixel width of scatterplot points
-      width: 2,
+      width: 1,
 
       color: "#ffa500",
     });
@@ -318,17 +320,29 @@
       color: "#ff0000",
     });
   
+    // options.layers.push({
+
+    //     // Set name for layer
+    //     name : "Rent Prices",
+
+    //     // Define representation of layer
+    //     type : "heatmap",
+
+    //     // Data from sample-data.js
+    //     data : sample_data.apartments,
+    // });
+
     options.layers.push({
 
-        // Set name for layer
-        name : "Rent Prices",
+      name : "Hex Map",
 
-        // Define representation of layer
-        type : "heatmap",
+      type: "hex",
 
-        // Data from sample-data.js
-        data : sample_data.apartments,
+      data : sample_data.apartments,
+
+      width: 20,
     });
+
 
     /************************************
          Initialize Map
