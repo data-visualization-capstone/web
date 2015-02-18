@@ -215,40 +215,71 @@ function drawHeatmap(map, layer){
 }
 
 function drawHexmap(map, layer){
+  // Clear layer if previously existing.
+    d3.select('#' + layer.id).remove();
 
-    // Options for the hexbin layer
-    var hexSettings = {
-        radius : 10,                            // Size of the hexagons/bins
-        opacity: 0.5,                           // Opacity of the hexagonal layer
-        duration: 200,                          // millisecond duration of d3 transitions (see note below)
-        lng: function(d){ return d[0]; },       // longitude accessor
-        lat: function(d){ return d[1]; },       // latitude accessor
-        value: function(d){ return d.length; }, // value accessor - derives the bin value
-        valueFloor: 0,                          // override the color scale domain low value
-        valueCeil: undefined,                   // override the color scale domain high value
-        colorRange: ['#f7fbff', '#08306b']      // default color range for the heat map
-    };
+    // Select leaflet's 'overlay pane' layer. Leaflet will 
+    // auto-repositions the overlay panes upon map movement.
 
-    // Create the hexbin layer and add it to the map
-    var hexLayer = L.hexbinLayer(hexSettings).addTo(map);
+    // Create an SVG elemnt for plotting points on
+    var svg = d3.select(map.getPanes().overlayPane).append("svg")
+      .attr('id', layer.id)
+      .attr("class", "leaflet-zoom-hide")
 
-    // Optionally, access the d3 color scale directly
-    // Can also set scale via hexLayer.colorScale(d3.scale.linear()...)
-    hexLayer.colorScale().range('white', 'blue');
+    // Fix the size of our SVG layer to match the leaflet map
+      .style("width",  map.getSize().x + 'px')
+      .style("height", map.getSize().y + 'px')
 
-    var center = [42.329077, -71.108871];
-  
-    var latFn = d3.random.normal(center[0], 1);
-    var longFn = d3.random.normal(center[1], 1);
-  
-    var data = [];
-    
-    for(i=0; i<1000; i++){
-        data.push([longFn(),  latFn(), Math.random()]);
-    }
-  
-    // Set the data (can be set multiple times)
-    hexLayer.data(data);
+    // Add a "g" (group) element. Organizes points
+    // and ensures that layer aligns with leaflet.
+    var g = svg.append("g")
+      .attr('id', layer.id)
+      .attr("class", "leaflet-zoom-hide")
+
+    // Fix the size of our SVG layer to match the leaflet map
+      .style("width",  map.getSize().x + 'px')
+      .style("height", map.getSize().y + 'px')
+
+    // Apply leaflet-zoom-hide so that the overlay
+    // is hidden during zoom animations
+      .attr("class", "leaflet-zoom-hide");
+
+      var hexSize = 50,
+          hexs = [];
+
+      for(i = 0; i < map.getSize().x; i += hexSize){
+
+        for(j = 0; j < map.getSize().y; j += hexSize){
+          hexs.push({x: i, y: j});
+        }
+
+      }
+
+    svg.selectAll("circle")
+      .data(hexs)
+      .enter().append("circle")
+      .attr("class", "point")
+
+      // Position each circle with the x/y position.
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      
+      // Visual Settings
+      .style('fill', "none")
+      .attr("r", hexSize)
+      .attr("z-index", 99999)
+      .attr("stroke", "red")
+      .attr("stroke-width", "3px")
+
+      // Mouse events
+      .on("mouseover", function() {
+        d3.select(this).style("fill", "red");
+      })
+
+      .on("mouseout", function() {
+        d3.select(this).style("fill", layer.color);
+      })      
+
+
 }
 
 
