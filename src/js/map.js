@@ -128,7 +128,7 @@ function drawScatterplot(map, layer){
       
       // Visual Settings
       .style('fill', function(d) { return layer.color } )
-      .attr("r", layer.width * 5)
+      .attr("r", layer.width)
       .attr("opacity", 1)
       .attr("z-index", 99999)
 
