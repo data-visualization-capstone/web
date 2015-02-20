@@ -14,6 +14,8 @@ function addLayers(layers){
   // @ TODO:
   // Prevent Duplicates
 
+  buildKey(layers);
+
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
     var layer = layers[i]; // Current Layer
@@ -77,6 +79,21 @@ function verifyKeys(layer){
     return layer;
 }
 
+
+function buildKey(layers){
+  var key = $("#mapkey");
+
+  key.html("");
+
+  _.each(layers, function(layer){
+
+    var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
+    var b = layer.name;
+    var c = '</p>'
+
+    key.append(a + b + c);
+  })
+}
 /******************************
          Coloring
  ******************************/
@@ -85,6 +102,7 @@ function verifyKeys(layer){
 // color. Input between 0 and 100 maps
 // to the range of red -> green
 function getColor(i){
+  console.log(i)
 
   if (i < 0){
     i = 0;
@@ -96,7 +114,7 @@ function getColor(i){
   var g = Math.floor(255 - 255 * i);
   var b = 0;
 
-  return componentToHex(r) + componentToHex(g) + componentToHex(b);
+  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb

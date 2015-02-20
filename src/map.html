@@ -134,6 +134,8 @@
     <div class="ui button" id="addHashtagButton" onclick="getTweets()" style="background-color:#1b1c1d; color:#fff;">Get Tweets</div>
   </div>
 
+  <div id="mapkey"></div>
+
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
@@ -258,6 +260,8 @@
       // Pixel width
       width: 15,
 
+      color: "#005696",
+
       // Custom function to filter data set.
       // Use to remove duplicates or process.
       filter : function(point){
@@ -320,9 +324,9 @@
       DV.api.get("twitter/search/" + string, function(resp){
         
         var layer = {
-          name: "Twitter Search " + string,
+          name: "Twitter " + string,
           type: "scatterplot",
-          color: getColor(Math.random()),
+          color: getColor(Math.random(0, 100)),
           data : resp,
           width: 3,
         }
