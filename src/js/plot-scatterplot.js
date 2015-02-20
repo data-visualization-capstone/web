@@ -52,6 +52,10 @@ function drawScatterplot(map, layer){
       var latlng = new L.LatLng(p.latitude, p.longitude);
 
       // Remove points that are outside current viewport
+
+      console.log(bounds);
+      console.log(latlng);
+      
       if (!bounds.contains(latlng)) { return false };
       
       // Convert Latitude and Longitude into a Mapable
@@ -65,6 +69,8 @@ function drawScatterplot(map, layer){
 
       return true;
     });
+
+    console.log(points);
 
     var zoomModifier = map.getZoom() - 12;
     

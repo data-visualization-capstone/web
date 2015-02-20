@@ -18,7 +18,7 @@ var DV = {
   development : development,
 
   // Target API
-  url : (development) ? "http://localhost:8080/" : null,
+  url : (development) ? "http://localhost:8080/" : "http://vent8225.dyndns.org:8080/",
 };
 
 /******************************

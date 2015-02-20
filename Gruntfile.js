@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           'bower_components/semantic-ui/dist/semantic.js',
 
           // External Libraries (stored in version control)
-          'lib/xml.min.js',
+          // 'lib/xml.min.js', Convert Google KML
 
           // Our JS Files
           'src/js/api.js',

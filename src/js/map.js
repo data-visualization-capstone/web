@@ -18,22 +18,7 @@ function addLayers(layers){
 	for (var i = layers.length - 1; i >= 0; i--) {
     var layer = layers[i]; // Current Layer
     
-    // Create unique ID for current layer
-    layer.id = layer.name.replace(/\s/g, '').toLowerCase();
-
-    // Support layer.filter function
-    if (layer.filter){
-      layer.data = _.filter(layer.data, function(p){
-        return layer.filter(p);
-      })
-    }
-
-    // Support layer.filter function
-    if (layer.map){
-      layer.data = _.map(layer.data, function(p){
-        return layer.map(p);
-      })
-    }
+    var layer = verifyKeys(layer);
 
     switch (layer.type) {
       
@@ -61,4 +46,33 @@ function addLayers(layers){
         break;
     }
 	}
+}
+
+// Check for missing keys.
+// Execute & normalize data.
+function verifyKeys(layer){
+
+    // Create unique ID for current layer
+    if (!layer.name){
+      console.log("Alert. 'layer.name' is not defined. Defaulting name. This may cause issues if you have more then 1 unnamed layer.");
+      layer.name = 'default';
+    }
+
+    layer.id = layer.name.replace(/\s/g, '').toLowerCase();
+
+    // Support layer.filter function
+    if (layer.filter){
+      layer.data = _.filter(layer.data, function(p){
+        return layer.filter(p);
+      })
+    }
+
+    // Support layer.filter function
+    if (layer.map){
+      layer.data = _.map(layer.data, function(p){
+        return layer.map(p);
+      })
+    }
+
+    return layer;
 }
