@@ -7,33 +7,7 @@
 function drawPath(map, layer){
   
     // Clear layer if previously existing.
-    d3.select('#' + layer.id).remove();
-
-    // Select leaflet's 'overlay pane' layer. Leaflet will 
-    // auto-repositions the overlay panes upon map movement.
-
-    // Create an SVG elemnt for plotting points on
-    var svg = d3.select(map.getPanes().overlayPane).append("svg")
-      .attr('id', layer.id)
-      .attr("class", "leaflet-zoom-hide")
-
-    // Fix the size of our SVG layer to match the leaflet map
-      .style("width",  map.getSize().x + 'px')
-      .style("height", map.getSize().y + 'px')
-
-    // Add a "g" (group) element. Organizes points
-    // and ensures that layer aligns with leaflet.
-    var g = svg.append("g")
-      .attr('id', layer.id)
-      .attr("class", "leaflet-zoom-hide")
-
-    // Fix the size of our SVG layer to match the leaflet map
-      .style("width",  map.getSize().x + 'px')
-      .style("height", map.getSize().y + 'px')
-
-    // Apply leaflet-zoom-hide so that the overlay
-    // is hidden during zoom animations
-      .attr("class", "leaflet-zoom-hide");
+    // @TODO
       
     // Create map-able set of points. For each point,
     // convert the lat/long into a plottable x/y position
