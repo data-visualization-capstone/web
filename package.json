@@ -16,6 +16,6 @@
     "http-server": "^0.6.1"
   },
   "scripts": {
-    "start": "http-server ./src -a 0.0.0.0 -p 8080"
+    "start": "http-server ./src -a 0.0.0.0 -p 8888"
   }
 }
