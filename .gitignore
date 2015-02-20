@@ -4,3 +4,4 @@ src/js/app.js
 .DS_Store
 npm-debug.log
 src/css/*
+dist/

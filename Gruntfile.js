@@ -65,6 +65,7 @@ module.exports = function(grunt) {
         tasks: ['less']
       },
     },
+
   });
 
   // Load plugins
@@ -74,5 +75,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
-
+  grunt.registerTask('build', ['concat', 'less']);
 };
