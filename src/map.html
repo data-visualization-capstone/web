@@ -13,11 +13,12 @@
 </head>
 
 <body id="map-content" class="loading">
-
+  
+  <!-- Sidebar -->
   <div class="ui left vertical sidebar menu">
-
     <div class="item menu_module" id="aparments_module">
-
+      
+      <!-- Section -->
       <div class="menuSection">
         <p class="sectionHeader">Apartments</p>
         <p class="ui_subheader">Explore rent prices in different areas of Boston.</p>
@@ -27,12 +28,14 @@
         </div>
       </div>
 
+      <!-- Section -->
       <div class="menuSection">
         <p class="rangeTitle">Price</p>
         <p id="currentPrice"></p>
         <input id="price" type="range"> 
       </div> 
 
+      <!-- Section -->
       <div class="menuSection">      
         <p>Number of bedrooms</p>
         <div class="ui checkbox">
@@ -53,46 +56,25 @@
         </div>
         <div class="ui checkbox">
           <input type="checkbox" name="4_br">
-          <label>4</label>
+          <label>4+</label>
         </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="5_plus_br">
-          <label>5+</label>
-        </div>                                                        
       </div>
-
-      <div class="menuSection">
-        <p class="rangeTitle">Square footage</p>
-        <p id="currentFootage"></p>
-        <input id="footage" type="range"> 
-      </div> 
 
     </div>
 
     <div class="item menu_module" id="social_media_module">
 
+      <!-- Section -->
       <div class="menuSection">
         <p class="sectionHeader">Social Media</p>
       </div> 
 
+      <!-- Section -->
       <div class="menuSection">
         <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
       </div> 
 
-      <div class="menuSection">
-        <div class="ui checkbox">       
-          <input type="checkbox" name="instagram">
-          <label>Display Instagram posts</label>         
-        </div>        
-      </div> 
-
-      <div class="menuSection">
-        <div class="ui checkbox">       
-          <input type="checkbox" name="twitter">
-          <label>Display Twitter posts</label>         
-        </div>        
-      </div>
-
+      <!-- Section -->
       <div class="menuSection">
         <ul id="hashtags">
           <li class="hashtag active">traffic</li>
@@ -104,6 +86,7 @@
         </ul>
       </div>
 
+      <!-- Section -->
       <div class="menuSection">
         <p>Add one custom hashtag to the map</p>
         <div class="ui input">
@@ -118,16 +101,21 @@
       </div>
 
     </div>
+    
+    <!-- Section -->
     <div class="item menu_module">
+      
       <div class="menuSection">
         <p class="sectionHeader">Additional Information</p>
       </div>
+
       <div class="menuSection">
         <div class="ui checkbox">       
           <input type="checkbox" name="neighborhoods">
           <label>Boston Neighborhoods</label>         
         </div>        
       </div>
+
       <div class="menuSection">
         <div class="ui checkbox">       
           <input type="checkbox" name="mbta">
@@ -272,23 +260,6 @@
     options.layers.push({
       
       // Set name for layer
-      name : "Apartments",
-
-      // Define representation of layer
-      type: "scatterplot",
-
-      // Data from sample-data.js
-      data : sample_data.apartments,
-      
-      // Pixel width of scatterplot points
-      width: .5,
-
-      color : "#000",
-    });
-
-    options.layers.push({
-      
-      // Set name for layer
       name : "Orange Line",
 
       // Define representation of layer
@@ -319,18 +290,6 @@
 
       color: "#ff0000",
     });
-  
-    // options.layers.push({
-
-    //     // Set name for layer
-    //     name : "Rent Prices",
-
-    //     // Define representation of layer
-    //     type : "heatmap",
-
-    //     // Data from sample-data.js
-    //     data : sample_data.apartments,
-    // });
 
     options.layers.push({
 
@@ -340,7 +299,7 @@
 
       data : sample_data.apartments,
 
-      width: 20,
+      width: 15,
     });
 
 
@@ -423,28 +382,28 @@
       /*****************************************************
          Set initial min and max values for price-range slider
      ******************************************************/
-    var  footageRange = function(min, max){
+    // var  footageRange = function(min, max){
 
-      var low = min,
-          high = max,
-          footage = document.getElementById("footage");
+    //   var low = min,
+    //       high = max,
+    //       footage = document.getElementById("footage");
 
-      footage.defaultValue = low;
-      footage.min = low;
-      footage.max = high;
+    //   footage.defaultValue = low;
+    //   footage.min = low;
+    //   footage.max = high;
 
-      document.getElementById("currentFootage").innerHTML = "" + footage.value + "";
-    }
+    //   document.getElementById("currentFootage").innerHTML = "" + footage.value + "";
+    // }
 
-    footageRange(500, 4000);
+    // footageRange(500, 4000);
 
-    document.getElementById("footage").oninput=function(){
+    // document.getElementById("footage").oninput=function(){
 
-      var current = document.getElementById("footage").value;
+    //   var current = document.getElementById("footage").value;
 
-      document.getElementById("currentFootage").innerHTML = current;
+    //   document.getElementById("currentFootage").innerHTML = current;
 
-    }    
+    // }    
 
 
       /*****************************************************

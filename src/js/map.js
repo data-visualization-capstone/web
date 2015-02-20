@@ -30,8 +30,7 @@ function addLayers(layers){
         
       // PATH
       case "path":
-          layer.path = true;
-          drawScatterplot(leaflet_map, layer);
+          drawPath(leaflet_map, layer);
           
           // Currently utilized same functionality as
           // scatterploy. @ TODO Fix this.
