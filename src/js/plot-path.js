@@ -3,8 +3,9 @@
           Path
  ****************************/
 
+// Returns a leaflet polyline
 function drawPath(map, layer){
-
+  
     // Clear layer if previously existing.
     d3.select('#' + layer.id).remove();
 
@@ -62,32 +63,20 @@ function drawPath(map, layer){
       return true;
     });
 
-    var zoomModifier = map.getZoom() - 12;
-    
-    if (zoomModifier < 1){
-      zoomModifier = 1;
-    }
- 
-    for (var i = 0; i < points.length - 1; i++) {
+    console.log(points)
 
-      // Stop iteration if there's not
-      // a next point to connect.
-      if (i >= points.length - 2) return;
+    var polylinePoints = _.map(points, function(p){ 
+      return [p.latitude, p.longitude]; 
+    });
 
-      var current = points[i];
-      var next = points[i + 1];
-
-      svg.append("line")
-        .attr("x1", current.x)
-        .attr("y1", current.y)
-        .attr("x2", next.x)
-        .attr("y2", next.y)
-        .style("stroke", layer.color)
-        .style("stroke-width", layer.width * zoomModifier)
-        .style("opacity", 1);
-
-    };
+    var polyline = L.polyline(polylinePoints, {
+      color: layer.color,
+      weight: layer.width,
+      opacity: 1,
+      lineJoin: 'round'
+    });
       
+    return polyline;
 
 
 };

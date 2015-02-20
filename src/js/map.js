@@ -30,7 +30,7 @@ function addLayers(layers){
         
       // PATH
       case "path":
-          drawPath(map, layer);
+          drawPath(map, layer).addTo(map);
           
           // Currently utilized same functionality as
           // scatterploy. @ TODO Fix this.

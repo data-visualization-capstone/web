@@ -244,6 +244,14 @@
          Add Default Data
      ************************************/
 
+
+    options.layers.push({
+      name : "Hex Map",
+      type: "hex",
+      data : sample_data.apartments,
+      width: 15,
+    });
+    
     options.layers.push({
       
       // Set name for layer
@@ -256,7 +264,7 @@
       data : sample_data.subway.orange,
       
       // Pixel width of scatterplot points
-      width: 2,
+      width: 5,
 
       color: "#ffa500",
     });
@@ -265,16 +273,10 @@
       name : "Red Line",
       type: "path",
       data : sample_data.subway.red,
-      width: 2,
+      width: 5,
       color: "#ff0000",
     });
 
-    options.layers.push({
-      name : "Hex Map",
-      type: "hex",
-      data : sample_data.apartments,
-      width: 15,
-    });
 
 
     /************************************
