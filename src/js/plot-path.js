@@ -37,8 +37,6 @@ function drawPath(map, layer){
       return true;
     });
 
-    console.log(points)
-
     var polylinePoints = _.map(points, function(p){ 
       return [p.latitude, p.longitude]; 
     });
@@ -51,6 +49,4 @@ function drawPath(map, layer){
     });
       
     return polyline;
-
-
 };

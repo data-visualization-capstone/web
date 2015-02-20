@@ -7576,14 +7576,14 @@ var subway_stations = [{
     "lines": "Red Line (all) and Commuter Rail (Fitchburg)",
     "longitude": -71.1192440987
   },
-  {
-    "latitude": 42.3960638548,
-    "title": "Davis Station",
-    "url": "http://mbta.com/schedules_and_maps/subway/lines/stations/?stopId=11404&lat=42.39662&lng=-71.122527",
-    "address": "College Avenue and Elm Street and Holland Street, Somerville",
-    "lines": "Red Line (all)",
-    "longitude": -71.1220550537
-  },
+  // {
+  //   "latitude": 42.3960638548,
+  //   "title": "Davis Station",
+  //   "url": "http://mbta.com/schedules_and_maps/subway/lines/stations/?stopId=11404&lat=42.39662&lng=-71.122527",
+  //   "address": "College Avenue and Elm Street and Holland Street, Somerville",
+  //   "lines": "Red Line (all)",
+  //   "longitude": -71.1220550537
+  // },
   {
     "latitude": 42.3949070477,
     "title": "Alewife Station",

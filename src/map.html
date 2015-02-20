@@ -223,17 +223,6 @@
 
       minZoom : 4,
 
-      // Active data filters
-      filters: {
-
-        // Oldest plotted point
-        startdate: null,
-
-        // Most recent plotted point
-        enddate: null,
-
-      },
-
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
       layers : [],
@@ -250,7 +239,22 @@
       type: "hex",
       data : sample_data.apartments,
       width: 15,
+
+      // Custom function to filter data set.
+      // Use to remove duplicates or process.
+      filter : function(point){
+        return point.value > 2000;
+      },
+
+      // Apply function to every point
+      // Useful for computing color.
+      map : function(point){
+        return point;
+      },
+
     });
+
+    console.log(options)
     
     options.layers.push({
       
