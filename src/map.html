@@ -233,29 +233,6 @@
          Add Default Data
      ************************************/
 
-
-    options.layers.push({
-      name : "Hex Map",
-      type: "hex",
-      data : sample_data.apartments,
-      width: 15,
-
-      // Custom function to filter data set.
-      // Use to remove duplicates or process.
-      filter : function(point){
-        return point.value > 2000;
-      },
-
-      // Apply function to every point
-      // Useful for computing color.
-      map : function(point){
-        return point;
-      },
-
-    });
-
-    console.log(options)
-    
     options.layers.push({
       
       // Set name for layer
@@ -281,7 +258,25 @@
       color: "#ff0000",
     });
 
+    options.layers.push({
+      name : "Hex Map",
+      type: "hex",
+      data : sample_data.apartments,
+      width: 15,
 
+      // Custom function to filter data set.
+      // Use to remove duplicates or process.
+      filter : function(point){
+        return point.value > 2000;
+      },
+
+      // Apply function to every point
+      // Useful for computing color.
+      map : function(point){
+        return point;
+      },
+
+    });
 
     /************************************
          Initialize Map
