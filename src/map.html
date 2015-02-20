@@ -146,17 +146,6 @@
           <section id="dateSection">
             <h4>by Date:</h4>
 
-            <!-- Toggle Date Filtering
-            <div class="checkbox_outer">
-              <input checked type="checkbox" name="date" value="anyDate">
-              <label>Any Date</label>
-            </div>
-
-            <div class="checkbox_outer">
-              <input checked type="checkbox" name="date" value="dateRange">
-              <label>Date Range</label>
-            </div>-->
-
             <!-- Filter Data -->
             <div class="demo">
               <input id="date-range" value="" style="width: 100%;">
@@ -211,13 +200,7 @@
   
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-  
-  <!-- Heatmap Plugins -->
-  <script src='js/heatmap/webgl-heatmap.js'></script>
-  <script src='js/heatmap/webgl-heatmap-leaflet.js'></script>
-
   <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
-
   <script>
 
     /************************************
@@ -235,6 +218,10 @@
         [42.329077, -71.108871],
         [42.374200, -71.032072]
       ],
+
+      maxZoom : 12,
+
+      minZoom : 4,
 
       // Active data filters
       filters: {
@@ -269,36 +256,23 @@
       data : sample_data.subway.orange,
       
       // Pixel width of scatterplot points
-      width: 1,
+      width: 2,
 
       color: "#ffa500",
     });
 
     options.layers.push({
-      
-      // Set name for layer
       name : "Red Line",
-
-      // Define representation of layer
       type: "path",
-
-      // Data from sample-data.js
       data : sample_data.subway.red,
-      
-      // Pixel width of scatterplot points
       width: 2,
-
       color: "#ff0000",
     });
 
     options.layers.push({
-
       name : "Hex Map",
-
       type: "hex",
-
       data : sample_data.apartments,
-
       width: 15,
     });
 
@@ -309,31 +283,22 @@
 
     // Global variable for map object
     // Initialize Leaflet map
-    var leaflet_map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+    var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
     // Add layers when the map is ready.
-    leaflet_map.on('ready', function(){
+    map.on('ready', function(){
       addLayers(options.layers);
-
-      console.log("ACTIVE LAYERS");
-      console.log(options.layers);
     })
 
     // Re-add layers when the map has changed.
-    leaflet_map.on('viewreset', function(){
+    map.on('viewreset', function(){
       console.log("\nView Reset: Replotting Layers");
       addLayers(options.layers);
     })
 
-  </script>
-  <script type="text/javascript">
-  
-  function toggleSideNav(){
-    $('.left.sidebar').sidebar('toggle');
-  }
-  </script>
-
-  <script type="text/javascript">
+    function toggleSideNav(){
+      $('.left.sidebar').sidebar('toggle');
+    }
 
     /************************************
          Fix Checkboxs in Side Menu
@@ -378,32 +343,6 @@
       document.getElementById("currentPrice").innerHTML = current;
 
     }
-
-      /*****************************************************
-         Set initial min and max values for price-range slider
-     ******************************************************/
-    // var  footageRange = function(min, max){
-
-    //   var low = min,
-    //       high = max,
-    //       footage = document.getElementById("footage");
-
-    //   footage.defaultValue = low;
-    //   footage.min = low;
-    //   footage.max = high;
-
-    //   document.getElementById("currentFootage").innerHTML = "" + footage.value + "";
-    // }
-
-    // footageRange(500, 4000);
-
-    // document.getElementById("footage").oninput=function(){
-
-    //   var current = document.getElementById("footage").value;
-
-    //   document.getElementById("currentFootage").innerHTML = current;
-
-    // }    
 
 
       /*****************************************************

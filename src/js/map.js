@@ -7,9 +7,9 @@
 function addLayers(layers){
 
   // Map Boundaries
-  bounds = leaflet_map.getBounds();
-  topLeft = leaflet_map.latLngToLayerPoint(bounds.getNorthWest());
-  bottomRight = leaflet_map.latLngToLayerPoint(bounds.getSouthEast());
+  bounds = map.getBounds();
+  topLeft = map.latLngToLayerPoint(bounds.getNorthWest());
+  bottomRight = map.latLngToLayerPoint(bounds.getSouthEast());
 
   // @ TODO:
   // Prevent Duplicates
@@ -25,12 +25,12 @@ function addLayers(layers){
       
       // SCATTERPLOT
       case "scatterplot":
-        drawScatterplot(leaflet_map, layer);
+        drawScatterplot(map, layer);
         break;
         
       // PATH
       case "path":
-          drawPath(leaflet_map, layer);
+          drawPath(map, layer);
           
           // Currently utilized same functionality as
           // scatterploy. @ TODO Fix this.
@@ -38,18 +38,18 @@ function addLayers(layers){
         
       // HEATMAP
       case "heatmap":
-          var layer = drawHeatmap(leaflet_map,layer) 
+          var layer = drawHeatmap(map,layer) 
           
           // Prevent multiple heatmaps from overlaying.
           d3.select(".leaflet-overlay-pane canvas").remove();
 
-          leaflet_map.addLayer(layer);
+          map.addLayer(layer);
           break;
         
       // HEX
       case "hex":
 
-        drawHexmap(leaflet_map, layer);
+        drawHexmap(map, layer);
         break;
     }
 	}
