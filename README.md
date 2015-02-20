@@ -1,4 +1,4 @@
-Data Visualization Capstone
+# Data Visualization Capstone
 
 ===========
 
@@ -10,9 +10,9 @@ Overview
 
 This project aims to provide an easy to use graphing library. Utilizing Leaflet.js and D3.js, this projects builds interactive maps of GPS and Geolocation data.
 
-Preview
+Demo
 ---
-Available online at: [vent8225.dyndns.org](http://vent8225.dyndns.org)
+Check out the project in use at: [vent8225.dyndns.org](http://vent8225.dyndns.org)
 
 Documentation
 ---
@@ -41,21 +41,21 @@ Initializing the project requires an "options" object. The Options object contai
 
 ```javascript
 
-    var options = {
+var options = {
 
-      // Mapbox's style key for applying map designs
-      map_key: "stephalee.aec4ccea",
+  // Mapbox's style key for applying map designs
+  map_key: "stephalee.aec4ccea",
 
-      // Define default map viewport: Top left & bottom right coordinates
-      viewport: [
-        [42.329077, -71.108871],
-        [42.374200, -71.032072]
-      ],
+  // Define default map viewport: Top left & bottom right coordinates
+  viewport: [
+    [42.329077, -71.108871],
+    [42.374200, -71.032072]
+  ],
 
-      // Support multiple layers of data representation.
-      // Useful for building correlations between data sets.
-      layers : [],
-    }
+  // Support multiple layers of data representation.
+  // Useful for building correlations between data sets.
+  layers : [],
+}
 
 ```
 
@@ -66,39 +66,39 @@ Each layer corresponds to a layer/data set on the graph. Layer are configurable 
 ```javascript
 
 options.layers.push({
-     
-     // Name the Layer
-     name : "Orange Line",
+  
+  // Name the Layer
+  name : "Orange Line",
 
-     // Define the Type of Layer.
-     // on of: 'path', 'scatterplot', or 'hex'
-     type: "path",
+  // Define the Type of Layer.
+  // on of: 'path', 'scatterplot', or 'hex'
+  type: "path",
 
-     // Provide a dataset. Here we pull a dataset from local memory
-     data : sample_data.subway.orange,
-     
-     // Define the pixel width of the data
-     width: 5,
+  // Provide a dataset. Here we pull a dataset from local memory
+  data : sample_data.subway.orange,
+  
+  // Define the pixel width of the data
+  width: 5,
 
-	 // Define a color for the data. If no color is
-	 // specified on an individual point, the graph
-	 // will default to the layer color.
-     color: "#ffa500",
+  // Define a color for the data. If no color is
+  // specified on an individual point, the graph
+  // will default to the layer color.
+  color: "#ffa500",
 
-     // Custom function to filter data set.
-     // Use to remove duplicates or process.
-     // Returns a boolean
-     filter : function(point){
-       return point.value > 2000;
-     },
+  // Custom function to filter data set.
+  // Use to remove duplicates or process.
+  // Returns a boolean
+  filter : function(point){
+    return point.value > 2000;
+  },
 
-     // Apply function to every point
-     // Useful for computing color.
-     // Returns the point in the array
-     map : function(point){
-       return point;
-     },
-   });
+  // Apply function to every point
+  // Useful for computing color.
+  // Returns the point in the array
+  map : function(point){
+    return point;
+  },
+});
 
 ```
 
@@ -157,12 +157,12 @@ You may now access this project from: http://localhost:8080
 
 Authors
 ---
-Dana Bucci
-Daniel Hartman
-Alex Johnson
-Benjamin Leichter
-Stephanie Lee
-Josh Olsen
+- [Dana Bucci]()
+- [Daniel Hartman]()
+- [Alex Johnson]()
+- [Benjamin Leichter]()
+- [Stephanie Lee]()
+- [Josh Olsen]()
 
 License
 ---
@@ -172,15 +172,24 @@ The code is released under the The MIT License. Data used remains copyright of t
 Special Thanks
 ---
 
-### Data
-For converting Google Location Data's .kml file into a usable JSON object, thanks to stsvilik's [Xml-to-JSON converter](https://github.com/stsvilik/Xml-to-JSON).
-
-For the original demo of utilizing D3.js on top of Leaflet, we followed Chris Zetter's [Voronoi maps](http://chriszetter.com/blog/2014/06/14/visualising-supermarkets-with-a-voronoi-diagram/) guide. You can find the [original project here](https://github.com/zetter/voronoi-maps).
-
-### Dependencies
-
-> Tutorials, Resources, and Dependencies. 
+> Dependencies
 
 - [Leaflet.js - Open Source Library for Interactive Maps](leafletjs.com)
 - [Node.js](http://nodejs.org/)
 - [Underscore.js](http://underscorejs.org/)
+- [D3.js Hexbins](https://github.com/d3/d3-plugins/tree/master/hexbin)
+- [Moment.js](http://momentjs.com/)
+- [Semantic UI](http://semantic-ui.com/)
+
+> Data
+
+- [Jeff Kaufman's work with Boston Apartent Prices](https://github.com/jeffkaufman/apartment_prices/)
+- [Google Location History](https://maps.google.com/locationhistory/b/0)
+- MBTA Subway Station Data
+- [Twitter's Search & Stream APIs](https://dev.twitter.com/overview/documentation)
+
+> Tutorials
+
+For converting Google Location Data's .kml file into a usable JSON object, thanks to stsvilik's [Xml-to-JSON converter](https://github.com/stsvilik/Xml-to-JSON).
+
+For the original demo of utilizing D3.js on top of Leaflet, we followed Chris Zetter's [Voronoi maps](http://chriszetter.com/blog/2014/06/14/visualising-supermarkets-with-a-voronoi-diagram/) guide. You can find the [original project here](https://github.com/zetter/voronoi-maps).
