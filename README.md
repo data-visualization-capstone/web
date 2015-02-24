@@ -12,7 +12,7 @@ This project aims to provide an easy to use graphing library. Utilizing Leaflet.
 
 Demo
 ---
-Check out the project in use at: [vent8225.dyndns.org](http://vent8225.dyndns.org)
+See an example: [vent8225.dyndns.org](http://vent8225.dyndns.org)
 
 Documentation
 ---
@@ -21,9 +21,7 @@ Documentation
 
 #### Summary
 
-This project is a combination of Leaflet.js and D3.js functionality, wrapped into a single re-usable library. 
-
-Grab Dependencies:
+### Grab Dependencies:
 
 ```javascript
 

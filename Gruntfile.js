@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           'bower_components/semantic-ui/dist/semantic.js',
 
           // External Libraries (stored in version control)
-          'lib/xml.min.js',
+          // 'lib/xml.min.js', Convert Google KML
 
           // Our JS Files
           'src/js/api.js',
@@ -65,6 +65,7 @@ module.exports = function(grunt) {
         tasks: ['less']
       },
     },
+
   });
 
   // Load plugins
@@ -74,5 +75,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
-
+  grunt.registerTask('build', ['concat', 'less']);
 };

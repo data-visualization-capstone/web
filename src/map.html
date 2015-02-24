@@ -127,6 +127,15 @@
   <div class="pusher">
   <div class="ui secondary button left" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
 
+  <div class="menuSection" style="top: 70px; right: 20px; z-index: 10001; position: absolute;  width: 300px;">
+    <div class="ui input">
+      <input placeholder="Enter word" id="twitterSearchInput">
+    </div>
+    <div class="ui button" id="addHashtagButton" onclick="getTweets()" style="background-color:#1b1c1d; color:#fff;">Get Tweets</div>
+  </div>
+
+  <div id="mapkey"></div>
+
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
@@ -207,6 +216,9 @@
          Data Visualization Settings
      ************************************/
 
+    // For reference, Boston is:
+    // 42.3601° N (lat), 71.0589° W (long), or -71
+
     // Map settings
     var options = {
 
@@ -234,45 +246,37 @@
      ************************************/
 
 
+ 
     options.layers.push({
+      
+      // Set name for layer
+      // used for unique ID
       name : "Hex Map",
+      // Define representation of layer
       type: "hex",
+      // Data from sample-data.js
       data : sample_data.apartments,
+      // Pixel width
       width: 15,
-
+      color: "#005696",
       // Custom function to filter data set.
       // Use to remove duplicates or process.
       filter : function(point){
         return point.value > 2000;
       },
-
       // Apply function to every point
       // Useful for computing color.
       map : function(point){
         return point;
       },
-
     });
-
-    console.log(options)
-    
     options.layers.push({
-      
-      // Set name for layer
-      name : "Orange Line",
-
-      // Define representation of layer
+      name : "Orange Line",      
       type: "path",
-
-      // Data from sample-data.js
       data : sample_data.subway.orange,
-      
-      // Pixel width of scatterplot points
       width: 5,
-
       color: "#ffa500",
     });
-
     options.layers.push({
       name : "Red Line",
       type: "path",
@@ -280,8 +284,6 @@
       width: 5,
       color: "#ff0000",
     });
-
-
 
     /************************************
          Initialize Map
@@ -304,6 +306,36 @@
 
     function toggleSideNav(){
       $('.left.sidebar').sidebar('toggle');
+    }
+
+    function getTweets(){
+
+      var string = $("#twitterSearchInput").val()
+
+      if (!string) return;
+
+      DV.api.get("twitter/search/" + string, function(resp){
+        
+        var layer = {
+          name: "Twitter " + string,
+          type: "scatterplot",
+          color: getColor(Math.random(0, 100)),
+          data : resp,
+          width: 3,
+        }
+
+        console.log(layer);
+        addLayer(layer);
+
+      }, function(resp){
+        console.log(resp);
+      });
+    }
+
+
+    function addLayer(layer){
+      options.layers.push(layer);
+      addLayers(options.layers);
     }
 
     /************************************
