@@ -15,7 +15,7 @@
 <body id="map-content" class="loading">
   
   <!-- Sidebar -->
-  <div class="ui left vertical sidebar menu">
+  <div class="ui_menu">
     <div class="item menu_module" id="aparments_module">
       
       <!-- Section -->
@@ -124,7 +124,8 @@
       </div>            
     </div>
   </div>
-  <div class="pusher">
+
+  <div class="map_tray">
   <div class="ui secondary button left" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
 
   <div class="menuSection" style="top: 70px; right: 20px; z-index: 10001; position: absolute;  width: 300px;">
@@ -305,7 +306,8 @@
     })
 
     function toggleSideNav(){
-      $('.left.sidebar').sidebar('toggle');
+      $(".ui_menu").toggleClass("out");
+      $(".map_tray").toggleClass("out");
     }
 
     function getTweets(){
