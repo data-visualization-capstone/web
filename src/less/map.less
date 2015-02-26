@@ -1,8 +1,14 @@
 body#map-content{
   overflow:hidden; /* page won't scroll horizontally when menu shown */
 }
-
-
+.leaflet-control{
+  float:right;
+}
+.leaflet-top.leaflet-left{
+  right:0px;
+  margin-left:0px;
+  margin-right:25px;
+}
 .map_tray{
   width: 100%;
   height: 100%;  
@@ -261,9 +267,14 @@ body#map-content{
   padding:0px 20px;
 }
 .ui_menu .item.menu_module{
-  margin-bottom:20px;
+  margin-bottom: 10px;
   padding:0px;
+
   padding-top:.78571em;
+  border-bottom: solid 2px black;
+}
+.ui_menu .item.menu_module:last-child{
+  border-bottom: none;
 }
 .menuHeader{
   width: 100%;

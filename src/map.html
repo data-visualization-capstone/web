@@ -7,8 +7,8 @@
   <link href="/css/animate.css" rel="stylesheet" />
   <link href="/css/semantic-ui.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="/css/nouislider.css">
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
   <link href="/css/style.css" rel="stylesheet" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <title>Data Visualization Capstone</title>
 </head>
 
@@ -43,7 +43,7 @@
           <div class="menuSection scaleOption">
             <div class="optionHeader">
               <div class="ui radio checkbox">
-                <input type="radio" name="" checked>
+                <input type="radio" name="scale" checked>
                 <label>Use rent prices as scale</label>
               </div>
             </div>
@@ -54,7 +54,7 @@
           <div class="menuSection scaleOption">
             <div class="optionHeader">
               <div class="ui radio checkbox">
-                <input type="radio" name="" >
+                <input type="radio" name="scale" >
                 <label>Use number of bedrooms as scale</label>
               </div>
             </div>
@@ -65,7 +65,7 @@
           <div class="scaleOption">
             <div class="optionHeader">
               <div class="ui radio checkbox">
-                <input type="radio" name="" >
+                <input type="radio" name="scale" >
                 <label>Use square footage as scale</label>
               </div>
             </div>
@@ -102,8 +102,8 @@
                 <span class="price_link_lower"></span>
                 <span class="price_link_upper" style="float:right"></span>                
                 <div class="price range"></div>
-                <div style="text-align:center">
-                  <p>500 - 4,000 dollars a month</p>
+                <div style="text-align:center; height:10px;">
+                  <span>500 - 4,000 dollars a month</span>
                 </div>
               </div>
 
@@ -416,6 +416,33 @@
         }
     });
 
+
+    var showOption = function(){
+      $("input[type=radio]").each(function(){
+        if($(this).prop("checked") == true){
+          $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+        }
+        else{
+          $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+        }
+      });  
+    } 
+
+    showOption();
+    
+    $("label").click(function(){
+        var checkbox = $(this).siblings("input[type=radio]").prop("checked");
+        if(checkbox == true){
+          $(this).siblings("input[type=radio]").prop("checked", false);
+          showOption();
+        } 
+        else {
+          $(this).siblings("input[type=radio]").prop("checked", true);
+          showOption();
+        }
+    });
+
+
       /*****************************************************
          Set Up Range Slider
      ******************************************************/
@@ -435,7 +462,7 @@
          set colors for hashtags
      ******************************************************/
 
-    var colors = ["#57BE6F", "#F3C700", "#3782C2", "#E27B4E", "#564D8C", "#CF2522", "#DB459B", "#038500"],
+    var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#718ECB", "#FDB12E", "#00BCB2", "#00BCB2", "#8E2440"],
        hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
 
 
