@@ -16,117 +16,165 @@
   
   <!-- Sidebar -->
   <div class="ui_menu">
-    <div class="item menu_module" id="aparments_module">
+
+    <!-- Header -->
+    <div class="menuHeader">
+      <h1>Filters</h1>
+    </div>  
+
+    <div id="menuBody">
+
+      <div class="item menu_module" id="aparments_module">
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
+          <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
+          <div class="ui checkbox">       
+            <input type="checkbox" name="apartment" checked>
+            <label>Display</label>         
+          </div>
+        </div>
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p class="rangeTitle">Heatmap scale</p>
+        </div> 
+        <div id="heatmapParams">
+          
+          <!-- Section -->
+          <div class="menuSection scaleOption">
+            <div class="optionHeader">
+              <div class="ui radio checkbox">
+                <input type="radio" name="" checked>
+                <label>Use rent prices as scale</label>
+              </div>
+            </div>
+            <div class="optionBody"></div>
+          </div>
+          
+          <!-- Section -->
+          <div class="menuSection scaleOption">
+            <div class="optionHeader">
+              <div class="ui radio checkbox">
+                <input type="radio" name="" >
+                <label>Use number of bedrooms as scale</label>
+              </div>
+            </div>
+            <div class="menuSection optionBody"></div>
+          </div>
+          
+          <!-- Section -->
+          <div class="scaleOption">
+            <div class="optionHeader">
+              <div class="ui radio checkbox">
+                <input type="radio" name="" >
+                <label>Use square footage as scale</label>
+              </div>
+            </div>
+            <div class="optionBody">
+              <div></div>
+              <p class="currentPrice"></p>
+              <input class="priceSlider" type="range"> 
+            </div>
+          </div>
+                              
+          <!-- Section -->
+          <div class="menuSection">      
+            <p>Number of bedrooms</p>
+            <div class="ui checkbox">
+              <input type="checkbox" name="any_br" checked>
+              <label>Any</label>
+            </div>          
+            <div class="ui checkbox">
+              <input type="checkbox" name="1_br">
+              <label>1</label>
+            </div>
+            <div class="ui checkbox">
+              <input type="checkbox" name="2_br">
+              <label>2</label>
+            </div>
+            <div class="ui checkbox">
+              <input type="checkbox" name="3_br">
+              <label>3</label>
+            </div>
+            <div class="ui checkbox">
+              <input type="checkbox" name="4_br">
+              <label>4+</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="item menu_module" id="social_media_module">
+
+        <!-- Section -->
+        <div class="menuSection noMarginBottom">
+          <p class="sectionHeader">Social Media</p>
+        </div> 
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
+        </div> 
+
+        <!-- Section -->
+        <div class="menuSection">
+          <ul id="hashtags">
+            <li class="hashtag active">traffic</li>
+            <li class="hashtag">snow</li>
+            <li class="hashtag">southend</li>
+            <li class="hashtag">patriots</li>
+            <li class="hashtag">commuting</li>
+            <li class="hashtag">boston</li>
+          </ul>
+        </div>
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p>Add one custom hashtag to the map</p>
+          <div class="ui input">
+            <input placeholder="Enter word" id="hashtagInput">
+          </div>
+          <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
+            Add
+          </div>
+          <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
+            Delete
+          </div>          
+        </div>
+
+      </div>
       
       <!-- Section -->
-      <div class="menuSection">
-        <p class="sectionHeader noMarginBottom">Apartments</p>
-        <p class="ui_subheader">Explore rent prices in different areas of Boston.</p>
-        <div class="ui checkbox">       
-          <input type="checkbox" name="apartment" checked>
-          <label>Display</label>         
+      <div class="item menu_module">
+        
+        <div class="menuSection noMarginBottom">
+          <p class="sectionHeader">Additional Information</p>
         </div>
+
+        <div class="menuSection">
+          <div class="ui checkbox">       
+            <input type="checkbox" name="neighborhoods">
+            <label>Boston Neighborhoods</label>         
+          </div>        
+        </div>
+
+        <div class="menuSection">
+          <div class="ui checkbox">       
+            <input type="checkbox" name="mbta">
+            <label>MBTA Train Map</label>         
+          </div>        
+        </div>            
       </div>
-
-      <!-- Section -->
-      <div class="menuSection">
-        <p class="rangeTitle">Price</p>
-        <p id="currentPrice"></p>
-        <input id="price" type="range"> 
-      </div> 
-
-      <!-- Section -->
-      <div class="menuSection">      
-        <p>Number of bedrooms</p>
-        <div class="ui checkbox">
-          <input type="checkbox" name="any_br" checked>
-          <label>Any</label>
-        </div>          
-        <div class="ui checkbox">
-          <input type="checkbox" name="1_br">
-          <label>1</label>
-        </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="2_br">
-          <label>2</label>
-        </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="3_br">
-          <label>3</label>
-        </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="4_br">
-          <label>4+</label>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="item menu_module" id="social_media_module">
-
-      <!-- Section -->
-      <div class="menuSection noMarginBottom">
-        <p class="sectionHeader">Social Media</p>
-      </div> 
-
-      <!-- Section -->
-      <div class="menuSection">
-        <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
-      </div> 
-
-      <!-- Section -->
-      <div class="menuSection">
-        <ul id="hashtags">
-          <li class="hashtag active">traffic</li>
-          <li class="hashtag">snow</li>
-          <li class="hashtag">southend</li>
-          <li class="hashtag">patriots</li>
-          <li class="hashtag">commuting</li>
-          <li class="hashtag">boston</li>
-        </ul>
-      </div>
-
-      <!-- Section -->
-      <div class="menuSection">
-        <p>Add one custom hashtag to the map</p>
-        <div class="ui input">
-          <input placeholder="Enter word" id="hashtagInput">
-        </div>
-        <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
-          Add
-        </div>
-        <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
-          Delete
-        </div>          
-      </div>
-
-    </div>
-    
-    <!-- Section -->
-    <div class="item menu_module">
-      
-      <div class="menuSection noMarginBottom">
-        <p class="sectionHeader">Additional Information</p>
-      </div>
-
-      <div class="menuSection">
-        <div class="ui checkbox">       
-          <input type="checkbox" name="neighborhoods">
-          <label>Boston Neighborhoods</label>         
-        </div>        
-      </div>
-
-      <div class="menuSection">
-        <div class="ui checkbox">       
-          <input type="checkbox" name="mbta">
-          <label>MBTA Train Map</label>         
-        </div>        
-      </div>            
     </div>
   </div>
 
   <div class="map_tray">
-  <div class="ui secondary button left" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
+  <div class="ui secondary button right" id="sideNavToggle" onclick="toggleSideNav();" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
+    Show Menu
+  </div>
 
   <div class="menuSection" style="top: 70px; right: 20px; z-index: 10001; position: absolute;  width: 300px;">
     <div class="ui input">
@@ -307,7 +355,7 @@
 
     function toggleSideNav(){
       $(".ui_menu").toggleClass("out");
-      $(".map_tray").toggleClass("out");
+      $("#sideNavToggle").toggleClass("out");
     }
 
     function getTweets(){
@@ -362,28 +410,27 @@
       /*****************************************************
          Set initial min and max values for price-range slider
      ******************************************************/
-    var  priceRange = function(min, max){
+    // var  priceRange = function(min, max){
 
-      var low = min,
-          high = max,
-          price = document.getElementById("price");
+    //   var low = min,
+    //       high = max,
+    //       price = document.getElementById("price");
 
-      price.defaultValue = low;
-      price.min = low;
-      price.max = high;
+    //   price.defaultValue = low;
+    //   price.min = low;
+    //   price.max = high;
 
-      document.getElementById("currentPrice").innerHTML = "" + price.value + "";
-    }
+    //   document.getElementById("currentPrice").innerHTML = "" + price.value + "";
+    // }
 
-    priceRange(500, 4000);
+    // priceRange(500, 4000);
 
-    document.getElementById("price").oninput=function(){
-      var current = document.getElementById("price").value;
+    // document.getElementById("price").oninput=function(){
+    //   var current = document.getElementById("price").value;
 
-      document.getElementById("currentPrice").innerHTML = current;
+    //   document.getElementById("currentPrice").innerHTML = current;
 
-    }
-
+    // }
 
       /*****************************************************
          set colors for hashtags

@@ -7,28 +7,7 @@ body#map-content{
   width: 100%;
   height: 100%;  
   float: left;
-  -webkit-transition: padding-left 0.5s ease; 
-  transition: padding-left 0.5s ease;  
 }
-.map_tray.out{
-  padding-left: 320px;
-}
-.ui_menu{
-  width: 320px;
-  position: absolute;
-  z-index: 999;
-  left:-320px;
-  height: 100%;
-  background-color: #fff;
-  padding:0px 20px;
-  box-sizing:border-box;
-  -webkit-transition: left 0.5s ease; 
-  transition: left 0.5s ease;    
-}
-.ui_menu.out{
-  left:0px;  
-}
-
 #mapkey {
   top: 120px;
   right: 20px;
@@ -252,10 +231,53 @@ body#map-content{
   .visible .content {
     display: block;
   }
+#sideNavToggle{
+  -webkit-transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;   
+}
+#sideNavToggle.out{
+   webkit-transform:translate3d(320px, 0, 0);
+  transform:translate3d(320px, 0, 0);
+ 
+}
+.ui_menu{
+  width: 320px;
+  position: absolute;
+  z-index: 999;
+  left:-320px;
+  height: 100%;
+  background-color: #fff;
+  padding:0px;
+  overflow: scroll;
+  box-sizing:border-box;
+  -webkit-transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;    
+}
+.ui_menu.out{
+  webkit-transform:translate3d(320px, 0, 0);
+  transform:translate3d(320px, 0, 0);
+}
+.ui_menu div#menuBody{
+  padding:0px 20px;
+}
 .ui_menu .item.menu_module{
   margin-bottom:20px;
   padding:0px;
   padding-top:.78571em;
+}
+.menuHeader{
+  width: 100%;
+  clear:both;
+  background-color: #9B9B9B;
+}
+.menuHeader h1{
+  margin-left: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color:#FFF;
+  font-size: 24px;
+  padding: 10px 0px;
+  line-height: normal;
 }
 .menuSection{
   width: 100%;
@@ -287,6 +309,10 @@ body#map-content{
 .rangeTitle{
   font-size: 14px;
   color:#343434;
+}
+div.optionBody{
+  padding-left: 25px;
+  box-sizing:border-box;
 }
 ul#hashtags{
   list-style: none;
