@@ -14,8 +14,10 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.js',
           'bower_components/underscore/underscore.js',
           'bower_components/moment/moment.js',
-          'bower_components/d3/d3.js',
+          'bower_components/d3/d3.js',      
           'bower_components/semantic-ui/dist/semantic.js',
+          'bower_components/nouislider/distribute/jquery.nouislider.all.min.js',              
+
 
           // External Libraries (stored in version control)
           // 'lib/xml.min.js', Convert Google KML
@@ -41,7 +43,8 @@ module.exports = function(grunt) {
         files: {
           "src/css/style.css": "src/less/style.less",
           "src/css/semantic-ui.css": "bower_components/semantic-ui/dist/semantic.min.css",
-          "src/css/animate.css": "bower_components/animate.css/animate.min.css"
+          "src/css/animate.css": "bower_components/animate.css/animate.min.css",
+          "src/css/nouislider.css": "bower_components/nouislider/distribute/jquery.nouislider.min.css",
         }
       }
     },
