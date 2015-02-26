@@ -73,9 +73,12 @@
               </div>
             </div>
             <div class="optionBody">
-              <div></div>
-              <p class="currentPrice"></p>
-              <div class="price range"></div>
+              <div class="menuSection">
+                <p>Rent Price</p>
+                <div class="price range"></div>
+                <span class="price_link_lower"></span>
+                <span class="price_link_upper" style="float:right"></span>
+              </div>
             </div>
           </div>
                               
@@ -409,6 +412,11 @@
         }
     });
 
+
+      /*****************************************************
+         Set Up Range Slider
+     ******************************************************/
+
     $(".range").noUiSlider({
       start: [500, 4000],
       connect: true,
@@ -417,7 +425,8 @@
         'max': 4000
       }
     });
-
+    $(".range.price").Link('lower').to($('.price_link_lower'));
+    $(".range.price").Link('upper').to($('.price_link_upper'));    
       /*****************************************************
          set colors for hashtags
      ******************************************************/
