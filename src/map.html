@@ -37,11 +37,8 @@
         </div>
 
         <!-- Section -->
-        <div class="menuSection">
-          <p class="rangeTitle">Heatmap scale</p>
-        </div> 
         <div id="heatmapParams">
-          
+          <p class="rangeTitle">Heatmap scale</p>
           <!-- Section -->
           <div class="menuSection scaleOption">
             <div class="optionHeader">
@@ -73,39 +70,46 @@
               </div>
             </div>
             <div class="optionBody">
+
+              <!-- Section -->
+              <div class="menuSection">      
+                <p>Number of bedrooms</p>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="any_br" checked>
+                  <label>Any</label>
+                </div>          
+                <div class="ui checkbox">
+                  <input type="checkbox" name="1_br">
+                  <label>1</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="2_br">
+                  <label>2</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="3_br">
+                  <label>3</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="4_br">
+                  <label>4+</label>
+                </div>
+              </div>
+
+              <!-- Section -->
               <div class="menuSection">
                 <p>Rent Price</p>
-                <div class="price range"></div>
                 <span class="price_link_lower"></span>
-                <span class="price_link_upper" style="float:right"></span>
+                <span class="price_link_upper" style="float:right"></span>                
+                <div class="price range"></div>
+                <div style="text-align:center">
+                  <p>500 - 4,000 dollars a month</p>
+                </div>
               </div>
+
             </div>
           </div>
                               
-          <!-- Section -->
-          <div class="menuSection">      
-            <p>Number of bedrooms</p>
-            <div class="ui checkbox">
-              <input type="checkbox" name="any_br" checked>
-              <label>Any</label>
-            </div>          
-            <div class="ui checkbox">
-              <input type="checkbox" name="1_br">
-              <label>1</label>
-            </div>
-            <div class="ui checkbox">
-              <input type="checkbox" name="2_br">
-              <label>2</label>
-            </div>
-            <div class="ui checkbox">
-              <input type="checkbox" name="3_br">
-              <label>3</label>
-            </div>
-            <div class="ui checkbox">
-              <input type="checkbox" name="4_br">
-              <label>4+</label>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -412,7 +416,6 @@
         }
     });
 
-
       /*****************************************************
          Set Up Range Slider
      ******************************************************/
@@ -426,7 +429,8 @@
       }
     });
     $(".range.price").Link('lower').to($('.price_link_lower'));
-    $(".range.price").Link('upper').to($('.price_link_upper'));    
+    $(".range.price").Link('upper').to($('.price_link_upper'));
+
       /*****************************************************
          set colors for hashtags
      ******************************************************/
@@ -454,6 +458,7 @@
 
       $(this).toggleClass("active");
       colorize();
+
     });
 
     $(".hashtag").hover(
@@ -480,11 +485,9 @@
       
     });
 
-    d3.selectAll(".hexagon").on("mouseover", function(){
-      console.log("hex");
-    }).on("mouseout", function(){
-      d3.select(this).style("stroke-width", "0px")
-    });
+     /*****************************************************
+       Add Tooptip functionality for hexagons/points ??
+    ******************************************************/
 
   </script>
 </body>
