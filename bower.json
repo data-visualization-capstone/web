@@ -25,6 +25,7 @@
     "d3": "~3.4.13",
     "leaflet-d3": "latest",
     "semantic-ui": "latest",
-    "animate.css" : "3.2.0"
+    "animate.css": "3.2.0",
+    "nouislider": "~7.0.10"
   }
 }

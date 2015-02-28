@@ -6,126 +6,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/animate.css" rel="stylesheet" />
   <link href="/css/semantic-ui.css" rel="stylesheet" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
   <link href="/css/style.css" rel="stylesheet" />
-
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
   <title>Data Visualization Capstone</title>
 </head>
 
 <body id="map-content" class="loading">
   
   <!-- Sidebar -->
-  <div class="ui left vertical sidebar menu">
-    <div class="item menu_module" id="aparments_module">
+  <div class="ui_menu">
+
+    <!-- Header -->
+    <div class="menuHeader">
+      <h1>Filters</h1>
+    </div>  
+
+    <div id="menuBody">
+
+      <div class="item menu_module" id="aparments_module">
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
+          <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
+          <div class="ui checkbox">       
+            <input type="checkbox" name="apartment" checked>
+            <label>Display</label>         
+          </div>
+        </div>
+
+        <!-- Section -->
+        <div id="heatmapParams">
+          <p class="rangeTitle">Heatmap scale</p>
+          <!-- Section -->
+          <div class="menuSection scaleOption">
+            <div class="optionHeader">
+              <div class="ui radio checkbox">
+                <input type="radio" name="scale" checked>
+                <label>Use rent prices as scale</label>
+              </div>
+            </div>
+            <div class="menuSection optionBody">
+
+              <!-- Section -->
+              <div class="menuSection">  
+                  
+                <p>Number of bedrooms</p>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="any_br" checked>
+                  <label>Any</label>
+                </div>          
+                <div class="ui checkbox">
+                  <input type="checkbox" name="1_br">
+                  <label>1</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="2_br">
+                  <label>2</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="3_br">
+                  <label>3</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="4_br">
+                  <label>4+</label>
+                </div>
+              </div>
+              
+              <!-- Section -->
+              <div class="menuSection">
+                <p>Square Footage</p>
+                <span class="footage_link_lower"></span>
+                <span class="footage_link_upper" style="float:right"></span>                
+                <div class="footage range"></div>
+                <div style="text-align:center; height:10px;">
+                  <span>1000 - 2,000 Square Feet</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          <!-- Section -->
+          <div class="menuSection scaleOption">
+            <div class="optionHeader">
+              <div class="ui radio checkbox">
+                <input type="radio" name="scale" >
+                <label>Use number of bedrooms as scale</label>
+              </div>
+            </div>
+            <div class="menuSection optionBody">
+
+              <!-- Section -->
+              <div class="menuSection">
+                <p>Square Footage</p>
+                <span class="footage_link_lower"></span>
+                <span class="footage_link_upper" style="float:right"></span>                
+                <div class="footage range"></div>
+                <div style="text-align:center; height:10px;">
+                  <span>1000 - 2,000 Square Feet</span>
+                </div>
+              </div>
+
+              <!-- Section -->
+              <div class="menuSection">
+                <p>Price</p>
+                <span class="price_link_lower"></span>
+                <span class="price_link_upper" style="float:right"></span>                
+                <div class="price range"></div>
+                <div style="text-align:center; height:10px;">
+                  <span>500- 4,000 dollars a month</span>
+                </div>
+              </div>              
+
+            </div>
+          </div>
+          
+          <!-- Section -->
+          <div class="menuSection scaleOption">
+            <div class="optionHeader">
+              <div class="ui radio checkbox">
+                <input type="radio" name="scale" >
+                <label>Use square footage as scale</label>
+              </div>
+            </div>
+            <div class="menuSection optionBody">
+
+              <!-- Section -->
+              <div class="menuSection">      
+                <p>Number of bedrooms</p>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="any_br" checked>
+                  <label>Any</label>
+                </div>          
+                <div class="ui checkbox">
+                  <input type="checkbox" name="1_br">
+                  <label>1</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="2_br">
+                  <label>2</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="3_br">
+                  <label>3</label>
+                </div>
+                <div class="ui checkbox">
+                  <input type="checkbox" name="4_br">
+                  <label>4+</label>
+                </div>
+              </div>
+
+              <!-- Section -->
+              <div class="menuSection">
+                <p>Rent Price</p>
+                <span class="price_link_lower"></span>
+                <span class="price_link_upper" style="float:right"></span>                
+                <div class="price range"></div>
+                <div style="text-align:center; height:10px;">
+                  <span>500 - 4,000 dollars a month</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+                              
+        </div>
+
+      </div>
+
+      <div class="item menu_module" id="social_media_module">
+
+        <!-- Section -->
+        <div class="menuSection noMarginBottom">
+          <p class="sectionHeader">Social Media</p>
+        </div> 
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
+        </div> 
+
+        <!-- Section -->
+        <div class="menuSection">
+          <ul id="hashtags">
+            <li class="hashtag active">traffic</li>
+            <li class="hashtag">snow</li>
+            <li class="hashtag">southend</li>
+            <li class="hashtag">patriots</li>
+            <li class="hashtag">commuting</li>
+            <li class="hashtag">boston</li>
+          </ul>
+        </div>
+
+        <!-- Section -->
+        <div class="menuSection">
+          <p>Add one custom hashtag to the map</p>
+          <div class="ui input">
+            <input placeholder="Enter word" id="hashtagInput">
+          </div>
+          <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
+            Add
+          </div>
+          <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
+            Delete
+          </div>          
+        </div>
+
+      </div>
       
       <!-- Section -->
-      <div class="menuSection">
-        <p class="sectionHeader noMarginBottom">Apartments</p>
-        <p class="ui_subheader">Explore rent prices in different areas of Boston.</p>
-        <div class="ui checkbox">       
-          <input type="checkbox" name="apartment" checked>
-          <label>Display</label>         
+      <div class="item menu_module">
+        
+        <div class="menuSection noMarginBottom">
+          <p class="sectionHeader">Additional Information</p>
         </div>
+
+        <div class="menuSection">
+          <div class="ui checkbox">       
+            <input type="checkbox" name="neighborhoods">
+            <label>Boston Neighborhoods</label>         
+          </div>        
+        </div>
+
+        <div class="menuSection">
+          <div class="ui checkbox">       
+            <input type="checkbox" name="mbta">
+            <label>MBTA Train Map</label>         
+          </div>        
+        </div>            
       </div>
-
-      <!-- Section -->
-      <div class="menuSection">
-        <p class="rangeTitle">Price</p>
-        <p id="currentPrice"></p>
-        <input id="price" type="range"> 
-      </div> 
-
-      <!-- Section -->
-      <div class="menuSection">      
-        <p>Number of bedrooms</p>
-        <div class="ui checkbox">
-          <input type="checkbox" name="any_br" checked>
-          <label>Any</label>
-        </div>          
-        <div class="ui checkbox">
-          <input type="checkbox" name="1_br">
-          <label>1</label>
-        </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="2_br">
-          <label>2</label>
-        </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="3_br">
-          <label>3</label>
-        </div>
-        <div class="ui checkbox">
-          <input type="checkbox" name="4_br">
-          <label>4+</label>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="item menu_module" id="social_media_module">
-
-      <!-- Section -->
-      <div class="menuSection noMarginBottom">
-        <p class="sectionHeader">Social Media</p>
-      </div> 
-
-      <!-- Section -->
-      <div class="menuSection">
-        <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
-      </div> 
-
-      <!-- Section -->
-      <div class="menuSection">
-        <ul id="hashtags">
-          <li class="hashtag active">traffic</li>
-          <li class="hashtag">snow</li>
-          <li class="hashtag">southend</li>
-          <li class="hashtag">patriots</li>
-          <li class="hashtag">commuting</li>
-          <li class="hashtag">boston</li>
-        </ul>
-      </div>
-
-      <!-- Section -->
-      <div class="menuSection">
-        <p>Add one custom hashtag to the map</p>
-        <div class="ui input">
-          <input placeholder="Enter word" id="hashtagInput">
-        </div>
-        <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
-          Add
-        </div>
-        <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
-          Delete
-        </div>          
-      </div>
-
-    </div>
-    
-    <!-- Section -->
-    <div class="item menu_module">
-      
-      <div class="menuSection noMarginBottom">
-        <p class="sectionHeader">Additional Information</p>
-      </div>
-
-      <div class="menuSection">
-        <div class="ui checkbox">       
-          <input type="checkbox" name="neighborhoods">
-          <label>Boston Neighborhoods</label>         
-        </div>        
-      </div>
-
-      <div class="menuSection">
-        <div class="ui checkbox">       
-          <input type="checkbox" name="mbta">
-          <label>MBTA Train Map</label>         
-        </div>        
-      </div>            
     </div>
   </div>
-  <div class="pusher">
-  <div class="ui secondary button left" onclick="toggleSideNav();" style="top: 20px; right: 20px; z-index: 10001; position: absolute;">Show Menu</div>
+
+  <div class="map_tray">
+  <div class="ui secondary button right" id="sideNavToggle" onclick="toggleSideNav();" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
+    Show Menu
+  </div>
 
   <div class="menuSection" style="top: 70px; right: 20px; z-index: 10001; position: absolute;  width: 300px;">
     <div class="ui input">
@@ -210,7 +328,9 @@
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
   <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+
   <script>
+
 
     /************************************
          Data Visualization Settings
@@ -244,8 +364,6 @@
     /************************************
          Add Default Data
      ************************************/
-
-
  
     options.layers.push({
       
@@ -270,6 +388,7 @@
         return point;
       },
     });
+
     options.layers.push({
       name : "Orange Line",      
       type: "path",
@@ -277,6 +396,7 @@
       width: 5,
       color: "#ffa500",
     });
+
     options.layers.push({
       name : "Red Line",
       type: "path",
@@ -305,7 +425,8 @@
     })
 
     function toggleSideNav(){
-      $('.left.sidebar').sidebar('toggle');
+      $(".ui_menu").toggleClass("out");
+      $("#sideNavToggle").toggleClass("out");
     }
 
     function getTweets(){
@@ -357,37 +478,77 @@
         }
     });
 
+
+    var showOption = function(){
+      $("input[type=radio]").each(function(){
+        if($(this).prop("checked") == true){
+          $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+        }
+        else{
+          $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+        }
+      });  
+    } 
+
+    showOption();
+
+    $("label").click(function(){
+        var checkbox = $(this).siblings("input[type=radio]").prop("checked");
+        if(checkbox == true){
+          $(this).siblings("input[type=radio]").prop("checked", false);
+          showOption();
+        } 
+        else {
+          $(this).siblings("input[type=radio]").prop("checked", true);
+          showOption();
+        }
+    });
+
+
       /*****************************************************
-         Set initial min and max values for price-range slider
+         Set Up Range Slider
      ******************************************************/
-    var  priceRange = function(min, max){
 
-      var low = min,
-          high = max,
-          price = document.getElementById("price");
+     // Set up the ranges for each class of slider 
 
-      price.defaultValue = low;
-      price.min = low;
-      price.max = high;
+    $(".range.price").noUiSlider({
+      start: [500, 4000],
+      connect: true,
+      range: {
+        'min': 500,
+        'max': 4000
+      }
+    });
 
-      document.getElementById("currentPrice").innerHTML = "" + price.value + "";
+    $(".range.footage").noUiSlider({
+      start: [500, 4000],
+      connect: true,
+      range: {
+        'min': 1000,
+        'max': 2000
+      }
+    });
+
+    // Link the range sliders spans
+    // Display current values of upper and lower handles
+
+    var linkInput = function(target){
+      var thing = '.range.' + target+ '';
+      console.log(thing);
+      $('.range.' + target+ '').Link('lower').to($('.'+ target+ '_link_lower'));
+      $('.range.' + target+ '').Link('upper').to($('.'+ target+ '_link_upper'));
     }
 
-    priceRange(500, 4000);
+    linkInput('price');
+    linkInput('footage');
 
-    document.getElementById("price").oninput=function(){
-      var current = document.getElementById("price").value;
-
-      document.getElementById("currentPrice").innerHTML = current;
-
-    }
 
 
       /*****************************************************
          set colors for hashtags
      ******************************************************/
 
-    var colors = ["#57BE6F", "#F3C700", "#3782C2", "#E27B4E", "#564D8C", "#CF2522", "#DB459B", "#038500"],
+    var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#718ECB", "#FDB12E", "#00BCB2", "#00BCB2", "#8E2440"],
        hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
 
 
@@ -410,6 +571,7 @@
 
       $(this).toggleClass("active");
       colorize();
+
     });
 
     $(".hashtag").hover(
@@ -436,11 +598,9 @@
       
     });
 
-    d3.selectAll(".hexagon").on("mouseover", function(){
-      console.log("hex");
-    }).on("mouseout", function(){
-      d3.select(this).style("stroke-width", "0px")
-    });
+     /*****************************************************
+       Add Tooptip functionality for hexagons/points ??
+    ******************************************************/
 
   </script>
 </body>

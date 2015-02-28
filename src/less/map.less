@@ -1,3 +1,19 @@
+body#map-content{
+  overflow:hidden; /* page won't scroll horizontally when menu shown */
+}
+.leaflet-control{
+  float:right;
+}
+.leaflet-top.leaflet-left{
+  right:0px;
+  margin-left:0px;
+  margin-right:25px;
+}
+.map_tray{
+  width: 100%;
+  height: 100%;  
+  float: left;
+}
 #mapkey {
   top: 120px;
   right: 20px;
@@ -221,11 +237,58 @@
   .visible .content {
     display: block;
   }
-
-  .ui.menu .item.menu_module{
-  margin-bottom:20px;
+#sideNavToggle{
+  -webkit-transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;   
+}
+#sideNavToggle.out{
+   webkit-transform:translate3d(320px, 0, 0);
+  transform:translate3d(320px, 0, 0);
+ 
+}
+.ui_menu{
+  width: 320px;
+  position: absolute;
+  z-index: 999;
+  left:-320px;
+  height: 100%;
+  background-color: #fff;
   padding:0px;
+  overflow: scroll;
+  box-sizing:border-box;
+  -webkit-transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;    
+}
+.ui_menu.out{
+  webkit-transform:translate3d(320px, 0, 0);
+  transform:translate3d(320px, 0, 0);
+}
+.ui_menu div#menuBody{
+  padding:0px 20px;
+}
+.ui_menu .item.menu_module{
+  margin-bottom: 10px;
+  padding:0px;
+
   padding-top:.78571em;
+  border-bottom: solid 2px black;
+}
+.ui_menu .item.menu_module:last-child{
+  border-bottom: none;
+}
+.menuHeader{
+  width: 100%;
+  clear:both;
+  background-color: #9B9B9B;
+}
+.menuHeader h1{
+  margin-left: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color:#FFF;
+  font-size: 24px;
+  padding: 10px 0px;
+  line-height: normal;
 }
 .menuSection{
   width: 100%;
@@ -249,11 +312,29 @@
 .menuSection input[type=range]{
   width: 100%;
 }
+.range{
+  margin:10px 0px;
+}
 .currentPrice,
 .currentFootage{
   font-size: 12px;
   color:#343434;
 }
+div.optionBody{
+  padding-top:5px;
+  padding-left: 25px;
+  box-sizing:border-box;
+}
+
+div.optionBody p{
+  margin-bottom: 0px;
+}
+
+span.price_link_lower,
+span.price_link_upper{
+  font-size: 12px;
+}
+
 .rangeTitle{
   font-size: 14px;
   color:#343434;
