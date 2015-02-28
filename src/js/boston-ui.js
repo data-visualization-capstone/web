@@ -17,9 +17,9 @@ UI.toggleSideNav = function(element){
 }
 
 // Fetch tweets
-UI.getTweets = function(){
+UI.getTweets = function(input){
 
-  var string = $("#twitterSearchInput").val()
+  var string = $(input).val()
 
   if (!string) {
     console.error("Invalid Twitter String.")

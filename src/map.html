@@ -206,14 +206,13 @@
           <div class="ui input">
             <input placeholder="Enter word" id="hashtagInput">
           </div>
-          <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
+          <div class="ui button" id="addHashtagButton" onclick="UI.getTweets('#hashtagInput')" style="background-color:#1b1c1d; color:#fff;">
             Add
           </div>
           <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
             Delete
           </div>          
         </div>
-
       </div>
       
       <!-- Section -->
@@ -243,13 +242,6 @@
   <div class="map_tray">
   <div class="ui secondary button right" id="sideNavToggle" onclick="UI.toggleSideNav('#sideNavToggle');" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
     Show Menu
-  </div>
-
-  <div class="menuSection" style="top: 70px; right: 20px; z-index: 10001; position: absolute;  width: 300px;">
-    <div class="ui input">
-      <input placeholder="Enter word" id="twitterSearchInput">
-    </div>
-    <div class="ui button" id="addHashtagButton" onclick="getTweets()" style="background-color:#1b1c1d; color:#fff;">Get Tweets</div>
   </div>
 
   <div id="mapkey"></div>
