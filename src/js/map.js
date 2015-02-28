@@ -102,7 +102,6 @@ function buildKey(layers){
 // color. Input between 0 and 100 maps
 // to the range of red -> green
 function getColor(i){
-  console.log(i)
 
   if (i < 0){
     i = 0;

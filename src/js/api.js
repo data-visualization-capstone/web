@@ -1,6 +1,4 @@
 
-var development = true; 
-
 /******************************
          api.js 
  ******************************/
@@ -12,14 +10,25 @@ var DV = {
   // Define common CRUD functions
   api : {},
 
-  // Is this a development configuration?
-  // Disables logging, and debug information
-  // for production environments.
-  development : development,
+  // Target API.
+  // Change API's url based on the current hosting
+  // environment (local vs. production).
 
-  // Target API
-  url : (development) ? "http://localhost:8080/" : "http://vent8225.dyndns.org:8080/",
+  url : _.contains(document.URL, "dydns.org") ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
+
 };
+
+DV.api.twitter = {};
+
+// GET /twitter/search/:string
+DV.api.twitter.search = function(string, success, error){
+  DV.api.get("twitter/search/" + string, function(resp){
+    success(resp);
+  }, function(resp){
+    console.error("Error fetching tweets: "  + resp)
+  });
+}
+
 
 /******************************
       CRUD Functionality

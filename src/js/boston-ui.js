@@ -7,6 +7,24 @@
 
 // Namespace UI Options
 var UI = {};
+
+// Loading Functionality
+UI.loading = {
+  
+  // Support multiple asyc loads
+  que : [],
+
+  start : function(msg){
+    console.log(this);
+    console.log(UI.loading);
+    $("#loading").show();
+  },
+
+  stop : function(msg){
+    $("#loading").show();
+  },
+};
+
   
 // Show/Hide the side menu. Provide selector.
 UI.toggleSideNav = function(element){
@@ -18,6 +36,7 @@ UI.toggleSideNav = function(element){
 
 // Fetch tweets
 UI.getTweets = function(input){
+  UI.loading.start("tweet");
 
   var string = $(input).val()
 
@@ -26,28 +45,22 @@ UI.getTweets = function(input){
     return;
   }
 
-  DV.api.get("twitter/search/" + string, function(resp){
+  DV.api.twitter.search(string, function(resp){
+    UI.loading.stop("tweet");
 
-    var layer = {
+    // Add layer
+    UI.addLayer({
       name: "Twitter " + string,
       type: "scatterplot",
       color: getColor(Math.random(0, 100)),
       data : resp,
       width: 3,
-    }
+    });
 
-    console.log(layer);
-    addLayer(layer);
+  }, function(){
+    UI.loading.stop("tweet");
 
-  }, function(resp){
-    console.error("Error fetching tweets: "  + resp)
-  });
-}
-
-
-function addLayer(layer){
-  options.layers.push(layer);
-  addLayers(options.layers);
+  })
 }
 
 /************************************
@@ -181,14 +194,17 @@ $(".hashtag").hover(
 
 colorize();
 
-/*****************************************************
-   Adding a Hashtag to the map
-******************************************************/
-
-$("#addHashtagButton").click(function(){
-  
-});
-
  /*****************************************************
    Add Tooptip functionality for hexagons/points ??
 ******************************************************/
+
+ /**************************
+      Helper Functions
+****************************/
+
+// Add Layer Object
+// Refresh map.
+UI.addLayer = function(layer){
+  options.layers.push(layer);
+  addLayers(options.layers);
+}
