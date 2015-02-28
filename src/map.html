@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/css/animate.css" rel="stylesheet" />
   <link href="/css/semantic-ui.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="/css/nouislider.css">
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
   <link href="/css/style.css" rel="stylesheet" />
   <title>Data Visualization Capstone</title>
@@ -365,8 +364,6 @@
     /************************************
          Add Default Data
      ************************************/
-
-
  
     options.layers.push({
       
@@ -391,6 +388,7 @@
         return point;
       },
     });
+
     options.layers.push({
       name : "Orange Line",      
       type: "path",
@@ -398,6 +396,7 @@
       width: 5,
       color: "#ffa500",
     });
+
     options.layers.push({
       name : "Red Line",
       type: "path",
