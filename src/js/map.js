@@ -56,7 +56,7 @@ function verifyKeys(layer){
 
     // Create unique ID for current layer
     if (!layer.name){
-      console.log("Alert. 'layer.name' is not defined. Defaulting name. This may cause issues if you have more then 1 unnamed layer.");
+      console.error("Alert. 'layer.name' is not defined. Defaulting name. This may cause issues if you have more then 1 unnamed layer.");
       layer.name = 'default';
     }
 
