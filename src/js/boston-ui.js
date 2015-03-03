@@ -123,7 +123,7 @@
          set colors for hashtags
      ******************************************************/
 
-    var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#718ECB", "#FDB12E", "#00BCB2", "#00BCB2", "#8E2440"],
+    var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"],
        hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
 
 
