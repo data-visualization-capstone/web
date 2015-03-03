@@ -19,7 +19,7 @@
     <!-- Header -->
     <div class="menuHeader">
       <h1>Filters</h1>
-    </div>  
+    </div>
 
     <div id="menuBody">
 
@@ -30,7 +30,7 @@
           <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
           <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
           <div class="ui checkbox">       
-            <input type="checkbox" name="apartment" checked>
+            <input id="toggle_apartment_heatmaps" type="checkbox" name="apartment" checked>
             <label>Display</label>         
           </div>
         </div>
@@ -408,7 +408,7 @@
     });
 
     /************************************
-         Initialize Map
+              Initialize Map
      ************************************/
 
     // Global variable for map object
@@ -425,6 +425,26 @@
       console.log("\nView Reset: Replotting Layers");
       addLayers(options.layers);
     })
+
+    /************************************
+            Wire-up UI Elements
+     ************************************/
+
+    var heatmapLayer = {
+      name : "Hex Map",
+      type: "hex",
+      data : sample_data.apartments,
+      width: 15,
+      color: "#005696",
+      filter : function(point){
+        return point.value > 2000;
+      },
+      map : function(point){
+        return point;
+      },
+    };
+
+    UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);
 
   </script>
 </body>

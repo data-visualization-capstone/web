@@ -64,6 +64,41 @@ UI.layers.findLayer = function(key, value){
 }
 
 /**************************
+     UI Elements
+****************************/
+
+// Initialize wrapper
+UI.elements = {};
+
+// Initialize Checkbox 
+// Example: checkbox("#box", function(){}, function(){});
+UI.elements.checkbox = function(selector, layer){
+
+  console.log(layer);
+
+  // Get checkbox's status
+  var checked = $(selector).is(':checked')
+  
+  // Bind action to provided selector
+  $(selector).change(function(e) {
+
+    alert("Checkbox Value Changed.");
+    
+    // Enable - Add Layer
+    if (checked) {
+        UI.layers.addLayer(layer);
+    }
+    
+    //  Disable - Remove Layer
+    else {
+        UI.layers.deleteLayer(layer.layerId)
+    }
+  });
+
+  return checked;
+}
+
+/**************************
      DOM Manipulation
 ****************************/
 
@@ -192,9 +227,9 @@ $(".range.footage").noUiSlider({
 
 var linkInput = function(target){
   var thing = '.range.' + target+ '';
-  console.log(thing);
-  $('.range.' + target+ '').Link('lower').to($('.'+ target+ '_link_lower'));
-  $('.range.' + target+ '').Link('upper').to($('.'+ target+ '_link_upper'));
+
+  $('.range.' + target).Link('lower').to($('.'+ target + '_link_lower'));
+  $('.range.' + target).Link('upper').to($('.'+ target + '_link_upper'));
 }
 
 linkInput('price');
