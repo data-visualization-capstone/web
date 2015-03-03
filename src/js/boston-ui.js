@@ -21,7 +21,7 @@ UI.loading = {
   },
 
   stop : function(msg){
-    $("#loading").show();
+    $("#loading").hide();
   },
 };
 
