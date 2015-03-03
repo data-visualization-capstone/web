@@ -1,55 +1,106 @@
 
 /****************************
-          UI.js
+       ~~ UI.js ~~
    UI & DOM interactions.
  ****************************/
-
 
 // Namespace UI Options
 var UI = {};
 
-// Loading Functionality
-UI.loading = {
+/**************************
+        Layers
+****************************/
+
+// Object for layer manipulation.
+UI.layers = {};
+
+// GET - Get a layer from the settings.
+UI.layers.getLayer = function(layerId){
+
+  // Refresh view
+  addLayers(options.layers);
+
+}
+
+// PUT - Add a layer to the map.
+UI.layers.addLayer = function(layer){
+    options.layers.push(layer);
+
+    // Refresh view
+    addLayers(options.layers);
+}
+
+// SET - Update a layer from the settings.
+UI.layers.setLayer = function(layerId, layer){
   
-  // Support multiple asyc loads
-  que : [],
+  // Save current layer
+  // var layer = UI.layers.findLayer("layerId" : layerId);
 
-  start : function(msg){
-    console.log(this);
-    console.log(UI.loading);
-    $("#loading").show();
-  },
+  // Delete 
+  UI.layers.deleteLayer(layerId);
 
-  stop : function(msg){
-    $("#loading").hide();
-  },
-};
-
+  // Add updated layer
+  UI.layers.addLayer(layer);
   
-// Show/Hide the side menu. Provide selector.
+  // Refresh view
+  addLayers(options.layers);
+}
+
+// DELETE - Delete a layer from the map.
+UI.layers.deleteLayer = function(layerId){
+  
+  // Filter layers
+  options.layers = _.filter(options.layers, function(layer){
+    return layer.layerId == layerId;
+  })
+
+  // Refresh view
+  addLayers(options.layers);
+}
+
+// Find a layer. Requires a key and a value;
+UI.layers.findLayer = function(key, value){
+  return _.findWhere(options.layers, {key : value});
+}
+
+/**************************
+     DOM Manipulation
+****************************/
+
+// Show/Hide the side menu.
+// Take a selector to manipulate the DOM
 UI.toggleSideNav = function(element){
+  
+  // Toggle Button
   var toggle = $(element);
 
+  // Show/Hide Button
   $(".ui_menu, " + element).toggleClass("out");
+
+  // Set Text
   toggle.html(toggle.hasClass("out") ? "Hide Menu" : "Show Menu");
 }
 
 // Fetch tweets
 UI.getTweets = function(input){
-  UI.loading.start("tweet");
+  
+  // Show loading indicator.
+  Loading.start("tweet");
 
+  // String to search by
   var string = $(input).val()
 
+  // Error Checking
   if (!string) {
-    console.error("Invalid Twitter String.")
+    console.error("Invalid Twitter String.");
     return;
   }
 
+  // Get data from API
   DV.api.twitter.search(string, function(resp){
-    UI.loading.stop("tweet");
-
+    
     // Add layer
-    UI.addLayer({
+    UI.layers.addLayer({
       name: "Twitter " + string,
       type: "scatterplot",
       color: getColor(Math.random(0, 100)),
@@ -57,8 +108,11 @@ UI.getTweets = function(input){
       width: 3,
     });
 
+    Loading.stop("tweet");
+
   }, function(){
-    UI.loading.stop("tweet");
+    console.error("Error fetching tweets...");
+    Loading.stop("tweet");
 
   })
 }
@@ -109,9 +163,9 @@ $("label").click(function(){
 });
 
 
-  /*****************************************************
-     Set Up Range Slider
- ******************************************************/
+/*********************************
+      Set Up Range Slider
+**********************************/
 
  // Set up the ranges for each class of slider 
 
@@ -198,13 +252,17 @@ colorize();
    Add Tooptip functionality for hexagons/points ??
 ******************************************************/
 
- /**************************
-      Helper Functions
+
+/**************************
+    Loading Indicator
 ****************************/
 
-// Add Layer Object
-// Refresh map.
-UI.addLayer = function(layer){
-  options.layers.push(layer);
-  addLayers(options.layers);
-}
+// Loading Functionality
+Loading = {
+
+  // Start Loading
+  start : function(msg){ $("#loading").show(); },
+
+  // Stop Loading
+  stop : function(msg){  $("#loading").hide(); },
+};

@@ -18,6 +18,7 @@ function addLayers(layers){
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
+    
     var layer = layers[i]; // Current Layer
     
     var layer = verifyKeys(layer);
@@ -31,16 +32,16 @@ function addLayers(layers){
         
       // PATH
       case "path":
-          drawPath(map, layer).addTo(map);
-          break;
+        drawPath(map, layer).addTo(map);
+        break;
         
       // HEATMAP
       case "heatmap":
 
-          // Prevent multiple heatmaps from overlaying.
-          d3.select(".leaflet-overlay-pane canvas").remove();
-          map.addLayer(drawHeatmap(map,layer) );
-          break;
+        // Prevent multiple heatmaps from overlaying.
+        d3.select(".leaflet-overlay-pane canvas").remove();
+        map.addLayer(drawHeatmap(map,layer) );
+        break;
         
       // HEX
       case "hex":
@@ -94,6 +95,7 @@ function buildKey(layers){
     key.append(a + b + c);
   })
 }
+
 /******************************
          Coloring
  ******************************/
