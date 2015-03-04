@@ -29,11 +29,13 @@
         <div class="menuSection">
           <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
           <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
-          <div class="ui checkbox">       
-            <input id="toggle_apartment_heatmaps" type="checkbox" name="apartment" checked>
+          <div class="ui checkbox">
+            <input type="checkbox" name="apartment" checked>
             <label>Display</label>         
           </div>
         </div>
+
+        <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
 
         <!-- Section -->
         <div id="heatmapParams">
@@ -444,7 +446,12 @@
       },
     };
 
-    UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);
+    $(document).ready(function(){
+        UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);  
+    })
+
+    
+
 
   </script>
 </body>

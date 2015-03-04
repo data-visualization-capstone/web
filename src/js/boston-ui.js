@@ -74,28 +74,22 @@ UI.elements = {};
 // Example: checkbox("#box", function(){}, function(){});
 UI.elements.checkbox = function(selector, layer){
 
-  console.log(layer);
-
-  // Get checkbox's status
-  var checked = $(selector).is(':checked')
-  
   // Bind action to provided selector
   $(selector).change(function(e) {
 
-    alert("Checkbox Value Changed.");
-    
+    // Get checkbox's status
+    var checked = $(selector).is(':checked');
+    console.log(selector + " " + checked);
+
     // Enable - Add Layer
     if (checked) {
         UI.layers.addLayer(layer);
-    }
     
     //  Disable - Remove Layer
-    else {
+    } else {
         UI.layers.deleteLayer(layer.layerId)
     }
   });
-
-  return checked;
 }
 
 /**************************
