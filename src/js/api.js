@@ -3,21 +3,6 @@
          api.js 
  ******************************/
 
-// Define global DV (Data Visualization) Configurations
-
-var DV = {
-	
-  // Define common CRUD functions
-  api : {},
-
-  // Target API.
-  // Change API's url based on the current hosting
-  // environment (local vs. production).
-
-  url : _.contains(document.URL, "dydns.org") ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
-
-};
-
 DV.api.twitter = {};
 
 // GET /twitter/search/:string

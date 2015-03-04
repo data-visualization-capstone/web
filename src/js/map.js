@@ -4,13 +4,89 @@
           Map.js
  ****************************/
 
+// Define global DV (Data Visualization) Configurations
+
+var DV = {
+  
+  // Define common CRUD functions
+  api : {},
+
+  // Target API. - Change API's url based on the current environment
+  url : _.contains(document.URL, "dydns.org") ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
+
+  // Store Layer Data
+  _layers : [],
+
+};
+
+/**************************
+        Layers
+****************************/
+
+// Object for layer manipulation.
+DV.layers = {};
+
+// GET - Get a layer from the settings.
+DV.layers.getLayer = function(layerId){
+
+  // Refresh view
+  update(DV._layers);
+
+}
+
+// PUT - Add a layer to the map.
+DV.layers.addLayer = function(layer){
+    DV._layers.push(layer);
+
+    // Refresh view
+    update(DV._layers);
+}
+
+// SET - Update a layer from the settings.
+DV.layers.setLayer = function(layerId, layer){
+  
+  // Save current layer
+  // var layer = DV.layers.findLayer("layerId" : layerId);
+
+  // Delete 
+  DV.layers.deleteLayer(layerId);
+
+  // Add updated layer
+  DV.layers.addLayer(layer);
+  
+  // Refresh view
+  update(DV._layers);
+}
+
+// DELETE - Delete a layer from the map.
+DV.layers.deleteLayer = function(id){
+  
+  // Filter layers
+  DV._layers = _.filter(DV._layers, function(layer){
+    return layer.id != id;
+  })
+
+  // Refresh view
+  update(DV._layers);
+}
+
+// Find a layer. Requires a key and a value;
+DV.layers.findLayer = function(key, value){
+  return _.findWhere(DV._layers, {key : value});
+}
+
+DV.layers.clearLayers = function(){
+
+}
+
+
 // Remove selected layers
 function removeLayers(){
 
 }
 
 // Iterate through, and place layers onto Leaflet map
-function addLayers(layers){
+function update(layers){
 
   // Map Boundaries
   bounds = map.getBounds();

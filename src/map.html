@@ -239,11 +239,15 @@
             <label>MBTA Train Map</label>         
           </div> 
 
+        <br>
+
         <input type="checkbox" name="apartment" id="toggle_red_line">
         <p style="display: inline; margin-left: 9px;">Red Line</p>
+  
+        <br>
 
         <input type="checkbox" name="apartment" id="toggle_orange_line">
-        <p style="display: inline; margin-left: 9px;">Organge Line</p>
+        <p style="display: inline; margin-left: 9px;">Orange Line</p>
         </div>            
       </div>
     </div>
@@ -367,51 +371,6 @@
     }
 
     /************************************
-         Add Default Data
-     ************************************/
- 
-    // options.layers.push({
-      
-    //   // Set name for layer
-    //   // used for unique ID
-    //   name : "Hex Map",
-
-    //   // Define representation of layer
-    //   type: "hex",
-
-    //   // Data from sample-data.js
-    //   data : sample_data.apartments,
-      
-    //   // Pixel width
-    //   width: 15,
-
-    //   // Define custom color. Used if points
-    //   //  on't have a color parameter.
-    //   color: "#005696",
-      
-    //   // Custom function to filter data set.
-    //   // Use to remove duplicates or process.
-    //   filter : function(point){
-    //     return point.value > 2000;
-    //   },
-    //   // Apply function to every point
-    //   // Useful for computing color.
-    //   map : function(point){
-    //     return point;
-    //   },
-    // });
-
-    // options.layers.push({
-    //   name : "Orange Line",      
-    //   type: "path",
-    //   data : sample_data.subway.orange,
-    //   width: 5,
-    //   color: "#ffa500",
-    // });
-
-    // options.layers.push();
-
-    /************************************
               Initialize Map
      ************************************/
 
@@ -421,18 +380,50 @@
 
     // Add layers when the map is ready.
     map.on('ready', function(){
-      addLayers(options.layers);
+      update(DV._layers);
     })
 
     // Re-add layers when the map has changed.
     map.on('viewreset', function(){
       console.log("\nView Reset: Replotting Layers");
-      addLayers(options.layers);
+      update(DV._layers);
     })
 
+    
     /************************************
-            Wire-up UI Elements
-     ************************************/
+         Add Default Data
+    ************************************/
+
+    var heatmapLayer = {
+      
+      // Set name for layer
+      // used for unique ID
+      name : "Hex Map",
+
+      // Define representation of layer
+      type: "hex",
+
+      // Data from sample-data.js
+      data : sample_data.apartments,
+      
+      // Pixel width
+      width: 15,
+
+      // Define custom color. Used if points
+      //  on't have a color parameter.
+      color: "#005696",
+      
+      // Custom function to filter data set.
+      // Use to remove duplicates or process.
+      filter : function(point){
+        return point.value > 2000;
+      },
+      // Apply function to every point
+      // Useful for computing color.
+      map : function(point){
+        return point;
+      },
+    };
 
     var red_line = {
       name : "Red Line",
@@ -450,19 +441,9 @@
       color: "#ffa500",
     }
 
-    var heatmapLayer = {
-      name : "Hex Map",
-      type: "hex",
-      data : sample_data.apartments,
-      width: 15,
-      color: "#005696",
-      filter : function(point){
-        return point.value > 2000;
-      },
-      map : function(point){
-        return point;
-      },
-    };
+    /************************************
+            Wire-up UI Elements
+     ************************************/
 
     $(document).ready(function(){
         UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);  
@@ -471,8 +452,6 @@
     })
 
     
-
-
   </script>
 </body>
 

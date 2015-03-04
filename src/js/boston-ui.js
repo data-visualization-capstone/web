@@ -7,61 +7,7 @@
 // Namespace UI Options
 var UI = {};
 
-/**************************
-        Layers
-****************************/
 
-// Object for layer manipulation.
-UI.layers = {};
-
-// GET - Get a layer from the settings.
-UI.layers.getLayer = function(layerId){
-
-  // Refresh view
-  addLayers(options.layers);
-
-}
-
-// PUT - Add a layer to the map.
-UI.layers.addLayer = function(layer){
-    options.layers.push(layer);
-
-    // Refresh view
-    addLayers(options.layers);
-}
-
-// SET - Update a layer from the settings.
-UI.layers.setLayer = function(layerId, layer){
-  
-  // Save current layer
-  // var layer = UI.layers.findLayer("layerId" : layerId);
-
-  // Delete 
-  UI.layers.deleteLayer(layerId);
-
-  // Add updated layer
-  UI.layers.addLayer(layer);
-  
-  // Refresh view
-  addLayers(options.layers);
-}
-
-// DELETE - Delete a layer from the map.
-UI.layers.deleteLayer = function(id){
-  
-  // Filter layers
-  options.layers = _.filter(options.layers, function(layer){
-    return layer.id != id;
-  })
-
-  // Refresh view
-  addLayers(options.layers);
-}
-
-// Find a layer. Requires a key and a value;
-UI.layers.findLayer = function(key, value){
-  return _.findWhere(options.layers, {key : value});
-}
 
 /**************************
      UI Elements
@@ -83,11 +29,11 @@ UI.elements.checkbox = function(selector, layer){
 
     // Enable - Add Layer
     if (checked) {
-        UI.layers.addLayer(layer);
+        DV.layers.addLayer(layer);
     
     //  Disable - Remove Layer
     } else {
-        UI.layers.deleteLayer(layer.id)
+        DV.layers.deleteLayer(layer.id)
     }
   });
 }
@@ -129,7 +75,7 @@ UI.getTweets = function(input){
   DV.api.twitter.search(string, function(resp){
     
     // Add layer
-    UI.layers.addLayer({
+    DV.layers.addLayer({
       name: "Twitter " + string,
       type: "scatterplot",
       color: getColor(Math.random(0, 100)),

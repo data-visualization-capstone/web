@@ -63,7 +63,7 @@ Each layer corresponds to a layer/data set on the graph. Layer are configurable 
 
 ```javascript
 
-options.layers.push({
+var layer = {
   
   // Name the Layer
   name : "Orange Line",
@@ -96,7 +96,9 @@ options.layers.push({
   map : function(point){
     return point;
   },
-});
+};
+
+DV.layers.addLayer(layer);
 
 ```
 
