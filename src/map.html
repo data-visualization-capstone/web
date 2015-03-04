@@ -237,7 +237,13 @@
           <div class="ui checkbox">       
             <input type="checkbox" name="mbta">
             <label>MBTA Train Map</label>         
-          </div>        
+          </div> 
+
+        <input type="checkbox" name="apartment" id="toggle_red_line">
+        <p style="display: inline; margin-left: 9px;">Red Line</p>
+
+        <input type="checkbox" name="apartment" id="toggle_orange_line">
+        <p style="display: inline; margin-left: 9px;">Organge Line</p>
         </div>            
       </div>
     </div>
@@ -395,21 +401,15 @@
     //   },
     // });
 
-    options.layers.push({
-      name : "Orange Line",      
-      type: "path",
-      data : sample_data.subway.orange,
-      width: 5,
-      color: "#ffa500",
-    });
+    // options.layers.push({
+    //   name : "Orange Line",      
+    //   type: "path",
+    //   data : sample_data.subway.orange,
+    //   width: 5,
+    //   color: "#ffa500",
+    // });
 
-    options.layers.push({
-      name : "Red Line",
-      type: "path",
-      data : sample_data.subway.red,
-      width: 5,
-      color: "#ff0000",
-    });
+    // options.layers.push();
 
     /************************************
               Initialize Map
@@ -434,6 +434,22 @@
             Wire-up UI Elements
      ************************************/
 
+    var red_line = {
+      name : "Red Line",
+      type: "path",
+      data : sample_data.subway.red,
+      width: 5,
+      color: "#ff0000",
+    }
+
+    var orange_line = {
+      name : "Orange Line",      
+      type: "path",
+      data : sample_data.subway.orange,
+      width: 5,
+      color: "#ffa500",
+    }
+
     var heatmapLayer = {
       name : "Hex Map",
       type: "hex",
@@ -450,6 +466,8 @@
 
     $(document).ready(function(){
         UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);  
+        UI.elements.checkbox("#toggle_red_line", red_line);  
+        UI.elements.checkbox("#toggle_orange_line", orange_line);  
     })
 
     

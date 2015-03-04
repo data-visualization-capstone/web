@@ -1,7 +1,13 @@
+// TODO: Adding layer provides "accessor";
 
 /****************************
           Map.js
  ****************************/
+
+// Remove selected layers
+function removeLayers(){
+
+}
 
 // Iterate through, and place layers onto Leaflet map
 function addLayers(layers){
@@ -15,8 +21,9 @@ function addLayers(layers){
   // Prevent Duplicates
   
   // @ TODO:
-  // Fix for removing hexmap
+  // Clear data before populating
   $("#hexmap").remove()
+  
 
   buildKey(layers);
 
