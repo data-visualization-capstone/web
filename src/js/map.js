@@ -13,6 +13,10 @@ function addLayers(layers){
 
   // @ TODO:
   // Prevent Duplicates
+  
+  // @ TODO:
+  // Fix for removing hexmap
+  $("#hexmap").remove()
 
   buildKey(layers);
 

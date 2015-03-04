@@ -9,7 +9,8 @@
 function drawHexmap(map, layer){
   
   // Clear layer if previously existing.
-  d3.select('#' + layer.id).remove();
+  // $("#" + layer.id).remove()
+  // console.log($("#" + layer.id))
 
   // http://bl.ocks.org/mbostock/4248145
   var width = map.getSize().x;

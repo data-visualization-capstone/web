@@ -47,11 +47,11 @@ UI.layers.setLayer = function(layerId, layer){
 }
 
 // DELETE - Delete a layer from the map.
-UI.layers.deleteLayer = function(layerId){
+UI.layers.deleteLayer = function(id){
   
   // Filter layers
   options.layers = _.filter(options.layers, function(layer){
-    return layer.layerId == layerId;
+    return layer.id != id;
   })
 
   // Refresh view
@@ -87,7 +87,7 @@ UI.elements.checkbox = function(selector, layer){
     
     //  Disable - Remove Layer
     } else {
-        UI.layers.deleteLayer(layer.layerId)
+        UI.layers.deleteLayer(layer.id)
     }
   });
 }

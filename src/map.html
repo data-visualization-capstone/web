@@ -14,7 +14,7 @@
 <body id="map-content" class="loading">
   
   <!-- Sidebar -->
-  <div class="ui_menu">
+  <div class="ui_menu out">
 
     <!-- Header -->
     <div class="menuHeader">
@@ -33,9 +33,11 @@
             <input type="checkbox" name="apartment" checked>
             <label>Display</label>         
           </div>
-        </div>
+        </div>  
+
 
         <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
+        <p style="display: inline; margin-left: 9px;">Display</p>
 
         <!-- Section -->
         <div id="heatmapParams">
@@ -242,8 +244,8 @@
   </div>
 
   <div class="map_tray">
-  <div class="ui secondary button right" id="sideNavToggle" onclick="UI.toggleSideNav('#sideNavToggle');" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
-    Show Menu
+  <div class="ui secondary button right out" id="sideNavToggle" onclick="UI.toggleSideNav('#sideNavToggle');" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
+    Hide Menu
   </div>
 
   <div id="mapkey"></div>
@@ -362,36 +364,36 @@
          Add Default Data
      ************************************/
  
-    options.layers.push({
+    // options.layers.push({
       
-      // Set name for layer
-      // used for unique ID
-      name : "Hex Map",
+    //   // Set name for layer
+    //   // used for unique ID
+    //   name : "Hex Map",
 
-      // Define representation of layer
-      type: "hex",
+    //   // Define representation of layer
+    //   type: "hex",
 
-      // Data from sample-data.js
-      data : sample_data.apartments,
+    //   // Data from sample-data.js
+    //   data : sample_data.apartments,
       
-      // Pixel width
-      width: 15,
+    //   // Pixel width
+    //   width: 15,
 
-      // Define custom color. Used if points
-      //  on't have a color parameter.
-      color: "#005696",
+    //   // Define custom color. Used if points
+    //   //  on't have a color parameter.
+    //   color: "#005696",
       
-      // Custom function to filter data set.
-      // Use to remove duplicates or process.
-      filter : function(point){
-        return point.value > 2000;
-      },
-      // Apply function to every point
-      // Useful for computing color.
-      map : function(point){
-        return point;
-      },
-    });
+    //   // Custom function to filter data set.
+    //   // Use to remove duplicates or process.
+    //   filter : function(point){
+    //     return point.value > 2000;
+    //   },
+    //   // Apply function to every point
+    //   // Useful for computing color.
+    //   map : function(point){
+    //     return point;
+    //   },
+    // });
 
     options.layers.push({
       name : "Orange Line",      
