@@ -29,10 +29,10 @@
         <div class="menuSection">
           <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
           <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
-          <div class="ui checkbox">
+    <!--       <div class="ui checkbox">
             <input type="checkbox" name="apartment" checked>
             <label>Display</label>         
-          </div>
+          </div> -->
         </div>  
 
 
@@ -40,7 +40,7 @@
         <p style="display: inline; margin-left: 9px;">Display</p>
 
         <!-- Section -->
-        <div id="heatmapParams">
+        <div id="heatmapParams" style="display: none;">
           <p class="rangeTitle">Heatmap scale</p>
           <!-- Section -->
           <div class="menuSection scaleOption">
@@ -241,13 +241,10 @@
 
         <br>
 
-        <input type="checkbox" name="apartment" id="toggle_red_line">
-        <p style="display: inline; margin-left: 9px;">Red Line</p>
+        <input type="checkbox" name="apartment" id="toggle_mbta">
+        <p style="display: inline; margin-left: 9px;">Show MBTA</p>
   
-        <br>
-
-        <input type="checkbox" name="apartment" id="toggle_orange_line">
-        <p style="display: inline; margin-left: 9px;">Orange Line</p>
+        
         </div>            
       </div>
     </div>
@@ -447,8 +444,8 @@
 
     $(document).ready(function(){
         UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);  
-        UI.elements.checkbox("#toggle_red_line", red_line);  
-        UI.elements.checkbox("#toggle_orange_line", orange_line);  
+        UI.elements.checkbox("#toggle_mbta", red_line);  
+        UI.elements.checkbox("#toggle_mbta", orange_line);  
     })
 
     

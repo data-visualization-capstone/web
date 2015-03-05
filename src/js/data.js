@@ -180,7 +180,7 @@ function formatDataByTimeDifference(points) {
     // High Time Difference = Fewer recorded points -> Red
 
     // Map number to color. 0 = red, 1 = green
-    var color = getColor(difference / 160000);
+    var color = DV.utils.getColor(difference / 160000);
 
     points[key] = {
       color: color,

@@ -17,14 +17,14 @@ var DV = {
   // Store Layer Data
   _layers : [],
 
+  // Object for layer manipulation functionality
+  layers : {},
+
 };
 
 /**************************
         Layers
 ****************************/
-
-// Object for layer manipulation.
-DV.layers = {};
 
 // GET - Get a layer from the settings.
 DV.layers.getLayer = function(layerId){
@@ -60,6 +60,14 @@ DV.layers.setLayer = function(layerId, layer){
 
 // DELETE - Delete a layer from the map.
 DV.layers.deleteLayer = function(id){
+
+  for (i in map._layers){
+    var current = map._layers[i];
+
+    if (current._path){
+      map.removeLayer(current);
+    }
+  }
   
   // Filter layers
   DV._layers = _.filter(DV._layers, function(layer){
@@ -76,12 +84,6 @@ DV.layers.findLayer = function(key, value){
 }
 
 DV.layers.clearLayers = function(){
-
-}
-
-
-// Remove selected layers
-function removeLayers(){
 
 }
 
@@ -110,6 +112,8 @@ function update(layers){
     
     var layer = verifyKeys(layer);
 
+    var leaflet_layer = null;
+
     switch (layer.type) {
       
       // SCATTERPLOT
@@ -119,7 +123,8 @@ function update(layers){
         
       // PATH
       case "path":
-        drawPath(map, layer).addTo(map);
+        leaflet_layer = drawPath(map, layer);
+        
         break;
         
       // HEATMAP
@@ -127,13 +132,18 @@ function update(layers){
 
         // Prevent multiple heatmaps from overlaying.
         d3.select(".leaflet-overlay-pane canvas").remove();
-        map.addLayer(drawHeatmap(map,layer) );
+        leaflet_layer = drawHeatmap(map,layer);
         break;
         
       // HEX
       case "hex":
         drawHexmap(map, layer);
         break;
+    }
+
+    if (leaflet_layer){
+      layer.object = leaflet_layer;
+      map.addLayer(leaflet_layer);
     }
 	}
 }
@@ -184,13 +194,15 @@ function buildKey(layers){
 }
 
 /******************************
-         Coloring
+         Utils
  ******************************/
+
+DV.utils = {};
 
 // Maps the input number to the output
 // color. Input between 0 and 100 maps
 // to the range of red -> green
-function getColor(i){
+DV.utils.getColor = function(i){
 
   if (i < 0){
     i = 0;
@@ -202,11 +214,11 @@ function getColor(i){
   var g = Math.floor(255 - 255 * i);
   var b = 0;
 
-  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  return '#' + DV.utils.componentToHex(r) + DV.utils.componentToHex(g) + DV.utils.componentToHex(b);
 }
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-function componentToHex(c) {
+DV.utils.componentToHex = function(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 }
