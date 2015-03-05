@@ -14,6 +14,15 @@ DV.api.twitter.search = function(string, success, error){
   });
 }
 
+// GET /twitter/stream/:string
+DV.api.twitter.stream = function(string, success, error){
+  DV.api.get("twitter/stream/" + string, function(resp){
+    success(resp);
+  }, function(resp){
+    console.error("Error fetching tweets: "  + resp)
+  });
+}
+
 
 /******************************
       CRUD Functionality

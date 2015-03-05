@@ -56,8 +56,77 @@ UI.toggleSideNav = function(element){
   toggle.html(toggle.hasClass("out") ? "Hide Menu" : "Show Menu");
 }
 
+// Toggles a pre-set tweet.
+// take in the DOM element that was clicked.
+// example: <li onclick="UI.toggleTweet(this)"....
+UI.toggleTweet = function(obj){
+    
+    // Show loading indicator.
+    Loading.start("tweet");  
+
+    // The DOM element that was selected
+    var object = $(obj);
+
+    // Get list of classes on that DOM element.
+    var classes = object.attr('class');
+
+    // Is this tweet active? 
+    var active = classes.indexOf("active") > -1;
+
+    // Get the content of that DOM element.
+    var string = object.html();
+
+    // Toggle Off
+    if (active) {
+
+      // Remove layer
+      DV.layers.deleteLayer("tweet" + string);
+
+      Loading.stop("tweet");
+
+      // Toggle Class
+      object.removeClass("active")
+
+    // Toggle On
+    } else {
+
+      // Get tweets that were cached from the stream.
+      DV.api.twitter.stream(string, function(resp){
+        
+        // Add layer
+        DV.layers.addLayer({
+          name: "Twitter " + string,
+          type: "scatterplot",
+          color: DV.utils.getColor(Math.random(0, 100)),
+          data : resp,
+          width: 3,
+        });
+
+        object.addClass("active")
+
+        Loading.stop("tweet");
+
+      }, function(){
+
+        // @TODO User Feedback
+
+        object.addClass("active")
+        Loading.stop("tweet");
+
+      });
+
+    }
+
+    
+    
+
+    console.log(DV.layers.getLayer("twitter" + string));
+
+
+}
+
 // Fetch tweets
-UI.getTweets = function(input){
+UI.searchForTweet = function(input){
   
   // Show loading indicator.
   Loading.start("tweet");
@@ -67,6 +136,9 @@ UI.getTweets = function(input){
 
   // Error Checking
   if (!string) {
+    
+    // @TODO: User Feedback
+
     console.error("Invalid Twitter String.");
     return;
   }
@@ -78,7 +150,7 @@ UI.getTweets = function(input){
     DV.layers.addLayer({
       name: "Twitter " + string,
       type: "scatterplot",
-      color: getColor(Math.random(0, 100)),
+      color: DV.utils.getColor(Math.random(0, 100)),
       data : resp,
       width: 3,
     });
@@ -86,6 +158,9 @@ UI.getTweets = function(input){
     Loading.stop("tweet");
 
   }, function(){
+
+    // @TODO User Feedback
+
     console.error("Error fetching tweets...");
     Loading.stop("tweet");
 
@@ -202,7 +277,7 @@ function colorize(){
 
 $(".hashtag").click(function(){
 
-  $(this).toggleClass("active");
+  // $(this).toggleClass("active");
   colorize();
 
 });
@@ -222,10 +297,6 @@ $(".hashtag").hover(
 );
 
 colorize();
-
- /*****************************************************
-   Add Tooptip functionality for hexagons/points ??
-******************************************************/
 
 
 /**************************

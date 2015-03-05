@@ -11,7 +11,7 @@
   <title>Data Visualization Capstone</title>
 </head>
 
-<body id="map-content" class="loading">
+<body id="map-content">
   
   <!-- Sidebar -->
   <div class="ui_menu out">
@@ -195,12 +195,12 @@
         <!-- Section -->
         <div class="menuSection">
           <ul id="hashtags">
-            <li class="hashtag active">traffic</li>
-            <li class="hashtag">snow</li>
-            <li class="hashtag">southend</li>
-            <li class="hashtag">patriots</li>
-            <li class="hashtag">commuting</li>
-            <li class="hashtag">boston</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">traffic</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">snow</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">southend</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">patriots</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">commuting</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">boston</li>
           </ul>
         </div>
 
@@ -210,7 +210,7 @@
           <div class="ui input">
             <input placeholder="Enter word" id="hashtagInput">
           </div>
-          <div class="ui button" id="addHashtagButton" onclick="UI.getTweets('#hashtagInput')" style="background-color:#1b1c1d; color:#fff;">
+          <div class="ui button" id="addHashtagButton" onclick="UI.searchForTweet('#hashtagInput')" style="background-color:#1b1c1d; color:#fff;">
             Add
           </div>
           <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
@@ -436,6 +436,10 @@
       data : sample_data.subway.orange,
       width: 5,
       color: "#ffa500",
+    }
+
+    var tweet = {
+
     }
 
     /************************************

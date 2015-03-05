@@ -28,14 +28,14 @@ var DV = {
 
 // GET - Get a layer from the settings.
 DV.layers.getLayer = function(layerId){
-
-  // Refresh view
-  update(DV._layers);
-
+  return _.findWhere(DV._layers, { id : layerId });
 }
 
 // PUT - Add a layer to the map.
 DV.layers.addLayer = function(layer){
+
+    // @TODO: Prevent Duplicates
+
     DV._layers.push(layer);
 
     // Refresh view
@@ -46,9 +46,9 @@ DV.layers.addLayer = function(layer){
 DV.layers.setLayer = function(layerId, layer){
   
   // Save current layer
-  // var layer = DV.layers.findLayer("layerId" : layerId);
+  var layer = DV.layers.findLayer("layerId", layerId);
 
-  // Delete 
+  // Delete
   DV.layers.deleteLayer(layerId);
 
   // Add updated layer
@@ -60,6 +60,8 @@ DV.layers.setLayer = function(layerId, layer){
 
 // DELETE - Delete a layer from the map.
 DV.layers.deleteLayer = function(id){
+
+  // @TODO: Refresh all layers on map
 
   for (i in map._layers){
     var current = map._layers[i];
@@ -83,8 +85,10 @@ DV.layers.findLayer = function(key, value){
   return _.findWhere(DV._layers, {key : value});
 }
 
+// Clear current layers
 DV.layers.clearLayers = function(){
-
+  DV._layers = [];
+  update(DV._layers);
 }
 
 // Iterate through, and place layers onto Leaflet map
@@ -94,9 +98,6 @@ function update(layers){
   bounds = map.getBounds();
   topLeft = map.latLngToLayerPoint(bounds.getNorthWest());
   bottomRight = map.latLngToLayerPoint(bounds.getSouthEast());
-
-  // @ TODO:
-  // Prevent Duplicates
   
   // @ TODO:
   // Clear data before populating
@@ -127,18 +128,18 @@ function update(layers){
         
         break;
         
-      // HEATMAP
-      case "heatmap":
-
-        // Prevent multiple heatmaps from overlaying.
-        d3.select(".leaflet-overlay-pane canvas").remove();
-        leaflet_layer = drawHeatmap(map,layer);
-        break;
-        
       // HEX
       case "hex":
         drawHexmap(map, layer);
         break;
+
+      // HEATMAP
+      // case "heatmap":
+
+        // Prevent multiple heatmaps from overlaying.
+        // leaflet_layer = drawHeatmap(map,layer);
+        // break;
+
     }
 
     if (leaflet_layer){
