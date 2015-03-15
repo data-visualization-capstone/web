@@ -14,10 +14,10 @@ var DV = {
   // Target API. - Change API's url based on the current environment
   url : _.contains(document.URL, "dydns.org") ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
 
-  // Store Layer Data
+  // Layer Data
   _layers : [],
 
-  // Object for layer manipulation functionality
+  // Layer Methods
   layers : {},
 
 };
@@ -60,6 +60,8 @@ DV.layers.setLayer = function(layerId, layer){
 
 // DELETE - Delete a layer from the map.
 DV.layers.deleteLayer = function(id){
+
+  alert(id)
 
   // @TODO: Refresh all layers on map
 
@@ -186,11 +188,14 @@ function buildKey(layers){
 
   _.each(layers, function(layer){
 
+    console.log(layer.id)
+
     var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
     var b = layer.name;
-    var c = '</p>'
+    var c = '<span class="remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
+    var d = '</p>'
 
-    key.append(a + b + c);
+    key.append(a + b + c + d);
   })
 }
 

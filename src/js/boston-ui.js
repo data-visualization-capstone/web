@@ -117,10 +117,9 @@ UI.toggleTweet = function(obj){
 
     }
 
-    
-    
+      
 
-    console.log(DV.layers.getLayer("twitter" + string));
+    // console.log(DV.layers.getLayer("twitter" + string));
 
 
 }
