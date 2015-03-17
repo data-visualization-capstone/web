@@ -9,13 +9,6 @@ body {
   position: relative;
 }
 
-/* body.loading { */
-/*   background-color: #000; */
-/*   background-image: url(../img/loader.gif); */
-/*   background-repeat: no-repeat; */
-/*   background-position: center 150px; */
-/* } */
-
 p {
   margin: 0;
   margin-bottom: 10px;
@@ -23,6 +16,51 @@ p {
 .clear {
   clear:both;
 }
+
+/* Loading Indicator */
+#loading {
+	@size: 112px;
+
+	background-image: url('../img/gear.png');
+	background-repeat: no-repeat;
+	background-size: @size @size;
+	height: @size;
+	width: @size;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    text-align: center;
+    z-index:9999;
+    font-size: 100px;
+    position: absolute;
+}
+
+.spin {
+    -webkit-animation: spin 2000ms infinite linear;
+    animation: spin 2000ms infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
 /************
    IMPORTS
  ************/

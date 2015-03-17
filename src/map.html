@@ -11,15 +11,15 @@
   <title>Data Visualization Capstone</title>
 </head>
 
-<body id="map-content" class="loading">
+<body id="map-content">
   
   <!-- Sidebar -->
-  <div class="ui_menu">
+  <div class="ui_menu out">
 
     <!-- Header -->
     <div class="menuHeader">
       <h1>Filters</h1>
-    </div>  
+    </div>
 
     <div id="menuBody">
 
@@ -29,14 +29,18 @@
         <div class="menuSection">
           <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
           <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
-          <div class="ui checkbox">       
+    <!--       <div class="ui checkbox">
             <input type="checkbox" name="apartment" checked>
             <label>Display</label>         
-          </div>
-        </div>
+          </div> -->
+        </div>  
+
+
+        <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
+        <p style="display: inline; margin-left: 9px;">Display</p>
 
         <!-- Section -->
-        <div id="heatmapParams">
+        <div id="heatmapParams" style="display: none;">
           <p class="rangeTitle">Heatmap scale</p>
           <!-- Section -->
           <div class="menuSection scaleOption">
@@ -191,12 +195,12 @@
         <!-- Section -->
         <div class="menuSection">
           <ul id="hashtags">
-            <li class="hashtag active">traffic</li>
-            <li class="hashtag">snow</li>
-            <li class="hashtag">southend</li>
-            <li class="hashtag">patriots</li>
-            <li class="hashtag">commuting</li>
-            <li class="hashtag">boston</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">traffic</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">snow</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">southend</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">patriots</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">commuting</li>
+            <li onclick="UI.toggleTweet(this)" class="hashtag">boston</li>
           </ul>
         </div>
 
@@ -206,14 +210,13 @@
           <div class="ui input">
             <input placeholder="Enter word" id="hashtagInput">
           </div>
-          <div class="ui button" id="addHashtagButton" style="background-color:#1b1c1d; color:#fff;">
+          <div class="ui button" id="addHashtagButton" onclick="UI.searchForTweet('#hashtagInput')" style="background-color:#1b1c1d; color:#fff;">
             Add
           </div>
           <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
             Delete
           </div>          
         </div>
-
       </div>
       
       <!-- Section -->
@@ -234,22 +237,22 @@
           <div class="ui checkbox">       
             <input type="checkbox" name="mbta">
             <label>MBTA Train Map</label>         
-          </div>        
+          </div> 
+
+        <br>
+
+        <input type="checkbox" name="apartment" id="toggle_mbta">
+        <p style="display: inline; margin-left: 9px;">Show MBTA</p>
+  
+        
         </div>            
       </div>
     </div>
   </div>
 
   <div class="map_tray">
-  <div class="ui secondary button right" id="sideNavToggle" onclick="toggleSideNav();" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
-    Show Menu
-  </div>
-
-  <div class="menuSection" style="top: 70px; right: 20px; z-index: 10001; position: absolute;  width: 300px;">
-    <div class="ui input">
-      <input placeholder="Enter word" id="twitterSearchInput">
-    </div>
-    <div class="ui button" id="addHashtagButton" onclick="getTweets()" style="background-color:#1b1c1d; color:#fff;">Get Tweets</div>
+  <div class="ui secondary button right out" id="sideNavToggle" onclick="UI.toggleSideNav('#sideNavToggle');" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
+    Hide Menu
   </div>
 
   <div id="mapkey"></div>
@@ -317,7 +320,8 @@
     </div>
   </div>
 
-  <div id='loading'></div>
+  <!-- Loading Indicator -->
+  <div id="loading" class="spin" style="display: none;"></div>
 </div>
   <!-- Data Visualization Script -->
   <script src="js/app.js"></script>
@@ -333,7 +337,6 @@
   <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
 
   <script>
-
 
     /************************************
          Data Visualization Settings
@@ -365,10 +368,30 @@
     }
 
     /************************************
-         Add Default Data
+              Initialize Map
      ************************************/
- 
-    options.layers.push({
+
+    // Global variable for map object
+    // Initialize Leaflet map
+    var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+    // Add layers when the map is ready.
+    map.on('ready', function(){
+      update(DV._layers);
+    })
+
+    // Re-add layers when the map has changed.
+    map.on('viewreset', function(){
+      console.log("\nView Reset: Replotting Layers");
+      update(DV._layers);
+    })
+
+    
+    /************************************
+         Add Default Data
+    ************************************/
+
+    var heatmapLayer = {
       
       // Set name for layer
       // used for unique ID
@@ -397,43 +420,39 @@
       map : function(point){
         return point;
       },
-    });
+    };
 
-    options.layers.push({
-      name : "Orange Line",      
-      type: "path",
-      data : sample_data.subway.orange,
-      width: 5,
-      color: "#ffa500",
-    });
-
-    options.layers.push({
+    var red_line = {
       name : "Red Line",
       type: "path",
       data : sample_data.subway.red,
       width: 5,
       color: "#ff0000",
-    });
+    }
+
+    var orange_line = {
+      name : "Orange Line",      
+      type: "path",
+      data : sample_data.subway.orange,
+      width: 5,
+      color: "#ffa500",
+    }
+
+    var tweet = {
+
+    }
 
     /************************************
-         Initialize Map
+            Wire-up UI Elements
      ************************************/
 
-    // Global variable for map object
-    // Initialize Leaflet map
-    var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
-
-    // Add layers when the map is ready.
-    map.on('ready', function(){
-      addLayers(options.layers);
+    $(document).ready(function(){
+        UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);  
+        UI.elements.checkbox("#toggle_mbta", red_line);  
+        UI.elements.checkbox("#toggle_mbta", orange_line);  
     })
 
-    // Re-add layers when the map has changed.
-    map.on('viewreset', function(){
-      console.log("\nView Reset: Replotting Layers");
-      addLayers(options.layers);
-    })
-
+    
   </script>
 </body>
 

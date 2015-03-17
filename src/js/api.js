@@ -1,25 +1,28 @@
 
-var development = true; 
-
 /******************************
          api.js 
  ******************************/
 
-// Define global DV (Data Visualization) Configurations
+DV.api.twitter = {};
 
-var DV = {
-	
-  // Define common CRUD functions
-  api : {},
+// GET /twitter/search/:string
+DV.api.twitter.search = function(string, success, error){
+  DV.api.get("twitter/search/" + string, function(resp){
+    success(resp);
+  }, function(resp){
+    console.error("Error fetching tweets: "  + resp)
+  });
+}
 
-  // Is this a development configuration?
-  // Disables logging, and debug information
-  // for production environments.
-  development : development,
+// GET /twitter/stream/:string
+DV.api.twitter.stream = function(string, success, error){
+  DV.api.get("twitter/stream/" + string, function(resp){
+    success(resp);
+  }, function(resp){
+    console.error("Error fetching tweets: "  + resp)
+  });
+}
 
-  // Target API
-  url : (development) ? "http://localhost:8080/" : "http://vent8225.dyndns.org:8080/",
-};
 
 /******************************
       CRUD Functionality

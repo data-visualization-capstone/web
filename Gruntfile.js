@@ -23,13 +23,13 @@ module.exports = function(grunt) {
           // 'lib/xml.min.js', Convert Google KML
 
           // Our JS Files
+          'src/js/map.js',
           'src/js/api.js',
           'src/js/data.js',
-          'src/js/map.js',
-          'src/js/plot-heatmap.js',
-          'src/js/plot-hex.js',
-          'src/js/plot-path.js',
-          'src/js/plot-scatterplot.js',
+          'src/js/plot/plot-heatmap.js',
+          'src/js/plot/plot-hex.js',
+          'src/js/plot/plot-path.js',
+          'src/js/plot/plot-scatterplot.js',
 
         ],
         dest: 'src/js/app.js',

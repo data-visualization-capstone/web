@@ -1,26 +1,121 @@
+// TODO: Adding layer provides "accessor";
 
 /****************************
           Map.js
  ****************************/
 
+// Define global DV (Data Visualization) Configurations
+
+var DV = {
+  
+  // Define common CRUD functions
+  api : {},
+
+  // Target API. - Change API's url based on the current environment
+  url : _.contains(document.URL, "dydns.org") ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
+
+  // Layer Data
+  _layers : [],
+
+  // Layer Methods
+  layers : {},
+
+};
+
+/**************************
+        Layers
+****************************/
+
+// GET - Get a layer from the settings.
+DV.layers.getLayer = function(layerId){
+  return _.findWhere(DV._layers, { id : layerId });
+}
+
+// PUT - Add a layer to the map.
+DV.layers.addLayer = function(layer){
+
+    // @TODO: Prevent Duplicates
+
+    DV._layers.push(layer);
+
+    // Refresh view
+    update(DV._layers);
+}
+
+// SET - Update a layer from the settings.
+DV.layers.setLayer = function(layerId, layer){
+  
+  // Save current layer
+  var layer = DV.layers.findLayer("layerId", layerId);
+
+  // Delete
+  DV.layers.deleteLayer(layerId);
+
+  // Add updated layer
+  DV.layers.addLayer(layer);
+  
+  // Refresh view
+  update(DV._layers);
+}
+
+// DELETE - Delete a layer from the map.
+DV.layers.deleteLayer = function(id){
+
+  alert(id)
+
+  // @TODO: Refresh all layers on map
+
+  for (i in map._layers){
+    var current = map._layers[i];
+
+    if (current._path){
+      map.removeLayer(current);
+    }
+  }
+  
+  // Filter layers
+  DV._layers = _.filter(DV._layers, function(layer){
+    return layer.id != id;
+  })
+
+  // Refresh view
+  update(DV._layers);
+}
+
+// Find a layer. Requires a key and a value;
+DV.layers.findLayer = function(key, value){
+  return _.findWhere(DV._layers, {key : value});
+}
+
+// Clear current layers
+DV.layers.clearLayers = function(){
+  DV._layers = [];
+  update(DV._layers);
+}
+
 // Iterate through, and place layers onto Leaflet map
-function addLayers(layers){
+function update(layers){
 
   // Map Boundaries
   bounds = map.getBounds();
   topLeft = map.latLngToLayerPoint(bounds.getNorthWest());
   bottomRight = map.latLngToLayerPoint(bounds.getSouthEast());
-
+  
   // @ TODO:
-  // Prevent Duplicates
+  // Clear data before populating
+  $("#hexmap").remove()
+  
 
   buildKey(layers);
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
+    
     var layer = layers[i]; // Current Layer
     
     var layer = verifyKeys(layer);
+
+    var leaflet_layer = null;
 
     switch (layer.type) {
       
@@ -31,21 +126,27 @@ function addLayers(layers){
         
       // PATH
       case "path":
-          drawPath(map, layer).addTo(map);
-          break;
+        leaflet_layer = drawPath(map, layer);
         
-      // HEATMAP
-      case "heatmap":
-
-          // Prevent multiple heatmaps from overlaying.
-          d3.select(".leaflet-overlay-pane canvas").remove();
-          map.addLayer(drawHeatmap(map,layer) );
-          break;
+        break;
         
       // HEX
       case "hex":
         drawHexmap(map, layer);
         break;
+
+      // HEATMAP
+      // case "heatmap":
+
+        // Prevent multiple heatmaps from overlaying.
+        // leaflet_layer = drawHeatmap(map,layer);
+        // break;
+
+    }
+
+    if (leaflet_layer){
+      layer.object = leaflet_layer;
+      map.addLayer(leaflet_layer);
     }
 	}
 }
@@ -56,7 +157,7 @@ function verifyKeys(layer){
 
     // Create unique ID for current layer
     if (!layer.name){
-      console.log("Alert. 'layer.name' is not defined. Defaulting name. This may cause issues if you have more then 1 unnamed layer.");
+      console.error("Alert. 'layer.name' is not defined. Defaulting name. This may cause issues if you have more then 1 unnamed layer.");
       layer.name = 'default';
     }
 
@@ -87,22 +188,27 @@ function buildKey(layers){
 
   _.each(layers, function(layer){
 
+    console.log(layer.id)
+
     var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
     var b = layer.name;
-    var c = '</p>'
+    var c = '<span class="remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
+    var d = '</p>'
 
-    key.append(a + b + c);
+    key.append(a + b + c + d);
   })
 }
+
 /******************************
-         Coloring
+         Utils
  ******************************/
+
+DV.utils = {};
 
 // Maps the input number to the output
 // color. Input between 0 and 100 maps
 // to the range of red -> green
-function getColor(i){
-  console.log(i)
+DV.utils.getColor = function(i){
 
   if (i < 0){
     i = 0;
@@ -114,11 +220,11 @@ function getColor(i){
   var g = Math.floor(255 - 255 * i);
   var b = 0;
 
-  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  return '#' + DV.utils.componentToHex(r) + DV.utils.componentToHex(g) + DV.utils.componentToHex(b);
 }
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-function componentToHex(c) {
+DV.utils.componentToHex = function(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 }
