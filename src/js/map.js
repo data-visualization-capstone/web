@@ -61,7 +61,7 @@ DV.layers.setLayer = function(layerId, layer){
 // DELETE - Delete a layer from the map.
 DV.layers.deleteLayer = function(id){
 
-  alert(id)
+  // alert(id)
 
   // @TODO: Refresh all layers on map
 
