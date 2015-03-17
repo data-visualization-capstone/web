@@ -12,6 +12,7 @@ DV.api.twitter.search = function(string, success, error){
     })
     .fail(function() {
       console.error("Error fetching tweets: "  + resp)
+      error(resp)
     })
 }
 
@@ -22,6 +23,7 @@ DV.api.twitter.stream = function(string, success, error){
     })
     .fail(function() {
       console.error("Error fetching tweets: "  + resp)
+      error(resp)
     })
 }
 
