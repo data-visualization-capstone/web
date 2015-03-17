@@ -5,3 +5,4 @@ src/js/app.js
 npm-debug.log
 src/css/*
 dist/
+src/build

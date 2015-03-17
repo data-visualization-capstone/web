@@ -32,7 +32,7 @@ module.exports = function(grunt) {
           'src/js/plot/plot-scatterplot.js',
 
         ],
-        dest: 'src/js/app.js',
+        dest: 'src/build/app.js',
       },
     },
     less: {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
           paths: ["css"],
         },
         files: {
-          "src/css/style.css": "src/less/style.less",
+          "src/build/style.css": "src/less/style.less",
           "src/css/semantic-ui.css": "bower_components/semantic-ui/dist/semantic.min.css",
           "src/css/animate.css": "bower_components/animate.css/animate.min.css",
           "src/css/nouislider.css": "bower_components/nouislider/distribute/jquery.nouislider.min.css",
