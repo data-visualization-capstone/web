@@ -23,7 +23,6 @@ DV.api.twitter.stream = function(string, success, error){
   });
 }
 
-
 /******************************
       CRUD Functionality
  ******************************/

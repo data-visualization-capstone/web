@@ -11,8 +11,12 @@ var DV = {
   // Define common CRUD functions
   api : {},
 
+  // Are we in a development env?
+  production : _.contains(document.URL, "dydns.org"),
+
   // Target API. - Change API's url based on the current environment
-  url : _.contains(document.URL, "dydns.org") ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
+  // Currently set to TRUE = always use staging API
+  url : true ? "http://vent8225.dyndns.org:8080/" : "http://localhost:8080/",
 
   // Layer Data
   _layers : [],
