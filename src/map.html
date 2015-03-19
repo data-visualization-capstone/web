@@ -14,315 +14,21 @@
 <body id="map-content">
   
   <!-- Sidebar -->
-  <div class="ui_menu out">
+  <div id="menu"></div>
 
-    <!-- Header -->
-    <div class="menuHeader">
-      <h1>Filters</h1>
-    </div>
+  <!-- Toggle Side Nav -->
+  <div id="sideNavToggle" class="ui secondary button right out" onclick="UI.toggleSideNav('#sideNavToggle');">Hide Menu</div>
 
-    <div id="menuBody">
-
-      <div class="item menu_module" id="aparments_module">
-
-        <!-- Section -->
-        <div class="menuSection">
-          <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
-          <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
-    <!--       <div class="ui checkbox">
-            <input type="checkbox" name="apartment" checked>
-            <label>Display</label>         
-          </div> -->
-        </div>  
-
-
-        <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
-        <p style="display: inline; margin-left: 9px;">Display</p>
-
-        <!-- Section -->
-        <div id="heatmapParams" style="display: none;">
-          <p class="rangeTitle">Heatmap scale</p>
-          <!-- Section -->
-          <div class="menuSection scaleOption">
-            <div class="optionHeader">
-              <div class="ui radio checkbox">
-                <input type="radio" name="scale" checked>
-                <label>Use rent prices as scale</label>
-              </div>
-            </div>
-            <div class="menuSection optionBody">
-
-              <!-- Section -->
-              <div class="menuSection">  
-                  
-                <p>Number of bedrooms</p>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="any_br" checked>
-                  <label>Any</label>
-                </div>          
-                <div class="ui checkbox">
-                  <input type="checkbox" name="1_br">
-                  <label>1</label>
-                </div>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="2_br">
-                  <label>2</label>
-                </div>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="3_br">
-                  <label>3</label>
-                </div>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="4_br">
-                  <label>4+</label>
-                </div>
-              </div>
-              
-              <!-- Section -->
-              <div class="menuSection">
-                <p>Square Footage</p>
-                <span class="footage_link_lower"></span>
-                <span class="footage_link_upper" style="float:right"></span>                
-                <div class="footage range"></div>
-                <div style="text-align:center; height:10px;">
-                  <span>1000 - 2,000 Square Feet</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          
-          <!-- Section -->
-          <div class="menuSection scaleOption">
-            <div class="optionHeader">
-              <div class="ui radio checkbox">
-                <input type="radio" name="scale" >
-                <label>Use number of bedrooms as scale</label>
-              </div>
-            </div>
-            <div class="menuSection optionBody">
-
-              <!-- Section -->
-              <div class="menuSection">
-                <p>Square Footage</p>
-                <span class="footage_link_lower"></span>
-                <span class="footage_link_upper" style="float:right"></span>                
-                <div class="footage range"></div>
-                <div style="text-align:center; height:10px;">
-                  <span>1000 - 2,000 Square Feet</span>
-                </div>
-              </div>
-
-              <!-- Section -->
-              <div class="menuSection">
-                <p>Price</p>
-                <span class="price_link_lower"></span>
-                <span class="price_link_upper" style="float:right"></span>                
-                <div class="price range"></div>
-                <div style="text-align:center; height:10px;">
-                  <span>500- 4,000 dollars a month</span>
-                </div>
-              </div>              
-
-            </div>
-          </div>
-          
-          <!-- Section -->
-          <div class="menuSection scaleOption">
-            <div class="optionHeader">
-              <div class="ui radio checkbox">
-                <input type="radio" name="scale" >
-                <label>Use square footage as scale</label>
-              </div>
-            </div>
-            <div class="menuSection optionBody">
-
-              <!-- Section -->
-              <div class="menuSection">      
-                <p>Number of bedrooms</p>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="any_br" checked>
-                  <label>Any</label>
-                </div>          
-                <div class="ui checkbox">
-                  <input type="checkbox" name="1_br">
-                  <label>1</label>
-                </div>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="2_br">
-                  <label>2</label>
-                </div>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="3_br">
-                  <label>3</label>
-                </div>
-                <div class="ui checkbox">
-                  <input type="checkbox" name="4_br">
-                  <label>4+</label>
-                </div>
-              </div>
-
-              <!-- Section -->
-              <div class="menuSection">
-                <p>Rent Price</p>
-                <span class="price_link_lower"></span>
-                <span class="price_link_upper" style="float:right"></span>                
-                <div class="price range"></div>
-                <div style="text-align:center; height:10px;">
-                  <span>500 - 4,000 dollars a month</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-                              
-        </div>
-
-      </div>
-
-      <div class="item menu_module" id="social_media_module">
-
-        <!-- Section -->
-        <div class="menuSection noMarginBottom">
-          <p class="sectionHeader">Social Media</p>
-        </div> 
-
-        <!-- Section -->
-        <div class="menuSection">
-          <p class="ui_subheader">Explore what people are posting on Twitter and Instagram around the city be selecting hashtags below</p>
-        </div> 
-
-        <!-- Section -->
-        <div class="menuSection">
-          <ul id="hashtags">
-            <li onclick="UI.toggleTweet(this)" class="hashtag">traffic</li>
-            <li onclick="UI.toggleTweet(this)" class="hashtag">snow</li>
-            <li onclick="UI.toggleTweet(this)" class="hashtag">southend</li>
-            <li onclick="UI.toggleTweet(this)" class="hashtag">patriots</li>
-            <li onclick="UI.toggleTweet(this)" class="hashtag">commuting</li>
-            <li onclick="UI.toggleTweet(this)" class="hashtag">PAX</li>
-          </ul>
-        </div>
-
-        <!-- Section -->
-        <div class="menuSection">
-          <p>Add one custom hashtag to the map</p>
-          <div class="ui input">
-            <input placeholder="Enter word" id="hashtagInput">
-          </div>
-          <div class="ui button" id="addHashtagButton" onclick="UI.searchForTweet('#hashtagInput')" style="background-color:#1b1c1d; color:#fff;">
-            Add
-          </div>
-          <div class="ui button" id="removeHashtagButton" style="background-color:#1b1c1d; color:#fff; display:none;">
-            Delete
-          </div>          
-        </div>
-      </div>
-      
-      <!-- Section -->
-      <div class="item menu_module">
-        
-        <div class="menuSection noMarginBottom">
-          <p class="sectionHeader">Additional Information</p>
-        </div>
-
-        <div class="menuSection">
-          <div class="ui checkbox">       
-            <input type="checkbox" name="neighborhoods">
-            <label>Boston Neighborhoods</label>         
-          </div>        
-        </div>
-
-        <div class="menuSection">
-          <div class="ui checkbox">       
-            <input type="checkbox" name="mbta">
-            <label>MBTA Train Map</label>         
-          </div> 
-
-        <br>
-
-        <input type="checkbox" name="apartment" id="toggle_mbta">
-        <p style="display: inline; margin-left: 9px;">Show MBTA</p>
-  
-        
-        </div>            
-      </div>
-    </div>
-  </div>
-
-  <div class="map_tray">
-  <div class="ui secondary button right out" id="sideNavToggle" onclick="UI.toggleSideNav('#sideNavToggle');" style="top: 13px; left: 0px; z-index: 10001; position: absolute; border-radius:0px;">
-    Hide Menu
-  </div>
-
+  <!-- Key for Map Info -->
   <div id="mapkey"></div>
 
   <!-- Leaflet.js map -->
   <div id='map'></div>
 
-  <div id="filterMenu" style="display:none;">
-    <div id="fmToggle">
-      <a href="javascript:void(0)">
-        <h4>Data Filters</h4>
-      </a>
-    </div>
-
-    <div id="filterMenuBody">
-      <div id="filterMenuBodyInner">
-        <form action="#">
-          <!-- Select Data Sets -->
-          <div id="toggles" style="display: none;"></div>
-  
-          <section id="dateSection">
-            <h4>by Date:</h4>
-
-            <!-- Filter Data -->
-            <div class="demo">
-              <input id="date-range" value="" style="width: 100%;">
-            </div>
-
-
-            <div class="divider clear"></div>
-
-            <section id="timeSection">
-              <h4>by Time:</h4>
-
-              <div id="slider"></div>
-
-              <div class="divider"></div>
-
-              <h4>MAP TYPE</h4>
-
-              <div class="inputGroup">
-                <div class="checkbox_outer">
-                  <input type="checkbox" name="time" value="heatmap" checked>
-                  <label>Heatmap</label>
-                </div>
-              </div>
-
-              <div class="inputGroup">
-                <div class="checkbox_outer">
-                  <input type="checkbox" name="time" value="chronological">
-                  <label>Chronological</label>
-                </div>
-              </div>
-
-              <div class="inputGroup">
-                <div class="checkbox_outer">
-                  <input type="checkbox" name="time" value="plain">
-                  <label>Plain</label>
-                </div>
-              </div>
-
-            </section>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <!-- Loading Indicator -->
   <div id="loading" class="spin" style="display: none;"></div>
-</div>
+
+  </div>
   <!-- Data Visualization Script -->
   <script src="build/build.js"></script>
 
@@ -446,12 +152,12 @@
             Wire-up UI Elements
      ************************************/
 
-    $(document).ready(function(){
+    // Load Menu Template
+    $("#menu").load('templates/menu.tpl.html', function(result){
         UI.elements.checkbox("#toggle_apartment_heatmaps", heatmapLayer);  
         UI.elements.checkbox("#toggle_mbta", red_line);  
         UI.elements.checkbox("#toggle_mbta", orange_line);  
-    })
-
+    });
     
   </script>
 </body>
