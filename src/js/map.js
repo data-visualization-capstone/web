@@ -7,9 +7,6 @@
 // Define global DV (Data Visualization) Configurations
 
 var DV = {
-  
-  // Define common CRUD functions
-  api : {},
 
   // Are we in a development env?
   production : _.contains(document.URL, "dydns.org"),
@@ -209,10 +206,10 @@ function buildKey(layers){
         Twitter Stuff
  ******************************/
 
-DV.api.twitter = {};
+DV.twitter = {};
 
 // GET /twitter/search/:string
-DV.api.twitter.search = function(string, success, error){
+DV.twitter.search = function(string, success, error){
   $.get(DV.url + "twitter/search/" + string, function(resp){
       success(resp)
     })
@@ -223,7 +220,7 @@ DV.api.twitter.search = function(string, success, error){
 }
 
 // GET /twitter/stream/:string
-DV.api.twitter.stream = function(string, success, error){
+DV.twitter.stream = function(string, success, error){
   $.get(DV.url + "twitter/stream/" + string, function(resp){
       success(resp)
     })

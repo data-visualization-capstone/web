@@ -91,7 +91,7 @@ UI.toggleTweet = function(obj){
     } else {
 
       // Get tweets that were cached from the stream.
-      DV.api.twitter.stream(string, function(resp){
+      DV.twitter.stream(string, function(resp){
         
         // Add layer
         DV.layers.addLayer({
@@ -143,7 +143,7 @@ UI.searchForTweet = function(input){
   }
 
   // Get data from API
-  DV.api.twitter.search(string, function(resp){
+  DV.twitter.search(string, function(resp){
     
     // Add layer
     DV.layers.addLayer({

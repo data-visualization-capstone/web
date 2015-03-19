@@ -24,14 +24,13 @@ module.exports = function(grunt) {
 
           // Our JS Files
           'src/js/map.js',
-          'src/js/data.js',
           'src/js/plot/plot-heatmap.js',
           'src/js/plot/plot-hex.js',
           'src/js/plot/plot-path.js',
           'src/js/plot/plot-scatterplot.js',
 
         ],
-        dest: 'src/build/app.js',
+        dest: 'src/build/build.js',
       },
     },
     less: {
