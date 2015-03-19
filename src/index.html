@@ -141,39 +141,42 @@
         }   
       })
     });
-  $(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top
-          }, 1000);
-          return false;
+
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
         }
-      }
+      });
     });
-  });
-  $("#expander").click(function(){
-    $("p.hiddenText").slideToggle();
-    $("span#carrot").toggleClass("rotated");
-  }); 
-  $(".mobileToggle").click(function(){
-    if($("ul#mobileMenu").hasClass("toggled")){
-      $("ul#mobileMenu").css("right", "-400px");
-      $("ul#mobileMenu").removeClass("toggled");
-      window.setTimeout(function(){
-        $("ul#mobileMenu").hide();
-      },400);
-    } else{
-      $("ul#mobileMenu").show(); 
-      window.setTimeout(function(){
-        $("ul#mobileMenu").css("right", "0px");
-        $("ul#mobileMenu").addClass("toggled");
-      },0);     
-    }
-  });  
+
+    $("#expander").click(function(){
+      $("p.hiddenText").slideToggle();
+      $("span#carrot").toggleClass("rotated");
+    }); 
+
+    $(".mobileToggle").click(function(){
+      if($("ul#mobileMenu").hasClass("toggled")){
+        $("ul#mobileMenu").css("right", "-400px");
+        $("ul#mobileMenu").removeClass("toggled");
+        window.setTimeout(function(){
+          $("ul#mobileMenu").hide();
+        },400);
+      } else{
+        $("ul#mobileMenu").show(); 
+        window.setTimeout(function(){
+          $("ul#mobileMenu").css("right", "0px");
+          $("ul#mobileMenu").addClass("toggled");
+        },0);     
+      }
+    });  
   </script>
 </body>
 </html>

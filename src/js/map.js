@@ -203,6 +203,36 @@ function buildKey(layers){
   })
 }
 
+
+
+/******************************
+        Twitter Stuff
+ ******************************/
+
+DV.api.twitter = {};
+
+// GET /twitter/search/:string
+DV.api.twitter.search = function(string, success, error){
+  $.get(DV.url + "twitter/search/" + string, function(resp){
+      success(resp)
+    })
+    .fail(function() {
+      console.error("Error fetching tweets: "  + resp)
+      error(resp)
+    })
+}
+
+// GET /twitter/stream/:string
+DV.api.twitter.stream = function(string, success, error){
+  $.get(DV.url + "twitter/stream/" + string, function(resp){
+      success(resp)
+    })
+    .fail(function() {
+      console.error("Error fetching tweets: "  + resp)
+      error(resp)
+    })
+}
+
 /******************************
          Utils
  ******************************/
@@ -232,3 +262,5 @@ DV.utils.componentToHex = function(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 }
+
+
