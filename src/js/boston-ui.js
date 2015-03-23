@@ -10,29 +10,11 @@ var UI = {};
 // Initialize wrapper
 UI.elements = {};
 
+
 // Initialize Checkbox 
+// & Fix Semantic UI Checkbox Bug
 // Example: checkbox("#box", function(){}, function(){});
-// UI.elements.checkbox = function(selector, layer){
-
-//   // Bind action to provided selector
-//   $(selector).change(function(e) {
-
-//     // Get checkbox's status
-//     var checked = $(selector).is(':checked');
-//     console.log(selector + " " + checked);
-
-//     // Enable - Add Layer
-//     if (checked) {
-//         DV.layers.addLayer(layer);
-    
-//     //  Disable - Remove Layer
-//     } else {
-//         DV.layers.deleteLayer(layer.id)
-//     }
-//   });
-// }
-
-UI.elements.checkbox2 = function(selector, layer){
+UI.elements.layerCheckbox = function(selector, layer){
 
   // Select Label
   var label = $(selector).siblings("label");
@@ -72,19 +54,29 @@ var showOption = function(){
   });  
 } 
 
-// Initialize Default Section
-showOption();
+// Determines what will be used for SCALE of HEATMAP
+// - Rent Price
+// - Number of Bedrooms
+// - Square Footage
+UI.elements.heatmapScale = function(selector){
 
-$("label").click(function(){
-    var checkbox = $(this).siblings("input[type=radio]").prop("checked");
-    if(checkbox == true){
-      $(this).siblings("input[type=radio]").prop("checked", false);
-    } 
-    else {
-      $(this).siblings("input[type=radio]").prop("checked", true);
+  // Select Label
+  var label = $(selector).siblings("label");
+
+  // Bind action to label
+  label.click(function(e) {
+
+    // Get radio's status
+    var checked = label.siblings("input[type=radio]").prop("checked");
+    console.log(this + " " + checked);
+
+    // Enable - Switch Heatmap Scale
+    if (!checked) {       
+      label.siblings("input[type=radio]").prop("checked", true);
+      showOption();         
     }
-});
-
+  });
+}
 /**************************
      DOM Manipulation
 ****************************/

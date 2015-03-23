@@ -152,9 +152,13 @@
 
     // Load Menu Template
     $("#menu").load('templates/menu.tpl.html', function(result){
-        UI.elements.checkbox2("#toggle_apartment_heatmaps", heatmapLayer);  
-        UI.elements.checkbox2("#toggle_mbta", red_line);  
-        UI.elements.checkbox2("#toggle_mbta", orange_line);
+        UI.elements.layerCheckbox("#toggle_apartment_heatmaps", heatmapLayer);  
+        UI.elements.layerCheckbox("#toggle_mbta", red_line);
+        UI.elements.heatmapScale("#squareFootage");
+        UI.elements.heatmapScale("#bedrooms");
+        UI.elements.heatmapScale("#rentPrice");        
+        // Initialize Default Section
+        showOption();   
     });
     
   </script>

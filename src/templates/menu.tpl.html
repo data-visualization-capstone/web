@@ -15,10 +15,6 @@
         <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
       </div> 
 
-<!--       <div class="ui checkbox">
-      <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
-      </div> -->
-
       <div class="menuSection">
         <div class="ui checkbox">       
           <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
@@ -26,13 +22,13 @@
         </div>        
       </div>      
       <!-- Section -->
-      <div id="heatmapParams" style="display: none;">
+      <div id="heatmapParams">
         <p class="rangeTitle">Heatmap scale</p>
         <!-- Section -->
         <div class="menuSection scaleOption">
           <div class="optionHeader">
             <div class="ui radio checkbox">
-              <input type="radio" name="scale" checked>
+              <input type="radio" name="scale" id="rentPrice" checked>
               <label>Use rent prices as scale</label>
             </div>
           </div>
@@ -82,7 +78,7 @@
         <div class="menuSection scaleOption">
           <div class="optionHeader">
             <div class="ui radio checkbox">
-              <input type="radio" name="scale" >
+              <input type="radio" name="scale" id="bedrooms">
               <label>Use number of bedrooms as scale</label>
             </div>
           </div>
@@ -117,7 +113,7 @@
         <div class="menuSection scaleOption">
           <div class="optionHeader">
             <div class="ui radio checkbox">
-              <input type="radio" name="scale" >
+              <input type="radio" name="scale" id="squareFootage">
               <label>Use square footage as scale</label>
             </div>
           </div>
@@ -228,7 +224,7 @@
         <br>
 
         <div class="ui checkbox">       
-          <input type="checkbox" name="toggle_mbta">
+          <input type="checkbox" name="toggle_mbta" id="toggle_mbta">
           <label>Show MBTA</label>         
         </div> 
 
