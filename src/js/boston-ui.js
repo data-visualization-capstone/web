@@ -7,12 +7,6 @@
 // Namespace UI Options
 var UI = {};
 
-
-
-/**************************
-     UI Elements
-****************************/
-
 // Initialize wrapper
 UI.elements = {};
 
@@ -116,12 +110,6 @@ UI.toggleTweet = function(obj){
       });
 
     }
-
-      
-
-    // console.log(DV.layers.getLayer("twitter" + string));
-
-
 }
 
 // Fetch tweets
@@ -249,10 +237,9 @@ linkInput('price');
 linkInput('footage');
 
 
-
-  /*****************************************************
-     set colors for hashtags
- ******************************************************/
+/*****************************************************
+        set colors for hashtags
+******************************************************/
 
 var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"],
     hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
@@ -294,7 +281,6 @@ $(".hashtag").hover(
 );
 
 colorize();
-
 
 /**************************
     Loading Indicator
