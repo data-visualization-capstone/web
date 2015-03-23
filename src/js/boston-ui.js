@@ -62,25 +62,6 @@ UI.elements.checkbox2 = function(selector, layer){
   });
 }
 
-// uses Label to manipulate it's sibling Checkbox
-// - fix for bugs with semantic ui
-$("label").click(function(){
-
-    console.log($(this))
-    // is the checkbox checked?
-    var checkbox = $(this).siblings("input[type=checkbox]").prop("checked");
-
-    // unchecks if true
-    if(checkbox){
-      $(this).siblings("input[type=checkbox]").prop("checked", false);
-    } 
-
-    // checks if false
-    else {
-      $(this).siblings("input[type=checkbox]").prop("checked", true);
-    }
-});
-
 // Opens and Closes UI Sections
 var showOption = function(){
 
