@@ -13,12 +13,18 @@
       <div class="menuSection">
         <p class="sectionHeader noMarginBottom">Apartment Heatmap</p>
         <p class="ui_subheader">Explore rent prices, number of bedrooms, and square footage of apartments in different areas of Boston.</p>
-      </div>  
+      </div> 
 
-
+<!--       <div class="ui checkbox">
       <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
-      <p style="display: inline; margin-left: 9px;">Display</p>
+      </div> -->
 
+      <div class="menuSection">
+        <div class="ui checkbox">       
+          <input type="checkbox" name="apartment" id="toggle_apartment_heatmaps">
+          <label>Display</label>         
+        </div>        
+      </div>      
       <!-- Section -->
       <div id="heatmapParams" style="display: none;">
         <p class="rangeTitle">Heatmap scale</p>
@@ -219,10 +225,12 @@
           <label>MBTA Train Map</label>         
         </div> 
 
-      <br>
+        <br>
 
-      <input type="checkbox" name="apartment" id="toggle_mbta">
-      <p style="display: inline; margin-left: 9px;">Show MBTA</p>
+        <div class="ui checkbox">       
+          <input type="checkbox" name="toggle_mbta">
+          <label>Show MBTA</label>         
+        </div> 
 
       
       </div>            

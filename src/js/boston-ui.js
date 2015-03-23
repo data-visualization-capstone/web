@@ -18,25 +18,97 @@ UI.elements = {};
 
 // Initialize Checkbox 
 // Example: checkbox("#box", function(){}, function(){});
-UI.elements.checkbox = function(selector, layer){
+// UI.elements.checkbox = function(selector, layer){
 
-  // Bind action to provided selector
-  $(selector).change(function(e) {
+//   // Bind action to provided selector
+//   $(selector).change(function(e) {
+
+//     // Get checkbox's status
+//     var checked = $(selector).is(':checked');
+//     console.log(selector + " " + checked);
+
+//     // Enable - Add Layer
+//     if (checked) {
+//         DV.layers.addLayer(layer);
+    
+//     //  Disable - Remove Layer
+//     } else {
+//         DV.layers.deleteLayer(layer.id)
+//     }
+//   });
+// }
+
+UI.elements.checkbox2 = function(selector, layer){
+
+  // Select Label
+  var label = $(selector).siblings("label");
+  // Bind action to label
+  label.click(function(e) {
 
     // Get checkbox's status
-    var checked = $(selector).is(':checked');
-    console.log(selector + " " + checked);
+    var checked = $(this).siblings("input[type=checkbox]").prop("checked");
+    console.log(this + " " + checked);
 
     // Enable - Add Layer
     if (checked) {
-        DV.layers.addLayer(layer);
+        DV.layers.deleteLayer(layer.id);        
+        $(this).siblings("input[type=checkbox]").prop("checked", false);         
     
     //  Disable - Remove Layer
     } else {
-        DV.layers.deleteLayer(layer.id)
+        DV.layers.addLayer(layer);        
+        $(this).siblings("input[type=checkbox]").prop("checked", true);               
     }
   });
 }
+
+// uses Label to manipulate it's sibling Checkbox
+// - fix for bugs with semantic ui
+$("label").click(function(){
+
+    console.log($(this))
+    // is the checkbox checked?
+    var checkbox = $(this).siblings("input[type=checkbox]").prop("checked");
+
+    // unchecks if true
+    if(checkbox){
+      $(this).siblings("input[type=checkbox]").prop("checked", false);
+    } 
+
+    // checks if false
+    else {
+      $(this).siblings("input[type=checkbox]").prop("checked", true);
+    }
+});
+
+// Opens and Closes UI Sections
+var showOption = function(){
+
+  // Target's RADIO elements
+  $("input[type=radio]").each(function(){
+
+    // If it's checked, 
+    if($(this).prop("checked") == true){
+      $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+    }
+    else{
+      $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+    }
+  });  
+} 
+
+// Initialize Default Section
+showOption();
+
+$("label").click(function(){
+    var checkbox = $(this).siblings("input[type=radio]").prop("checked");
+    if(checkbox == true){
+      $(this).siblings("input[type=radio]").prop("checked", false);
+    } 
+    else {
+      $(this).siblings("input[type=radio]").prop("checked", true);
+    }
+});
 
 /**************************
      DOM Manipulation
@@ -165,51 +237,6 @@ UI.searchForTweet = function(input){
 
   })
 }
-
-/************************************
-     Fix Checkboxs in Side Menu
-
-     - problem with z-index
-
-     - click label instead of checkbox
-       to toggle checkbox
- ************************************/
-
-$("label").click(function(){
-    var checkbox = $(this).siblings("input[type=checkbox]").prop("checked");
-    if(checkbox == true){
-      $(this).siblings("input[type=checkbox]").prop("checked", false);
-    } 
-    else {
-      $(this).siblings("input[type=checkbox]").prop("checked", true);
-    }
-});
-
-
-var showOption = function(){
-  $("input[type=radio]").each(function(){
-    if($(this).prop("checked") == true){
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
-    }
-    else{
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
-    }
-  });  
-} 
-
-showOption();
-
-$("label").click(function(){
-    var checkbox = $(this).siblings("input[type=radio]").prop("checked");
-    if(checkbox == true){
-      $(this).siblings("input[type=radio]").prop("checked", false);
-      showOption();
-    } 
-    else {
-      $(this).siblings("input[type=radio]").prop("checked", true);
-      showOption();
-    }
-});
 
 /*********************************
       Set Up Range Slider
