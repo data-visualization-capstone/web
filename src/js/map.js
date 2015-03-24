@@ -183,7 +183,7 @@ function verifyKeys(layer){
 
 
 function buildKey(layers){
-  var key = $("#mapkey");
+  var key = $("#legend");
 
   key.html("");
 
