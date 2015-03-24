@@ -40,6 +40,50 @@ p {
     animation: spin 2000ms infinite linear;
 }
 
+/**************************
+    Semantic Overrides
+ **************************/
+
+.ui.left.sidebar{
+  width:310px;
+  padding:0px 20px;
+}
+
+/**************************
+    NoUISlider Overrides
+ **************************/
+ 
+.noUi-horizontal{
+  height: 2px;
+
+}
+.noUi-base{
+}
+.noUi-horizontal .noUi-handle{
+  width:15px;
+  height: 15px;
+  left:0px;
+  top:-7px;
+  border-radius: 100%;
+  background-color: #343434;
+  box-shadow: none;
+  border: none;
+}
+
+.noUi-handle.noUi-handle-upper{
+  left:-15px;
+}
+
+.noUi-handle:before,
+.noUi-handle::after{
+  display: none;
+}
+
+.noUi-connect{
+  box-shadow:none;
+}
+
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -68,6 +112,4 @@ p {
 // Custom
 @import "map.less";
 @import "home.less";
-@import "semantic.less";
-@import "nouislider.less";
 @import "lib/animate.less";
