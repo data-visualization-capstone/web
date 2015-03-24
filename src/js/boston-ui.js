@@ -39,7 +39,7 @@ UI.elements.layerCheckbox = function(selector, layer){
 }
 
 // Opens and Closes UI Sections
-var showOption = function(){
+UI.initializeOptions = function(){
 
   // Target's RADIO elements
   $("input[type=radio]").each(function(){
@@ -73,7 +73,7 @@ UI.elements.heatmapScale = function(selector){
     // Enable - Change Heatmap Scale
     if (!checked) {       
       label.siblings("input[type=radio]").prop("checked", true);
-      showOption();         
+      UI.initializeOptions();         
     }
   });
 }
@@ -227,61 +227,75 @@ UI.initializeSliders = function(){
   // Display current values of upper and lower handles
   linkInput = function(target){
     var thing = '.range' + target+ '';
-
     $('.range' + target).Link('lower').to($(target + '_link_lower'));
     $('.range' + target).Link('upper').to($(target + '_link_upper'));
   }
 
+  // Bind spans to RS
   linkInput('.price');
   linkInput('.footage');
 }
 
 
 
-/*****************************************************
-        set colors for hashtags
-******************************************************/
+// Handles coloring for hashtag tiles in filter UI
+UI.initializeHashtags = function(){
 
-var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"],
-    hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
+  // List of colors for hashtags
+  var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
 
-for(var i = 0; i < hashtags.length; i++){
-hashtags[i].setAttribute("color", ""+colors[i]+"");
-}
+  // Create list of .hashtag DOM Elements 
+  var hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
 
-function colorize(){
+  // Loop through .hashtag elements
+  for(var i = 0; i < hashtags.length; i++){
 
-  $(".hashtag").each(function(){
-    if($(this).hasClass("active")){
-      $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-    } else{
-      $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-    }
-  });            
-}
-
-$(".hashtag").click(function(){
-
-  // $(this).toggleClass("active");
-  colorize();
-
-});
-
-$(".hashtag").hover(
-  function(){
-    if($(this).hasClass("active") != true){
-      $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-    }
-  },
-  function(){
-    if($(this).hasClass("active") != true){
-      $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-    }
+    // Set Attribute to determine color
+    hashtags[i].setAttribute("color", ""+colors[i]+"");
   }
 
-);
+  // Sets the color for each .hashtag tile based on "color" attribute
+  function colorize(){
 
-colorize();
+    // Bind to .hashtag elements
+    $(".hashtag").each(function(){
+
+      // Colors tile when activated
+      if($(this).hasClass("active")){
+        $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
+      } 
+
+      // Removes color when deactivated
+      else{
+        $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
+      }
+    });
+
+  }
+
+  // Adds or removes color from .hashtag tile
+  $(".hashtag").click(function(){
+    colorize();
+  });
+
+  // Toggles color for NON-ACTIVE .hashtag tiles on hover
+  $(".hashtag").hover(
+    function(){
+      if($(this).hasClass("active") != true){
+        $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
+      }
+    },
+    function(){
+      if($(this).hasClass("active") != true){
+        $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
+      }
+    }
+  );
+
+  // Initial Colorization of .hashtag tiles
+  colorize();
+}
+
 
 /**************************
     Loading Indicator
