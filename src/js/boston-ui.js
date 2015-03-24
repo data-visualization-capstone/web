@@ -38,12 +38,6 @@ UI.elements.layerCheckbox = function(selector, layer){
   });
 }
 
-// Determines which Scale option for heatmap is open
-UI.initializeOptions = function(){
-
-
-} 
-
 // Determines what will be used for SCALE of HEATMAP
 // - Rent Price
 // - Number of Bedrooms
