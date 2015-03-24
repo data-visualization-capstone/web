@@ -39,7 +39,6 @@ UI.elements.layerCheckbox = function(selector, layer){
 }
 
 // Determines which Scale option for heatmap is open
-// 
 UI.initializeOptions = function(){
 
 
@@ -54,6 +53,7 @@ UI.elements.heatmapScale = function(selector){
   // Select Label
   var label = $(selector).siblings("label");
 
+  // Shows/Hides Filtering for heatmap based on selected scale 
   var toggleOption = function(){
     $("input[type=radio]").each(function(){
    
