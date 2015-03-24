@@ -47,20 +47,6 @@ UI.elements.heatmapScale = function(selector){
   // Select Label
   var label = $(selector).siblings("label");
 
-  // Shows/Hides Filtering for heatmap based on selected scale 
-  var toggleOption = function(){
-    $("input[type=radio]").each(function(){
-   
-      if($(this).prop("checked") == true){
-
-        $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
-      }
-      else{
-        $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
-      }
-    }); 
-  } 
-
   // Bind action to label
   label.click(function(e) {
 
@@ -71,10 +57,23 @@ UI.elements.heatmapScale = function(selector){
     // Enable - Change Heatmap Scale
     if (!checked) {       
       label.siblings("input[type=radio]").prop("checked", true);
-      toggleOption();         
+      UI.toggleOption();         
     }
   });
 }
+// Shows/Hides Filtering for heatmap based on selected scale 
+UI.toggleOption = function(){
+  $("input[type=radio]").each(function(){
+ 
+    if($(this).prop("checked") == true){
+
+      $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+    }
+    else{
+      $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+    }
+  }); 
+} 
 /**************************
      DOM Manipulation
 ****************************/
