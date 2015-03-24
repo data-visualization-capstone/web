@@ -38,20 +38,11 @@ UI.elements.layerCheckbox = function(selector, layer){
   });
 }
 
-// Opens and Closes UI Sections
+// Determines which Scale option for heatmap is open
+// 
 UI.initializeOptions = function(){
 
-  // Target's RADIO elements
-  $("input[type=radio]").each(function(){
 
-    // If it's checked, 
-    if($(this).prop("checked") == true){
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
-    }
-    else{
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
-    }
-  });  
 } 
 
 // Determines what will be used for SCALE of HEATMAP
@@ -63,6 +54,19 @@ UI.elements.heatmapScale = function(selector){
   // Select Label
   var label = $(selector).siblings("label");
 
+  var toggleOption = function(){
+    $("input[type=radio]").each(function(){
+   
+      if($(this).prop("checked") == true){
+
+        $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+      }
+      else{
+        $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+      }
+    }); 
+  } 
+
   // Bind action to label
   label.click(function(e) {
 
@@ -73,7 +77,7 @@ UI.elements.heatmapScale = function(selector){
     // Enable - Change Heatmap Scale
     if (!checked) {       
       label.siblings("input[type=radio]").prop("checked", true);
-      UI.initializeOptions();         
+      toggleOption();         
     }
   });
 }
