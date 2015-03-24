@@ -70,7 +70,7 @@ UI.elements.heatmapScale = function(selector){
     var checked = label.siblings("input[type=radio]").prop("checked");
     console.log(this + " " + checked);
 
-    // Enable - Switch Heatmap Scale
+    // Enable - Change Heatmap Scale
     if (!checked) {       
       label.siblings("input[type=radio]").prop("checked", true);
       showOption();         
@@ -199,42 +199,43 @@ UI.searchForTweet = function(input){
   })
 }
 
-/*********************************
-      Set Up Range Slider
-**********************************/
 
- // Set up the ranges for each class of slider 
+// Initializes ALL RANGE SLIDERS (RS)
+UI.initializeSliders = function(){
 
-$(".range.price").noUiSlider({
-  start: [500, 4000],
-  connect: true,
-  range: {
-    'min': 500,
-    'max': 4000
+  // Initialize RS for PRICE
+  $(".range.price").noUiSlider({
+    start: [500, 4000],
+    connect: true,
+    range: {
+      'min': 500,
+      'max': 4000
+    }
+  });
+
+  // Initialize RS for SQUARE FOOTAGE
+  $(".range.footage").noUiSlider({
+    start: [500, 4000],
+    connect: true,
+    range: {
+      'min': 1000,
+      'max': 2000
+    }
+  });
+
+  // Link the range sliders to spans
+  // Display current values of upper and lower handles
+  linkInput = function(target){
+    var thing = '.range' + target+ '';
+
+    $('.range' + target).Link('lower').to($(target + '_link_lower'));
+    $('.range' + target).Link('upper').to($(target + '_link_upper'));
   }
-});
 
-$(".range.footage").noUiSlider({
-  start: [500, 4000],
-  connect: true,
-  range: {
-    'min': 1000,
-    'max': 2000
-  }
-});
-
-// Link the range sliders spans
-// Display current values of upper and lower handles
-
-var linkInput = function(target){
-  var thing = '.range.' + target+ '';
-
-  $('.range.' + target).Link('lower').to($('.'+ target + '_link_lower'));
-  $('.range.' + target).Link('upper').to($('.'+ target + '_link_upper'));
+  linkInput('.price');
+  linkInput('.footage');
 }
 
-linkInput('price');
-linkInput('footage');
 
 
 /*****************************************************
