@@ -9,6 +9,7 @@ var queue = require('queue-async');
 
 // Init Mapbox Tile Layer
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWxleGpvaG5zb241MDUiLCJhIjoiQVAzNUVUWSJ9.DsqpIB2Asy3IGJ-_HqBCOw';
+
 var tileLayer = L.tileLayer('https://{s}.tiles.mapbox.com/v4/stephalee.aec4ccea/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
 });
@@ -60,6 +61,7 @@ function dataLoaded(err, mbta, census) {
   // ====================
   var census2010Layer = CensusLayer(map, census);
   var mbtaLayer = MbtaGeoJsonLayer(map, mbta);
+  
   // This module is mostly a skeleton, since we haven't decided what we wanna do with it.
   var heatmapLayer = HeatmapLayer(map);
 

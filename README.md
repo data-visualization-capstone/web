@@ -114,40 +114,21 @@ $ git clone git@github.com:data-visualization-capstone/web.git
 
 > Node Package Manager (NPM) is used for managing packages and dependenices.
 
-3.) Download Node dependencies
 
 ```javascript
+// Download Node dependencies
 $ npm install
-```
 
-4.) Download Front End Dependencies from bower.json:
-
-```javascript
+// Download Front End Dependencies from bower.json:
 $ bower install
-```
 
-5.) Install Grunt (Task Manager)
-
-```javascript
-$ sudo npm install -g grunt
-$ sudo npm install -g grunt-cli
-```
-
-6.) Run Grunt
-
-> Compile Project
-
-We use Grunt to do things like compile LESS and concatenate JS libraries. Run `grunt` or `grunt watch` to run the default task which will build the app every time source files are saved. This is configured in `Gruntfile.js`
-
-```javascript
+// Compile Project
+// We use Grunt to do things like compile LESS and concatenate JS libraries. Run `grunt` or `grunt watch` to run the default task which will build the app every time source files are saved. This is configured in `Gruntfile.js`
 $ grunt
-```
 
-7.) Run a Local Web Server
+// Run a Local Web Server
+// Using Node's Simple HTTP Server.
 
-> Using Node's Simple HTTP Server.
-
-```javascript
 $ npm start
 ```
 
