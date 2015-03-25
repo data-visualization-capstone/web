@@ -4,6 +4,7 @@
  * The leaflet object, L, is available globablly (as part of the mapbox.js).
  * All other dependencies are required with browserify.
  */
+
 var d3 = require('d3');
 var queue = require('queue-async');
 
@@ -12,7 +13,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYWxleGpvaG5zb241MDUiLCJhIjoiQVAzNUVUWSJ9.Dsqp
 
 var tileLayer = L.tileLayer('https://{s}.tiles.mapbox.com/v4/stephalee.aec4ccea/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-});
+}); 
 
 // Init leaflet map with out mapbox tile layer
 var map = L.map('map', {
