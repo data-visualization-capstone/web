@@ -1,0 +1,31 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/data-visualization-capstone/web",
+  "authors": [
+    "DJ Hartman <danieljayhartman@gmail.com>",
+    "Alex Johnson",
+    "Dana Bucci",
+    "Josh Olsen",
+    "Steph Lee",
+    "Ben Leichter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "moment": "~2.8.4",
+    "underscore": "~1.7.0",
+    "d3": "~3.4.13",
+    "leaflet-d3": "latest",
+    "semantic-ui": "latest",
+    "animate.css": "3.2.0",
+    "nouislider": "~7.0.10"
+  }
+}

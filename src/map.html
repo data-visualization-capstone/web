@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/semantic-ui.css" rel="stylesheet" />
+  <link href="/css/nouislider.css" rel="stylesheet" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
+  <link href="/build/style.css" rel="stylesheet" />
+  <title>Data Visualization Capstone</title>
+</head>
+
+<body id="map-content">
+
+  <!-- Sidebar -->
+  <div id="menu"></div>
+
+  <!-- Toggle Side Nav -->
+  <div id="sideNavToggle" class="ui secondary button right out" onclick="UI.toggleSideNav('#sideNavToggle');">Hide Menu</div>
+
+  <!-- Key for Map Info -->
+  <div id="legend"></div>
+
+  <!-- Leaflet.js map -->
+  <div id='map'></div>
+
+  <!-- Loading Indicator -->
+  <div id="loading" class="spin" style="display: none;"></div>
+
+  <!-- Data Visualization Script -->
+  <script src="build/build.js"></script>
+
+  <!-- UI and Event Handlers for Content -->
+  <script src="js/ui.js"></script>
+
+  <!-- Load in Sample Data -->
+  <script src="js/data/sample-data.js"></script>
+  
+  <!-- External -->
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+  <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+
+  <script>
+
+    /************************************
+         Data Visualization Settings
+     ************************************/
+
+    // For reference, Boston is:
+    // 42.3601° N (lat), 71.0589° W (long), or -71
+
+    // Map settings
+    var options = {
+
+      // Mapbox's style key for applying map designs
+      map_key: "stephalee.aec4ccea",
+
+      // Define default map viewport: Top left & bottom right coordinates
+      viewport: [
+        [42.329077, -71.108871],
+        [42.374200, -71.032072]
+      ],
+
+      maxZoom : 12,
+
+      minZoom : 4,
+
+      // Support multiple layers of data representation.
+      // Useful for building correlations between data sets.
+      layers : [],
+        
+    }
+
+    /************************************
+              Initialize Map
+     ************************************/
+
+    // Global variable for map object
+    // Initialize Leaflet map
+    var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+    // Add layers when the map is ready.
+    map.on('ready', function(){
+      update(DV._layers);
+    })
+
+    // Re-add layers when the map has changed.
+    map.on('viewreset', function(){
+      console.log("\nView Reset: Replotting Layers");
+      update(DV._layers);
+    })
+
+    
+    /************************************
+         Add Default Data
+    ************************************/
+
+    var heatmapLayer = {
+      
+      // Set name for layer
+      // used for unique ID
+      name : "Hex Map",
+
+      // Define representation of layer
+      type: "hex",
+
+      // Data from sample-data.js
+      data : sample_data.apartments,
+      
+      // Pixel width
+      width: 15,
+
+      // Define custom color. Used if points
+      //  on't have a color parameter.
+      color: "#005696",
+      
+      // Custom function to filter data set.
+      // Use to remove duplicates or process.
+      filter : function(point){
+        return point.value > 2000;
+      },
+      // Apply function to every point
+      // Useful for computing color.
+      map : function(point){
+        return point;
+      },
+    };
+
+    var red_line = {
+      name : "Red Line",
+      type: "path",
+      data : sample_data.subway.red,
+      width: 5,
+      color: "#ff0000",
+    }
+
+    var orange_line = {
+      name : "Orange Line",      
+      type: "path",
+      data : sample_data.subway.orange,
+      width: 5,
+      color: "#ffa500",
+    }
+
+    var tweet = {
+
+    }
+
+    /************************************
+            Wire-up UI Elements
+     ************************************/
+
+    // Load Menu Template
+    $("#menu").load('templates/menu.tpl.html', function(result){
+        UI.elements.layerCheckbox("#toggle_apartment_heatmaps", heatmapLayer);  
+        UI.elements.layerCheckbox("#toggle_mbta", red_line);
+        UI.elements.heatmapScale("#squareFootage");
+        UI.elements.heatmapScale("#bedrooms");
+        UI.elements.heatmapScale("#rentPrice");        
+        
+        // Initialize Defaults For Filter UI
+        UI.initializeSliders();
+        UI.initializeHashtags(); 
+        UI.toggleOption();        
+    });
+    
+  </script>
+</body>
+
+</html>

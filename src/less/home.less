@@ -1,0 +1,333 @@
+
+body {
+	padding: 0px;
+	margin:0px;
+	font-family: 'Open Sans', sans-serif;
+	text-rendering:optimizeLegibility;
+}
+
+h1 {
+	margin:0px;
+	font-size: 24px;
+	font-weight: bold;
+	color:#343434;
+}
+
+p {
+	line-height: 24px;
+}
+
+.trans {
+	-webkit-transition: all 0.4s ease;
+	transition:all 0.4s ease;
+}
+
+/** /// All DOM Elements Inside #header /// **/
+nav#header {
+	background-color: #000;
+	height:70px;
+	margin-top: 0px;
+	padding: 0px 20px;
+	padding-top: 20px;
+	box-sizing:border-box;
+	overflow: hidden;
+  	
+	h1{
+		font-family: "Open Sans";
+		float: left;
+		font-size: 18px;
+		font-weight: bold;
+		color:#FFF;	
+	}
+	ul{
+		margin: 0px;
+		float:right;
+		margin-right: 0px;
+		margin-top:0px;
+		display: block;
+	}
+	ul#deskMenu{
+  		
+  		/** /// All DOM Elements Inside #deskMenu /// **/
+
+		li{
+			display: inline;
+			margin-right: 20px;
+		}
+		li:last-child{
+			margin-right: 0px;
+		}
+		li a{
+			text-decoration: none;
+			font-family: "Open Sans";
+			font-size: 18px;
+			font-weight: bold;
+			color: #FFF;
+		}
+		li a:hover{
+			border-bottom: solid 3px #FFF;
+			padding-bottom:5px;
+		}		
+	}
+
+	ul#mobileMenu{
+		width: 400px;
+		height: 100%;
+		background-color: #343434;
+		top:70px;
+		position: absolute;
+		z-index: 4;
+		right:-400px;
+		padding-left: 0px;
+		display: none;
+
+  		/** /// All DOM Elements Inside #mobileMenu /// **/
+
+		li{
+			display: block;
+			padding: 30px 0px;
+			box-sizing:border-box;
+			border-bottom: solid 2px #000;
+		}
+		li a{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			color: #fff;
+			text-decoration: none;
+			float: left;
+			padding-left: 30px;
+			margin-top: -12px;
+			font-size: 20px;
+		}		
+	}
+
+	a.mobileToggle{
+		width: 30px;
+		height: 30px;
+		background: transparent;
+		float: right;
+		margin-right: -82px;
+		margin-top: -12px;
+		display: block;
+		position: relative;
+	}
+	a.mobileToggle img{
+		position: relative;
+		width: 30px;
+		height: auto;
+		margin-top: 15px;
+	}	
+}
+
+div#containerInner{
+	 
+	/** /// All DOM Elements Inside #containerInner /// **/	
+
+	div#hero{
+		max-width: 100%;
+		height: 200px;
+		background-color: rgba(0, 0, 0, 0.5);
+		box-sizing:border-box;
+		padding-top: 76px;
+		position: relative;
+		z-index: 1;
+
+	  	/** /// All DOM Elements Inside #hero /// **/
+
+		div#heroInner{
+			max-width: 940px;
+			margin: 0 auto;
+			padding: 0px 20px;
+			box-sizing:border-box;
+	  		
+	  		/** /// All DOM Elements Inside #heroInner /// **/
+
+			h1{
+				color: #fff;
+			}			
+		}
+	}
+	div#mainContent{
+		margin-top: 76px;
+
+	  	/** /// All DOM Elements Inside #mainContent /// **/		
+
+		div.mainSection{
+			width: 100%;
+			float:left;
+			display: block;
+	  		
+	  		/** /// All DOM Elements Inside #mainContent /// **/	
+
+			div.mainSectionInner{
+				max-width: 940px;
+				margin: 0 auto;
+				margin-bottom:76px;
+				position: relative;
+				height: auto;
+				padding: 0px 20px;
+				box-sizing:border-box;
+				display: block;
+
+				/** /// All DOM Elements Inside .mainSectionInner /// **/	
+
+				div.subSection{
+					margin-top: 26px;
+					
+					/** /// All DOM Elements Inside .subsection /// **/	
+
+					p.subtext{
+						font-style: italic;
+						color:#9E9E9E;
+					}					
+				}
+			}	  		
+		}
+		div.mainSection:first-child .mainSectionInner p{
+			margin-top: 5px;
+			margin-bottom: 30px;
+		}
+		div.step{
+			opacity: 0;
+			
+			/** /// All DOM Elements Inside .step /// **/	
+
+			div.indicators{
+				display: block;
+				max-width: 940px;
+				height:20px;
+				margin-bottom: 15px;
+
+				/** /// All DOM Elements Inside .indicators /// **/	
+
+				div.indicator{
+					float: left;
+					width: 40px;
+					height: 10px;
+					background-color: #fff;
+					margin-right: 15px;
+				}
+				div.indicator.dark{
+					background-color: #343434;
+				}						
+			}
+			p{
+				margin-bottom: 35px;
+			}
+			div.stepInner{
+				max-width:940px;
+				margin: 0 auto;
+				padding: 76px 20px;
+				box-sizing:border-box;
+			}			
+		}		
+		div.step#step1{
+			background-color: #F9BBBD;
+
+			/** /// All DOM Elements Inside #step1 /// **/	
+
+			.stepInner .button:hover{
+				color: #F9BBBD;
+			}			
+		}
+		div.step#step2{
+			background-color: #F8ADB0;
+			
+			/** /// All DOM Elements Inside #step2/// **/				
+
+			.stepInner .button:hover{
+				color: #F8ADB0;
+			}			
+		}
+		div.step#step3{
+			background-color: #F69296;
+			
+			/** /// All DOM Elements Inside #step3/// **/				
+
+			.stepInner .button:hover{
+				color: #F69296;
+			}			
+			.stepInner a#expander{
+				color:#fff;
+				font-style: italic;
+				text-decoration: none;
+			}
+			.stepInner p.hiddenText{
+				display: none;
+			}			
+		}
+		div.step#ready{
+			background-color: #F4777C;
+			
+			/** /// All DOM Elements Inside #ready/// **/				
+			div.step#ready .stepInner .button:hover{
+				color: #F4777C;
+			}			
+		}
+		a.button{
+			border: solid 3px #FFFFFF;
+			padding:5px 40px;
+			color:#FFFFFF;
+			text-decoration: none;
+			font-weight: bold;
+			height: 44px;
+			box-sizing:border-box;
+			-webkit-transition: all 130ms ease;
+			transition:all 130ms ease;
+		}
+		a.button:hover{
+			background-color: #fff;
+		}
+		a#expander span#carrot{
+			width: 0; 
+			height: 0; 
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-top: 7px solid #fff;
+			position: absolute;
+			margin-top: 8px;
+			margin-left: 8px;
+		}
+		.rotated{
+			-ms-transform: rotate(180deg); /* IE 9 */
+			-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+			transform: rotate(180deg);
+		}
+		a.button.pink{
+			margin-top: 5px;
+			color:#F4777C;
+			border-color: #F4777C;
+		}
+		a.button.pink:hover{
+			background-color: #F4777C;
+			color:#fff;
+		}				
+	}
+}
+footer{
+	float: left;
+	display: block;
+	width: 100%;
+	height: 140px;
+	max-width: 100%;
+	background-color: #000000;
+}
+footer div#footerInner{
+	max-width: 940px;
+	margin: 0 auto;
+	padding-top: 50px;
+	box-sizing:border-box;
+}
+footer div#footerInner h1{
+	color:#fff;
+}
+@media only screen and (max-width:760px){
+	nav#header ul#deskMenu{
+		margin-right: -394px;
+	}
+	nav#header a.mobileToggle{
+		display: block;	
+		margin-right: 0px;
+	}
+}
