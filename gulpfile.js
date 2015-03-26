@@ -3,18 +3,19 @@ var gutil = require('gulp-util');
 var less = require('gulp-less');
 var concat = require('gulp-concat-sourcemap');
 var sourcemaps = require('gulp-sourcemaps');
+var webserver = require('gulp-webserver');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var watchify = require('watchify');
 var browserify = require('browserify');
 var watch = require('gulp-watch');
 var path = require('path');
-
+    
 // Browserify
 var bundler = watchify(browserify('./src/js/main.js', watchify.args));
 
 // Tasks
-gulp.task('default', ['js', 'less', 'copy']);
+gulp.task('default', ['js', 'less', 'copy', 'webserver']);
 gulp.task('js', bundle); // so you can run `gulp js` to build the file
 bundler.on('update', bundle); // on any dep update, runs the bundler
 
@@ -50,4 +51,14 @@ gulp.task('less', function () {
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .pipe(gulp.dest('build/css'));
+});
+
+// Create HTTP Web Server
+gulp.task('webserver', function() {
+  gulp.src('build')
+    .pipe(webserver({
+      directoryListing : false,
+      livereload: true,
+      open: true
+    }));
 });
