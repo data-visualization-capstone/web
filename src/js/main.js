@@ -16,12 +16,12 @@ var tileLayer = L.tileLayer('https://{s}.tiles.mapbox.com/v4/stephalee.aec4ccea/
 });
 
 // Init leaflet map with out mapbox tile layer
-var map = L.map('map', {
-  center: new L.LatLng(42.329077, -71.108871),
-  zoom: 13,
-  zoomControl: false,
-  layers: [tileLayer]
-});
+// var map = L.map('map', {
+//   center: new L.LatLng(42.329077, -71.108871),
+//   zoom: 13,
+//   zoomControl: false,
+//   layers: [tileLayer]
+// });
 
 // Use queue-async module to load the data in parallel.
 // While this isn't totally necessary now, this will prevent
