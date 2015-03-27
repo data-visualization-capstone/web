@@ -16,12 +16,33 @@ var tileLayer = L.tileLayer('https://{s}.tiles.mapbox.com/v4/stephalee.aec4ccea/
 });
 
 // Init leaflet map with out mapbox tile layer
-// var map = L.map('map', {
-//   center: new L.LatLng(42.329077, -71.108871),
-//   zoom: 13,
-//   zoomControl: false,
-//   layers: [tileLayer]
-// });
+var map = L.map('map', {
+  center: new L.LatLng(42.329077, -71.108871),
+  zoom: 13,
+  zoomControl: false,
+  layers: [tileLayer]
+});
+
+/************************************
+      Initialize Map
+************************************/
+
+// Global variable for map object
+// Initialize Leaflet map
+//var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+
+// Add layers when the map is ready.
+map.on('ready', function(){
+
+  alert(map.getBounds());
+  update(map, V._layers);
+})
+
+// Re-add layers when the map has changed.
+map.on('viewreset', function(){
+  console.log("\nView Reset: Replotting Layers");
+  update(map, DV._layers);
+})
 
 // Use queue-async module to load the data in parallel.
 // While this isn't totally necessary now, this will prevent

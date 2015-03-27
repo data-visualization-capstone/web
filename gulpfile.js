@@ -15,16 +15,16 @@ var path = require('path');
 var bundler = watchify(browserify('./src/js/main.js', watchify.args));
 
 // $ gulp -> [Development] Starts watch task and web server
-gulp.task('default', ['watch', 'webserver']);
+gulp.task('default', ['webserver', 'watch']);
 
 // $ gulp build -> [Production] Builds files
 gulp.task('build', ['js', 'less', 'concat', 'copy']);
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  gulp.watch('./src/js/',    ['concat']);
-  gulp.watch('./src/less/',  ['less']);
-  gulp.watch('./src/*.html', ['copy']);
+  gulp.watch('src/js/*.js',    ['concat']);
+  gulp.watch('src/less/*.less',  ['less']);
+  gulp.watch('src/*.html', ['copy']);
 });
 
 bundler.on('update', bundle); // on any dep update, runs the bundler

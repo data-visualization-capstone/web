@@ -14,10 +14,11 @@ UI.elements = {};
 // Initialize Checkbox 
 // & Fix Semantic UI Checkbox Bug
 // Example: checkbox("#box", function(){}, function(){});
-UI.elements.layerCheckbox = function(selector, layer){
+UI.elements.layerCheckbox = function(map, selector, layer){
 
   // Select Label
   var label = $(selector).siblings("label");
+
   // Bind action to label
   label.click(function(e) {
 
@@ -27,12 +28,16 @@ UI.elements.layerCheckbox = function(selector, layer){
 
     // Enable - Add Layer
     if (checked) {
-        DV.layers.deleteLayer(layer.id);        
+
+        DV.layers.deleteLayer(map, layer.id);        
         $(this).siblings("input[type=checkbox]").prop("checked", false);         
     
     //  Disable - Remove Layer
     } else {
-        DV.layers.addLayer(layer);        
+
+        console.log(map);
+
+        DV.layers.addLayer(map, layer);        
         $(this).siblings("input[type=checkbox]").prop("checked", true);               
     }
   });
@@ -57,7 +62,7 @@ UI.elements.heatmapScale = function(selector){
     // Enable - Change Heatmap Scale
     if (!checked) {       
       label.siblings("input[type=radio]").prop("checked", true);
-      UI.toggleOption();         
+      UI.toggleOption();
     }
   });
 }
@@ -116,7 +121,7 @@ UI.toggleTweet = function(obj){
     if (active) {
 
       // Remove layer
-      DV.layers.deleteLayer("tweet" + string);
+      DV.layers.deleteLayer(map, "tweet" + string);
 
       Loading.stop("tweet");
 
@@ -130,7 +135,7 @@ UI.toggleTweet = function(obj){
       DV.twitter.stream(string, function(resp){
         
         // Add layer
-        DV.layers.addLayer({
+        DV.layers.addLayer(map, {
           name: "Twitter " + string,
           type: "scatterplot",
           color: DV.utils.getColor(Math.random(0, 100)),
@@ -175,8 +180,9 @@ UI.searchForTweet = function(input){
   // Get data from API
   DV.twitter.search(string, function(resp){
     
+    // @TODO Get map
     // Add layer
-    DV.layers.addLayer({
+    DV.layers.addLayer(map, {
       name: "Twitter " + string,
       type: "scatterplot",
       color: DV.utils.getColor(Math.random(0, 100)),

@@ -28,39 +28,39 @@ var DV = {
 ****************************/
 
 // GET - Get a layer from the settings.
-DV.layers.getLayer = function(layerId){
+DV.layers.getLayer = function(map, layerId){
   return _.findWhere(DV._layers, { id : layerId });
 }
 
 // PUT - Add a layer to the map.
-DV.layers.addLayer = function(layer){
+DV.layers.addLayer = function(map, layer){
 
     // @TODO: Prevent Duplicates
 
     DV._layers.push(layer);
 
     // Refresh view
-    update(DV._layers);
+    update(map, DV._layers);
 }
 
 // SET - Update a layer from the settings.
-DV.layers.setLayer = function(layerId, layer){
+DV.layers.setLayer = function(map, layerId, layer){
   
   // Save current layer
-  var layer = DV.layers.findLayer("layerId", layerId);
+  var layer = DV.layers.findLayer(map, "layerId", layerId);
 
   // Delete
-  DV.layers.deleteLayer(layerId);
+  DV.layers.deleteLayer(map, layerId);
 
   // Add updated layer
-  DV.layers.addLayer(layer);
+  DV.layers.addLayer(map, layer);
   
   // Refresh view
-  update(DV._layers);
+  update(map, DV._layers);
 }
 
 // DELETE - Delete a layer from the map.
-DV.layers.deleteLayer = function(id){
+DV.layers.deleteLayer = function(map, id){
 
   // alert(id)
 
@@ -80,22 +80,22 @@ DV.layers.deleteLayer = function(id){
   })
 
   // Refresh view
-  update(DV._layers);
+  update(map, DV._layers);
 }
 
 // Find a layer. Requires a key and a value;
-DV.layers.findLayer = function(key, value){
+DV.layers.findLayer = function(map, key, value){
   return _.findWhere(DV._layers, {key : value});
 }
 
 // Clear current layers
 DV.layers.clearLayers = function(){
   DV._layers = [];
-  update(DV._layers);
+  update(map, DV._layers);
 }
 
 // Iterate through, and place layers onto Leaflet map
-function update(layers){
+function update(map, layers){
 
   // Map Boundaries
   bounds = map.getBounds();
