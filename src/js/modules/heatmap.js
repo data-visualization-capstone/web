@@ -6,7 +6,7 @@
 // WebGL Heatmap Implementation:
 // https://github.com/ursudio/webgl-heatmap-leaflet
 // Returns a leaflet layer
-modules.exports = function drawHeatmap(map, layer){
+module.exports = function drawHeatmap(map, layer){
 	
 	var heatmap = new L.TileLayer.WebGLHeatMap({ 
     	size: 500,

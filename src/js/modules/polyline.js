@@ -23,6 +23,8 @@ module.exports = function drawPath(map, layer){
       // Create new leaflet Lat/Long Object
       var latlng = new L.LatLng(p.latitude, p.longitude);
 
+      bounds = map.getBounds();
+      
       // Remove points that are outside current viewport
       if (!bounds.contains(latlng)) { return false };
       

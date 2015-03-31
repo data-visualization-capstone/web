@@ -6,7 +6,7 @@
 // Thanks to :
 // http://bl.ocks.org/mbostock/4248145
 
-modules.exports = function drawHexmap(map, layer){
+module.exports = function drawHexmap(map, layer){
   
   // Clear layer if previously existing.
   // $("#" + layer.id).remove()
