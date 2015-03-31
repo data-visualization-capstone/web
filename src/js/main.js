@@ -33,8 +33,6 @@ var map = L.map('map', {
 
 // Add layers when the map is ready.
 map.on('ready', function(){
-
-  alert(map.getBounds());
   update(map, V._layers);
 })
 
@@ -48,6 +46,7 @@ map.on('viewreset', function(){
 // While this isn't totally necessary now, this will prevent
 // async issues when we want to operate on multiple data sets.
 queue()
+
   // .defer takes an async task and any
   // number of arguments to be passed to the task
   .defer(d3.json, 'data/MBTARapidTransitLines.json')
@@ -71,34 +70,48 @@ function parseCensus(row) {
 
 // Instantiate overlays with data, add them to a control
 function dataLoaded(err, mbta, census) {
-  // These modules export constructors for leaflet layers
-  // that take 2 positional arguments:
+
+  // Each module contains constructors for leaflet layers
+  // Each module takes 3 arguments:
   // - a reference to the leaflet map
   // - the corresponding data
-  var CensusLayer = require('./layers/census.js');
-  var MbtaGeoJsonLayer = require('./layers/mbta.js');
-  var HeatmapLayer = require('./layers/padmapper-heatmap.js');  
-  var polyLine = require('./modules/polyline.js');
+  // - and options JSON object
 
-  // Instantiate overlays
+  // Data-Specific Layers
+  var CensusLayer = require('./modules/census.js');
+  var MbtaGeoJsonLayer = require('./modules/mbta.js');
+  var HeatmapLayer = require('./modules/padmapper-heatmap.js');  
+  
+  //  General Mapping Functionality
+  var polyLine = require('./modules/polyline.js');
+  var scatterplot = require('./modules/scatterplot.js');
+  var heatmap = require('./modules/heatmap.js');
+  var hex = require('./modules/hex.js');
+
+  // Instantiate Overlays
+  // for data-specific layers
   // ====================
+  
   var census2010Layer = CensusLayer(map, census);
   var mbtaLayer = MbtaGeoJsonLayer(map, mbta);
-  
-  // This module is mostly a skeleton, 
-  // since we haven't decided what we wanna do with it.
-  var heatmapLayer = HeatmapLayer(map);
+  var heatmapLayer = HeatmapLayer(map); // <!-- Skeleton Layer
 
-    var orange_line = {
-      name : "Orange Line",      
-      type: "path",
-      data : sample_data.subway.orange,
-      width: 5,
-      color: "#ffa500",
-    }
-    
+  var orange_line = {
+    name : "Orange Line",      
+    type: "path",
+    data : sample_data.subway.orange,
+    width: 5,
+    color: "#ffa500",
+  }
+
+  // Instantiate Overlays
+  // for generic layer types
+  // ====================
+
   // Polyline for demo
-  var polyLineLayer = polyLine(map, orange_line)
+  var orangeLine = polyLine(map, orange_line)
+  var scatterplotLayer = scatterplot(map, orange_line)
+  var hexLayer = hex(map, orange_line)
 
   // Controls
   // ========
@@ -107,10 +120,14 @@ function dataLoaded(err, mbta, census) {
   //      Or maybe we can just style it? Not sure.
 
   var overlays = {
+    
+    // Pre-set data
     'Census 2010': census2010Layer,
     'MBTA': mbtaLayer,
     'Padmapper Heatmap': heatmapLayer,
-    'Orange Line': polyLineLayer,
+
+    // Examples
+    'Orange Line': orangeLine,
   }
 
   var controlOptions = {

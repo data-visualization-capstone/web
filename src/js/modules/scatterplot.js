@@ -7,7 +7,7 @@
 // chriszetter.com/blog/2014/06/15/building-a-voronoi-map-with-d3-and-leaflet/
 
 
-function drawScatterplot(map, layer){
+modules.exports = function drawScatterplot(map, layer){
 
     // Clear layer if previously existing.
     d3.select('#' + layer.id).remove();
