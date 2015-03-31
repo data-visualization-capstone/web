@@ -12,17 +12,16 @@ var watch = require('gulp-watch');
 var path = require('path');
 
 // $ gulp -> [Development] Starts watch task and web server
-gulp.task('default', ['webserver', 'watch']);
+gulp.task('default', ['build', 'watch']);
 
 // $ gulp build -> [Production] Builds files
-gulp.task('build', ['js', 'less', 'concat', 'copy']);
+gulp.task('build', ['bundle', 'less', 'concat', 'copy', 'vendor']);
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch('src/js/*.js',    ['concat']);
   gulp.watch('src/less/*.less',  ['less']);
-  gulp.watch('src/*.html', ['copy']);
-  // gulp.watch('src/js/*.js', ['bundle']);
+  gulp.watch('src/js/*.js', ['vendor']);
 });
 
 // Browserify
@@ -41,29 +40,43 @@ function bundle() {
     .pipe(gulp.dest('./build'));
 }
 
-gulp.task('bundle', bundle());
-
+gulp.task('bundle', bundle);
 
 // Copy source files into Build
 gulp.task('copy', function () {
-  
+
   // Copy file types.
-  // LESS, CSS, and JS are
-  // ingore since they are
-  // compiled elsewhere
 
   var files = [
+    'src/index.html',
     'src/**/*.html',
     'src/**/*.png',
     'src/**/*.txt',
     'src/**/*.csv',
     'src/**/*.json',
+    'src/**/*.css',
   ]
 
   gulp.src(files)
     .pipe(watch(files))
     .pipe(gulp.dest('build/'));
 });
+
+// Copy vendored JS
+gulp.task('vendor', function () {
+
+  // Copy file types.
+  // LESS, CSS, and JS are
+  // ingore since they are
+  // compiled elsewhere
+
+  var files = [
+    'src/js/vendor/**/*'
+  ]
+
+  gulp.src(files)
+    .pipe(gulp.dest('build/js/vendor'));
+})
 
 // Concat JS dependencies
 gulp.task('concat', function() {
@@ -73,9 +86,9 @@ gulp.task('concat', function() {
       './bower_components/jquery/dist/jquery.js',
       './bower_components/underscore/underscore.js',
       './bower_components/moment/moment.js',
-      './bower_components/d3/d3.js',      
+      './bower_components/d3/d3.js',
       './bower_components/semantic-ui/dist/semantic.js',
-      './bower_components/nouislider/distribute/jquery.nouislider.all.min.js',              
+      './bower_components/nouislider/distribute/jquery.nouislider.all.min.js',
 
       // Our JS Files
       './src/js/map.js',

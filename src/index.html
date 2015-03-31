@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
-  <link href="/css/semantic-ui.css" rel="stylesheet" />
-  <link href="/css/nouislider.css" rel="stylesheet" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+  <link href="/css/semantic.min.css" rel="stylesheet" />
+  <link href="/css/jquery.nouislider.min.css" rel="stylesheet" />
   <link href="/css/styles.css" rel="stylesheet" />
   <title>Data Visualization Capstone</title>
 </head>
@@ -32,17 +32,16 @@
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
 
   <!-- Data Visualization Script -->
-  
+
   <script src="/js/bundle.js"></script>
   <script src="/js/app.js"></script>
 
   <!-- UI and Event Handlers for Content -->
-  <script src="/js/ui.js"></script>
+  <script src="/js/vendor/ui.js"></script>
   <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
 
   <!-- Load in Sample Data -->
-  <script src="/js/data/sample-data.js"></script>
-
+  <script src="/js/vendor/sample-data.js"></script>
 
   <script>
 
@@ -72,7 +71,7 @@
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
       layers : [],
-        
+
     }
 
     // /************************************
@@ -94,13 +93,13 @@
     //   update(DV._layers);
     // })
 
-    
+
     /************************************
          Add Default Data
     ************************************/
 
     var heatmapLayer = {
-      
+
       // Set name for layer
       // used for unique ID
       name : "Hex Map",
@@ -109,15 +108,15 @@
       type: "hex",
 
       // Data from sample-data.js
-      data : sample_data.apartments,
-      
+      // data : sample_data.apartments,
+
       // Pixel width
       width: 15,
 
       // Define custom color. Used if points
       //  on't have a color parameter.
       color: "#005696",
-      
+
       // Custom function to filter data set.
       // Use to remove duplicates or process.
       filter : function(point){
@@ -133,7 +132,7 @@
     var red_line = {
       name : "Red Line",
       type: "path",
-      data : sample_data.subway.red,
+      // data : sample_data.subway.red,
       width: 5,
       color: "#ff0000",
     }
@@ -151,20 +150,20 @@
 
     // Load Menu Template
     $("#menu").load('templates/menu.tpl.html', function(result){
-      
-    
-        UI.elements.layerCheckbox(map, "#toggle_apartment_heatmaps", heatmapLayer);  
+
+
+        UI.elements.layerCheckbox(map, "#toggle_apartment_heatmaps", heatmapLayer);
         UI.elements.layerCheckbox(map, "#toggle_mbta", red_line);
         UI.elements.heatmapScale("#squareFootage");
         UI.elements.heatmapScale("#bedrooms");
-        UI.elements.heatmapScale("#rentPrice");        
-        
+        UI.elements.heatmapScale("#rentPrice");
+
         // Initialize Defaults For Filter UI
         UI.initializeSliders();
-        UI.initializeHashtags(); 
-        UI.toggleOption();        
+        UI.initializeHashtags();
+        UI.toggleOption();
     });
-    
+
   </script>
 </body>
 
