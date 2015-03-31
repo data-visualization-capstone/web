@@ -77,15 +77,28 @@ function dataLoaded(err, mbta, census) {
   // - the corresponding data
   var CensusLayer = require('./layers/census.js');
   var MbtaGeoJsonLayer = require('./layers/mbta.js');
-  var HeatmapLayer = require('./layers/padmapper-heatmap.js');
+  var HeatmapLayer = require('./layers/padmapper-heatmap.js');  
+  var polyLine = require('./modules/polyline.js');
 
   // Instantiate overlays
   // ====================
   var census2010Layer = CensusLayer(map, census);
   var mbtaLayer = MbtaGeoJsonLayer(map, mbta);
   
-  // This module is mostly a skeleton, since we haven't decided what we wanna do with it.
+  // This module is mostly a skeleton, 
+  // since we haven't decided what we wanna do with it.
   var heatmapLayer = HeatmapLayer(map);
+
+    var orange_line = {
+      name : "Orange Line",      
+      type: "path",
+      data : sample_data.subway.orange,
+      width: 5,
+      color: "#ffa500",
+    }
+    
+  // Polyline for demo
+  var polyLineLayer = polyLine(map, orange_line)
 
   // Controls
   // ========
@@ -97,6 +110,7 @@ function dataLoaded(err, mbta, census) {
     'Census 2010': census2010Layer,
     'MBTA': mbtaLayer,
     'Padmapper Heatmap': heatmapLayer,
+    'Orange Line': polyLineLayer,
   }
 
   var controlOptions = {

@@ -10,9 +10,6 @@ var watchify = require('watchify');
 var browserify = require('browserify');
 var watch = require('gulp-watch');
 var path = require('path');
-    
-// Browserify
-var bundler = watchify(browserify('./src/js/main.js', watchify.args));
 
 // $ gulp -> [Development] Starts watch task and web server
 gulp.task('default', ['webserver', 'watch']);
@@ -25,7 +22,11 @@ gulp.task('watch', function() {
   gulp.watch('src/js/*.js',    ['concat']);
   gulp.watch('src/less/*.less',  ['less']);
   gulp.watch('src/*.html', ['copy']);
+  // gulp.watch('src/js/*.js', ['bundle']);
 });
+
+// Browserify
+var bundler = watchify(browserify('./src/js/main.js', watchify.args));
 
 bundler.on('update', bundle); // on any dep update, runs the bundler
 
@@ -39,6 +40,9 @@ function bundle() {
       // .pipe(sourcemaps.write({sourceRoot: 'src/'))
     .pipe(gulp.dest('./build'));
 }
+
+gulp.task('bundle', bundle());
+
 
 // Copy source files into Build
 gulp.task('copy', function () {
@@ -77,7 +81,6 @@ gulp.task('concat', function() {
       './src/js/map.js',
       './src/js/modules/heatmap.js',
       './src/js/modules/hex.js',
-      './src/js/modules/path.js',
       './src/js/modules/scatterplot.js',
     ])
     .pipe(concat('app.js'))
@@ -99,6 +102,6 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       directoryListing : false,
       livereload: true,
-      open: true
+      open: false
     }));
 });

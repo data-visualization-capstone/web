@@ -1,10 +1,11 @@
 
+
 /****************************
           Path
  ****************************/
 
 // Returns a leaflet polyline
-function drawPath(map, layer){
+module.exports = function drawPath(map, layer){
   
     // Clear layer if previously existing.
     // @TODO
@@ -40,6 +41,8 @@ function drawPath(map, layer){
     var polylinePoints = _.map(points, function(p){ 
       return [p.latitude, p.longitude]; 
     });
+    
+    console.log(polylinePoints);
 
     var polyline = L.polyline(polylinePoints, {
       color: layer.color,
