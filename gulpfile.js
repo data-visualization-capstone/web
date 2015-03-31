@@ -92,9 +92,6 @@ gulp.task('concat', function() {
 
       // Our JS Files
       './src/js/map.js',
-      './src/js/modules/heatmap.js',
-      './src/js/modules/hex.js',
-      './src/js/modules/scatterplot.js',
     ])
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./build/js/'));
