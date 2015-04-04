@@ -60,13 +60,9 @@
         [42.374200, -71.032072]
       ],
 
-      maxZoom : 12,
-
-      minZoom : 4,
-
       // Support multiple layers of data representation.
       // Useful for building correlations between data sets.
-      layers : [],
+      layers : {},
         
     }
 
@@ -94,7 +90,7 @@
     ************************************/
 
     // Possible layers.
-    var layerOptions = {
+    options.layers = {
 
     
       apartments : {
@@ -144,7 +140,7 @@
   };
 
   // Development: plot all
-  _.each(layerOptions, function(layer){
+  _.each(options.layers, function(layer){
     DV.layers.addLayer(layer);
   })
 
@@ -163,13 +159,10 @@
   })
 
   d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
-    console.log(json)
-
     map.addLayer(geoJsonLayer(json));
   });
 
   d3.csv('/js/data/census2010.csv', function(csv) {
-    console.log(csv)
 
     // Process data
     var data = _.chain(csv)
@@ -213,9 +206,9 @@
 
     // Load Menu Template
     $("#menu").load('templates/menu.tpl.html', function(result){
-        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", layerOptions.apartments);  
-        // UI.elements.layerCheckbox("#toggle_mbta", layerOptions.red_line);
-        // UI.elements.layerCheckbox("#toggle_mbta", layerOptions.orange);
+        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", options.layers.apartments);  
+        // UI.elements.layerCheckbox("#toggle_mbta", options.layers.red_line);
+        // UI.elements.layerCheckbox("#toggle_mbta", options.layers.orange);
         // UI.elements.heatmapScale("#squareFootage");
         // UI.elements.heatmapScale("#bedrooms");
         // UI.elements.heatmapScale("#rentPrice");        
