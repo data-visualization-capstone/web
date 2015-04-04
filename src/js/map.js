@@ -134,10 +134,12 @@ function update(layers){
         drawHexmap(map, layer);
         break;
 
+      // GEOJSON
       case "geojson":
         map.addLayer(geoJsonLayer(layer.data));
         break;
 
+      // TOPOJSON
       case "topojson":
         map.addLayer(censusLayer(layer.data));
         break;
@@ -148,6 +150,9 @@ function update(layers){
       map.addLayer(leaflet_layer);
     }
 	}
+
+  console.log("\nActive Layers:");
+  console.log(DV._layers);
 }
 
 // Check for missing keys.
@@ -191,7 +196,7 @@ function buildKey(layers){
 
     var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
     var b = layer.name;
-    var c = '<span class="remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
+    var c = '<span class="btn-remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
     var d = '</p>'
 
     key.append(a + b + c + d);
