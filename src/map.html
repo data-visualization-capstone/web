@@ -120,8 +120,38 @@
         // Useful for computing color.
         map : function(point){
           return point;
-        },
+        }, 
       },
+
+      traffic : {
+
+        name: "Twitter Traffic",
+        type: "scatterplot",
+        color: DV.utils.getColor(Math.random(0, 100)),
+        data : null,
+
+        // Dynamically load data
+        loadData  : DV.twitter.stream,
+        parameter : 'traffic',
+
+        width: 3,
+
+      },
+
+      pax : {
+
+        name: "Twitter PAX",
+        type: "scatterplot",
+        color: DV.utils.getColor(Math.random(0, 100)),
+        data : null,
+
+        // Dynamically load data
+        loadData  : DV.twitter.stream,
+        parameter : 'pax',
+
+        width: 3,
+
+      }
   };
 
   // Development: plot all
@@ -129,19 +159,6 @@
     DV.layers.addLayer(layer);
   })
 
-  // Test Adding from API calls
-  DV.twitter.stream('traffic', function(resp){
-    var layer = {
-      name: "Twitter Traffic",
-      type: "scatterplot",
-      color: DV.utils.getColor(Math.random(0, 100)),
-      data : resp,
-      width: 3,
-    }
-
-    DV.layers.addLayer(layer);
-
-  })
 
   d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
     

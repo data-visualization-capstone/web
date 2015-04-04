@@ -35,12 +35,19 @@ DV.layers.getLayer = function(layerId){
 // PUT - Add a layer to the map.
 DV.layers.addLayer = function(layer){
 
-    // @TODO: Prevent Duplicates
+    // Converts to valid layer object
+    compileLayer(layer, function(layer){
 
-    DV._layers.push(layer);
+        var layer = layer;
 
-    // Refresh view
-    update(DV._layers);
+        // @TODO: Prevent Duplicates
+
+        DV._layers.push(layer);
+
+        // Refresh view
+        update(DV._layers);
+
+    });
 }
 
 // SET - Update a layer from the settings.
@@ -112,8 +119,6 @@ function update(layers){
 	for (var i = layers.length - 1; i >= 0; i--) {
     
     var layer = layers[i]; // Current Layer
-    
-    var layer = verifyKeys(layer);
 
     var leaflet_layer = null;
 
@@ -155,6 +160,69 @@ function update(layers){
   console.log(DV._layers);
 }
 
+// Builds a layer object. 
+function compileLayer(layer, done){
+
+    // Optional parameter for fetching data.
+    // Used if the data isn't available when
+    // the initial page is loaded.
+
+    if (layer.loadData) {
+    
+        // Execute provided function for getting data.
+        // Provide parameter. Example: Twitter Key
+        layer.loadData(layer.parameter, function(resp){
+            
+            // Save data back to layer
+            layer.data = resp;
+
+            layer = formatLayer(layer);
+
+            done(layer);
+
+        // Throw Error. Usually an API problem....
+        // Log the response for debugging
+        }, function(resp){
+
+            console.error(resp);
+
+      });
+
+    // If no loadData function is provided, we
+    // assume the data is already saved to layer.data
+    
+    } else {
+
+        layer = formatLayer(layer);
+
+        done(layer);
+      
+    }
+}
+
+// Verifies layer data
+function formatLayer(layer){
+
+  // Ensure the layer ID exists
+  var layer = verifyKeys(layer);
+
+  // Support layer.filter function
+  if (layer.filter){
+    layer.data = _.filter(layer.data, function(p){
+      return layer.filter(p);
+    })
+  }
+
+  // Support layer.filter function
+  if (layer.map){
+    layer.data = _.map(layer.data, function(p){
+      return layer.map(p);
+    })
+  }
+
+  return layer;  
+}
+
 // Check for missing keys.
 // Execute & normalize data.
 function verifyKeys(layer){
@@ -167,23 +235,8 @@ function verifyKeys(layer){
 
     layer.id = layer.name.replace(/\s/g, '').toLowerCase();
 
-    // Support layer.filter function
-    if (layer.filter){
-      layer.data = _.filter(layer.data, function(p){
-        return layer.filter(p);
-      })
-    }
-
-    // Support layer.filter function
-    if (layer.map){
-      layer.data = _.map(layer.data, function(p){
-        return layer.map(p);
-      })
-    }
-
     return layer;
 }
-
 
 function buildKey(layers){
   var key = $("#legend");
