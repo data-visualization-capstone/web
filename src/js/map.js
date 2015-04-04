@@ -188,7 +188,7 @@ function buildKey(layers){
 
   _.each(layers, function(layer){
 
-    console.log(layer.id)
+    // console.log(layer.id)
 
     var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
     var b = layer.name;
