@@ -211,7 +211,7 @@ DV.twitter = {};
 // GET /twitter/search/:string
 DV.twitter.search = function(string, success, error){
   $.get(DV.url + "twitter/search/" + string, function(resp){
-      success(resp)
+      success(resp);
     })
     .fail(function() {
       console.error("Error fetching tweets: "  + resp)

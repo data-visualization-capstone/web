@@ -23,7 +23,6 @@ UI.elements.layerCheckbox = function(selector, layer){
 
     // Get checkbox's status
     var checked = $(this).siblings("input[type=checkbox]").prop("checked");
-    console.log(this + " " + checked);
 
     // Enable - Add Layer
     if (checked) {
