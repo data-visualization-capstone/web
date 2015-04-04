@@ -151,6 +151,13 @@
 
         width: 3,
 
+      }, 
+
+      mbta : {
+        name : 'MBTA',
+        type : 'geojson',
+        loadData : DV.loadJSON,
+        parameter : '/js/data/MBTARapidTransitLines.json',
       }
   };
 
@@ -160,16 +167,16 @@
   })
 
 
-  d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
+  // d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
     
-    var layer = {
-      name : "MBTA",
-      type : 'geojson',
-      data : json,
-    }
+  //   var layer = {
+  //     name : "MBTA",
+  //     type : 'geojson',
+  //     data : json,
+  //   }
 
-    DV.layers.addLayer(layer);
-  });
+  //   DV.layers.addLayer(layer);
+  // });
 
   d3.csv('/js/data/census2010.csv', function(csv) {
 

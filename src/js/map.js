@@ -287,6 +287,28 @@ DV.twitter.stream = function(string, success, error){
 };
 
 /******************************
+      Loading Data Sets
+ ******************************/
+
+// Load data from a JSON file
+DV.loadJSON = function(target, success, error){
+  d3.json(target, function(json){
+    success(json);
+  }, function(resp){
+    error(resp);
+  });
+};
+
+// Load data from a CSV file
+DV.loadCSV = function(target, success, error){
+  d3.csv(target, function(csv){
+    success(csv);
+  }, function(resp){
+    error(resp);
+  });
+};
+
+/******************************
          Utils
  ******************************/
 
