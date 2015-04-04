@@ -127,7 +127,6 @@ function update(layers){
       // PATH
       case "path":
         leaflet_layer = drawPath(map, layer);
-        
         break;
         
       // HEX
@@ -140,14 +139,8 @@ function update(layers){
         break;
 
       case "topojson":
-
-      // HEATMAP
-      // case "heatmap":
-
-        // Prevent multiple heatmaps from overlaying.
-        // leaflet_layer = drawHeatmap(map,layer);
-        // break;
-
+        map.addLayer(censusLayer(layer.data));
+        break;
     }
 
     if (leaflet_layer){

@@ -156,24 +156,33 @@
 
   d3.csv('/js/data/census2010.csv', function(csv) {
 
-    // Process data
-    var data = _.chain(csv)
-    
-      // Parve relevant data
-      .map(function(row){ return parseCensus(row)})
+      // Process data
+      // Parse census csv, coerce strings to numbers,
+      // and reject invalid rows.
+      var data = _.chain(csv)
       
-      // Remove invalid data
-      .filter(function(row){ return row; })
+        // Parve relevant data
+        .map(function(row){ return parseCensusRow(row)})
+        
+        // Remove invalid data
+        .filter(function(row){ return row; })
 
-      // Return value
-      .value();
+        // Return value
+        .value();
 
 
-    map.addLayer(censusLayer(data));
+      var layer = {
+        name : 'Census',
+        type : 'topojson',
+        data : data
+      }
 
-    // Parse census csv, coerce strings to numbers,
-    // and reject invalid rows.
-    function parseCensus(row) {
+      DV.layers.addLayer(layer);  
+
+  });
+
+
+    function parseCensusRow(row) {
 
       var parsedRow = {
         id:         +row['tractid10'],
@@ -186,8 +195,6 @@
         return;
       }
     }
-
-  });
 
     /************************************
             Wire-up UI Elements
