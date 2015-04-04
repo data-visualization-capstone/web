@@ -32,7 +32,7 @@
   <script src="js/ui.js"></script>
 
   <!-- Load in Sample Data -->
-  <script src="js/data/sample-data.js"></script>
+  <script src="js/data/apartments.js"></script>
   
   <!-- External -->
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
@@ -126,20 +126,20 @@
           return point;
         },
       },
-      red_line : {
-        name : "Red Line",
-        type: "path",
-        data : sample_data.subway.red,
-        width: 5,
-        color: "#ff0000",
-      },
-      orange_line : {
-        name : "Orange Line",      
-        type: "path",
-        data : sample_data.subway.orange,
-        width: 5,
-        color: "#ffa500",
-      }
+      // red_line : {
+      //   name : "Red Line",
+      //   type: "path",
+      //   data : sample_data.subway.red,
+      //   width: 5,
+      //   color: "#ff0000",
+      // },
+      // orange_line : {
+      //   name : "Orange Line",      
+      //   type: "path",
+      //   data : sample_data.subway.orange,
+      //   width: 5,
+      //   color: "#ffa500",
+      // }
   };
 
   // Development: plot all
@@ -161,7 +161,11 @@
 
   })
 
+  d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
+    console.log(json)
 
+    map.addLayer(MbtaGeoJsonLayer(json));
+  });
 
     /************************************
             Wire-up UI Elements

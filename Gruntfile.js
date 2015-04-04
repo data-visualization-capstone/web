@@ -28,6 +28,7 @@ module.exports = function(grunt) {
           'src/js/modules/hex.js',
           'src/js/modules/path.js',
           'src/js/modules/scatterplot.js',
+          'src/js/modules/mbta.js',
 
         ],
         dest: 'src/build/build.js',
