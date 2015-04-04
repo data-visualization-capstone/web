@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 
           // Our JS Files
           'src/js/map.js',
+          'src/js/ui.js',
           'src/js/modules/heatmap.js',
           'src/js/modules/hex.js',
           'src/js/modules/path.js',
