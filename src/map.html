@@ -164,7 +164,7 @@
   d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
     console.log(json)
 
-    map.addLayer(MbtaGeoJsonLayer(json));
+    map.addLayer(geoJsonLayer(json));
   });
 
     /************************************

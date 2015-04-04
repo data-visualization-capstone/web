@@ -105,7 +105,6 @@ function update(layers){
   // @ TODO:
   // Clear data before populating
   $("#hexmap").remove()
-  
 
   buildKey(layers);
 
@@ -203,7 +202,7 @@ function buildKey(layers){
 
 
 /******************************
-        Twitter Stuff
+       Twitter API
  ******************************/
 
 DV.twitter = {};
@@ -217,7 +216,7 @@ DV.twitter.search = function(string, success, error){
       console.error("Error fetching tweets: "  + resp)
       error(resp)
     })
-}
+};
 
 // GET /twitter/stream/:string
 DV.twitter.stream = function(string, success, error){
@@ -228,7 +227,7 @@ DV.twitter.stream = function(string, success, error){
       console.error("Error fetching tweets: "  + resp)
       error(resp)
     })
-}
+};
 
 /******************************
          Utils
@@ -252,12 +251,12 @@ DV.utils.getColor = function(i){
   var b = 0;
 
   return '#' + DV.utils.componentToHex(r) + DV.utils.componentToHex(g) + DV.utils.componentToHex(b);
-}
+};
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 DV.utils.componentToHex = function(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
-}
+};
 
 

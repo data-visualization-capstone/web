@@ -16,11 +16,7 @@ module.exports = function(grunt) {
           'bower_components/moment/moment.js',
           'bower_components/d3/d3.js',      
           'bower_components/semantic-ui/dist/semantic.js',
-          'bower_components/nouislider/distribute/jquery.nouislider.all.min.js',              
-
-
-          // External Libraries (stored in version control)
-          // 'lib/xml.min.js', Convert Google KML
+          'bower_components/nouislider/distribute/jquery.nouislider.all.min.js',
 
           // Our JS Files
           'src/js/map.js',
@@ -28,7 +24,7 @@ module.exports = function(grunt) {
           'src/js/modules/hex.js',
           'src/js/modules/path.js',
           'src/js/modules/scatterplot.js',
-          'src/js/modules/mbta.js',
+          'src/js/modules/geojson.js',
 
         ],
         dest: 'src/build/build.js',
