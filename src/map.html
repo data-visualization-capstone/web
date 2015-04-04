@@ -139,13 +139,28 @@
         data : sample_data.subway.orange,
         width: 5,
         color: "#ffa500",
-      },  
+      }
   };
 
   // Development: plot all
   _.each(layerOptions, function(layer){
     DV.layers.addLayer(layer);
   })
+
+  // Test Adding from API calls
+  DV.twitter.stream('traffic', function(resp){
+    var layer = {
+      name: "Twitter Traffic",
+      type: "scatterplot",
+      color: DV.utils.getColor(Math.random(0, 100)),
+      data : resp,
+      width: 3,
+    }
+
+    DV.layers.addLayer(layer);
+
+  })
+
 
 
     /************************************
