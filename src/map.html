@@ -25,6 +25,9 @@
   <!-- Loading Indicator -->
   <div id="loading" class="spin" style="display: none;"></div>
 
+  <!-- Legend -->
+  <div id="legend"></div>
+
   <!-- Data Visualization Script -->
   <script src="build/build.js"></script>
 
@@ -42,8 +45,7 @@
          Data Visualization Settings
      ************************************/
 
-    // For reference, Boston is:
-    // 42.3601° N (lat), 71.0589° W (long), or -71
+
 
     // Map settings
     var options = {
@@ -51,14 +53,16 @@
       // Mapbox's style key for applying map designs
       map_key: "stephalee.aec4ccea",
 
-      // Define default map viewport: Top left & bottom right coordinates
+      // Define default map viewport: 
+      // Top left & bottom right coordinates
+      // For reference, Boston is:
+      // 42.3601° N (lat), 71.0589° W (long), or -71
       viewport: [
         [42.329077, -71.108871],
         [42.374200, -71.032072]
       ],
 
-      // Support multiple layers of data representation.
-      // Useful for building correlations between data sets.
+      // Available layers
       layers : {},
         
     }
@@ -78,7 +82,6 @@
 
     // Re-add layers when the map has changed.
     map.on('viewreset', function(){
-      // console.log("\nView Reset: Replotting Layers");
       update(DV._layers);
     })
     
@@ -88,7 +91,6 @@
 
     // Possible layers.
     options.layers = {
-
     
       apartments : {
         
@@ -120,20 +122,6 @@
           return point;
         },
       },
-      // red_line : {
-      //   name : "Red Line",
-      //   type: "path",
-      //   data : sample_data.subway.red,
-      //   width: 5,
-      //   color: "#ff0000",
-      // },
-      // orange_line : {
-      //   name : "Orange Line",      
-      //   type: "path",
-      //   data : sample_data.subway.orange,
-      //   width: 5,
-      //   color: "#ffa500",
-      // }
   };
 
   // Development: plot all
@@ -156,7 +144,14 @@
   })
 
   d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
-    map.addLayer(geoJsonLayer(json));
+    
+    var layer = {
+      name : "MBTA",
+      type : 'geojson',
+      data : json,
+    }
+
+    DV.layers.addLayer(layer);
   });
 
   d3.csv('/js/data/census2010.csv', function(csv) {
@@ -193,9 +188,6 @@
     }
 
   });
-
-  // .defer(d3.csv, '', parseCensus)
-  // map.addLayer()
 
     /************************************
             Wire-up UI Elements

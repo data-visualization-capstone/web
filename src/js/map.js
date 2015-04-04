@@ -135,6 +135,12 @@ function update(layers){
         drawHexmap(map, layer);
         break;
 
+      case "geojson":
+        map.addLayer(geoJsonLayer(layer.data));
+        break;
+
+      case "topojson":
+
       // HEATMAP
       // case "heatmap":
 
