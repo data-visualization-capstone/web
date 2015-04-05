@@ -44,6 +44,8 @@ DV.layers.addLayer = function(layer){
 
         DV._layers.push(layer);
 
+        console.log("\nAdding Layer"); console.log(layer);
+
         // Refresh view
         update(DV._layers);
 
@@ -156,8 +158,8 @@ function update(layers){
     }
 	}
 
-  console.log("\nActive Layers:");
-  console.log(DV._layers);
+  // console.log("\nActive Layers:");
+  // console.log(DV._layers);
 }
 
 // Builds a layer object. 
@@ -168,6 +170,8 @@ function compileLayer(layer, done){
     // the initial page is loaded.
 
     if (layer.loadData) {
+
+        // console.log(layer.loadData);
     
         // Execute provided function for getting data.
         // Provide parameter. Example: Twitter Key
@@ -191,12 +195,15 @@ function compileLayer(layer, done){
     // If no loadData function is provided, we
     // assume the data is already saved to layer.data
     
-    } else {
+    } else if (layer.data){
 
         layer = formatLayer(layer);
 
         done(layer);
       
+    } else {
+
+        console.error("Missing either .data or .loadData function");
     }
 }
 
@@ -207,16 +214,18 @@ function formatLayer(layer){
   var layer = verifyKeys(layer);
 
   // Support layer.filter function
-  if (layer.filter){
-    layer.data = _.filter(layer.data, function(p){
-      return layer.filter(p);
+  if (layer.map){
+
+    // Apply map function
+    layer.data = _.map(layer.data, function(p){
+      return layer.map(p);
     })
   }
 
   // Support layer.filter function
-  if (layer.map){
-    layer.data = _.map(layer.data, function(p){
-      return layer.map(p);
+  if (layer.filter){
+    layer.data = _.filter(layer.data, function(p){
+      return layer.filter(p);
     })
   }
 
@@ -245,8 +254,6 @@ function buildKey(layers){
 
   _.each(layers, function(layer){
 
-    // console.log(layer.id)
-
     var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
     var b = layer.name;
     var c = '<span class="btn-remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
@@ -255,8 +262,6 @@ function buildKey(layers){
     key.append(a + b + c + d);
   })
 }
-
-
 
 /******************************
        Twitter API

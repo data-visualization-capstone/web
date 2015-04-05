@@ -132,7 +132,7 @@
 
         // Dynamically load data
         loadData  : DV.twitter.stream,
-        parameter : 'traffic',
+        parameter : 'patriots',
 
         width: 3,
 
@@ -158,6 +158,23 @@
         type : 'geojson',
         loadData : DV.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
+      },
+      
+      
+      census : {
+        name : 'census',
+        type : 'topojson',
+        loadData : DV.loadCSV,
+        parameter : '/js/data/census2010.csv',
+
+        map : function(row){
+            return parseCensusRow(row)
+        }, 
+
+        filter : function(row){
+            return (row) ? true : false;
+        }
+
       }
   };
 
@@ -166,44 +183,32 @@
     DV.layers.addLayer(layer);
   })
 
+  // d3.csv(, function(csv) {
 
-  // d3.json("/js/data/MBTARapidTransitLines.json", function(json) {
-    
-  //   var layer = {
-  //     name : "MBTA",
-  //     type : 'geojson',
-  //     data : json,
-  //   }
-
-  //   DV.layers.addLayer(layer);
-  // });
-
-  d3.csv('/js/data/census2010.csv', function(csv) {
-
-      // Process data
-      // Parse census csv, coerce strings to numbers,
-      // and reject invalid rows.
-      var data = _.chain(csv)
+  //     // Process data
+  //     // Parse census csv, coerce strings to numbers,
+  //     // and reject invalid rows.
+  //     var data = _.chain(csv)
       
-        // Parve relevant data
-        .map(function(row){ return parseCensusRow(row)})
+  //       // Parve relevant data
+  //       .map(function(row){ })
         
-        // Remove invalid data
-        .filter(function(row){ return row; })
+  //       // Remove invalid data
+  //       .filter(function(row){ return row; })
 
-        // Return value
-        .value();
+  //       // Return value
+  //       .value();
 
 
-      var layer = {
-        name : 'Census',
-        type : 'topojson',
-        data : data
-      }
+  //     var layer = {
+  //       name : 'Census',
+  //       type : 'topojson',
+  //       data : data
+  //     }
 
-      DV.layers.addLayer(layer);  
+  //     DV.layers.addLayer(layer);  
 
-  });
+  // });
 
 
     function parseCensusRow(row) {
