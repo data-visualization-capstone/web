@@ -47,6 +47,9 @@ DV.layers.addLayer = function(layer){
 
         console.log("\nAdding Layer"); console.log(layer);
 
+        // Prevent duplicates
+        if (DV.layers.findLayer("name", layer.name)) return;
+
         // Refresh view
         update(DV._layers);
 
@@ -116,7 +119,7 @@ function update(layers){
   // Clear data before populating
   $("#hexmap").remove()
 
-  buildKey(layers);
+  // buildKey(layers);
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
@@ -248,21 +251,21 @@ function verifyKeys(layer){
     return layer;
 }
 
-function buildKey(layers){
-  var key = $("#legend");
+// function buildKey(layers){
+//   var key = $("#legend");
 
-  key.html("");
+//   key.html("");
 
-  _.each(layers, function(layer){
+//   _.each(layers, function(layer){
 
-    var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
-    var b = layer.name;
-    var c = '<span class="btn-remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
-    var d = '</p>'
+//     var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
+//     var b = layer.name;
+//     var c = '<span class="btn-remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
+//     var d = '</p>'
 
-    key.append(a + b + c + d);
-  })
-}
+//     key.append(a + b + c + d);
+//   })
+// }
 
 /******************************
        Twitter API

@@ -35,8 +35,8 @@
   <script src="js/data/apartments.js"></script>
   
   <!-- External -->
-  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-  <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+  <script src="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+  <script src="//d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
   <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 
   <script>
@@ -150,10 +150,8 @@
         type : 'geojson',
         loadData : DV.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
-      }]
-      
-      
-      // census : {
+      },
+      //  {
       //   name : 'census',
       //   type : 'topojson',
       //   loadData : DV.loadCSV,
@@ -168,6 +166,7 @@
       //   }
 
       // }
+      ]
   
 
   // Development: plot all
@@ -210,37 +209,26 @@
   // });
 
 
-    // function parseCensusRow(row) {
+    function parseCensusRow(row) {
 
-    //   var parsedRow = {
-    //     id:         +row['tractid10'],
-    //     medianRent: +row['medianrent']
-    //   }
+      var parsedRow = {
+        id:         +row['tractid10'],
+        medianRent: +row['medianrent']
+      }
 
-    //   if (parsedRow.id && parsedRow.medianRent) {
-    //     return parsedRow;
-    //   } else {
-    //     return;
-    //   }
-    // }
+      if (parsedRow.id && parsedRow.medianRent) {
+        return parsedRow;
+      } else {
+        return;
+      }
+    }
 
     /************************************
             Wire-up UI Elements
      ************************************/
 
     // Load Menu Template
-    $("#menu").load('templates/menu.tpl.html', function(result){
-        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", options.layers.apartments);  
-        // UI.elements.layerCheckbox("#toggle_mbta", options.layers.red_line);
-        // UI.elements.layerCheckbox("#toggle_mbta", options.layers.orange);
-        // UI.elements.heatmapScale("#squareFootage");
-        // UI.elements.heatmapScale("#bedrooms");
-        // UI.elements.heatmapScale("#rentPrice");        
-        
-        // // Initialize Defaults For Filter UI
-        // UI.initializeSliders();
-        // UI.initializeHashtags(); 
-        // UI.toggleOption();        
+    $("#menu").load('templates/menu.tpl.html', function(result){    
     });
     
   </script>
