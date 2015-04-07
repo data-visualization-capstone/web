@@ -193,7 +193,7 @@ body#map-content{
     z-index: 999;
     left:-320px;
     height: 100%;
-    background-color: #fff;
+    background-color: rgba(52, 52, 52, 0.8);
     padding:0px;
     overflow: scroll;
     box-sizing:border-box;
@@ -203,32 +203,60 @@ body#map-content{
     .menuHeader{
       width: 100%;
       clear:both;
-      background-color: #9B9B9B;
+      background-color: transparent;
 
     /** /// All DOM Elements Inside .menuHeader /// **/
 
       h1{
         margin-left: 20px;
-        font-style: italic;
-        font-weight: bold;
         color:#FFF;
-        font-size: 24px;
+        font-size: 20px;
         padding: 10px 0px;
         line-height: normal;
+        letter-spacing: .06em;
       } 
     }
 
     div#menuBody{
       padding:0px 20px;
-
+      width: 100%;
+      box-sizing: border-box;
+      float: left;
       /** /// All DOM Elements Inside #menuBody /// **/
 
       .item.menu_module{
+        float: left;
+        width: 100%;
         margin-bottom: 10px;
         padding:0px;
-
         padding-top:.78571em;
-        border-bottom: solid 2px black;
+        border-bottom: solid 2px black;       
+        -webkit-box-shadow: 0 4px 4px -2px #343434;
+        -moz-box-shadow: 0 4px 4px -2px #343434;
+        box-shadow: 0 4px 4px -2px #343434;
+
+        a#add_filter{
+          border-radius: 1px;          
+          background-color: #00BCD4;
+          float: left;
+          padding:7px 0px;
+          width: 100%;
+
+          p{
+            font-size: 18px;
+            float:left;
+            color:#fff; 
+            margin-bottom: 0px;
+            margin-left: 10px;           
+          }
+          i{
+            float: right;
+            color:#fff;
+            margin-bottom: 0px;
+            margin-right: 10px;
+            margin-top: 5px;            
+          }
+        }
       }
 
       .item.menu_module:last-child{
