@@ -188,7 +188,7 @@ body#map-content{
   /** /// All DOM Elements Inside #menu /// **/
 
   .ui_menu{
-    width: 320px;
+    width: 390px;
     position: absolute;
     z-index: 999;
     left:-320px;
@@ -229,7 +229,6 @@ body#map-content{
         width: 100%;
         margin-bottom: 10px;
         padding:0px;
-        padding-top:.78571em;
         border-bottom: solid 2px black;       
         -webkit-box-shadow: 0 4px 4px -2px #343434;
         -moz-box-shadow: 0 4px 4px -2px #343434;
@@ -239,7 +238,7 @@ body#map-content{
           border-radius: 1px;          
           background-color: #00BCD4;
           float: left;
-          padding:7px 0px;
+          padding:10px 0px;
           width: 100%;
 
           p{
@@ -247,7 +246,7 @@ body#map-content{
             float:left;
             color:#fff; 
             margin-bottom: 0px;
-            margin-left: 10px;           
+            margin-left: 10px;         
           }
           i{
             float: right;
@@ -261,6 +260,40 @@ body#map-content{
 
       .item.menu_module:last-child{
         border-bottom: none;
+      }
+
+      .card{
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: block;
+        float: left;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        background-color: #ffffff;
+        -moz-box-shadow: 0 4px 2px -2px #343434;
+        -webkit-box-shadow: 0 4px 2px -2px #343434;
+        box-shadow: 0 4px 2px -2px #343434;        
+        border-radius: 1px;
+        .card_left{
+          float: left;
+          top: 0px;
+          width: 40px;
+          height: 100%;
+          background-color: #9B9B9B;
+        }
+        .card_right{
+          float: left;
+          width: 310px;
+          padding: 10px 15px;
+          box-sizing: border-box;
+
+          h3{
+            margin: 0px;
+            margin-bottom: 10px;
+          }
+        }
+
       }
 
       .menuSection{
