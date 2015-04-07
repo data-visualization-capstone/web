@@ -223,7 +223,6 @@ UI.initializeSliders = function(){
   // Link the range sliders to spans
   // Display current values of upper and lower handles
   linkInput = function(target){
-    var thing = '.range' + target+ '';
     $('.range' + target).Link('lower').to($(target + '_link_lower'));
     $('.range' + target).Link('upper').to($(target + '_link_upper'));
   }
