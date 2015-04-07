@@ -90,9 +90,7 @@
     ************************************/
 
     // Possible layers.
-    options.layers = {
-    
-      apartments : {
+    options.layers = [{
         
         // Set name for layer
         // used for unique ID
@@ -121,9 +119,7 @@
         map : function(point){
           return point;
         }, 
-      },
-
-      traffic : {
+      },{
 
         name: "Twitter Traffic",
         type: "scatterplot",
@@ -136,9 +132,7 @@
 
         width: 3,
 
-      },
-
-      pax : {
+      },{
 
         name: "Twitter PAX",
         type: "scatterplot",
@@ -151,38 +145,43 @@
 
         width: 3,
 
-      }, 
-
-      mbta : {
+      }, {
         name : 'MBTA',
         type : 'geojson',
         loadData : DV.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
-      },
+      }]
       
       
-      census : {
-        name : 'census',
-        type : 'topojson',
-        loadData : DV.loadCSV,
-        parameter : '/js/data/census2010.csv',
+      // census : {
+      //   name : 'census',
+      //   type : 'topojson',
+      //   loadData : DV.loadCSV,
+      //   parameter : '/js/data/census2010.csv',
 
-        map : function(row){
-            return parseCensusRow(row)
-        }, 
+      //   map : function(row){
+      //       return parseCensusRow(row)
+      //   }, 
 
-        filter : function(row){
-            return (row) ? true : false;
-        }
+      //   filter : function(row){
+      //       return (row) ? true : false;
+      //   }
 
-      }
-  };
+      // }
+  
 
   // Development: plot all
-  _.each(options.layers, function(layer){
-    DV.layers.addLayer(layer);
-  })
+  // _.each(options.layers, function(layer){
+  //   DV.layers.addLayer(layer);
+  // })
+  
+  DV.layers.addLayer(options.layers[0]);
 
+  DV.layers.addLayer(options.layers[1]);
+
+  DV.layers.addLayer(options.layers[2]);
+
+  
   // d3.csv(, function(csv) {
 
   //     // Process data
@@ -211,19 +210,19 @@
   // });
 
 
-    function parseCensusRow(row) {
+    // function parseCensusRow(row) {
 
-      var parsedRow = {
-        id:         +row['tractid10'],
-        medianRent: +row['medianrent']
-      }
+    //   var parsedRow = {
+    //     id:         +row['tractid10'],
+    //     medianRent: +row['medianrent']
+    //   }
 
-      if (parsedRow.id && parsedRow.medianRent) {
-        return parsedRow;
-      } else {
-        return;
-      }
-    }
+    //   if (parsedRow.id && parsedRow.medianRent) {
+    //     return parsedRow;
+    //   } else {
+    //     return;
+    //   }
+    // }
 
     /************************************
             Wire-up UI Elements
