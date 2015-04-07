@@ -1,5 +1,3 @@
-// var _ = require('lodash');
-// var omnivore = require('leaflet-omnivore');
 
 // Returns a leaflet geo JSON layer (L.geoJson)
 // geoJSON is a list of features.

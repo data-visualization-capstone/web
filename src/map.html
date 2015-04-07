@@ -25,9 +25,6 @@
   <!-- Loading Indicator -->
   <div id="loading" class="spin" style="display: none;"></div>
 
-  <!-- Legend -->
-  <div id="legend"></div>
-
   <!-- Data Visualization Script -->
   <script src="build/build.js"></script>
 
@@ -63,7 +60,7 @@
       ],
 
       // Available layers
-      layers : {},
+      layers : [],
         
     }
 
@@ -151,6 +148,9 @@
         loadData : DV.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
       },
+
+      // @TODO : Something about this creates
+      // an infinite loop....
       //  {
       //   name : 'census',
       //   type : 'topojson',
@@ -167,48 +167,8 @@
 
       // }
       ]
-  
 
-  // Development: plot all
-  // _.each(options.layers, function(layer){
-  //   DV.layers.addLayer(layer);
-  // })
-  
-  DV.layers.addLayer(options.layers[0]);
-
-  DV.layers.addLayer(options.layers[1]);
-
-  DV.layers.addLayer(options.layers[2]);
-
-  
-  // d3.csv(, function(csv) {
-
-  //     // Process data
-  //     // Parse census csv, coerce strings to numbers,
-  //     // and reject invalid rows.
-  //     var data = _.chain(csv)
-      
-  //       // Parve relevant data
-  //       .map(function(row){ })
-        
-  //       // Remove invalid data
-  //       .filter(function(row){ return row; })
-
-  //       // Return value
-  //       .value();
-
-
-  //     var layer = {
-  //       name : 'Census',
-  //       type : 'topojson',
-  //       data : data
-  //     }
-
-  //     DV.layers.addLayer(layer);  
-
-  // });
-
-
+    // Used to format censuse data
     function parseCensusRow(row) {
 
       var parsedRow = {
