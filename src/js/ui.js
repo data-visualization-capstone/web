@@ -62,12 +62,16 @@ UI.elements.heatmapScale = function(selector){
   });
 }
 
-UI.elements.addMoreInfo = function(){
-  $(".card.add_card").addClass("expanded");
+// shows "add more information" card in menu
+UI.elements.expand = function(selector){  
+  $("" + selector + "").addClass("expanded");
 }
-UI.elements.cancelMoreInfo = function(){
-  $(".card.add_card").removeClass("expanded");
+// hides "add more information" card from menu
+UI.elements.collapse = function(selector){
+  $("" + selector + "").removeClass("expanded");
 }
+UI.elements.dataSetDropdown = function(){}
+
 // Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
@@ -81,6 +85,12 @@ UI.toggleOption = function(){
     }
   }); 
 } 
+UI.elements.expandElement = function(selector){
+    if(selector == '.card.add_card'){
+      $("#add_filter, #add_filter_disabled").toggle();
+    }  
+    $("" + selector + "").toggleClass("expanded");
+}
 /**************************
      DOM Manipulation
 ****************************/
