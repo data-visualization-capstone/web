@@ -84,6 +84,23 @@ UI.hideApartments = function(){
   DV.layers.deleteLayer('hexmap');
 }
 
+UI.showRed = function(){
+  if($("#red_line").prop("checked") == true){
+    DV.layers.addLayer(red_line);
+  }
+  else{
+    DV.layers.deleteLayer('redline');
+  }
+}
+UI.showOrange = function(){
+  if($("#orange_line").prop("checked") == true){
+    DV.layers.addLayer(orange_line);
+  }
+  else{
+    DV.layers.deleteLayer('orangeline');
+  }
+}
+
 UI.elements.expandElement = function(selector){
     if(selector == '.card.add_card'){
       $("#add_filter, #add_filter_disabled").toggle();          
@@ -100,6 +117,13 @@ UI.elements.expandElement = function(selector){
         }
         else if($(this).attr("icon") == "subway"){
           $("#ui_mbta").show();
+
+          $("#red_line").click(function(){
+            UI.showRed();         
+          });
+          $("#orange_line").click(function(){
+            UI.showOrange();
+          });
         }
 
         UI.elements.expandElement(".card.add_card");          
