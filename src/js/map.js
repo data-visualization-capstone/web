@@ -28,11 +28,6 @@ var DV = {
         Layers
 ****************************/
 
-// GET - Get a layer from the settings.
-DV.layers.getLayer = function(layerId){
-  return _.findWhere(DV._layers, { id : layerId });
-}
-
 // PUT - Add a layer to the map.
 DV.layers.addLayer = function(layer){
 
@@ -76,8 +71,6 @@ DV.layers.updateLayer = function(layerId, layer){
 
 // DELETE - Delete a layer from the map.
 DV.layers.deleteLayer = function(id){
-
-  // alert(id)
 
   // @TODO: Refresh all layers on map
 
