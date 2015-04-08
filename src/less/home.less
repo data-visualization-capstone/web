@@ -308,19 +308,23 @@ div#containerInner{
 footer{
 	float: left;
 	display: block;
+	bottom: 0;
+	margin-bottom: 0;
 	width: 100%;
-	height: 140px;
 	max-width: 100%;
-	background-color: #000000;
+	background-color: #efefef;
 }
 footer div#footerInner{
 	max-width: 940px;
-	margin: 0 auto;
-	padding-top: 50px;
+	margin: 22px auto;
 	box-sizing:border-box;
+	text-align: center
 }
 footer div#footerInner h1{
-	color:#fff;
+	color: #cbcbcb;
+	letter-spacing: .25em;
+	font-size: 14px;
+	padding: 2px 0px;
 }
 @media only screen and (max-width:760px){
 	nav#header ul#deskMenu{
@@ -331,3 +335,119 @@ footer div#footerInner h1{
 		margin-right: 0px;
 	}
 }
+
+/* SL STYLES */
+html, html a {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;	
+	p {
+		letter-spacing: .1em;
+		line-height: 1.4em;
+	}
+}
+
+
+#top-banner {
+	width: 100%;
+	height: 600px;
+	background: -webkit-linear-gradient(#36C1D2 , #6293CD); 
+ 	background: -o-linear-gradient(#36C1D2, #6293CD); 
+    background: -moz-linear-gradient(#36C1D2, #6293CD); 
+    background: linear-gradient(#36C1D2, #6293CD);
+
+    #top-banner-container {
+    	width: 462px;
+    	text-align: center;
+    	margin-left: auto;
+    	margin-right: auto;
+    	display: block;
+    	padding-top: 220px;
+
+    	img {
+    		width: 402px;
+    	}
+    	hr {
+    		border: 1px solid white;
+    		width: 100%;
+    		margin: 20px auto 24px;
+    	}
+    	h3 {
+    		color: white;
+    		opacity: .62;
+    		font-style: italic;
+    		font-weight: 600;
+    		letter-spacing: .12em;
+    		font-size: 18px;
+    		margin-bottom: 56px;
+    	}
+    	a {
+    		text-transform: uppercase;
+    		color: white;
+    		letter-spacing: .25em;
+    		border: 2px solid white;
+    		text-decoration: none;
+    		font-weight: 600;
+    		padding-top: 7px;
+    		padding-bottom: 8px;
+    		padding-left: 13px;
+    		padding-right: 9px;
+    	}
+    }
+}
+
+ #focus-section {
+ 	text-align: center;
+ 	h2 {
+	    color: #58585B;
+		font-weight: 900;
+		letter-spacing: .25em;
+		text-transform: uppercase;
+		font-size: 19px;
+		margin: 82px auto 30px;
+ 	}
+ 	p {
+ 		width: 460px;
+ 		font-size: 18px;
+ 		color: #9B9D9F;
+ 		margin: 0 auto;
+ 	}
+ 	img {
+ 		width: 56%;
+ 	}
+ }
+
+ #features-section {
+ 	width: 93%;
+ 	text-align: center;
+ 	margin: 30px 0 140px;
+
+ 	.features-column {
+ 		width: 31%;
+ 		display: inline-block;
+ 		text-align: center;
+
+ 		img {
+ 			width: 88px;
+ 			margin: 0;
+ 		}
+ 		h2 {
+ 			color: #36C1D2;
+			font-weight: 900;
+			letter-spacing: .25em;
+			text-transform: uppercase;
+			font-size: 19px;
+			margin: 20px;
+ 		}
+ 		p {
+ 			color: #58585B;
+ 			width: 253px;
+ 			display: block;
+ 			margin: 0 auto;
+ 			font-size: 15.5px;
+ 		}
+ 	}
+ }
