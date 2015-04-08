@@ -287,8 +287,60 @@ function generateId(layer){
 
 DV.twitter = {};
 
+// Add a new layer getting data from twitter.
+// Support 2 types of tweets:
+//   "search" - Search the twitter API for tweets
+//   "stream" - Use cached tweets that we've recorded
+
+// Fetch tweets from twitter search API.
+// Provide the element where the user
+// entered a search term.
+
+DV.twitter.addSearch = function(element){
+
+  // String to search by. Provide element where
+  // user entered the search term
+  var string = $(element).val()
+
+  DV.twitter.addLayer(string, DV.twitter.getSearchData)
+}
+
+// Fetch tweets that we've stored from a
+// twitter stream. Take a string that tweets
+// should contain in the message.
+
+DV.twitter.addStream = function(string){
+
+  DV.twitter.addLayer(string, DV.twitter.getStreamData)
+}
+
+// Helper function for adding different types of t
+// twitter data
+DV.twitter.addLayer = function(string, loadDataFunction){
+  
+  // Error Checking
+  // @TODO: User Feedback
+  if (!string) { console.error("Invalid Twitter String."); return; }
+
+  // Show loading indicator.
+  Loading.start("tweet");
+
+  // Create layer object
+  var layer = {
+      name: "Twitter " + string,
+      type: "scatterplot",
+      color: DV.utils.getColor(Math.random(0, 100)),
+      loadData : loadDataFunction,
+      parameter : string,
+      width: 3,
+  }  
+
+  // add layer object
+  DV.layers.add(layer);
+}
+
 // GET /twitter/search/:string
-DV.twitter.search = function(string, success, error){
+DV.twitter.getSearchData = function(string, success, error){
   $.get(DV.url + "twitter/search/" + string, function(resp){
 
       Loading.stop("tweet");
@@ -303,11 +355,15 @@ DV.twitter.search = function(string, success, error){
 };
 
 // GET /twitter/stream/:string
-DV.twitter.stream = function(string, success, error){
+DV.twitter.getStreamData = function(string, success, error){
   $.get(DV.url + "twitter/stream/" + string, function(resp){
+      
+      Loading.stop("tweet");
       success(resp)
     })
     .fail(function() {
+      
+      Loading.stop("tweet");
       console.error("Error fetching tweets: "  + resp)
       error(resp)
     })

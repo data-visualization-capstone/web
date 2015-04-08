@@ -127,7 +127,7 @@ UI.toggleSideNav = function(element){
 //     } else {
 
 //       // Get tweets that were cached from the stream.
-//       DV.twitter.stream(string, function(resp){
+//       DV.twitter.getStream(string, function(resp){
         
 //         // Add layer
 //         DV.layers.add({
@@ -154,59 +154,6 @@ UI.toggleSideNav = function(element){
 //     }
 // }
 
-// Fetch tweets
-UI.searchForTweet = function(element){
-  
-  // Show loading indicator.
-  Loading.start("tweet");
-
-  // String to search by
-  var string = $(element).val()
-
-  // Error Checking
-  // @TODO: User Feedback
-  if (!string) { console.error("Invalid Twitter String."); return; }
-
-  var layer = {
-      name: "Twitter " + string,
-      type: "scatterplot",
-      color: DV.utils.getColor(Math.random(0, 100)),
-      loadData : DV.twitter.search,
-      parameter : string,
-      width: 3,
-  }
-
-  DV.layers.add(layer);
-}
-
-// Cached Tweet
-UI.cachedTweet = function(element){
-  
-  // Show loading indicator.
-  Loading.start("tweet");
-
-  // String to search by
-  var string = $(element).val()
-
-  // Error Checking
-  if (!string) {
-    
-    // @TODO: User Feedback
-    console.error("Invalid Twitter String.");
-    return;
-  }
-
-  var layer = {
-      name: "Twitter " + string,
-      type: "scatterplot",
-      color: DV.utils.getColor(Math.random(0, 100)),
-      loadData : DV.twitter.search,
-      parameter : string,
-      width: 3,
-  }
-
-  DV.layers.add(layer);
-}
 
 // Initializes ALL RANGE SLIDERS (RS)
 UI.initializeSliders = function(){
