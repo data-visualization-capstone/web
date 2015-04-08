@@ -100,6 +100,12 @@ UI.showOrange = function(){
     DV.layers.deleteLayer('orangeline');
   }
 }
+UI.hideMBTA = function(){
+  $("#ui_mbta").hide();
+  DV.layers.deleteLayer('orangeline');  
+  DV.layers.deleteLayer('redline');  
+  $("#red_line, #orange_line").prop("checked") = false;
+}
 
 UI.elements.expandElement = function(selector){
     if(selector == '.card.add_card'){
@@ -117,7 +123,7 @@ UI.elements.expandElement = function(selector){
         }
         else if($(this).attr("icon") == "subway"){
           $("#ui_mbta").show();
-
+          $("#ui_mbta .card_delete a").click(function(){UI.hideMBTA()});
           $("#red_line").click(function(){
             UI.showRed();         
           });
