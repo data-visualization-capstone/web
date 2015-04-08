@@ -26,7 +26,7 @@ UI.elements.layerCheckbox = function(selector, layer){
 
     // Enable - Add Layer
     if (checked) {
-        DV.layers.deleteLayer(layer.id);        
+        DV.layers.deleteLayer(layer.id);
         $(this).siblings("input[type=checkbox]").prop("checked", false);         
     
     //  Disable - Remove Layer
@@ -167,7 +167,6 @@ UI.searchForTweet = function(element){
   if (!string) {
     
     // @TODO: User Feedback
-
     console.error("Invalid Twitter String.");
     return;
   }
@@ -180,7 +179,6 @@ UI.searchForTweet = function(element){
       parameter : string,
       width: 3,
   }
-
 
   DV.layers.addLayer(layer);
 }

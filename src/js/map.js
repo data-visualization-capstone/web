@@ -145,7 +145,8 @@ DV.update = function(){
       
       // SCATTERPLOT
       case "scatterplot":
-        drawScatterplot(map, layer);
+        // drawScatterplot(map, layer);
+        drawMarkers(map, layer);
         break;
         
       // PATH
