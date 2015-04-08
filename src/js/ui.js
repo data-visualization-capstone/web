@@ -62,14 +62,6 @@ UI.elements.heatmapScale = function(selector){
   });
 }
 
-// shows "add more information" card in menu
-UI.elements.expand = function(selector){  
-  $("" + selector + "").addClass("expanded");
-}
-// hides "add more information" card from menu
-UI.elements.collapse = function(selector){
-  $("" + selector + "").removeClass("expanded");
-}
 UI.elements.dataSetDropdown = function(){}
 
 // Shows/Hides Filtering for heatmap based on selected scale 
@@ -85,12 +77,38 @@ UI.toggleOption = function(){
     }
   }); 
 } 
+
+// SHITTY CODE FOR RISE
+UI.hideApartments = function(){
+  $("#ui_apartment").hide();
+  DV.layers.deleteLayer('hexmap');
+}
+
 UI.elements.expandElement = function(selector){
     if(selector == '.card.add_card'){
-      $("#add_filter, #add_filter_disabled").toggle();
+      $("#add_filter, #add_filter_disabled").toggle();          
     }  
+
+    if(selector == '#select_list'){
+
+      $(".select_option").click(function(){
+        if($(this).attr("icon") == "home"){
+          $("#ui_apartment").show();
+          $("#ui_apartment .card_delete a").click(function(){UI.hideApartments()});
+          DV.layers.addLayer(heatmapLayer);        
+          UI.elements.expandElement("#select_list");          
+        }
+        else if($(this).attr("icon") == "subway"){
+          $("#ui_mbta").show();
+        }
+
+        UI.elements.expandElement(".card.add_card");          
+      });    
+    }
+
     $("" + selector + "").toggleClass("expanded");
 }
+
 /**************************
      DOM Manipulation
 ****************************/
@@ -250,14 +268,41 @@ UI.initializeSliders = function(){
 }
 
 
+
 /**************************
     Adding a Card
 ****************************/
-UI.newCard = function(){
-  $("<div class='card'></div>").insertAfter("#add_filter");
-}
+// UI.newCard = function(icon_class, header){
+
+//   var menu = document.getElementById("menuBody"),
+//       card = document.createElement("DIV"),
+//       left = document.createElement("DIV"),
+//       right = document.createElement("DIV"),
+//       title = document.createElement("H3"),
+//       title_text = header,
+//       title_text = document.createTextNode(title_text),
+//       icon_class = "fa fa-" + icon_class + " fa-2x",
+//       icon = document.createElement("I");
+
+//   card.setAttribute("class", "card");
+//   left.setAttribute("class",  "card_left");
+//   right.setAttribute("class", "card_right");
+//   icon.setAttribute("class", icon_class);
+
+//   title.appendChild(title_text);
 
 
+//   left.appendChild(icon);
+//   right.appendChild(title);
+
+//   card.appendChild(left);
+//   card.appendChild(right);
+  
+//   menu.appendChild(card);
+  
+//   return card;
+
+// }
 // Handles coloring for hashtag tiles in filter UI
 // UI.initializeHashtags = function(){
 

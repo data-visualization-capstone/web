@@ -7,7 +7,7 @@
 
   <div id="menuBody">
 
-    <div class="">
+    <div>
       <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.expandElement('.card.add_card');">
         <p style="float:left;" class="trans x2">Explore more information</p>
         <i class="fa fa-plus trans x2" style="float:right;"></i>
@@ -28,8 +28,8 @@
             <i class="fa fa-angle-down"></i>
           </a>
           <div id="select_list">
-              <a href="javascript:void(0);" class="select_option" id="select_mbta">MBTA</a>
-              <a href="javascript:void(0);" class="select_option" id="select_apartment">Apartment</a>          
+              <a href="javascript:void(0)" class="select_option" icon="subway" >MBTA</a>
+              <a href="javascript:void(0)" class="select_option" icon="home" >Apartment</a>          
           </div>
         <div class="card_buttons">
           <a href="javascript:void(0)" id="add_to_map">Add to map</a>
@@ -37,6 +37,7 @@
         </div>
       </div>
     </div>
+
 <!--     <div class="card">
       <div class="card_left">
         <i class="fa fa-columns fa-2x"></i>     
@@ -48,9 +49,28 @@
           <p>Hovering over: <span id="nhood">Back Bay</span></p>
         </div>
       </div>
-    </div>
+    </div> -->
+    <div class="card" id="ui_mbta" style="display:none;">
+      <div class="card_left">
+        <i class="fa fa-subway fa-2x"></i>    
+      </div>
+      <div class="card_right">
+        <h3>MBTA</h3>
+            <div class="menuSection">
+            <p>Toggle MBTA train lines</p>
+            <div>
+              <input type="checkbox" name="mbta" value="" id="orange_line" />
+              <label for="#orange_line">Orange Line</label>              
+            </div>
+            <div>          
+              <input type="checkbox" name="mbta" value="" id="red_line" />
+              <label for="#red_line">Red Line</label>                
+            </div>
+          </div> 
+      </div>
+    </div>   
 
-    <div class="card">
+    <div class="card" id="ui_apartment" style="display:none;">
       <div class="card_left">
         <i class="fa fa-home fa-2x"></i>    
       </div>
@@ -66,7 +86,12 @@
             </div>
           </div> 
       </div>
-    </div> -->
+      <div class="card_delete">
+        <a href="javascript:void(0);"  onclick="UI.elements.deleteCard();">
+          <i class="fa fa-times fa-lg"></i>
+        </a>
+      </div>
+    </div>    
 
   </div>
 </div>
