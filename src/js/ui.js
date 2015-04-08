@@ -104,7 +104,8 @@ UI.hideMBTA = function(){
   $("#ui_mbta").hide();
   DV.layers.deleteLayer('orangeline');  
   DV.layers.deleteLayer('redline');  
-  $("#red_line, #orange_line").prop("checked") = false;
+  $("#red_line").prop("checked", false);
+  $("#orange_line").prop("checked", false);
 }
 
 UI.elements.expandElement = function(selector){
