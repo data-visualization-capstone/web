@@ -50,7 +50,7 @@ DV.layers.addLayer = function(layer){
         console.log(DV._layers);
 
         // Prevent duplicates
-        if (DV.layers.findLayer("name", layer.name)) return;
+        // if (DV.layers.findLayer("name", layer.name)) return;
 
         // Refresh view
         DV.update();
@@ -202,7 +202,8 @@ function compileLayer(layer, callback){
             // Generates a unique ID for the layer
             layer = formatLayer(layer);
 
-            alert("hey")
+            // Layer is formatted.
+            // Return object
             callback(layer);
 
         // Throw Error. Usually an API problem....
@@ -221,7 +222,6 @@ function compileLayer(layer, callback){
 
         layer = formatLayer(layer);
 
-        alert("hey")
         callback(layer);
       
     } else {
