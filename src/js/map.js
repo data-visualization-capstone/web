@@ -370,28 +370,6 @@ DV.twitter.getStreamData = function(string, success, error){
 };
 
 /******************************
-      Loading Data Sets
- ******************************/
-
-// Load data from a JSON file
-DV.loadJSON = function(target, success, error){
-  d3.json(target, function(json){
-    success(json);
-  }, function(resp){
-    error(resp);
-  });
-};
-
-// Load data from a CSV file
-DV.loadCSV = function(target, success, error){
-  d3.csv(target, function(csv){
-    success(csv);
-  }, function(resp){
-    error(resp);
-  });
-};
-
-/******************************
          Utils
  ******************************/
 
@@ -420,6 +398,25 @@ DV.utils.componentToHex = function(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 };
+
+// Load data from a JSON file
+DV.utils.loadJSON = function(target, success, error){
+  d3.json(target, function(json){
+    success(json);
+  }, function(resp){
+    error(resp);
+  });
+};
+
+// Load data from a CSV file
+DV.utils.loadCSV = function(target, success, error){
+  d3.csv(target, function(csv){
+    success(csv);
+  }, function(resp){
+    error(resp);
+  });
+};
+
 
 /**************************
     Loading Indicator
