@@ -164,12 +164,8 @@ UI.searchForTweet = function(element){
   var string = $(element).val()
 
   // Error Checking
-  if (!string) {
-    
-    // @TODO: User Feedback
-    console.error("Invalid Twitter String.");
-    return;
-  }
+  // @TODO: User Feedback
+  if (!string) { console.error("Invalid Twitter String."); return; }
 
   var layer = {
       name: "Twitter " + string,

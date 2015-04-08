@@ -154,6 +154,8 @@ DV.update = function(){
         
       // HEX
       case "hex":
+
+        // @TODO: Store as layerGroup
         drawHexmap(map, layer);
         break;
 
@@ -170,8 +172,15 @@ DV.update = function(){
 
     console.log(leaflet_layer)
 
+    // If our data is represented as a proper
+    // leaflet layer object, lets add it to the map.
+
     if (leaflet_layer){
+
+      // Store for refernece
       DV._leaflet_layers.push(leaflet_layer);
+
+      // Add to map
       map.addLayer(leaflet_layer);
     }
 	}
@@ -184,6 +193,7 @@ DV.update = function(){
 // Fetches data if the data isn't provided.
 // As a result, this function is async and 
 // requires a ccallback function.
+
 function compileLayer(layer, callback){
 
     // Optional parameter for fetching data.
