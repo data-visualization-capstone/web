@@ -8,12 +8,35 @@
   <div id="menuBody">
 
     <div class="">
-      <a href="javascript:void(0)" id="add_filter" class="trans x2">
+      <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.addMoreInfo();">
         <p style="float:left;" class="trans x2">Explore more information</p>
         <i class="fa fa-plus trans x2" style="float:right;"></i>
       </a>
     </div>
-
+    <div class="card add_card trans x2">
+      <div class="card_left">
+        <i class="fa fa-plus fa-2x"></i>
+      </div>
+      <div class="card_right">
+        <h3>Add more information</h3> 
+          <a href="javascript:void(0)" id="select_set">
+            <p>Select a data set</p>
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <ul id="select_list">
+            <li class="select_option" id="select_mbta">
+              <a href="javascript:void(0);" id="select_mbta">MBTA</a>
+            </li>
+            <li class="select_option" id="select_apartment">
+              <a href="javascript:void(0);" id="select_apartment">Apartment</a>
+            </li>            
+          </ul>
+        <div class="card_buttons">
+          <a href="javascript:void(0)" id="add_to_map">Add to map</a>
+          <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.cancelMoreInfo();">Cancel</a>
+        </div>
+      </div>
+    </div>
     <div class="card">
       <div class="card_left">
         <i class="fa fa-columns fa-2x"></i>     

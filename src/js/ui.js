@@ -61,6 +61,13 @@ UI.elements.heatmapScale = function(selector){
     }
   });
 }
+
+UI.elements.addMoreInfo = function(){
+  $(".card.add_card").addClass("expanded");
+}
+UI.elements.cancelMoreInfo = function(){
+  $(".card.add_card").removeClass("expanded");
+}
 // Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
