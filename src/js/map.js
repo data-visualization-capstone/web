@@ -9,7 +9,7 @@
 
 var DV = {
 
-  // Are we in a development env?
+  // Are we in our development env?
   production : _.contains(document.URL, "dydns.org"),
 
   // Target API. - Change API's url based on the current environment
@@ -18,6 +18,8 @@ var DV = {
 
   // Layer Data
   _layers : [],
+
+  _leaflet_layers : [],
 
   // Layer CRUD Methods
   layers : {},
@@ -32,6 +34,8 @@ var DV = {
 DV.layers.add = function(layer){
 
   // @TODO: Prevent Duplicates
+  // Prevent duplicates
+  // if (DV.layers.find("name", layer.name)) return;
 
     // Converts to valid layer object
     compileLayer(layer, function(layer){
@@ -43,9 +47,6 @@ DV.layers.add = function(layer){
         DV._layers.push(layer);
 
         console.log(DV._layers);
-
-        // Prevent duplicates
-        // if (DV.layers.find("name", layer.name)) return;
 
         // Refresh view
         DV.update();
@@ -105,6 +106,10 @@ DV.layers.find = function(key, value){
 DV.layers.clear = function(){
   
   console.log("Clearing Layers...");
+
+  _.each(DV._leaflet_layers, function(l){
+    map.removeLayer(l);
+  })
   
   // Empty local list
   DV._layers = [];
@@ -163,7 +168,10 @@ DV.update = function(){
         break;
     }
 
+    console.log(leaflet_layer)
+
     if (leaflet_layer){
+      DV._leaflet_layers.push(leaflet_layer);
       map.addLayer(leaflet_layer);
     }
 	}
