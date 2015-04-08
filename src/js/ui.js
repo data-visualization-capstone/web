@@ -233,65 +233,71 @@ UI.initializeSliders = function(){
 }
 
 
-
-// Handles coloring for hashtag tiles in filter UI
-UI.initializeHashtags = function(){
-
-  // List of colors for hashtags
-  var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
-
-  // Create list of .hashtag DOM Elements 
-  var hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
-
-  // Loop through .hashtag elements
-  for(var i = 0; i < hashtags.length; i++){
-
-    // Set Attribute to determine color
-    hashtags[i].setAttribute("color", ""+colors[i]+"");
-  }
-
-  // Sets the color for each .hashtag tile based on "color" attribute
-  function colorize(){
-
-    // Bind to .hashtag elements
-    $(".hashtag").each(function(){
-
-      // Colors tile when activated
-      if($(this).hasClass("active")){
-        $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-      } 
-
-      // Removes color when deactivated
-      else{
-        $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-      }
-    });
-
-  }
-
-  // Adds or removes color from .hashtag tile
-  $(".hashtag").click(function(){
-    colorize();
-  });
-
-  // Toggles color for NON-ACTIVE .hashtag tiles on hover
-  $(".hashtag").hover(
-    function(){
-      if($(this).hasClass("active") != true){
-        $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-      }
-    },
-    function(){
-      if($(this).hasClass("active") != true){
-        $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-      }
-    }
-  );
-
-  // Initial Colorization of .hashtag tiles
-  colorize();
+/**************************
+    Adding a Card
+****************************/
+UI.newCard = function(){
+  $("<div class='card'></div>").insertAfter("#add_filter");
 }
 
+
+// Handles coloring for hashtag tiles in filter UI
+// UI.initializeHashtags = function(){
+
+//   // List of colors for hashtags
+//   var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
+
+//   // Create list of .hashtag DOM Elements 
+//   var hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
+
+//   // Loop through .hashtag elements
+//   for(var i = 0; i < hashtags.length; i++){
+
+//     // Set Attribute to determine color
+//     hashtags[i].setAttribute("color", ""+colors[i]+"");
+//   }
+
+//   // Sets the color for each .hashtag tile based on "color" attribute
+//   function colorize(){
+
+//     // Bind to .hashtag elements
+//     $(".hashtag").each(function(){
+
+//       // Colors tile when activated
+//       if($(this).hasClass("active")){
+//         $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
+//       } 
+
+//       // Removes color when deactivated
+//       else{
+//         $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
+//       }
+//     });
+
+//   }
+
+//   // Adds or removes color from .hashtag tile
+//   $(".hashtag").click(function(){
+//     colorize();
+//   });
+
+//   // Toggles color for NON-ACTIVE .hashtag tiles on hover
+//   $(".hashtag").hover(
+//     function(){
+//       if($(this).hasClass("active") != true){
+//         $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
+//       }
+//     },
+//     function(){
+//       if($(this).hasClass("active") != true){
+//         $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
+//       }
+//     }
+//   );
+
+//   // Initial Colorization of .hashtag tiles
+//   colorize();
+// }
 
 /**************************
     Loading Indicator

@@ -11,11 +11,12 @@ body#map-content{
 }
 
 #sideNavToggle {
-  top: 13px;
+  top: 0px;
   left: 0px;
   z-index: 10001;
   position: absolute;
   border-radius:0px;
+  padding:15px 25px;
 }
 
 #legend {
@@ -224,42 +225,45 @@ body#map-content{
       float: left;
       /** /// All DOM Elements Inside #menuBody /// **/
 
-      .item.menu_module{
+      a#add_filter{
+        border-radius: 1px;          
+        background-color: #00BCD4;
         float: left;
+        padding:10px 0px;
         width: 100%;
         margin-bottom: 10px;
-        padding:0px;
-        border-bottom: solid 2px black;       
-        -webkit-box-shadow: 0 4px 4px -2px #343434;
-        -moz-box-shadow: 0 4px 4px -2px #343434;
-        box-shadow: 0 4px 4px -2px #343434;
+        -moz-box-shadow: 0 4px 2px -2px #343434;
+        -webkit-box-shadow: 0 4px 2px -2px #343434;
+        box-shadow: 0 4px 2px -2px #343434;          
 
-        a#add_filter{
-          border-radius: 1px;          
-          background-color: #00BCD4;
-          float: left;
-          padding:10px 0px;
-          width: 100%;
-
-          p{
-            font-size: 18px;
-            float:left;
-            color:#fff; 
-            margin-bottom: 0px;
-            margin-left: 10px;         
-          }
-          i{
-            float: right;
-            color:#fff;
-            margin-bottom: 0px;
-            margin-right: 10px;
-            margin-top: 5px;            
-          }
+        p{
+          font-size: 18px;
+          float:left;
+          color:#fff; 
+          margin-bottom: 0px;
+          margin-left: 10px;         
+        }
+        i{
+          float: right;
+          color:#fff;
+          margin-bottom: 0px;
+          margin-right: 10px;
+          margin-top: 5px;            
         }
       }
 
-      .item.menu_module:last-child{
-        border-bottom: none;
+      a#add_filter:hover{
+        background-color: #00ACC2;
+        -moz-box-shadow: 0 4px 3px -1px #343434;
+        -webkit-box-shadow: 0 3px 1px -1px #343434;
+        box-shadow: 0 4px 3px -1px #343434; 
+
+        p{
+          font-size: 18.1px;
+        }
+        i{
+          font-size: 14.1px;
+        }
       }
 
       .card{
