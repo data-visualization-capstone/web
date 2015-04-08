@@ -266,7 +266,7 @@ body#map-content{
         position: relative;
         width: 100%;
         height: auto;
-        display: block;
+        display: flex;
         float: left;
         box-sizing: border-box;
         margin-bottom: 10px;
@@ -278,11 +278,18 @@ body#map-content{
 
         .card_left{
           float: left;
-          top: 0px;
+          height:auto;
           width: 40px;
-          height: 100%;
+          position: relative;
           background-color: #9B9B9B;
+          display: flex;
+
+          i{
+            margin: auto;
+          }
+
         }
+
         .card_right{
           float: left;
           width: 280px;
