@@ -1,15 +1,10 @@
 /****************************
-        Scatterplot
+        Markers
  ****************************/
 
-// Plot Points as a scatterplot
-// http://bost.ocks.org/mike/leaflet/
-// chriszetter.com/blog/2014/06/15/building-a-voronoi-map-with-d3-and-leaflet/
-
+// Plot Points as a Markers
 
 function drawMarkers(map, layer){
-
-
 
   var markers = new L.FeatureGroup();
 
@@ -17,15 +12,13 @@ function drawMarkers(map, layer){
 
     var latLng = [p.latitude, p.longitude]
 
-    console.log(p)
-
     var circle = L.circleMarker(latLng, {
       stroke: true,
       weight: 4,
       opacity: 1,
-      color: layer.data.color,
+      color: layer.color,
       fill: true,
-      fillColor: layer.data.color,
+      fillColor: layer.color,
       fillOpacity: 1,
       radius: 5,
     })
@@ -41,6 +34,8 @@ function drawMarkers(map, layer){
     markers.addLayer(circle);
   })
 
-  map.addLayer(markers);
+  
+  // Return layer group
+  return markers;
 };
 

@@ -146,7 +146,7 @@ DV.update = function(){
       // SCATTERPLOT
       case "scatterplot":
         // drawScatterplot(map, layer);
-        drawMarkers(map, layer);
+        leaflet_layer = drawMarkers(map, layer);
         break;
         
       // PATH
@@ -354,4 +354,16 @@ DV.utils.componentToHex = function(c) {
   return hex.length == 1 ? "0" + hex : hex;
 };
 
+/**************************
+    Loading Indicator
+****************************/
 
+// Loading Functionality
+Loading = {
+
+  // Start Loading
+  start : function(msg){ $("#loading").show(); },
+
+  // Stop Loading
+  stop : function(msg){  $("#loading").hide(); },
+};

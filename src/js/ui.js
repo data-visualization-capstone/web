@@ -14,52 +14,52 @@ UI.elements = {};
 // Initialize Checkbox 
 // & Fix Semantic UI Checkbox Bug
 // Example: checkbox("#box", function(){}, function(){});
-UI.elements.layerCheckbox = function(selector, layer){
+// UI.elements.layerCheckbox = function(selector, layer){
 
-  // Select Label
-  var label = $(selector).siblings("label");
-  // Bind action to label
-  label.click(function(e) {
+//   // Select Label
+//   var label = $(selector).siblings("label");
+//   // Bind action to label
+//   label.click(function(e) {
 
-    // Get checkbox's status
-    var checked = $(this).siblings("input[type=checkbox]").prop("checked");
+//     // Get checkbox's status
+//     var checked = $(this).siblings("input[type=checkbox]").prop("checked");
 
-    // Enable - Add Layer
-    if (checked) {
-        DV.layers.deleteLayer(layer.id);
-        $(this).siblings("input[type=checkbox]").prop("checked", false);         
+//     // Enable - Add Layer
+//     if (checked) {
+//         DV.layers.deleteLayer(layer.id);
+//         $(this).siblings("input[type=checkbox]").prop("checked", false);         
     
-    //  Disable - Remove Layer
-    } else {
-        DV.layers.addLayer(layer);        
-        $(this).siblings("input[type=checkbox]").prop("checked", true);               
-    }
-  });
-}
+//     //  Disable - Remove Layer
+//     } else {
+//         DV.layers.addLayer(layer);        
+//         $(this).siblings("input[type=checkbox]").prop("checked", true);               
+//     }
+//   });
+// }
 
 // Determines what will be used for SCALE of HEATMAP
 // - Rent Price
 // - Number of Bedrooms
 // - Square Footage
-UI.elements.heatmapScale = function(selector){
+// UI.elements.heatmapScale = function(selector){
 
-  // Select Label
-  var label = $(selector).siblings("label");
+//   // Select Label
+//   var label = $(selector).siblings("label");
 
-  // Bind action to label
-  label.click(function(e) {
+//   // Bind action to label
+//   label.click(function(e) {
 
-    // Get radio's status
-    var checked = label.siblings("input[type=radio]").prop("checked");
-    console.log(this + " " + checked);
+//     // Get radio's status
+//     var checked = label.siblings("input[type=radio]").prop("checked");
+//     console.log(this + " " + checked);
 
-    // Enable - Change Heatmap Scale
-    if (!checked) {       
-      label.siblings("input[type=radio]").prop("checked", true);
-      UI.toggleOption();         
-    }
-  });
-}
+//     // Enable - Change Heatmap Scale
+//     if (!checked) {       
+//       label.siblings("input[type=radio]").prop("checked", true);
+//       UI.toggleOption();         
+//     }
+//   });
+// }
 
 // Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
@@ -95,64 +95,64 @@ UI.toggleSideNav = function(element){
 // Toggles a pre-set tweet.
 // take in the DOM element that was clicked.
 // example: <li onclick="UI.toggleTweet(this)"....
-UI.toggleTweet = function(obj){
+// UI.toggleTweet = function(obj){
     
-    // Show loading indicator.
-    Loading.start("tweet");  
+//     // Show loading indicator.
+//     Loading.start("tweet");  
 
-    // The DOM element that was selected
-    var object = $(obj);
+//     // The DOM element that was selected
+//     var object = $(obj);
 
-    // Get list of classes on that DOM element.
-    var classes = object.attr('class');
+//     // Get list of classes on that DOM element.
+//     var classes = object.attr('class');
 
-    // Is this tweet active? 
-    var active = classes.indexOf("active") > -1;
+//     // Is this tweet active? 
+//     var active = classes.indexOf("active") > -1;
 
-    // Get the content of that DOM element.
-    var string = object.html();
+//     // Get the content of that DOM element.
+//     var string = object.html();
 
-    // Toggle Off
-    if (active) {
+//     // Toggle Off
+//     if (active) {
 
-      // Remove layer
-      DV.layers.deleteLayer("tweet" + string);
+//       // Remove layer
+//       DV.layers.deleteLayer("tweet" + string);
 
-      Loading.stop("tweet");
+//       Loading.stop("tweet");
 
-      // Toggle Class
-      object.removeClass("active")
+//       // Toggle Class
+//       object.removeClass("active")
 
-    // Toggle On
-    } else {
+//     // Toggle On
+//     } else {
 
-      // Get tweets that were cached from the stream.
-      DV.twitter.stream(string, function(resp){
+//       // Get tweets that were cached from the stream.
+//       DV.twitter.stream(string, function(resp){
         
-        // Add layer
-        DV.layers.addLayer({
-          name: "Twitter " + string,
-          type: "scatterplot",
-          color: DV.utils.getColor(Math.random(0, 100)),
-          data : resp,
-          width: 3,
-        });
+//         // Add layer
+//         DV.layers.addLayer({
+//           name: "Twitter " + string,
+//           type: "scatterplot",
+//           color: DV.utils.getColor(Math.random(0, 100)),
+//           data : resp,
+//           width: 3,
+//         });
 
-        object.addClass("active")
+//         object.addClass("active")
 
-        Loading.stop("tweet");
+//         Loading.stop("tweet");
 
-      }, function(){
+//       }, function(){
 
-        // @TODO User Feedback
+//         // @TODO User Feedback
 
-        object.addClass("active")
-        Loading.stop("tweet");
+//         object.addClass("active")
+//         Loading.stop("tweet");
 
-      });
+//       });
 
-    }
-}
+//     }
+// }
 
 // Fetch tweets
 UI.searchForTweet = function(element){
@@ -183,6 +183,34 @@ UI.searchForTweet = function(element){
   DV.layers.addLayer(layer);
 }
 
+// Cached Tweet
+UI.cachedTweet = function(element){
+  
+  // Show loading indicator.
+  Loading.start("tweet");
+
+  // String to search by
+  var string = $(element).val()
+
+  // Error Checking
+  if (!string) {
+    
+    // @TODO: User Feedback
+    console.error("Invalid Twitter String.");
+    return;
+  }
+
+  var layer = {
+      name: "Twitter " + string,
+      type: "scatterplot",
+      color: DV.utils.getColor(Math.random(0, 100)),
+      loadData : DV.twitter.search,
+      parameter : string,
+      width: 3,
+  }
+
+  DV.layers.addLayer(layer);
+}
 
 // Initializes ALL RANGE SLIDERS (RS)
 UI.initializeSliders = function(){
@@ -279,17 +307,3 @@ UI.initializeHashtags = function(){
   colorize();
 }
 
-
-/**************************
-    Loading Indicator
-****************************/
-
-// Loading Functionality
-Loading = {
-
-  // Start Loading
-  start : function(msg){ $("#loading").show(); },
-
-  // Stop Loading
-  stop : function(msg){  $("#loading").hide(); },
-};
