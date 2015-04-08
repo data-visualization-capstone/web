@@ -160,17 +160,16 @@ DV.update = function(){
 
       // GEOJSON
       case "geojson":
-        map.addLayer(geoJsonLayer(layer.data));
+        leaflet_layer = geoJsonLayer(layer.data);
         break;
 
       // TOPOJSON
       case "topojson":
-        map.addLayer(censusLayer(layer.data));
+        leaflet_layer = censusLayer(layer.data);
         break;
     }
 
     if (leaflet_layer){
-      layer.object = leaflet_layer;
       map.addLayer(leaflet_layer);
     }
 	}
@@ -279,9 +278,13 @@ DV.twitter = {};
 // GET /twitter/search/:string
 DV.twitter.search = function(string, success, error){
   $.get(DV.url + "twitter/search/" + string, function(resp){
+
+      Loading.stop("tweet");
       success(resp);
     })
     .fail(function() {
+      
+      Loading.stop("tweet");
       console.error("Error fetching tweets: "  + resp)
       error(resp)
     })

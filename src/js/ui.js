@@ -155,13 +155,13 @@ UI.toggleTweet = function(obj){
 }
 
 // Fetch tweets
-UI.searchForTweet = function(input){
+UI.searchForTweet = function(element){
   
   // Show loading indicator.
   Loading.start("tweet");
 
   // String to search by
-  var string = $(input).val()
+  var string = $(element).val()
 
   // Error Checking
   if (!string) {
@@ -172,28 +172,17 @@ UI.searchForTweet = function(input){
     return;
   }
 
-  // Get data from API
-  DV.twitter.search(string, function(resp){
-    
-    // Add layer
-    DV.layers.addLayer({
+  var layer = {
       name: "Twitter " + string,
       type: "scatterplot",
       color: DV.utils.getColor(Math.random(0, 100)),
-      data : resp,
+      loadData : DV.twitter.search,
+      parameter : string,
       width: 3,
-    });
+  }
 
-    Loading.stop("tweet");
 
-  }, function(){
-
-    // @TODO User Feedback
-
-    console.error("Error fetching tweets...");
-    Loading.stop("tweet");
-
-  })
+  DV.layers.addLayer(layer);
 }
 
 
