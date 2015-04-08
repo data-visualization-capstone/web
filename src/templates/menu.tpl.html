@@ -46,19 +46,24 @@
       </div>
     </div>
 
-    <div class="card" onclick="DV.layers.toggleLayer(options.layers.apartments)">
+    <div class="card" onclick="DV.layers.addLayer(options.layers.apartments)">
       <div class="card_left"><p></p></div>
       <div class="card_right"><h3>Apartments Prices</h3><div></div></div>
     </div>
 
-    <div class="card" onclick="DV.layers.toggleLayer(options.layers.twitter_traffic)">
+    <div class="card" onclick="DV.layers.addLayer(options.layers.twitter_traffic)">
       <div class="card_left"><p></p></div>
       <div class="card_right"><h3>Twitter Traffic</h3><div></div></div>
     </div>
 
-    <div class="card" onclick="DV.layers.toggleLayer(options.layers.mbta)">
+    <div class="card" onclick="DV.layers.addLayer(options.layers.mbta)">
       <div class="card_left"><p></p></div>
       <div class="card_right"><h3>MBTA</h3><div></div></div>
+    </div>
+
+    <div class="card" onclick="DV.layers.clearLayers()">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Clear Layers</h3><div></div></div>
     </div>
 
   </div>

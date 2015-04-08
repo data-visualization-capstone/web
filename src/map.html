@@ -75,12 +75,12 @@
 
     // Add layers when the map is ready.
     map.on('ready', function(){
-      update(DV._layers);
+      DV.update();
     })
 
     // Re-add layers when the map has changed.
     map.on('viewreset', function(){
-      update(DV._layers);
+      DV.update();
     })
     
     /************************************

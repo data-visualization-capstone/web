@@ -19,7 +19,7 @@ var DV = {
   // Layer Data
   _layers : [],
 
-  // Layer Methods
+  // Layer CRUD Methods
   layers : {},
 
 };
@@ -36,6 +36,8 @@ DV.layers.getLayer = function(layerId){
 // PUT - Add a layer to the map.
 DV.layers.addLayer = function(layer){
 
+  // @TODO: Prevent Duplicates
+
     // Converts to valid layer object
     compileLayer(layer, function(layer){
 
@@ -45,36 +47,19 @@ DV.layers.addLayer = function(layer){
 
         DV._layers.push(layer);
 
-        // console.log("\nAdding Layer"); console.log(layer);
+        console.log(DV._layers);
 
         // Prevent duplicates
         if (DV.layers.findLayer("name", layer.name)) return;
 
         // Refresh view
-        update(DV._layers);
+        DV.update();
 
     });
 }
 
-// Adds the layer if it doesn't exist, 
-// removes the layer if it does.
-DV.layers.toggleLayer = function(layer){
-  
-    var existing = DV.layers.findLayer("name" , layer.name);
-
-    console.log(existing)
-    
-    if (existing) {
-      DV.layers.deleteLayer(existing.layerId);
-
-    } else {
-
-      DV.layers.addLayer(layer);
-    }
-}
-
 // SET - Update a layer from the settings.
-DV.layers.setLayer = function(layerId, layer){
+DV.layers.updateLayer = function(layerId, layer){
   
   // Save current layer
   var layer = DV.layers.findLayer("layerId", layerId);
@@ -86,7 +71,7 @@ DV.layers.setLayer = function(layerId, layer){
   DV.layers.addLayer(layer);
   
   // Refresh view
-  update(DV._layers);
+  DV.update();
 }
 
 // DELETE - Delete a layer from the map.
@@ -110,7 +95,7 @@ DV.layers.deleteLayer = function(id){
   })
 
   // Refresh view
-  update(DV._layers);
+  DV.update();
 }
 
 // Find a layer. Requires a key and a value;
@@ -120,17 +105,25 @@ DV.layers.findLayer = function(key, value){
       return l[key] == value;
     })
 
-  return acc[0] //_.findWhere(DV._layers, {key : value});
+  return acc[0];
 }
 
 // Clear current layers
 DV.layers.clearLayers = function(){
+  
+  console.log("Clearing Layers...");
+  
+  // Empty local list
   DV._layers = [];
-  update(DV._layers);
+  
+  // Update map
+  DV.update();
 }
 
 // Iterate through, and place layers onto Leaflet map
-function update(layers){
+DV.update = function(){
+
+  var layers = DV._layers;
 
   // Map Boundaries
   bounds = map.getBounds();
@@ -187,15 +180,16 @@ function update(layers){
 }
 
 // Builds a layer object. 
-function compileLayer(layer, done){
+// Fetches data if the data isn't provided.
+// As a result, this function is async and 
+// requires a ccallback function.
+function compileLayer(layer, callback){
 
     // Optional parameter for fetching data.
     // Used if the data isn't available when
     // the initial page is loaded.
 
     if (layer.loadData) {
-
-        // console.log(layer.loadData);
     
         // Execute provided function for getting data.
         // Provide parameter. Example: Twitter Key
@@ -204,12 +198,16 @@ function compileLayer(layer, done){
             // Save data back to layer
             layer.data = resp;
 
+            // Applies provided filter & map functions.
+            // Generates a unique ID for the layer
             layer = formatLayer(layer);
 
-            done(layer);
+            alert("hey")
+            callback(layer);
 
         // Throw Error. Usually an API problem....
         // Log the response for debugging
+
         }, function(resp){
 
             console.error(resp);
@@ -223,7 +221,8 @@ function compileLayer(layer, done){
 
         layer = formatLayer(layer);
 
-        done(layer);
+        alert("hey")
+        callback(layer);
       
     } else {
 
@@ -235,7 +234,7 @@ function compileLayer(layer, done){
 function formatLayer(layer){
 
   // Ensure the layer ID exists
-  var layer = verifyKeys(layer);
+  var layer = generateId(layer);
 
   // Support layer.filter function
   if (layer.map){
@@ -258,7 +257,7 @@ function formatLayer(layer){
 
 // Check for missing keys.
 // Execute & normalize data.
-function verifyKeys(layer){
+function generateId(layer){
 
     // Create unique ID for current layer
     if (!layer.name){
