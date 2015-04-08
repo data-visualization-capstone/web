@@ -29,7 +29,7 @@ var DV = {
 ****************************/
 
 // PUT - Add a layer to the map.
-DV.layers.addLayer = function(layer){
+DV.layers.add = function(layer){
 
   // @TODO: Prevent Duplicates
 
@@ -45,7 +45,7 @@ DV.layers.addLayer = function(layer){
         console.log(DV._layers);
 
         // Prevent duplicates
-        // if (DV.layers.findLayer("name", layer.name)) return;
+        // if (DV.layers.find("name", layer.name)) return;
 
         // Refresh view
         DV.update();
@@ -54,23 +54,23 @@ DV.layers.addLayer = function(layer){
 }
 
 // SET - Update a layer from the settings.
-DV.layers.updateLayer = function(layerId, layer){
+DV.layers.update = function(layerId, layer){
   
   // Save current layer
-  var layer = DV.layers.findLayer("layerId", layerId);
+  var layer = DV.layers.find("layerId", layerId);
 
   // Delete
-  DV.layers.deleteLayer(layerId);
+  DV.layers.delete(layerId);
 
   // Add updated layer
-  DV.layers.addLayer(layer);
+  DV.layers.add(layer);
   
   // Refresh view
   DV.update();
 }
 
 // DELETE - Delete a layer from the map.
-DV.layers.deleteLayer = function(id){
+DV.layers.delete = function(id){
 
   // @TODO: Refresh all layers on map
 
@@ -92,7 +92,7 @@ DV.layers.deleteLayer = function(id){
 }
 
 // Find a layer. Requires a key and a value;
-DV.layers.findLayer = function(key, value){
+DV.layers.find = function(key, value){
 
   var acc = _.filter(DV._layers, function(l){
       return l[key] == value;
@@ -102,7 +102,7 @@ DV.layers.findLayer = function(key, value){
 }
 
 // Clear current layers
-DV.layers.clearLayers = function(){
+DV.layers.clear = function(){
   
   console.log("Clearing Layers...");
   

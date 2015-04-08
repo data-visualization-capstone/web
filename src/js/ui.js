@@ -26,12 +26,12 @@ UI.elements = {};
 
 //     // Enable - Add Layer
 //     if (checked) {
-//         DV.layers.deleteLayer(layer.id);
+//         DV.layers.delete(layer.id);
 //         $(this).siblings("input[type=checkbox]").prop("checked", false);         
     
 //     //  Disable - Remove Layer
 //     } else {
-//         DV.layers.addLayer(layer);        
+//         DV.layers.add(layer);        
 //         $(this).siblings("input[type=checkbox]").prop("checked", true);               
 //     }
 //   });
@@ -116,7 +116,7 @@ UI.toggleSideNav = function(element){
 //     if (active) {
 
 //       // Remove layer
-//       DV.layers.deleteLayer("tweet" + string);
+//       DV.layers.delete("tweet" + string);
 
 //       Loading.stop("tweet");
 
@@ -130,7 +130,7 @@ UI.toggleSideNav = function(element){
 //       DV.twitter.stream(string, function(resp){
         
 //         // Add layer
-//         DV.layers.addLayer({
+//         DV.layers.add({
 //           name: "Twitter " + string,
 //           type: "scatterplot",
 //           color: DV.utils.getColor(Math.random(0, 100)),
@@ -180,7 +180,7 @@ UI.searchForTweet = function(element){
       width: 3,
   }
 
-  DV.layers.addLayer(layer);
+  DV.layers.add(layer);
 }
 
 // Cached Tweet
@@ -209,7 +209,7 @@ UI.cachedTweet = function(element){
       width: 3,
   }
 
-  DV.layers.addLayer(layer);
+  DV.layers.add(layer);
 }
 
 // Initializes ALL RANGE SLIDERS (RS)
