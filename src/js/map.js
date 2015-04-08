@@ -45,7 +45,7 @@ DV.layers.addLayer = function(layer){
 
         DV._layers.push(layer);
 
-        console.log("\nAdding Layer"); console.log(layer);
+        // console.log("\nAdding Layer"); console.log(layer);
 
         // Prevent duplicates
         if (DV.layers.findLayer("name", layer.name)) return;
@@ -54,6 +54,23 @@ DV.layers.addLayer = function(layer){
         update(DV._layers);
 
     });
+}
+
+// Adds the layer if it doesn't exist, 
+// removes the layer if it does.
+DV.layers.toggleLayer = function(layer){
+  
+    var existing = DV.layers.findLayer("name" , layer.name);
+
+    console.log(existing)
+    
+    if (existing) {
+      DV.layers.deleteLayer(existing.layerId);
+
+    } else {
+
+      DV.layers.addLayer(layer);
+    }
 }
 
 // SET - Update a layer from the settings.
@@ -98,7 +115,12 @@ DV.layers.deleteLayer = function(id){
 
 // Find a layer. Requires a key and a value;
 DV.layers.findLayer = function(key, value){
-  return _.findWhere(DV._layers, {key : value});
+
+  var acc = _.filter(DV._layers, function(l){
+      return l[key] == value;
+    })
+
+  return acc[0] //_.findWhere(DV._layers, {key : value});
 }
 
 // Clear current layers

@@ -2,6 +2,10 @@
 
   <!-- Header -->
 
+  <div class="menuHeader">
+    <h1>DATA FILTERS</h1>
+  </div>
+
   <div id="menuBody">
     <div class="item menu_module">
       <a href="javascript:void(0)" id="add_filter">
@@ -32,7 +36,7 @@
         <h3>Apartment Rent Heatmap</h3>
             <div class="menuSection">
             <p>Explore rent prices in different areas of Boston.</p>
-            <span style="display:inline;">$</span></span><span class="price_link_lower" style="display:inline;"></span>
+            <span style="display:inline;">$</span><span class="price_link_lower" style="display:inline;"></span>
             <span class="price_link_upper" style="float:right; display:inline;"></span><span style="display:inline; float:right;">$</span>                
             <div class="price range"></div>
             <div style="text-align:center; height:10px;">
@@ -40,6 +44,21 @@
             </div>
           </div> 
       </div>
+    </div>
+
+    <div class="card" onclick="DV.layers.toggleLayer(options.layers.apartments)">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Apartments Prices</h3><div></div></div>
+    </div>
+
+    <div class="card" onclick="DV.layers.toggleLayer(options.layers.twitter_traffic)">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Twitter Traffic</h3><div></div></div>
+    </div>
+
+    <div class="card" onclick="DV.layers.toggleLayer(options.layers.mbta)">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>MBTA</h3><div></div></div>
     </div>
 
   </div>
