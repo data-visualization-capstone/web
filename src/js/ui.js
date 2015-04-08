@@ -60,6 +60,7 @@ UI.elements.heatmapScale = function(selector){
     }
   });
 }
+
 // Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){

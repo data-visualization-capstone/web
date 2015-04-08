@@ -1,3 +1,4 @@
+
 // TODO: Adding layer provides "accessor";
 
 /****************************
@@ -18,7 +19,7 @@ var DV = {
   // Layer Data
   _layers : [],
 
-  // Layer Methods
+  // Layer CRUD Methods
   layers : {},
 
 };
@@ -35,16 +36,30 @@ DV.layers.getLayer = function(layerId){
 // PUT - Add a layer to the map.
 DV.layers.addLayer = function(layer){
 
-    // @TODO: Prevent Duplicates
+  // @TODO: Prevent Duplicates
 
-    DV._layers.push(layer);
+    // Converts to valid layer object
+    compileLayer(layer, function(layer){
 
-    // Refresh view
-    update(DV._layers);
+        var layer = layer;
+
+        // @TODO: Prevent Duplicates
+
+        DV._layers.push(layer);
+
+        console.log(DV._layers);
+
+        // Prevent duplicates
+        // if (DV.layers.findLayer("name", layer.name)) return;
+
+        // Refresh view
+        DV.update();
+
+    });
 }
 
 // SET - Update a layer from the settings.
-DV.layers.setLayer = function(layerId, layer){
+DV.layers.updateLayer = function(layerId, layer){
   
   // Save current layer
   var layer = DV.layers.findLayer("layerId", layerId);
@@ -56,7 +71,7 @@ DV.layers.setLayer = function(layerId, layer){
   DV.layers.addLayer(layer);
   
   // Refresh view
-  update(DV._layers);
+  DV.update();
 }
 
 // DELETE - Delete a layer from the map.
@@ -80,22 +95,35 @@ DV.layers.deleteLayer = function(id){
   })
 
   // Refresh view
-  update(DV._layers);
+  DV.update();
 }
 
 // Find a layer. Requires a key and a value;
 DV.layers.findLayer = function(key, value){
-  return _.findWhere(DV._layers, {key : value});
+
+  var acc = _.filter(DV._layers, function(l){
+      return l[key] == value;
+    })
+
+  return acc[0];
 }
 
 // Clear current layers
 DV.layers.clearLayers = function(){
+  
+  console.log("Clearing Layers...");
+  
+  // Empty local list
   DV._layers = [];
-  update(DV._layers);
+  
+  // Update map
+  DV.update();
 }
 
 // Iterate through, and place layers onto Leaflet map
-function update(layers){
+DV.update = function(){
+
+  var layers = DV._layers;
 
   // Map Boundaries
   bounds = map.getBounds();
@@ -105,16 +133,11 @@ function update(layers){
   // @ TODO:
   // Clear data before populating
   $("#hexmap").remove()
-  
-
-  buildKey(layers);
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
     
     var layer = layers[i]; // Current Layer
-    
-    var layer = verifyKeys(layer);
 
     var leaflet_layer = null;
 
@@ -128,7 +151,6 @@ function update(layers){
       // PATH
       case "path":
         leaflet_layer = drawPath(map, layer);
-        
         break;
         
       // HEX
@@ -136,13 +158,15 @@ function update(layers){
         drawHexmap(map, layer);
         break;
 
-      // HEATMAP
-      // case "heatmap":
+      // GEOJSON
+      case "geojson":
+        map.addLayer(geoJsonLayer(layer.data));
+        break;
 
-        // Prevent multiple heatmaps from overlaying.
-        // leaflet_layer = drawHeatmap(map,layer);
-        // break;
-
+      // TOPOJSON
+      case "topojson":
+        map.addLayer(censusLayer(layer.data));
+        break;
     }
 
     if (leaflet_layer){
@@ -150,11 +174,90 @@ function update(layers){
       map.addLayer(leaflet_layer);
     }
 	}
+
+  // console.log("\nActive Layers:");
+  // console.log(DV._layers);
+}
+
+// Builds a layer object. 
+// Fetches data if the data isn't provided.
+// As a result, this function is async and 
+// requires a ccallback function.
+function compileLayer(layer, callback){
+
+    // Optional parameter for fetching data.
+    // Used if the data isn't available when
+    // the initial page is loaded.
+
+    if (layer.loadData) {
+    
+        // Execute provided function for getting data.
+        // Provide parameter. Example: Twitter Key
+        layer.loadData(layer.parameter, function(resp){
+            
+            // Save data back to layer
+            layer.data = resp;
+
+            // Applies provided filter & map functions.
+            // Generates a unique ID for the layer
+            layer = formatLayer(layer);
+
+            // Layer is formatted.
+            // Return object
+            callback(layer);
+
+        // Throw Error. Usually an API problem....
+        // Log the response for debugging
+
+        }, function(resp){
+
+            console.error(resp);
+
+      });
+
+    // If no loadData function is provided, we
+    // assume the data is already saved to layer.data
+    
+    } else if (layer.data){
+
+        layer = formatLayer(layer);
+
+        callback(layer);
+      
+    } else {
+
+        console.error("Missing either .data or .loadData function");
+    }
+}
+
+// Verifies layer data
+function formatLayer(layer){
+
+  // Ensure the layer ID exists
+  var layer = generateId(layer);
+
+  // Support layer.filter function
+  if (layer.map){
+
+    // Apply map function
+    layer.data = _.map(layer.data, function(p){
+      return layer.map(p);
+    })
+  }
+
+  // Support layer.filter function
+  if (layer.filter){
+    layer.data = _.filter(layer.data, function(p){
+      return layer.filter(p);
+    })
+  }
+
+  return layer;  
 }
 
 // Check for missing keys.
 // Execute & normalize data.
-function verifyKeys(layer){
+function generateId(layer){
 
     // Create unique ID for current layer
     if (!layer.name){
@@ -164,46 +267,11 @@ function verifyKeys(layer){
 
     layer.id = layer.name.replace(/\s/g, '').toLowerCase();
 
-    // Support layer.filter function
-    if (layer.filter){
-      layer.data = _.filter(layer.data, function(p){
-        return layer.filter(p);
-      })
-    }
-
-    // Support layer.filter function
-    if (layer.map){
-      layer.data = _.map(layer.data, function(p){
-        return layer.map(p);
-      })
-    }
-
     return layer;
 }
 
-
-function buildKey(layers){
-  var key = $("#legend");
-
-  key.html("");
-
-  _.each(layers, function(layer){
-
-    console.log(layer.id)
-
-    var a = '<p style="border-bottom: 2px solid ' + layer.color + ';">';
-    var b = layer.name;
-    var c = '<span class="remove" onclick="DV.layers.deleteLayer(\'' + layer.id + '\')">X</span>';
-    var d = '</p>'
-
-    key.append(a + b + c + d);
-  })
-}
-
-
-
 /******************************
-        Twitter Stuff
+       Twitter API
  ******************************/
 
 DV.twitter = {};
@@ -217,7 +285,7 @@ DV.twitter.search = function(string, success, error){
       console.error("Error fetching tweets: "  + resp)
       error(resp)
     })
-}
+};
 
 // GET /twitter/stream/:string
 DV.twitter.stream = function(string, success, error){
@@ -228,7 +296,29 @@ DV.twitter.stream = function(string, success, error){
       console.error("Error fetching tweets: "  + resp)
       error(resp)
     })
-}
+};
+
+/******************************
+      Loading Data Sets
+ ******************************/
+
+// Load data from a JSON file
+DV.loadJSON = function(target, success, error){
+  d3.json(target, function(json){
+    success(json);
+  }, function(resp){
+    error(resp);
+  });
+};
+
+// Load data from a CSV file
+DV.loadCSV = function(target, success, error){
+  d3.csv(target, function(csv){
+    success(csv);
+  }, function(resp){
+    error(resp);
+  });
+};
 
 /******************************
          Utils
@@ -252,12 +342,12 @@ DV.utils.getColor = function(i){
   var b = 0;
 
   return '#' + DV.utils.componentToHex(r) + DV.utils.componentToHex(g) + DV.utils.componentToHex(b);
-}
+};
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 DV.utils.componentToHex = function(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
-}
+};
 
 
