@@ -19,6 +19,7 @@
             <div class="card_left">
                 <i class="fa fa-plus fa-2x"></i>
             </div>
+
             <div class="card_right">
                 <h3>Add more information</h3>
                 <a href="javascript:void(0)" id="select_set" onclick="UI.elements.expandElement('#select_list');">
@@ -97,6 +98,27 @@
                 <a href="javascript:void(0);">
                     <i class="fa fa-times fa-lg"></i>
                 </a>
+            </div>
+        </div>
+
+        <div class="card trans x2">
+            <div class="card_left">
+                <i class="fa fa-plus fa-2x"></i>
+            </div>        
+            <div class="card_right">
+                <h3>Add more information</h3>
+                <a href="javascript:void(0)" id="select_set" onclick="UI.elements.expandElement('#select_twitter_term');">
+                    <p>Select a data set</p>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <div id="select_twitter_term">
+                    <a href="javascript:void(0)" class="select_option" icon="subway">MBTA Lines</a>
+                    <a href="javascript:void(0)" class="select_option" icon="home">Apartment Rent Prices</a>
+                    <a href="javascript:void(0)" class="select_option" icon="neighborhoods">Boston Neighborhoods</a>
+                </div>
+                <div class="card_buttons">
+                    <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.expandElement('.card.add_card');">Cancel</a>
+                </div>
             </div>
         </div>
 
