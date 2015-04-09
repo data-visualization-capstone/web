@@ -88,6 +88,17 @@ UI.elements.expandElement = function(selector){
 
           DV.layers.add(options.layers.mbta)
         }
+        if($(this).attr("icon") == "neighborhoods"){
+          $("#ui_neighborhoods").show();
+          
+          $("#ui_neighborhoods .card_delete a").click(function(){
+            UI.hideApartments()
+          });
+
+          DV.layers.add(options.layers.neighborhoods);
+
+          UI.elements.expandElement("#select_list");          
+        }
 
         UI.elements.expandElement(".card.add_card");          
       });    
