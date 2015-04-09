@@ -1,11 +1,13 @@
 <div class="ui_menu out">
 
   <!-- Header -->
+
   <div class="menuHeader">
     <h1>DATA FILTERS</h1>
   </div>
 
   <div id="menuBody">
+
 
     <div>
       <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.expandElement('.card.add_card');">
@@ -36,6 +38,7 @@
           <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.expandElement('.card.add_card');">Cancel</a>
         </div>
       </div>
+
     </div>
 
 <!--     <div class="card">
@@ -83,7 +86,7 @@
         <h3>Apartment Rent Heatmap</h3>
             <div class="menuSection">
             <p>Explore rent prices in different areas of Boston.</p>
-            <span style="display:inline;">$</span></span><span class="price_link_lower" style="display:inline;"></span>
+            <span style="display:inline;">$</span><span class="price_link_lower" style="display:inline;"></span>
             <span class="price_link_upper" style="float:right; display:inline;"></span><span style="display:inline; float:right;">$</span>                
             <div class="price range"></div>
             <div style="text-align:center; height:10px;">
@@ -97,6 +100,38 @@
         </a>
       </div>
     </div>    
+
+    <div class="card" onclick="DV.layers.add(options.layers.apartments)">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Apartments Prices</h3><div></div></div>
+    </div>
+
+    <div class="card" onclick="DV.twitter.addStream('fenway')">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Twitter Fenway</h3><div></div></div>
+    </div>
+
+    <div class="card" onclick="DV.twitter.addStream('redsox')">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Twitter RedSox</h3><div></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Twitter Search</h3><div></div></div>
+      <div class="card_right"><input id="twitter_key" /></div>
+      <div class="card_right"><button onclick="DV.twitter.addSearch('#twitter_key')" >Search Twitter</button></div>
+    </div>
+
+    <div class="card" onclick="DV.layers.add(options.layers.mbta)">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>MBTA</h3><div></div></div>
+    </div>
+
+    <div class="card" onclick="DV.layers.clear()">
+      <div class="card_left"><p></p></div>
+      <div class="card_right"><h3>Clear Layers</h3><div></div></div>
+    </div>
 
   </div>
 </div>

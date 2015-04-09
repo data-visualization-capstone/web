@@ -10,60 +10,6 @@ var UI = {};
 // Initialize wrapper
 UI.elements = {};
 
-
-// Initialize Checkbox 
-// & Fix Semantic UI Checkbox Bug
-// Example: checkbox("#box", function(){}, function(){});
-UI.elements.layerCheckbox = function(selector, layer){
-
-  // Select Label
-  var label = $(selector).siblings("label");
-  // Bind action to label
-  label.click(function(e) {
-
-    // Get checkbox's status
-    var checked = $(this).siblings("input[type=checkbox]").prop("checked");
-    console.log(this + " " + checked);
-
-    // Enable - Add Layer
-    if (checked) {
-        DV.layers.deleteLayer(layer.id);        
-        $(this).siblings("input[type=checkbox]").prop("checked", false);         
-    
-    //  Disable - Remove Layer
-    } else {
-        DV.layers.addLayer(layer);        
-        $(this).siblings("input[type=checkbox]").prop("checked", true);               
-    }
-  });
-}
-
-// Determines what will be used for SCALE of HEATMAP
-// - Rent Price
-// - Number of Bedrooms
-// - Square Footage
-UI.elements.heatmapScale = function(selector){
-
-  // Select Label
-  var label = $(selector).siblings("label");
-
-  // Bind action to label
-  label.click(function(e) {
-
-    // Get radio's status
-    var checked = label.siblings("input[type=radio]").prop("checked");
-    console.log(this + " " + checked);
-
-    // Enable - Change Heatmap Scale
-    if (!checked) {       
-      label.siblings("input[type=radio]").prop("checked", true);
-      UI.toggleOption();         
-    }
-  });
-}
-
-UI.elements.dataSetDropdown = function(){}
-
 // Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
@@ -81,29 +27,29 @@ UI.toggleOption = function(){
 // SHITTY CODE FOR RISE
 UI.hideApartments = function(){
   $("#ui_apartment").hide();
-  DV.layers.deleteLayer('hexmap');
+  DV.layers.delete('hexmap');
 }
 
 UI.showRed = function(){
   if($("#red_line").prop("checked") == true){
-    DV.layers.addLayer(red_line);
+    DV.layers.add(red_line);
   }
   else{
-    DV.layers.deleteLayer('redline');
+    DV.layers.delete('redline');
   }
 }
 UI.showOrange = function(){
   if($("#orange_line").prop("checked") == true){
-    DV.layers.addLayer(orange_line);
+    DV.layers.add(orange_line);
   }
   else{
-    DV.layers.deleteLayer('orangeline');
+    DV.layers.delete('orangeline');
   }
 }
 UI.hideMBTA = function(){
   $("#ui_mbta").hide();
-  DV.layers.deleteLayer('orangeline');  
-  DV.layers.deleteLayer('redline');  
+  DV.layers.delete('orangeline');  
+  DV.layers.delete('redline');  
   $("#red_line").prop("checked", false);
   $("#orange_line").prop("checked", false);
 }
@@ -118,19 +64,29 @@ UI.elements.expandElement = function(selector){
       $(".select_option").click(function(){
         if($(this).attr("icon") == "home"){
           $("#ui_apartment").show();
-          $("#ui_apartment .card_delete a").click(function(){UI.hideApartments()});
-          DV.layers.addLayer(heatmapLayer);        
+          
+          $("#ui_apartment .card_delete a").click(function(){
+            UI.hideApartments()
+          });
+
+          DV.layers.add(options.layers.apartments);
+
           UI.elements.expandElement("#select_list");          
         }
         else if($(this).attr("icon") == "subway"){
           $("#ui_mbta").show();
+
           $("#ui_mbta .card_delete a").click(function(){UI.hideMBTA()});
+
           $("#red_line").click(function(){
             UI.showRed();         
           });
+
           $("#orange_line").click(function(){
             UI.showOrange();
           });
+
+          DV.layers.add(options.layers.mbta)
         }
 
         UI.elements.expandElement(".card.add_card");          
@@ -161,106 +117,64 @@ UI.toggleSideNav = function(element){
 // Toggles a pre-set tweet.
 // take in the DOM element that was clicked.
 // example: <li onclick="UI.toggleTweet(this)"....
-UI.toggleTweet = function(obj){
+// UI.toggleTweet = function(obj){
     
-    // Show loading indicator.
-    Loading.start("tweet");  
+//     // Show loading indicator.
+//     Loading.start("tweet");  
 
-    // The DOM element that was selected
-    var object = $(obj);
+//     // The DOM element that was selected
+//     var object = $(obj);
 
-    // Get list of classes on that DOM element.
-    var classes = object.attr('class');
+//     // Get list of classes on that DOM element.
+//     var classes = object.attr('class');
 
-    // Is this tweet active? 
-    var active = classes.indexOf("active") > -1;
+//     // Is this tweet active? 
+//     var active = classes.indexOf("active") > -1;
 
-    // Get the content of that DOM element.
-    var string = object.html();
+//     // Get the content of that DOM element.
+//     var string = object.html();
 
-    // Toggle Off
-    if (active) {
+//     // Toggle Off
+//     if (active) {
 
-      // Remove layer
-      DV.layers.deleteLayer("tweet" + string);
+//       // Remove layer
+//       DV.layers.delete("tweet" + string);
 
-      Loading.stop("tweet");
+//       Loading.stop("tweet");
 
-      // Toggle Class
-      object.removeClass("active")
+//       // Toggle Class
+//       object.removeClass("active")
 
-    // Toggle On
-    } else {
+//     // Toggle On
+//     } else {
 
-      // Get tweets that were cached from the stream.
-      DV.twitter.stream(string, function(resp){
+//       // Get tweets that were cached from the stream.
+//       DV.twitter.getStream(string, function(resp){
         
-        // Add layer
-        DV.layers.addLayer({
-          name: "Twitter " + string,
-          type: "scatterplot",
-          color: DV.utils.getColor(Math.random(0, 100)),
-          data : resp,
-          width: 3,
-        });
+//         // Add layer
+//         DV.layers.add({
+//           name: "Twitter " + string,
+//           type: "scatterplot",
+//           color: DV.utils.getColor(Math.random(0, 100)),
+//           data : resp,
+//           width: 3,
+//         });
 
-        object.addClass("active")
+//         object.addClass("active")
 
-        Loading.stop("tweet");
+//         Loading.stop("tweet");
 
-      }, function(){
+//       }, function(){
 
-        // @TODO User Feedback
+//         // @TODO User Feedback
 
-        object.addClass("active")
-        Loading.stop("tweet");
+//         object.addClass("active")
+//         Loading.stop("tweet");
 
-      });
+//       });
 
-    }
-}
-
-// Fetch tweets
-UI.searchForTweet = function(input){
-  
-  // Show loading indicator.
-  Loading.start("tweet");
-
-  // String to search by
-  var string = $(input).val()
-
-  // Error Checking
-  if (!string) {
-    
-    // @TODO: User Feedback
-
-    console.error("Invalid Twitter String.");
-    return;
-  }
-
-  // Get data from API
-  DV.twitter.search(string, function(resp){
-    
-    // Add layer
-    DV.layers.addLayer({
-      name: "Twitter " + string,
-      type: "scatterplot",
-      color: DV.utils.getColor(Math.random(0, 100)),
-      data : resp,
-      width: 3,
-    });
-
-    Loading.stop("tweet");
-
-  }, function(){
-
-    // @TODO User Feedback
-
-    console.error("Error fetching tweets...");
-    Loading.stop("tweet");
-
-  })
-}
+//     }
+// }
 
 
 // Initializes ALL RANGE SLIDERS (RS)
@@ -333,75 +247,3 @@ UI.initializeSliders = function(){
   
 //   return card;
 
-// }
-// Handles coloring for hashtag tiles in filter UI
-// UI.initializeHashtags = function(){
-
-//   // List of colors for hashtags
-//   var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
-
-//   // Create list of .hashtag DOM Elements 
-//   var hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
-
-//   // Loop through .hashtag elements
-//   for(var i = 0; i < hashtags.length; i++){
-
-//     // Set Attribute to determine color
-//     hashtags[i].setAttribute("color", ""+colors[i]+"");
-//   }
-
-//   // Sets the color for each .hashtag tile based on "color" attribute
-//   function colorize(){
-
-//     // Bind to .hashtag elements
-//     $(".hashtag").each(function(){
-
-//       // Colors tile when activated
-//       if($(this).hasClass("active")){
-//         $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-//       } 
-
-//       // Removes color when deactivated
-//       else{
-//         $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-//       }
-//     });
-
-//   }
-
-//   // Adds or removes color from .hashtag tile
-//   $(".hashtag").click(function(){
-//     colorize();
-//   });
-
-//   // Toggles color for NON-ACTIVE .hashtag tiles on hover
-//   $(".hashtag").hover(
-//     function(){
-//       if($(this).hasClass("active") != true){
-//         $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-//       }
-//     },
-//     function(){
-//       if($(this).hasClass("active") != true){
-//         $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-//       }
-//     }
-//   );
-
-//   // Initial Colorization of .hashtag tiles
-//   colorize();
-// }
-
-/**************************
-    Loading Indicator
-****************************/
-
-// Loading Functionality
-Loading = {
-
-  // Start Loading
-  start : function(msg){ $("#loading").show(); },
-
-  // Stop Loading
-  stop : function(msg){  $("#loading").hide(); },
-};
