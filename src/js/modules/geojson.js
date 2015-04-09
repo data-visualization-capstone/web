@@ -4,7 +4,7 @@ function geoJsonLayer(json) {
   var layer = L.geoJson(json, {
     style: function(feature) {
       return {
-        color: feature.properties['LINE']
+        color: feature.properties['COLOR']
       }
     }
   });

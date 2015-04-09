@@ -36,7 +36,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "C D",
                 "SHAPE_LEN": 458.38609573999997
             },
@@ -298,7 +298,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "B C D E",
                 "SHAPE_LEN": 2121.0061465600002
             },
@@ -828,7 +828,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont B - Braintree  C - Alewife",
                 "SHAPE_LEN": 7955.70883856
             },
@@ -1070,7 +1070,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "C E",
                 "SHAPE_LEN": 1241.87369233
             },
@@ -1256,7 +1256,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "B C D",
                 "SHAPE_LEN": 1466.2013122000001
             },
@@ -2194,7 +2194,7 @@
             },
             "properties": {
                 "GRADE": 2,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "B - Boston College",
                 "SHAPE_LEN": 6559.3382555199996
             },
@@ -3440,7 +3440,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "D - Riverside",
                 "SHAPE_LEN": 13068.0039896
             },
@@ -3506,7 +3506,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 290.39300816500003
             },
@@ -3564,7 +3564,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 264.06641488999998
             },
@@ -3618,7 +3618,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 196.537457047
             },
@@ -3640,7 +3640,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 88.598799263000004
             },
@@ -3662,7 +3662,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 108.34050711899999
             },
@@ -3752,7 +3752,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 289.12780233699999
             },
@@ -3774,7 +3774,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 32.177154565199999
             },
@@ -3808,7 +3808,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 54.224642917399997
             },
@@ -3830,7 +3830,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 18.713341323000002
             },
@@ -3880,7 +3880,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 289.05351876399999
             },
@@ -3950,7 +3950,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 606.21557647600002
             },
@@ -3988,7 +3988,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 198.61987966300001
             },
@@ -4042,7 +4042,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 223.651009402
             },
@@ -4088,7 +4088,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 58.450977887100002
             },
@@ -4114,7 +4114,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 52.094829316999999
             },
@@ -4160,7 +4160,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 358.40904645400002
             },
@@ -4206,7 +4206,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 262.12914142
             },
@@ -4228,7 +4228,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 59.856010638500003
             },
@@ -4290,7 +4290,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 609.17247080699997
             },
@@ -4320,7 +4320,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 98.005055920100006
             },
@@ -4342,7 +4342,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 183.30297168600001
             },
@@ -4364,7 +4364,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 187.488834623
             },
@@ -4394,7 +4394,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 101.049188043
             },
@@ -4416,7 +4416,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 13.875562947000001
             },
@@ -4474,7 +4474,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 134.25804099199999
             },
@@ -4500,7 +4500,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 88.129314837799996
             },
@@ -4558,7 +4558,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 93.454666688000003
             },
@@ -4644,7 +4644,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 750.06828556799996
             },
@@ -4722,7 +4722,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1 SL2",
                 "SHAPE_LEN": 733.11961331299995
             },
@@ -4768,7 +4768,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 67.618265965600003
             },
@@ -4810,7 +4810,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 79.326571795600003
             },
@@ -4916,7 +4916,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4",
                 "SHAPE_LEN": 596.306332785
             },
@@ -4974,7 +4974,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 392.65716320299998
             },
@@ -5020,7 +5020,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 84.300900641400005
             },
@@ -5042,7 +5042,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 130.597800869
             },
@@ -5068,7 +5068,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 138.32059873200001
             },
@@ -5094,7 +5094,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 133.74773091599999
             },
@@ -5116,7 +5116,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 70.970765560499999
             },
@@ -5138,7 +5138,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 52.196281665599997
             },
@@ -5172,7 +5172,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 109.279905532
             },
@@ -5194,7 +5194,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 71.314588528399995
             },
@@ -5240,7 +5240,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 57.840346523500003
             },
@@ -5266,7 +5266,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 124.150921149
             },
@@ -5288,7 +5288,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 94.551717808500001
             },
@@ -5310,7 +5310,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 31.768115261199998
             },
@@ -5332,7 +5332,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 72.528795838500002
             },
@@ -5370,7 +5370,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 176.45505171799999
             },
@@ -5396,7 +5396,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 102.087856221
             },
@@ -5418,7 +5418,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 44.907090816699998
             },
@@ -5440,7 +5440,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 42.678591859500003
             },
@@ -5462,7 +5462,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 80.123401187599995
             },
@@ -5500,7 +5500,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 103.018772734
             },
@@ -5522,7 +5522,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 11.1727219304
             },
@@ -5544,7 +5544,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 37.881688643899999
             },
@@ -5566,7 +5566,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 79.696966969399995
             },
@@ -5588,7 +5588,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 74.7715384089
             },
@@ -5610,7 +5610,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 150.716186494
             },
@@ -5632,7 +5632,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 49.2315371834
             },
@@ -5658,7 +5658,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 77.289498660500001
             },
@@ -5680,7 +5680,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 98.949964048499993
             },
@@ -5702,7 +5702,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 55.841744842399997
             },
@@ -5724,7 +5724,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 109.567708665
             },
@@ -5746,7 +5746,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 42.4869491603
             },
@@ -5772,7 +5772,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 169.106062425
             },
@@ -5794,7 +5794,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 38.612093187399999
             },
@@ -5816,7 +5816,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 72.4101652226
             },
@@ -5846,7 +5846,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 94.009767007099995
             },
@@ -5868,7 +5868,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 73.320009144899998
             },
@@ -5898,7 +5898,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 121.987926272
             },
@@ -5920,7 +5920,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 32.361001342400002
             },
@@ -5942,7 +5942,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 96.005160928899997
             },
@@ -5968,7 +5968,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 54.945283687500002
             },
@@ -5990,7 +5990,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 26.963583806199999
             },
@@ -6052,7 +6052,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4",
                 "SHAPE_LEN": 372.15205206799999
             },
@@ -6118,7 +6118,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4",
                 "SHAPE_LEN": 359.71915617299999
             },
@@ -6156,7 +6156,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4",
                 "SHAPE_LEN": 169.443332478
             },
@@ -6482,7 +6482,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "BLUE",
+                "COLOR": "BLUE",
                 "ROUTE": "Bowdoin to Wonderland",
                 "SHAPE_LEN": 3228.1942934099998
             },
@@ -6508,7 +6508,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "BLUE",
+                "COLOR": "BLUE",
                 "ROUTE": "Bowdoin to Wonderland",
                 "SHAPE_LEN": 144.67394669699999
             },
@@ -6598,7 +6598,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "BLUE",
+                "COLOR": "BLUE",
                 "ROUTE": "Bowdoin to Wonderland",
                 "SHAPE_LEN": 494.30325466199997
             },
@@ -6620,7 +6620,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "BLUE",
+                "COLOR": "BLUE",
                 "ROUTE": "Bowdoin to Wonderland",
                 "SHAPE_LEN": 15.7686177827
             },
@@ -6674,7 +6674,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "BLUE",
+                "COLOR": "BLUE",
                 "ROUTE": "Bowdoin to Wonderland",
                 "SHAPE_LEN": 268.97856199
             },
@@ -6900,7 +6900,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 2946.0157867200001
             },
@@ -6922,7 +6922,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 105.31258500600001
             },
@@ -7004,7 +7004,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 1342.3264046700001
             },
@@ -7030,7 +7030,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 368.21557822300002
             },
@@ -7248,7 +7248,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 3010.7069374799999
             },
@@ -7618,7 +7618,7 @@
             },
             "properties": {
                 "GRADE": 2,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "C - Cleveland Circle",
                 "SHAPE_LEN": 3803.5019900699999
             },
@@ -7740,7 +7740,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "E - Lechmere",
                 "SHAPE_LEN": 1126.63348974
             },
@@ -8322,7 +8322,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "B - Braintree  C - Alewife",
                 "SHAPE_LEN": 9447.2467931200008
             },
@@ -8830,7 +8830,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "BLUE",
+                "COLOR": "BLUE",
                 "ROUTE": "Bowdoin to Wonderland",
                 "SHAPE_LEN": 5410.21727276
             },
@@ -8960,7 +8960,7 @@
             },
             "properties": {
                 "GRADE": 2,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "E - Health Street",
                 "SHAPE_LEN": 1595.5167304300001
             },
@@ -9030,7 +9030,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 1137.22419141
             },
@@ -9424,7 +9424,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "Mattapan Trolley",
                 "SHAPE_LEN": 3873.6439601100001
             },
@@ -9802,7 +9802,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont  C - Alewife",
                 "SHAPE_LEN": 3445.92268526
             },
@@ -9824,7 +9824,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 28.129342713500002
             },
@@ -9846,7 +9846,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 95.291287670700001
             },
@@ -9868,7 +9868,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 48.484302676799999
             },
@@ -9894,7 +9894,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 52.448549823500002
             },
@@ -9920,7 +9920,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 78.707526234599996
             },
@@ -9950,7 +9950,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 60.673467566500001
             },
@@ -9980,7 +9980,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 93.040065897199995
             },
@@ -10002,7 +10002,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 45.242684392599998
             },
@@ -10032,7 +10032,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 147.88935498000001
             },
@@ -10054,7 +10054,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 33.655792547300003
             },
@@ -10076,7 +10076,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 95.726319777900002
             },
@@ -10098,7 +10098,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 42.725441590800003
             },
@@ -10124,7 +10124,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 120.935827241
             },
@@ -10146,7 +10146,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 85.537629219899998
             },
@@ -10168,7 +10168,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 72.399290900599993
             },
@@ -10190,7 +10190,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 110.13482126300001
             },
@@ -10212,7 +10212,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 97.349810960100001
             },
@@ -10234,7 +10234,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 56.318832089499999
             },
@@ -10256,7 +10256,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 77.000473039599996
             },
@@ -10278,7 +10278,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 51.672601157300001
             },
@@ -10300,7 +10300,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 148.066611421
             },
@@ -10322,7 +10322,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 74.205558799100004
             },
@@ -10344,7 +10344,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 80.250479300400002
             },
@@ -10366,7 +10366,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 38.014442765799998
             },
@@ -10388,7 +10388,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 10.169275878500001
             },
@@ -10426,7 +10426,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 134.17938879900001
             },
@@ -10448,7 +10448,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 47.714456140999999
             },
@@ -10470,7 +10470,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 44.8826922521
             },
@@ -10492,7 +10492,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 44.907090816699998
             },
@@ -10518,7 +10518,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 102.146913125
             },
@@ -10556,7 +10556,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 180.85862645500001
             },
@@ -10578,7 +10578,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 94.551719048899997
             },
@@ -10600,7 +10600,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 31.768115261199998
             },
@@ -10622,7 +10622,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 72.3253376503
             },
@@ -10648,7 +10648,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 132.473195936
             },
@@ -10670,7 +10670,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 70.970765560499999
             },
@@ -10692,7 +10692,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 52.196281665599997
             },
@@ -10726,7 +10726,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 110.73662301500001
             },
@@ -10748,7 +10748,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 70.657319175400005
             },
@@ -10770,7 +10770,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 62.001633119399997
             },
@@ -10816,7 +10816,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL5",
                 "SHAPE_LEN": 290.742595478
             },
@@ -10854,7 +10854,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 46.974123628000001
             },
@@ -10880,7 +10880,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 160.53626890499999
             },
@@ -10914,7 +10914,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL4 SL5",
                 "SHAPE_LEN": 166.407274097
             },
@@ -10972,7 +10972,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 474.67865930300002
             },
@@ -11030,7 +11030,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 321.14357424500002
             },
@@ -11300,7 +11300,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 3842.66824524
             },
@@ -11322,7 +11322,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 15.0008307609
             },
@@ -11352,7 +11352,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 105.465687206
             },
@@ -11410,7 +11410,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 429.75262918200002
             },
@@ -11456,7 +11456,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 119.920687394
             },
@@ -11886,7 +11886,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL1",
                 "SHAPE_LEN": 4178.1629302499996
             },
@@ -11956,7 +11956,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 501.65797418
             },
@@ -11978,7 +11978,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 95.097796408199997
             },
@@ -12072,7 +12072,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 1160.9920301699999
             },
@@ -12094,7 +12094,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 157.34351138400001
             },
@@ -12124,7 +12124,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL2",
                 "SHAPE_LEN": 187.06216168700001
             },
@@ -12174,7 +12174,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL5",
                 "SHAPE_LEN": 300.48498262599998
             },
@@ -12224,7 +12224,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "SILVER",
+                "COLOR": "SILVER",
                 "ROUTE": "SL5",
                 "SHAPE_LEN": 559.965386706
             },
@@ -12558,7 +12558,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 3332.2892654399998
             },
@@ -12580,7 +12580,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 166.089139816
             },
@@ -12634,7 +12634,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 496.64517689199999
             },
@@ -12660,7 +12660,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 194.778564515
             },
@@ -12714,7 +12714,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 304.17987914499997
             },
@@ -12740,7 +12740,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 90.181927202400004
             },
@@ -12794,7 +12794,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 353.45999004800001
             },
@@ -12816,7 +12816,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 106.41300221199999
             },
@@ -12850,7 +12850,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 160.414006973
             },
@@ -12880,7 +12880,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 156.701642897
             },
@@ -12950,7 +12950,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 652.76520528599997
             },
@@ -12988,7 +12988,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 311.02630169700001
             },
@@ -13078,7 +13078,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 1059.78313295
             },
@@ -13100,7 +13100,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 346.799417269
             },
@@ -13178,7 +13178,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 819.54703436600005
             },
@@ -13220,7 +13220,7 @@
             },
             "properties": {
                 "GRADE": 6,
-                "LINE": "ORANGE",
+                "COLOR": "ORANGE",
                 "ROUTE": "Forest Hills to Oak Grove",
                 "SHAPE_LEN": 377.039786053
             },
@@ -13434,7 +13434,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "D - Riverside",
                 "SHAPE_LEN": 1618.95754328
             },
@@ -13500,7 +13500,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "D - Riverside",
                 "SHAPE_LEN": 196.041784401
             },
@@ -13566,7 +13566,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "D - Riverside",
                 "SHAPE_LEN": 196.70794045
             },
@@ -13592,7 +13592,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "C - Cleveland Circle",
                 "SHAPE_LEN": 360.24240480499998
             },
@@ -13622,7 +13622,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "B - Boston College",
                 "SHAPE_LEN": 184.396047006
             },
@@ -13872,7 +13872,7 @@
             },
             "properties": {
                 "GRADE": 3,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "E - Health Street",
                 "SHAPE_LEN": 1132.03097712
             },
@@ -13994,7 +13994,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "E - Health Street",
                 "SHAPE_LEN": 1230.9567516899999
             },
@@ -14124,7 +14124,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "GREEN",
+                "COLOR": "GREEN",
                 "ROUTE": "E - Lechmere",
                 "SHAPE_LEN": 233.17888679500001
             },
@@ -14438,7 +14438,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont B - Braintree  C - Alewife",
                 "SHAPE_LEN": 4670.0340717299996
             },
@@ -14508,7 +14508,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont B - Braintree  C - Alewife",
                 "SHAPE_LEN": 1052.3592391699999
             },
@@ -14538,7 +14538,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont B - Braintree  C - Alewife",
                 "SHAPE_LEN": 104.586125068
             },
@@ -14604,7 +14604,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "B - Braintree  C - Alewife",
                 "SHAPE_LEN": 367.98299644899998
             },
@@ -14666,7 +14666,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont  C - Alewife",
                 "SHAPE_LEN": 360.71938566900002
             },
@@ -14892,7 +14892,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "B - Braintree  C - Alewife",
                 "SHAPE_LEN": 3684.9264921399999
             },
@@ -14922,7 +14922,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "B - Braintree  C - Alewife",
                 "SHAPE_LEN": 381.79108630299999
             },
@@ -14992,7 +14992,7 @@
             },
             "properties": {
                 "GRADE": 7,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont  C - Alewife",
                 "SHAPE_LEN": 1312.6663898500001
             },
@@ -15030,7 +15030,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "A - Ashmont  C - Alewife",
                 "SHAPE_LEN": 217.25135826499999
             },
@@ -15072,7 +15072,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "Mattapan Trolley",
                 "SHAPE_LEN": 215.18907106200001
             },
@@ -15130,7 +15130,7 @@
             },
             "properties": {
                 "GRADE": 1,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "B - Braintree  C - Alewife",
                 "SHAPE_LEN": 571.97689139500005
             },
@@ -15188,7 +15188,7 @@
             },
             "properties": {
                 "GRADE": 4,
-                "LINE": "RED",
+                "COLOR": "RED",
                 "ROUTE": "B - Braintree  C - Alewife",
                 "SHAPE_LEN": 357.981311296
             },
