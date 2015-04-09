@@ -7,17 +7,43 @@
   </div>
 
   <div id="menuBody">
-    <div class="item menu_module">
-      <a href="javascript:void(0)" id="add_filter">
-        <p style="float:left;">Explore more information</p>
-        <i class="fa fa-plus" style="float:right;"></i>
+
+
+    <div>
+      <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.expandElement('.card.add_card');">
+        <p style="float:left;" class="trans x2">Explore more information</p>
+        <i class="fa fa-plus trans x2" style="float:right;"></i>
       </a>
+      <div href="javascript:void(0)" id="add_filter_disabled">
+        <p style="float:left;" class="trans x2">Explore more information</p>
+        <i class="fa fa-plus trans x2" style="float:right;"></i>
+      </div>      
+    </div>
+    <div class="card add_card trans x2">
+      <div class="card_left">
+        <i class="fa fa-plus fa-2x"></i>
+      </div>
+      <div class="card_right">
+        <h3>Add more information</h3> 
+          <a href="javascript:void(0)" id="select_set" onclick="UI.elements.expandElement('#select_list');">
+            <p>Select a data set</p>
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <div id="select_list">
+              <a href="javascript:void(0)" class="select_option" icon="subway" >MBTA</a>
+              <a href="javascript:void(0)" class="select_option" icon="home" >Apartment</a>          
+          </div>
+        <div class="card_buttons">
+<!--           <a href="javascript:void(0)" id="add_to_map">Add to map</a> -->
+          <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.expandElement('.card.add_card');">Cancel</a>
+        </div>
+      </div>
 
     </div>
 
-    <div class="card">
+<!--     <div class="card">
       <div class="card_left">
-        <p>W</p>     
+        <i class="fa fa-columns fa-2x"></i>     
       </div>
       <div class="card_right">
         <h3>Neighborhoods</h3>
@@ -26,11 +52,35 @@
           <p>Hovering over: <span id="nhood">Back Bay</span></p>
         </div>
       </div>
-    </div>
-
-    <div class="card">
+    </div> -->
+    <div class="card" id="ui_mbta" style="display:none;">
       <div class="card_left">
-        <p>A</p>     
+        <i class="fa fa-subway fa-2x"></i>    
+      </div>
+      <div class="card_right">
+        <h3>MBTA</h3>
+            <div class="menuSection">
+            <p>Toggle MBTA train lines</p>
+            <div>
+              <input type="checkbox" name="mbta" value="" id="orange_line" />
+              <label for="#orange_line">Orange Line</label>              
+            </div>
+            <div>          
+              <input type="checkbox" name="mbta" value="" id="red_line" />
+              <label for="#red_line">Red Line</label>                
+            </div>
+          </div> 
+      </div>
+      <div class="card_delete">
+        <a href="javascript:void(0);">
+          <i class="fa fa-times fa-lg"></i>
+        </a>
+      </div>      
+    </div>   
+
+    <div class="card" id="ui_apartment" style="display:none;">
+      <div class="card_left">
+        <i class="fa fa-home fa-2x"></i>    
       </div>
       <div class="card_right">
         <h3>Apartment Rent Heatmap</h3>
@@ -44,7 +94,12 @@
             </div>
           </div> 
       </div>
-    </div>
+      <div class="card_delete">
+        <a href="javascript:void(0);">
+          <i class="fa fa-times fa-lg"></i>
+        </a>
+      </div>
+    </div>    
 
     <div class="card" onclick="DV.layers.add(options.layers.apartments)">
       <div class="card_left"><p></p></div>

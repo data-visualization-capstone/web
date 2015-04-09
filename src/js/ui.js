@@ -10,57 +10,6 @@ var UI = {};
 // Initialize wrapper
 UI.elements = {};
 
-
-// Initialize Checkbox 
-// & Fix Semantic UI Checkbox Bug
-// Example: checkbox("#box", function(){}, function(){});
-// UI.elements.layerCheckbox = function(selector, layer){
-
-//   // Select Label
-//   var label = $(selector).siblings("label");
-//   // Bind action to label
-//   label.click(function(e) {
-
-//     // Get checkbox's status
-//     var checked = $(this).siblings("input[type=checkbox]").prop("checked");
-
-//     // Enable - Add Layer
-//     if (checked) {
-//         DV.layers.delete(layer.id);
-//         $(this).siblings("input[type=checkbox]").prop("checked", false);         
-    
-//     //  Disable - Remove Layer
-//     } else {
-//         DV.layers.add(layer);        
-//         $(this).siblings("input[type=checkbox]").prop("checked", true);               
-//     }
-//   });
-// }
-
-// Determines what will be used for SCALE of HEATMAP
-// - Rent Price
-// - Number of Bedrooms
-// - Square Footage
-// UI.elements.heatmapScale = function(selector){
-
-//   // Select Label
-//   var label = $(selector).siblings("label");
-
-//   // Bind action to label
-//   label.click(function(e) {
-
-//     // Get radio's status
-//     var checked = label.siblings("input[type=radio]").prop("checked");
-//     console.log(this + " " + checked);
-
-//     // Enable - Change Heatmap Scale
-//     if (!checked) {       
-//       label.siblings("input[type=radio]").prop("checked", true);
-//       UI.toggleOption();         
-//     }
-//   });
-// }
-
 // Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
@@ -74,6 +23,79 @@ UI.toggleOption = function(){
     }
   }); 
 } 
+
+// SHITTY CODE FOR RISE
+UI.hideApartments = function(){
+  $("#ui_apartment").hide();
+  DV.layers.delete('hexmap');
+}
+
+UI.showRed = function(){
+  if($("#red_line").prop("checked") == true){
+    DV.layers.add(red_line);
+  }
+  else{
+    DV.layers.delete('redline');
+  }
+}
+UI.showOrange = function(){
+  if($("#orange_line").prop("checked") == true){
+    DV.layers.add(orange_line);
+  }
+  else{
+    DV.layers.delete('orangeline');
+  }
+}
+UI.hideMBTA = function(){
+  $("#ui_mbta").hide();
+  DV.layers.delete('orangeline');  
+  DV.layers.delete('redline');  
+  $("#red_line").prop("checked", false);
+  $("#orange_line").prop("checked", false);
+}
+
+UI.elements.expandElement = function(selector){
+    if(selector == '.card.add_card'){
+      $("#add_filter, #add_filter_disabled").toggle();          
+    }  
+
+    if(selector == '#select_list'){
+
+      $(".select_option").click(function(){
+        if($(this).attr("icon") == "home"){
+          $("#ui_apartment").show();
+          
+          $("#ui_apartment .card_delete a").click(function(){
+            UI.hideApartments()
+          });
+
+          DV.layers.add(options.layers.apartments);
+
+          UI.elements.expandElement("#select_list");          
+        }
+        else if($(this).attr("icon") == "subway"){
+          $("#ui_mbta").show();
+
+          $("#ui_mbta .card_delete a").click(function(){UI.hideMBTA()});
+
+          $("#red_line").click(function(){
+            UI.showRed();         
+          });
+
+          $("#orange_line").click(function(){
+            UI.showOrange();
+          });
+
+          DV.layers.add(options.layers.mbta)
+        }
+
+        UI.elements.expandElement(".card.add_card");          
+      });    
+    }
+
+    $("" + selector + "").toggleClass("expanded");
+}
+
 /**************************
      DOM Manipulation
 ****************************/
@@ -192,61 +214,36 @@ UI.initializeSliders = function(){
 
 
 
-// Handles coloring for hashtag tiles in filter UI
-UI.initializeHashtags = function(){
+/**************************
+    Adding a Card
+****************************/
+// UI.newCard = function(icon_class, header){
 
-  // List of colors for hashtags
-  var colors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
+//   var menu = document.getElementById("menuBody"),
+//       card = document.createElement("DIV"),
+//       left = document.createElement("DIV"),
+//       right = document.createElement("DIV"),
+//       title = document.createElement("H3"),
+//       title_text = header,
+//       title_text = document.createTextNode(title_text),
+//       icon_class = "fa fa-" + icon_class + " fa-2x",
+//       icon = document.createElement("I");
 
-  // Create list of .hashtag DOM Elements 
-  var hashtags = Array.prototype.slice.call(document.querySelectorAll(".hashtag"));
+//   card.setAttribute("class", "card");
+//   left.setAttribute("class",  "card_left");
+//   right.setAttribute("class", "card_right");
+//   icon.setAttribute("class", icon_class);
 
-  // Loop through .hashtag elements
-  for(var i = 0; i < hashtags.length; i++){
+//   title.appendChild(title_text);
 
-    // Set Attribute to determine color
-    hashtags[i].setAttribute("color", ""+colors[i]+"");
-  }
 
-  // Sets the color for each .hashtag tile based on "color" attribute
-  function colorize(){
+//   left.appendChild(icon);
+//   right.appendChild(title);
 
-    // Bind to .hashtag elements
-    $(".hashtag").each(function(){
-
-      // Colors tile when activated
-      if($(this).hasClass("active")){
-        $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-      } 
-
-      // Removes color when deactivated
-      else{
-        $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-      }
-    });
-
-  }
-
-  // Adds or removes color from .hashtag tile
-  $(".hashtag").click(function(){
-    colorize();
-  });
-
-  // Toggles color for NON-ACTIVE .hashtag tiles on hover
-  $(".hashtag").hover(
-    function(){
-      if($(this).hasClass("active") != true){
-        $(this).css("background-color", $(this).attr("color")).css("color", "#fff");
-      }
-    },
-    function(){
-      if($(this).hasClass("active") != true){
-        $(this).css("background-color", "#E0E0E0").css("color", "rgba(0,0,0,0.8)");
-      }
-    }
-  );
-
-  // Initial Colorization of .hashtag tiles
-  colorize();
-}
+//   card.appendChild(left);
+//   card.appendChild(right);
+  
+//   menu.appendChild(card);
+  
+//   return card;
 

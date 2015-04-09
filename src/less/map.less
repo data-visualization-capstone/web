@@ -11,11 +11,12 @@ body#map-content{
 }
 
 #sideNavToggle {
-  top: 13px;
+  top: 0px;
   left: 0px;
   z-index: 10001;
   position: absolute;
   border-radius:0px;
+  padding:15px 25px;
 }
 
 #legend {
@@ -240,49 +241,81 @@ body#map-content{
       float: left;
       /** /// All DOM Elements Inside #menuBody /// **/
 
-      .item.menu_module{
+      a#add_filter{
+        border-radius: 1px;          
+        background-color: #00BCD4;
         float: left;
-        width: 100%;
+        padding:10px 0px;
         margin-bottom: 10px;
-        padding:0px;
-        border-bottom: solid 2px black;       
-        -webkit-box-shadow: 0 4px 4px -2px #343434;
-        -moz-box-shadow: 0 4px 4px -2px #343434;
-        box-shadow: 0 4px 4px -2px #343434;
+        width: 100%;
+        -moz-box-shadow: 0 4px 2px -2px #343434;
+        -webkit-box-shadow: 0 4px 2px -2px #343434;
+        box-shadow: 0 4px 2px -2px #343434;          
 
-        a#add_filter{
-          border-radius: 1px;          
-          background-color: #00BCD4;
-          float: left;
-          padding:10px 0px;
-          width: 100%;
-
-          p{
-            font-size: 18px;
-            float:left;
-            color:#fff; 
-            margin-bottom: 0px;
-            margin-left: 10px;         
-          }
-          i{
-            float: right;
-            color:#fff;
-            margin-bottom: 0px;
-            margin-right: 10px;
-            margin-top: 5px;            
-          }
+        p{
+          font-size: 18px;
+          float:left;
+          color:#fff; 
+          margin-bottom: 0px;
+          margin-left: 10px;         
+        }
+        i{
+          float: right;
+          color:#fff;
+          margin-bottom: 0px;
+          margin-right: 10px;
+          margin-top: 5px;            
         }
       }
 
-      .item.menu_module:last-child{
-        border-bottom: none;
+      a#add_filter:hover{
+        background-color: #00ACC2;
+        -moz-box-shadow: 0 4px 3px -1px #343434;
+        -webkit-box-shadow: 0 3px 1px -1px #343434;
+        box-shadow: 0 4px 3px -1px #343434; 
+
+        p{
+          font-size: 18.1px;
+        }
+        i{
+          font-size: 14.1px;
+        }
+      }
+
+      div#add_filter_disabled{
+        display: none;
+        border-radius: 1px;          
+        background-color: #9B9B9B;
+        opacity: .8;
+        float: left;
+        padding:10px 0px;
+        margin-bottom: 10px;
+        width: 100%;
+        -moz-box-shadow: 0 4px 2px -2px #343434;
+        -webkit-box-shadow: 0 4px 2px -2px #343434;
+        box-shadow: 0 4px 2px -2px #343434;          
+
+        p{
+          font-size: 18px;
+          float:left;
+          color:#fff; 
+          margin-bottom: 0px;
+          margin-left: 10px;         
+        }
+        i{
+          float: right;
+          color:#fff;
+          margin-bottom: 0px;
+          margin-right: 10px;
+          margin-top: 5px;            
+        }
       }
 
       .card{
         position: relative;
         width: 100%;
         height: auto;
-        display: block;
+        display: flex;
         float: left;
         box-sizing: border-box;
         margin-bottom: 10px;
@@ -294,14 +327,22 @@ body#map-content{
 
         .card_left{
           float: left;
-          top: 0px;
+          height:auto;
           width: 40px;
-          height: 100%;
+          position: relative;
           background-color: #9B9B9B;
+          display: flex;
+
+          i{
+            margin: auto;
+            color:#ffffff;
+          }
+
         }
+
         .card_right{
           float: left;
-          width: 280px;
+          width: 290px;
           padding: 10px 15px;
           box-sizing: border-box;
 
@@ -309,6 +350,129 @@ body#map-content{
             margin: 0px;
             margin-bottom: 5px;
           }
+        }
+        .card_delete{
+          display: flex;
+          width: 20px;
+          padding: 10px 0px;
+          box-sizing: border-box;
+
+          a{
+            color:#9B9B9B;
+
+          }
+        }
+      }
+
+      .card.add_card{
+        height: 0px;
+        top:10px;
+        margin-bottom: 0px;
+
+        *{
+          visibility: hidden;
+        }
+
+        .card_right{
+          float: left;
+
+          a#select_set{
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 24px;
+            border-bottom:solid 2px #9B9B9B;
+
+            p{
+              float: left;
+              font-size: 12px;
+              color: #D4D4D4;
+              margin-bottom: 0px;
+            }
+            i{
+              float: right;
+              color: #9B9B9B;            
+            }
+          }
+          .card_left{
+            width: 40px;
+            height: 100%;
+            float: left;
+
+            i{
+              margin: auto;
+            }
+          }
+          div#select_list{
+            clear:both;
+            display: none;
+            list-style: none;
+            position: relative;
+            z-index: 20;
+            padding: 0px;
+            background-color: #D4D4D4;
+            vertical-align: middle;
+
+            a.select_option{
+              padding: 0px;
+              padding-top: 6px;
+              padding-left: 10px;
+              box-sizing: border-box;   
+              color:#000;
+              position: relative;
+              display: block;
+              height: 25px;
+              font-size: 12px;
+              width: 100%;          
+            }
+
+            a.select_option:hover{
+              background-color: #9B9B9B;
+            }
+
+          }
+          div#select_list.expanded{
+            display: block;
+          }
+        }
+        .card_buttons{
+          clear: both;
+          position: relative;
+          width: 100%;
+          height: 45px;
+          padding-top: 10px;
+          box-sizing: border-box;
+          display: none;
+
+          a{
+            color:#fff;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+            top:9px;
+            border-radius: 2px;
+          }
+          a#add_to_map{
+            background-color: #00BCD4; 
+            margin-right: 5px;
+          }
+          a#add_cancel{
+            background-color: #D4D4D4;
+            color:#9B9B9B;
+          }
+        }        
+      }
+
+      .add_card.expanded{
+        height: auto;
+        margin-bottom: 10px;
+        top: 0px;
+
+        *{
+          visibility: visible;
+        }
+        .card_buttons{
+          display: block;
         }
       }
 

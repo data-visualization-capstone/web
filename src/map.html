@@ -193,7 +193,17 @@
      ************************************/
 
     // Load Menu Template
-    $("#menu").load('templates/menu.tpl.html', function(result){    
+    $("#menu").load('templates/menu.tpl.html', function(result){
+        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", options.layers.apartments);  
+        // UI.elements.layerCheckbox("#toggle_mbta", red_line);
+        // UI.elements.heatmapScale("#squareFootage");
+        // UI.elements.heatmapScale("#bedrooms");
+        // UI.elements.heatmapScale("#rentPrice");        
+        
+        // Initialize Defaults For Filter UI
+        UI.initializeSliders();
+        // UI.initializeHashtags(); 
+        UI.toggleOption();        
     });
     
   </script>
