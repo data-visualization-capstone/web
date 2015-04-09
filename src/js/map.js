@@ -183,9 +183,6 @@ DV.update = function(){
       map.addLayer(leaflet_layer);
     }
 	}
-
-  // console.log("\nActive Layers:");
-  // console.log(DV._layers);
 }
 
 // Builds a layer object. 

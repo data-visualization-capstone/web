@@ -30,11 +30,10 @@
             <i class="fa fa-angle-down"></i>
           </a>
           <div id="select_list">
-              <a href="javascript:void(0)" class="select_option" icon="subway" >MBTA</a>
-              <a href="javascript:void(0)" class="select_option" icon="home" >Apartment</a>          
+              <a href="javascript:void(0)" class="select_option" icon="subway" >MBTA Lines</a>
+              <a href="javascript:void(0)" class="select_option" icon="home" >Apartment Rent Prices</a>          
           </div>
         <div class="card_buttons">
-<!--           <a href="javascript:void(0)" id="add_to_map">Add to map</a> -->
           <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.expandElement('.card.add_card');">Cancel</a>
         </div>
       </div>
@@ -59,17 +58,7 @@
       </div>
       <div class="card_right">
         <h3>MBTA</h3>
-            <div class="menuSection">
-            <p>Toggle MBTA train lines</p>
-            <div>
-              <input type="checkbox" name="mbta" value="" id="orange_line" />
-              <label for="#orange_line">Orange Line</label>              
-            </div>
-            <div>          
-              <input type="checkbox" name="mbta" value="" id="red_line" />
-              <label for="#red_line">Red Line</label>                
-            </div>
-          </div> 
+        <div class="menuSection"></div> 
       </div>
       <div class="card_delete">
         <a href="javascript:void(0);">
@@ -101,35 +90,36 @@
       </div>
     </div>    
 
-    <div class="card" onclick="DV.layers.add(options.layers.apartments)">
-      <div class="card_left"><p></p></div>
-      <div class="card_right"><h3>Apartments Prices</h3><div></div></div>
-    </div>
-
     <div class="card" onclick="DV.twitter.addStream('fenway')">
-      <div class="card_left"><p></p></div>
+      <div class="card_left">
+        <i class="fa fa-twitter fa-2x"></i> 
+      </div>
       <div class="card_right"><h3>Twitter Fenway</h3><div></div></div>
     </div>
 
     <div class="card" onclick="DV.twitter.addStream('redsox')">
-      <div class="card_left"><p></p></div>
+      <div class="card_left">
+        <i class="fa fa-twitter fa-2x"></i> 
+      </div>
       <div class="card_right"><h3>Twitter RedSox</h3><div></div></div>
     </div>
 
     <div class="card">
-      <div class="card_left"><p></p></div>
-      <div class="card_right"><h3>Twitter Search</h3><div></div></div>
-      <div class="card_right"><input id="twitter_key" /></div>
-      <div class="card_right"><button onclick="DV.twitter.addSearch('#twitter_key')" >Search Twitter</button></div>
-    </div>
+      <div class="card_left">
+        <i class="fa fa-twitter fa-2x"></i> 
+      </div>
 
-    <div class="card" onclick="DV.layers.add(options.layers.mbta)">
-      <div class="card_left"><p></p></div>
-      <div class="card_right"><h3>MBTA</h3><div></div></div>
+      <div class="card_right">
+        <h3>Twitter Search</h3>
+        <input id="twitter_key" />
+        <button onclick="DV.twitter.addSearch('#twitter_key')" >Search Twitter</button>
+      </div>
     </div>
 
     <div class="card" onclick="DV.layers.clear()">
-      <div class="card_left"><p></p></div>
+      <div class="card_left">
+        <i class="fa fa-trash-o fa-2x"></i> 
+        </div>
       <div class="card_right"><h3>Clear Layers</h3><div></div></div>
     </div>
 
