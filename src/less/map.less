@@ -27,6 +27,18 @@ body#map-content{
   padding: 10px;
 }
 
+#legend .btn-remove {
+  border-radius: 4px;
+  background-color: orange;
+  padding: 5px 10px;
+  margin-right: 10px;
+  float: left;
+}
+
+#legend .btn-remove:hover {
+  cursor: pointer;
+}
+
 #map-content {
   body{
     font-family: "Open Sans";
@@ -61,6 +73,10 @@ body#map-content{
     top:0;
     bottom:0;
     width:100%;
+  }
+
+  #hexmap {
+    z-index: -1;
   }
 
   #selected,

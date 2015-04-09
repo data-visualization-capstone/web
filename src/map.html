@@ -29,15 +29,13 @@
   <!-- Data Visualization Script -->
   <script src="build/build.js"></script>
 
-  <!-- UI and Event Handlers for Content -->
-  <script src="js/ui.js"></script>
-
   <!-- Load in Sample Data -->
-  <script src="js/data/sample-data.js"></script>
+  <script src="js/data/apartments.js"></script>
   
   <!-- External -->
-  <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
-  <script src="http://d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+  <script src="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
+  <script src="//d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 
   <script>
 
@@ -45,8 +43,7 @@
          Data Visualization Settings
      ************************************/
 
-    // For reference, Boston is:
-    // 42.3601° N (lat), 71.0589° W (long), or -71
+
 
     // Map settings
     var options = {
@@ -54,18 +51,16 @@
       // Mapbox's style key for applying map designs
       map_key: "stephalee.aec4ccea",
 
-      // Define default map viewport: Top left & bottom right coordinates
+      // Define default map viewport: 
+      // Top left & bottom right coordinates
+      // For reference, Boston is:
+      // 42.3601° N (lat), 71.0589° W (long), or -71
       viewport: [
         [42.329077, -71.108871],
         [42.374200, -71.032072]
       ],
 
-      maxZoom : 12,
-
-      minZoom : 4,
-
-      // Support multiple layers of data representation.
-      // Useful for building correlations between data sets.
+      // Available layers
       layers : [],
         
     }
@@ -80,13 +75,12 @@
 
     // Add layers when the map is ready.
     map.on('ready', function(){
-      update(DV._layers);
+      DV.update();
     })
 
     // Re-add layers when the map has changed.
     map.on('viewreset', function(){
-      console.log("\nView Reset: Replotting Layers");
-      update(DV._layers);
+      DV.update();
     })
     
     /************************************
@@ -94,9 +88,7 @@
     ************************************/
 
     // Possible layers.
-    var layerOptions = {
-
-    
+    options.layers = {
       apartments : {
         
         // Set name for layer
@@ -125,47 +117,83 @@
         // Useful for computing color.
         map : function(point){
           return point;
-        },
+        }, 
       },
-      red_line : {
-        name : "Red Line",
-        type: "path",
-        data : sample_data.subway.red,
-        width: 5,
-        color: "#ff0000",
+      twitter_traffic : {
+
+        name: "Twitter Traffic",
+        type: "scatterplot",
+        color: DV.utils.getColor(Math.random(0, 100)),
+        data : null,
+
+        // Dynamically load data
+        loadData  : DV.twitter.getStream,
+        parameter : 'traffic',
+
+        width: 3,
+
       },
-      orange_line : {
-        name : "Orange Line",      
-        type: "path",
-        data : sample_data.subway.orange,
-        width: 5,
-        color: "#ffa500",
-      },  
-  };
+      twitter_pax : {
 
-  // Development: plot all
-  _.each(layerOptions, function(layer){
-    DV.layers.addLayer(layer);
-  })
+        name: "Twitter PAX",
+        type: "scatterplot",
+        color: DV.utils.getColor(Math.random(0, 100)),
+        data : null,
 
+        // Dynamically load data
+        loadData  : DV.twitter.getStream,
+        parameter : 'pax',
+
+        width: 3,
+
+      }, 
+      mbta : {
+        name : 'MBTA',
+        type : 'geojson',
+        loadData : DV.utils.loadJSON,
+        parameter : '/js/data/MBTARapidTransitLines.json',
+      },
+
+      // @TODO : Something about this creates
+      // an infinite loop....
+      //  {
+      //   name : 'census',
+      //   type : 'topojson',
+      //   loadData : DV.loadCSV,
+      //   parameter : '/js/data/census2010.csv',
+
+      //   map : function(row){
+      //       return parseCensusRow(row)
+      //   }, 
+
+      //   filter : function(row){
+      //       return (row) ? true : false;
+      //   }
+
+      // }
+      }
+
+    // Used to format censuse data
+    function parseCensusRow(row) {
+
+      var parsedRow = {
+        id:         +row['tractid10'],
+        medianRent: +row['medianrent']
+      }
+
+      if (parsedRow.id && parsedRow.medianRent) {
+        return parsedRow;
+      } else {
+        return;
+      }
+    }
 
     /************************************
             Wire-up UI Elements
      ************************************/
 
     // Load Menu Template
-    $("#menu").load('templates/menu.tpl.html', function(result){
-        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", layerOptions.apartments);  
-        // UI.elements.layerCheckbox("#toggle_mbta", layerOptions.red_line);
-        // UI.elements.layerCheckbox("#toggle_mbta", layerOptions.orange);
-        // UI.elements.heatmapScale("#squareFootage");
-        // UI.elements.heatmapScale("#bedrooms");
-        // UI.elements.heatmapScale("#rentPrice");        
-        
-        // // Initialize Defaults For Filter UI
-        // UI.initializeSliders();
-        // UI.initializeHashtags(); 
-        // UI.toggleOption();        
+    $("#menu").load('templates/menu.tpl.html', function(result){    
     });
     
   </script>
