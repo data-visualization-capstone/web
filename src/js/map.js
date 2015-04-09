@@ -170,7 +170,6 @@ DV.update = function(){
         break;
     }
 
-    console.log(leaflet_layer)
 
     // If our data is represented as a proper
     // leaflet layer object, lets add it to the map.
