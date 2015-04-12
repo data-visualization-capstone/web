@@ -7,7 +7,7 @@
     </div>
 
     <div id="menuBody">
-        <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.expandElement('.card.add_card');">
+        <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.toggleFilterCard();">
             <p style="float:left;" class="trans x2">Explore more information</p>
             <i class="fa fa-plus trans x2" style="float:right;"></i>
         </a>
@@ -22,38 +22,22 @@
 
             <div class="card_right">
                 <h3>Add more information</h3>
-                <a href="javascript:void(0)" id="select_set" class="select_set" onclick="UI.elements.expandElement('#select_list');">
+                <a href="javascript:void(0)" id="select_set" class="select_set" onclick="UI.elements.toggleFilterList();">
                     <p>Select a data set</p>
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <div id="select_list">
-                    <a href="javascript:void(0)" class="select_option" icon="subway">MBTA Lines</a>
-                    <a href="javascript:void(0)" class="select_option" icon="home">Apartment Rent Prices</a>
-                    <a href="javascript:void(0)" class="select_option" icon="neighborhoods">Boston Neighborhoods</a>
+                    <a href="javascript:void(0)" class="select_option" card="mbta_card" onclick="UI.addCard(this);">MBTA Lines</a>
+                    <a href="javascript:void(0)" class="select_option" card="apartment_card" onclick="UI.addCard(this);">Apartment Rent Prices</a>
+                    <a href="javascript:void(0)" class="select_option" card="neighborhood_card" onclick="UI.addCard(this);">Boston Neighborhoods</a>
                 </div>
                 <div class="card_buttons">
-                    <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.expandElement('.card.add_card');">Cancel</a>
+                    <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.toggleFilterCard();">Cancel</a>
                 </div>
             </div>
         </div>
 
-        <!-- MBTA -->
-        <div class="card" id="ui_mbta" style="display:none;">
-            <div class="card_left">
-                <i class="fa fa-subway fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>MBTA</h3>
-                <div class="menuSection"></div>
-            </div>
-            <div class="card_delete">
-                <a href="javascript:void(0);">
-                    <i class="fa fa-times fa-lg"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Apartment Prices -->
+        <!-- Apartment Prices 
         <div class="card" id="ui_apartment" style="display:none;">
             <div class="card_left">
                 <i class="fa fa-home fa-2x"></i>
@@ -79,7 +63,7 @@
                 </a>
             </div>
         </div>
-
+-->
         <!-- Neighborhoods -->
         <!-- http://bl.ocks.org/awoodruff/728754e48c11a94b522b -->
         <div class="card" id="ui_neighborhoods" style="display:none;">
