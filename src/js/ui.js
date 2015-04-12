@@ -70,7 +70,7 @@ UI.elements.toggleFilterList = function(){
   $("#select_list").toggleClass("expanded");
 }
 
-// adds card to 
+// adds card to dom
 UI.addCard = function(target){
 
   $.ajax({
@@ -86,7 +86,11 @@ UI.addCard = function(target){
 
 }
  
-
+UI.removeCard = function(target){
+  var card = $(target).closest(".card");
+  DV.layers.delete(card.attr("visualization"));
+  $(target).closest(".card").remove();
+}
 // UI.elements.expandElement = function(selector){
 //     if(selector == '.card.add_card'){
 //       $("#add_filter, #add_filter_disabled").toggle();          
