@@ -504,6 +504,38 @@ body#map-content{
         }
       }
 
+      .card#ui_apartment{
+
+        #gradient_range{
+          width: 100%;
+
+          #apartment_upper,
+          #apartment_lower{
+            color: #000;
+            font-size: 12px;
+            position: relative;
+            display: inline;
+          }
+          #apartment_upper{
+            float: right;
+          }
+        }
+        #apartment_gradient{
+          position:relative;
+          height: 15px;
+          width: 100%;
+          border: solid 1px #9B9B9B;
+
+          background: #fff; /* Old browsers */
+          background: -moz-linear-gradient(left,  #fff 0%, #4682B4 100%); /* FF3.6+ */
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fff), color-stop(100%,#4682B4)); /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(left,  #fff 0%,#4682B4 100%); /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(left,  #fff 0%,#4682B4 100%); /* Opera 11.10+ */
+          background: -ms-linear-gradient(left,  #fff 0%,#4682B4 100%); /* IE10+ */
+          background: linear-gradient(to right,  #fff 0%,#4682B4 100%); /* W3C */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#4682B4',GradientType=1 ); /* IE6-9 */
+        }
+      }
       .menuSection{
         width: 100%;
         margin-bottom:15px;
