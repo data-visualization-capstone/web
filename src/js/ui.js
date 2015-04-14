@@ -47,14 +47,6 @@ UI.toggleOption = function(){
 //   }
 // }
 
-UI.hideMBTA = function(){
-  $("#ui_mbta").hide();
-  DV.layers.delete('orangeline');  
-  DV.layers.delete('redline');  
-  $("#red_line").prop("checked", false);
-  $("#orange_line").prop("checked", false);
-}
-
 // Shows card to add filters
 UI.elements.toggleFilterCard = function(){
 
@@ -264,9 +256,9 @@ UI.initializeSliders = function(){
 
 
 
-/**************************
-    Adding a Card
-****************************/
+/*******************************
+    Adding a Card (abstract)
+********************************/
 // UI.newCard = function(icon_class, header){
 
 //   var menu = document.getElementById("menuBody"),

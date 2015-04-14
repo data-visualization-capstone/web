@@ -1,5 +1,5 @@
 <!-- MBTA -->
-<div class="card" id="ui_mbta">
+<div class="card" id="ui_mbta" visualization="mbta">
     <div class="card_left">
         <i class="fa fa-subway fa-2x"></i>
     </div>
@@ -8,8 +8,11 @@
         <div class="menuSection"></div>
     </div>
     <div class="card_delete">
-        <a href="javascript:void(0);">
+        <a href="javascript:void(0);" onclick="UI.removeCard(this);">
             <i class="fa fa-times fa-lg"></i>
         </a>
     </div>
 </div>
+<script type="text/javascript">
+    DV.layers.add(options.layers.mbta);
+</script>
