@@ -24,28 +24,6 @@ UI.toggleOption = function(){
   }); 
 } 
 
-// SHITTY CODE FOR RISE
-// UI.hideApartments = function(){
-//   $("#ui_apartment").hide();
-//   DV.layers.delete('hexmap');
-// }
-
-// UI.showRed = function(){
-//   if($("#red_line").prop("checked") == true){
-//     DV.layers.add(red_line);
-//   }
-//   else{
-//     DV.layers.delete('redline');
-//   }
-// }
-// UI.showOrange = function(){
-//   if($("#orange_line").prop("checked") == true){
-//     DV.layers.add(orange_line);
-//   }
-//   else{
-//     DV.layers.delete('orangeline');
-//   }
-// }
 
 // Shows card to add filters
 UI.elements.toggleFilterCard = function(){
@@ -58,8 +36,18 @@ UI.elements.toggleFilterCard = function(){
 }
 
 // Shows and hides dropdown menu to add filters
+// TODO!!!!!!!!
 UI.elements.toggleFilterList = function(){
-  $("#select_list").toggleClass("expanded");
+  var list = $("#select_list");
+
+  if(list.css("display") == "none"){
+    var layers = DV._layers;
+
+
+  }
+
+  list.toggleClass("expanded");
+
 }
 
 // adds card to dom
