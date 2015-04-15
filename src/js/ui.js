@@ -35,20 +35,6 @@ UI.elements.toggleFilterCard = function(){
   $(".card.add_card").toggleClass("expanded"); 
 }
 
-// Shows and hides dropdown menu to add filters
-// TODO!!!!!!!!
-UI.elements.toggleFilterList = function(){
-  var list = $("#select_list");
-
-  if(list.css("display") == "none"){
-    var layers = DV._layers;
-
-
-  }
-
-  list.toggleClass("expanded");
-
-}
 
 // adds card to dom
 UI.addCard = function(target){
@@ -65,64 +51,78 @@ UI.addCard = function(target){
   });
 
 }
- 
+
+// @TODO: Fix bug when removing hexmap
 UI.removeCard = function(target){
   var card = $(target).closest(".card");
   DV.layers.delete(card.attr("visualization"));
   $(target).closest(".card").remove();
 }
-// UI.elements.expandElement = function(selector){
-//     if(selector == '.card.add_card'){
-//       $("#add_filter, #add_filter_disabled").toggle();          
-//     }  
 
-//     if(selector == '#select_list'){
+// Shows and hides dropdown menu to add filters
+// Dynamically populates dropdown
+UI.elements.toggleFilterList = function(){
+  var list = $("#select_list");
 
-//       $(".select_option").click(function(){
-//         if($(this).attr("icon") == "home"){
-//           $("#ui_apartment").show();
-          
-//           $("#ui_apartment .card_delete a").click(function(){
-//             UI.hideApartments()
-//           });
+  // When dropdown isn't visible...
+  if(list.css("display") == "none"){
+    var active_layers = [];
+    // create list of all possible layer names
+    var all_layers = Object.keys(options.layers);
 
-//           DV.layers.add(options.layers.apartments);
+    // create list of all active layer names
+    for(i = 0; i < DV._layers.length; i++){
+      active_layers.push(DV._layers[i].id);
+    }
 
-//           UI.elements.expandElement("#select_list");          
-//         }
-//         else if($(this).attr("icon") == "subway"){
-//           $("#ui_mbta").show();
+    // itterate through all layers
+    for(i = 0; i < all_layers.length; i ++){
+      // Get name of current layer 
+      var name = all_layers[i];
 
-//           $("#ui_mbta .card_delete a").click(function(){UI.hideMBTA()});
+      // if the current layer NOT ACTIVE...
+      if( $.inArray( name, active_layers ) < 0 ){
+        
+            // create <a>
+        var obj = document.createElement("A"),
+            // create textnode containg name of layer
+            text = document.createTextNode(options.layers[name].name);
+        
+        // Set class of object
+        obj.setAttribute("class", "select_option");
 
-//           $("#red_line").click(function(){
-//             UI.showRed();         
-//           });
+        // prevents <a> from reloading page
+        obj.setAttribute("href", "javascript:void(0)");
 
-//           $("#orange_line").click(function(){
-//             UI.showOrange();
-//           });
+        // Which card gets added to the dom?
+        obj.setAttribute("card", options.layers[name].card);
 
-//           DV.layers.add(options.layers.mbta)
-//         }
-//         if($(this).attr("icon") == "neighborhoods"){
-//           $("#ui_neighborhoods").show();
-          
-//           $("#ui_neighborhoods .card_delete a").click(function(){
-//             UI.hideApartments()
-//           });
+        // Bind addCard function
+        obj.setAttribute("onclick", "UI.addCard(this)");
 
-//           DV.layers.add(options.layers.neighborhoods);
+        // put name in <a>
+        obj.appendChild(text);
 
-//           UI.elements.expandElement("#select_list");          
-//         }
+        // add whole object to dropdown
+        document.getElementById("select_list").appendChild(obj);
 
-//         UI.elements.expandElement(".card.add_card");          
-//       });    
-//     }
+      }
+      else{
+        console.log("" + name + " is active");
+      }
+    }
+  }
 
-//     $("" + selector + "").toggleClass("expanded");
-// }
+  // if dropdown is visible...
+  else{
+
+    // empty the dropdown
+    list.empty();
+  }
+
+  list.toggleClass("expanded");
+
+}
 
 
 

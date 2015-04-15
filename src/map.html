@@ -93,10 +93,13 @@
         
         // Set name for layer
         // used for unique ID
-        name : "Hex Map",
+        name : "apartments",
 
         // Define representation of layer
         type: "hex",
+
+        // Card from templates/card_templates 
+        card: "apartment_card",
 
         // Data from sample-data.js
         data : sample_data.apartments,
@@ -150,12 +153,14 @@
       mbta : {
         name : 'MBTA',
         type : 'geojson',
+        card : 'mbta_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
       },
       neighborhoods : {
         name : 'Neighborhoods',
         type : 'geojson',
+        card : 'neighborhood_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/bostonneighborhoods.geojson',
       },
