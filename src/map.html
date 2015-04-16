@@ -216,7 +216,18 @@
         // UI.initializeHashtags(); 
         UI.toggleOption();        
     });
-    
+
+    /************************************
+            Init Default Layers
+     ************************************/    
+
+    // Add NEIGHBORHOOD layer and card
+    $.ajax({
+      url: "/templates/card_templates/neighborhood_card.html"
+    })
+    .done(function( data ){
+      $("#menuBody").append(data);   
+    });    
   </script>
 </body>
 

@@ -53,7 +53,7 @@ UI.addCard = function(target){
 }
 
 // @TODO: Fix bug when removing hexmap
-UI.removeCard = function(target){
+UI.removeCard = function(target){ 
   var card = $(target).closest(".card");
   DV.layers.delete(card.attr("visualization"));
   $(target).closest(".card").remove();
@@ -85,6 +85,7 @@ UI.elements.toggleFilterList = function(){
         
             // create <a>
         var obj = document.createElement("A"),
+
             // create textnode containg name of layer
             text = document.createTextNode(options.layers[name].name);
         
@@ -241,7 +242,6 @@ UI.initializeSliders = function(){
   linkInput('.price');
   linkInput('.footage');
 }
-
 
 
 /*******************************
