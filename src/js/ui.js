@@ -34,7 +34,8 @@ UI.addAboutModal = function(){
 }
 
 UI.removeAboutModal = function(){
-  $("#modal_wrapper").remove();
+  $("#about_modal").remove();
+  $("#modal_overlay").remove();
 }
 // SHITTY CODE FOR RISE
 UI.hideApartments = function(){
