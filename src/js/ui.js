@@ -24,6 +24,15 @@ UI.toggleOption = function(){
   }); 
 } 
 
+UI.aboutModal = function(){
+  $.ajax({
+    url: "../templates/about.tpl.html"
+  })
+  .done(function( content ){
+    $("body").append( content );
+  })
+}
+
 // SHITTY CODE FOR RISE
 UI.hideApartments = function(){
   $("#ui_apartment").hide();
