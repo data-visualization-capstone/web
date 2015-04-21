@@ -26,7 +26,7 @@ UI.toggleOption = function(){
 
 UI.addAboutModal = function(){
   $.ajax({
-    url: "../templates/about.tpl.html"
+    url: "../templates/about.html"
   })
   .done(function( content ){
     $("body").append( content );
@@ -34,8 +34,7 @@ UI.addAboutModal = function(){
 }
 
 UI.removeAboutModal = function(){
-  $("#about_modal").remove();
-  $("#modal_overlay").remove();
+  $("#modal_wrapper").remove();
 }
 // SHITTY CODE FOR RISE
 UI.hideApartments = function(){
