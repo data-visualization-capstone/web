@@ -15,6 +15,7 @@
             <p style="float:left;" class="trans x2">Explore more information</p>
             <i class="fa fa-plus trans x2" style="float:right;"></i>
         </div>
+        
         <div class="card add_card trans x2">
             <div class="card_left">
                 <i class="fa fa-plus fa-2x"></i>
@@ -26,41 +27,16 @@
                     <p>Select a data set</p>
                     <i class="fa fa-angle-down"></i>
                 </a>
-                <div id="select_list">
-<!--                     <a href="javascript:void(0)" class="select_option" card="mbta_card" onclick="UI.addCard(this);">MBTA Lines</a>
-                    <a href="javascript:void(0)" class="select_option" card="apartment_card" onclick="UI.addCard(this);">Apartment Rent Prices</a>
-                    <a href="javascript:void(0)" class="select_option" card="neighborhood_card" onclick="UI.addCard(this);">Boston Neighborhoods</a> -->
-                </div>
+
+                <!-- Dropdown menu -->
+                <div id="select_list"></div>
+
                 <div class="card_buttons">
                     <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.toggleFilterCard();">Cancel</a>
                 </div>
             </div>
         </div>
-    
-        <!-- Twitter -->
-        <div class="card">
-            <div class="card_left">
-                <i class="fa fa-twitter fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>Twitter Cached</h3>
-                <div class="button" onclick="DV.twitter.addStream('baseball')">Baseball</div>
-            </div>
-        </div>
 
-        <!-- Twitter -->
-        <div class="card">
-            <div class="card_left">
-                <i class="fa fa-twitter fa-2x"></i>
-            </div>
-
-            <div class="card_right">
-                <h3>Twitter Search</h3>
-                <input id="twitter_key" /><br>
-                <div class="button" onclick="DV.twitter.addSearch('#twitter_key')">Search Twitter</div>
-                <div class="button cancel">Cancel</div>
-            </div>
-        </div>
         
         <!-- Clear -->
 <!--         <div class="card" onclick="DV.layers.clear()">
