@@ -24,6 +24,23 @@ UI.toggleOption = function(){
   }); 
 } 
 
+UI.addAboutModal = function(){
+  $.ajax({
+    url: "../templates/about.html"
+  })
+  .done(function( content ){
+    $("body").append( content );
+  })
+}
+
+UI.removeAboutModal = function(){
+  $("#modal_wrapper").remove();
+}
+// SHITTY CODE FOR RISE
+UI.hideApartments = function(){
+  $("#ui_apartment").hide();
+  DV.layers.delete('hexmap');
+}
 
 // Shows card to add filters
 UI.elements.toggleFilterCard = function(){

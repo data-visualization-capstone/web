@@ -1,5 +1,6 @@
 body#map-content{
   overflow:hidden; /* page won't scroll horizontally when menu shown */
+  display: flex;
 }
 .leaflet-control{
   float:right;
@@ -13,7 +14,7 @@ body#map-content{
 #sideNavToggle {
   top: 0px;
   left: 0px;
-  z-index: 10001;
+  z-index: 999;
   position: absolute;
   border-radius:0px;
   padding:15px 25px;
@@ -43,6 +44,7 @@ body#map-content{
 #map-content {
   body{
     font-family: "Open Sans";
+    display: flex;
   }
   .clear{
     clear:both;
@@ -229,9 +231,18 @@ body#map-content{
         color:#FFF;
         font-size: 20px;
         padding: 10px 0px;
+        float: left;
         line-height: normal;
         letter-spacing: .06em;
       } 
+
+      i{
+        float: right;
+        color: #9B9B9B;
+        margin-right: 20px;
+        margin-top: 10px;
+        font-size: 20px;
+      }
     }
 
     div#menuBody{
@@ -626,6 +637,64 @@ body#map-content{
   }
 }
 
+#modal_wrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+
+  #modal_overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .6;
+    z-index: 999;
+  }
+  #about_modal{
+    width: 100%;
+    max-width: 720px;
+    z-index: 1000;
+    margin:auto;
+
+    #modal_header{
+      position: relative;
+      width: 100%;
+      height: 80px;
+      background-color: #5ABCC9;
+      padding: 0px 50px;
+      padding-top: 30px;
+      box-sizing: border-box;
+
+      h1{
+        color: #fff;
+        font-size: 24px;
+        float: left;
+        line-height: .8em;
+        font-weight: bold;
+        font-style: italic;
+      }
+      a{
+        float: right;
+      }
+      i{
+        color: #fff;
+      }
+    }
+
+    #modal_body{
+      background-color: #fff;
+      padding:30px 50px;
+
+      p{
+        font-size: 16px;
+        color: #444444;
+      }
+    }
+
+  }
+}
 
   @media (max-width: 480px) {
     #selected {
