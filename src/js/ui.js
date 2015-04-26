@@ -10,7 +10,7 @@ var UI = {};
 // Initialize wrapper
 UI.elements = {};
 
-// Shows/Hides Filtering for heatmap based on selected scale 
+//Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
  
@@ -42,82 +42,107 @@ UI.hideApartments = function(){
   DV.layers.delete('hexmap');
 }
 
-UI.showRed = function(){
-  if($("#red_line").prop("checked") == true){
-    DV.layers.add(red_line);
-  }
-  else{
-    DV.layers.delete('redline');
-  }
-}
-UI.showOrange = function(){
-  if($("#orange_line").prop("checked") == true){
-    DV.layers.add(orange_line);
-  }
-  else{
-    DV.layers.delete('orangeline');
-  }
-}
-UI.hideMBTA = function(){
-  $("#ui_mbta").hide();
-  DV.layers.delete('orangeline');  
-  DV.layers.delete('redline');  
-  $("#red_line").prop("checked", false);
-  $("#orange_line").prop("checked", false);
+// Shows card to add filters
+UI.elements.toggleFilterCard = function(){
+
+  // enables and disables 'Explore...' button
+  $("#add_filter, #add_filter_disabled").toggle();
+
+  // shows '.add_card'
+  $(".card.add_card").toggleClass("expanded"); 
 }
 
-UI.elements.expandElement = function(selector){
-    if(selector == '.card.add_card'){
-      $("#add_filter, #add_filter_disabled").toggle();          
-    }  
 
-    if(selector == '#select_list'){
+// adds card to dom
+UI.addCard = function(target){
 
-      $(".select_option").click(function(){
-        if($(this).attr("icon") == "home"){
-          $("#ui_apartment").show();
-          
-          $("#ui_apartment .card_delete a").click(function(){
-            UI.hideApartments()
-          });
+  $.ajax({
+    url: "/templates/card_templates/" + $(target).attr("card") + ".html"
+  })
+  .done(function( data ){
+    $("#menuBody").append(data);
 
-          DV.layers.add(options.layers.apartments);
+    // Hides filter list
+    UI.elements.toggleFilterList();
+    UI.elements.toggleFilterCard();    
+  });
 
-          UI.elements.expandElement("#select_list");          
-        }
-        else if($(this).attr("icon") == "subway"){
-          $("#ui_mbta").show();
+}
 
-          $("#ui_mbta .card_delete a").click(function(){UI.hideMBTA()});
+// @TODO: Fix bug when removing hexmap
+UI.removeCard = function(target){ 
+  var card = $(target).closest(".card");
+  DV.layers.delete(card.attr("visualization"));
+  $(target).closest(".card").remove();
+}
 
-          $("#red_line").click(function(){
-            UI.showRed();         
-          });
+// Shows and hides dropdown menu to add filters
+// Dynamically populates dropdown
+UI.elements.toggleFilterList = function(){
+  var list = $("#select_list");
 
-          $("#orange_line").click(function(){
-            UI.showOrange();
-          });
+  // When dropdown isn't visible...
+  if(list.css("display") == "none"){
+    var active_layers = [];
+    // create list of all possible layer names
+    var all_layers = Object.keys(options.layers);
 
-          DV.layers.add(options.layers.mbta)
-        }
-        if($(this).attr("icon") == "neighborhoods"){
-          $("#ui_neighborhoods").show();
-          
-          $("#ui_neighborhoods .card_delete a").click(function(){
-            UI.hideApartments()
-          });
-
-          DV.layers.add(options.layers.neighborhoods);
-
-          UI.elements.expandElement("#select_list");          
-        }
-
-        UI.elements.expandElement(".card.add_card");          
-      });    
+    // create list of all active layer names
+    for(i = 0; i < DV._layers.length; i++){
+      active_layers.push(DV._layers[i].id);
     }
 
-    $("" + selector + "").toggleClass("expanded");
+    // itterate through all layers
+    for(i = 0; i < all_layers.length; i ++){
+      // Get name of current layer 
+      var name = all_layers[i];
+
+      // if the current layer NOT ACTIVE...
+      if( $.inArray( name, active_layers ) < 0 ){
+        
+            // create <a>
+        var obj = document.createElement("A"),
+
+            // create textnode containg name of layer
+            text = document.createTextNode(options.layers[name].name);
+        
+        // Set class of object
+        obj.setAttribute("class", "select_option");
+
+        // prevents <a> from reloading page
+        obj.setAttribute("href", "javascript:void(0)");
+
+        // Which card gets added to the dom?
+        obj.setAttribute("card", options.layers[name].card);
+
+        // Bind addCard function
+        obj.setAttribute("onclick", "UI.addCard(this)");
+
+        // put name in <a>
+        obj.appendChild(text);
+
+        // add whole object to dropdown
+        document.getElementById("select_list").appendChild(obj);
+
+      }
+      else{
+        console.log("" + name + " is active");
+      }
+    }
+  }
+
+  // if dropdown is visible...
+  else{
+
+    // empty the dropdown
+    list.empty();
+  }
+
+  list.toggleClass("expanded");
+
 }
+
+
 
 /**************************
      DOM Manipulation
@@ -236,10 +261,9 @@ UI.initializeSliders = function(){
 }
 
 
-
-/**************************
-    Adding a Card
-****************************/
+/*******************************
+    Adding a Card (abstract)
+********************************/
 // UI.newCard = function(icon_class, header){
 
 //   var menu = document.getElementById("menuBody"),

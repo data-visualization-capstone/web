@@ -92,10 +92,13 @@
         
         // Set name for layer
         // used for unique ID
-        name : "Hex Map",
+        name : "apartments",
 
         // Define representation of layer
         type: "hex",
+
+        // Card from templates/card_templates 
+        card: "apartment_card",
 
         // Data from sample-data.js
         data : sample_data.apartments,
@@ -124,7 +127,7 @@
         type: "scatterplot",
         color: DV.utils.getColor(Math.random(0, 100)),
         data : null,
-
+        card : "twitter_cached_card",
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'traffic',
@@ -138,7 +141,7 @@
         type: "scatterplot",
         color: DV.utils.getColor(Math.random(0, 100)),
         data : null,
-
+        card : "twitter_cached_card",
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'pax',
@@ -149,12 +152,14 @@
       mbta : {
         name : 'MBTA',
         type : 'geojson',
+        card : 'mbta_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
       },
       neighborhoods : {
         name : 'Neighborhoods',
         type : 'geojson',
+        card : 'neighborhood_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/bostonneighborhoods.geojson',
       },
@@ -210,7 +215,18 @@
         // UI.initializeHashtags(); 
         UI.toggleOption();        
     });
-    
+
+    /************************************
+            Init Default Layers
+     ************************************/    
+
+    // Add NEIGHBORHOOD layer and card
+    $.ajax({
+      url: "/templates/card_templates/neighborhood_card.html"
+    })
+    .done(function( data ){
+      $("#menuBody").append(data);   
+    });    
   </script>
 </body>
 
