@@ -26,12 +26,16 @@ function drawMarkers(map, layer){
     // Create a new popup object
     var popup = L.popup()
       .setLatLng(latLng)
-      .setContent(p.message)
+      .setContent(
+        "<div class='header' style='background-color:" + layer.color + "'><i class='fa fa-twitter fa-2x'></i><p>Twitter</p></div>" 
+        + p.message)
 
     // Add popup to the circle
     circle.bindPopup(popup);
 
     markers.addLayer(circle);
+
+
   })
 
   
