@@ -12,6 +12,10 @@ function drawHexmap(map, layer){
   var width = map.getSize().x;
   var height = map.getSize().y;
 
+  // Current zoom level ~[0 - 19]
+  var zoom = map._zoom
+
+  // Filtered array
   var points = [];
 
   // Create map-able set of points. For each point,
@@ -43,13 +47,13 @@ function drawHexmap(map, layer){
       p.bedrooms = 1;
     }
 
-    points.push([point.x, point.y, p.value / p.bedrooms]);
+    points.push([point.x, point.y, p.value]);
 
     return true;
   });
 
   var color = d3.scale.linear()
-      .domain([600, 2500])
+      .domain([700, 3000])
       .range(["white", "steelblue"])
       .interpolate(d3.interpolateLab)
 

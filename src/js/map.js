@@ -133,7 +133,7 @@ DV.update = function(){
   
   // @ TODO:
   // Clear data before populating
-  $("#hexmap").remove()
+  $("#rentprices").remove()
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
@@ -157,6 +157,11 @@ DV.update = function(){
         
       // HEX
       case "hex":
+
+        if (layer.leaflet_layer) {
+           map.removeLayer(layer.leaflet_layer)
+           layer.leaflet_layer = null;
+        }
 
         // @TODO: Store as layerGroup
         drawHexmap(map, layer);
