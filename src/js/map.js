@@ -19,8 +19,6 @@ var DV = {
   // Layer Data
   _layers : [],
 
-  _leaflet_layers : [],
-
   // Layer CRUD Methods
   layers : {},
 
@@ -33,20 +31,15 @@ var DV = {
 // PUT - Add a layer to the map.
 DV.layers.add = function(layer){
 
-  // @TODO: Prevent Duplicates
-  // Prevent duplicates
-  // if (DV.layers.find("name", layer.name)) return;
-
     // Converts to valid layer object
     compileLayer(layer, function(layer){
 
         var layer = layer;
 
-        // @TODO: Prevent Duplicates
+        // Store placeholder for leaflet reference
+        layer.leaflet_layer = null;
 
         DV._layers.push(layer);
-
-        console.log(DV._layers);
 
         // Refresh view
         DV.update();
@@ -107,8 +100,9 @@ DV.layers.clear = function(){
   
   console.log("Clearing Layers...");
 
-  _.each(DV._leaflet_layers, function(l){
-    map.removeLayer(l);
+  _.each(DV._layers, function(l){
+    if (l.leaflet_layer);
+    map.removeLayer(l.leaflet_layer);
   })
   
   // Empty local list
@@ -120,6 +114,14 @@ DV.layers.clear = function(){
 
 // Iterate through, and place layers onto Leaflet map
 DV.update = function(){
+  
+  for (i in map._layers){
+    var current = map._layers[i];
+
+    if (current._path){
+      map.removeLayer(current);
+    }
+  }
 
   var layers = DV._layers;
   console.log(layers)
@@ -138,19 +140,19 @@ DV.update = function(){
     
     var layer = layers[i]; // Current Layer
 
-    var leaflet_layer = null;
+    layer.leaflet_layer = null;
 
     switch (layer.type) {
       
       // SCATTERPLOT
       case "scatterplot":
         // drawScatterplot(map, layer);
-        leaflet_layer = drawMarkers(map, layer);
+        layer.leaflet_layer = drawMarkers(map, layer);
         break;
         
       // PATH
       case "path":
-        leaflet_layer = drawPath(map, layer);
+        layer.leaflet_layer = drawPath(map, layer);
         break;
         
       // HEX
@@ -162,7 +164,13 @@ DV.update = function(){
 
       // GEOJSON
       case "geojson":
-        leaflet_layer = geoJsonLayer(layer.data);
+
+        if (layer.leaflet_layer) {
+           map.removeLayer(layer.leaflet_layer)
+           layer.leaflet_layer = null;
+        }
+
+        layer.leaflet_layer = geoJsonLayer(layer.data);
         break;
     }
 
@@ -170,14 +178,16 @@ DV.update = function(){
     // If our data is represented as a proper
     // leaflet layer object, lets add it to the map.
 
-    if (leaflet_layer){
+    if (layer.leaflet_layer){
 
       // Store for refernece
-      DV._leaflet_layers.push(leaflet_layer);
+      // DV._leaflet_layers.push(leaflet_layer);
 
       // Add to map
-      map.addLayer(leaflet_layer);
+      map.addLayer(layer.leaflet_layer);
     }
+
+    console.log(DV._layers)
 	}
 }
 
