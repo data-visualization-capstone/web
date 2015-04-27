@@ -118,6 +118,12 @@
         }, 
       },
 
+      map : {
+        name: "Map",
+        card: "map_card",
+
+      },
+
       twitter_traffic : {
 
         name: "Twitter Traffic",
@@ -197,11 +203,18 @@
     /************************************
             Init Default Layers
      ************************************/    
+    
+     // Add MAP layer and card
+    $.ajax({
+      url: "/templates/card_templates/map_card.html",
+    }).done(function( data ){
+      $("#menuBody").append(data);
+    });
 
     // Add NEIGHBORHOOD layer and card
     $.ajax({
       url: "/templates/card_templates/neighborhood_card.html"
-    }).done(function(data){
+    }).done(function( data ){
       $("#menuBody").append(data);   
     });
 
