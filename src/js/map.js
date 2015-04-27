@@ -324,27 +324,37 @@ DV.twitter.addStream = function(string){
 
 // Helper function for adding different types of t
 // twitter data
+var colorCount = 0;
+
 DV.twitter.addLayer = function(string, loadDataFunction){
-  
-  // Error Checking
-  // @TODO: User Feedback
-  if (!string) { console.error("Invalid Twitter String."); return; }
 
-  // Show loading indicator.
-  Loading.start("tweet");
+  if(colorCount < DV.utils.twitterColors.length){
+    var currentColor = DV.utils.twitterColors[colorCount];
+    
+    // Error Checking
+    // @TODO: User Feedback
+    if (!string) { console.error("Invalid Twitter String."); return; }
 
-  // Create layer object
-  var layer = {
-      name: "Twitter " + string,
-      type: "scatterplot",
-      color: DV.utils.getColor(Math.random(0, 100)),
-      loadData : loadDataFunction,
-      parameter : string,
-      width: 3,
-  }  
+    // Show loading indicator.
+    Loading.start("tweet");
 
-  // add layer object
-  DV.layers.add(layer);
+    // Create layer object
+    var layer = {
+        name: "Twitter " + string,
+        type: "scatterplot",
+        color: currentColor,
+        loadData : loadDataFunction,
+        parameter : string,
+        width: 3,
+    }  
+
+    // add layer object
+    DV.layers.add(layer);
+    colorCount ++;
+  }
+  else{
+    alert("you have too many tweets bro!");
+  }
 }
 
 // GET /twitter/search/:string
@@ -383,23 +393,8 @@ DV.twitter.getStreamData = function(string, success, error){
 
 DV.utils = {};
 
-// Maps the input number to the output
-// color. Input between 0 and 100 maps
-// to the range of red -> green
-DV.utils.getColor = function(i){
-
-  if (i < 0) {
-    i = 0;
-  } else if (i > 1) {
-    i = 1;
-  };
-
-  var r = Math.floor(255 * i);
-  var g = Math.floor(255 - 255 * i);
-  var b = 0;
-
-  return '#' + DV.utils.componentToHex(r) + DV.utils.componentToHex(g) + DV.utils.componentToHex(b);
-};
+// Colors for twitter points
+DV.utils.twitterColors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 DV.utils.componentToHex = function(c) {
