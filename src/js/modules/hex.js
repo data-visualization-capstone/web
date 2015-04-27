@@ -7,10 +7,6 @@
 // http://bl.ocks.org/mbostock/4248145
 
 function drawHexmap(map, layer){
-  
-  // Clear layer if previously existing.
-  // $("#" + layer.id).remove()
-  // console.log($("#" + layer.id))
 
   // http://bl.ocks.org/mbostock/4248145
   var width = map.getSize().x;
@@ -55,14 +51,16 @@ function drawHexmap(map, layer){
   var color = d3.scale.linear()
       .domain([600, 2500])
       .range(["white", "steelblue"])
-      .interpolate(d3.interpolateLab);
+      .interpolate(d3.interpolateLab)
 
   var hexbin = d3.hexbin()
       .size([width, height])
       .radius(layer.width);
 
   // Create an SVG elemnt for plotting points on
-  var svg = d3.select(map.getPanes().overlayPane).append("svg")
+  var svg = d3.select(map.getPanes().overlayPane)
+      
+      .append("svg")
       .attr('id', layer.id)
       .attr("class", "leaflet-zoom-hide")
       .style("width",  map.getSize().x + 'px')
@@ -73,6 +71,7 @@ function drawHexmap(map, layer){
   // svg shapes. It restricts the region of 
   // a shape where color can be applied.
   svg.append("clipPath")
+
       .attr("id", "clip")
       .append("rect")
       .attr("class", "mesh")
@@ -80,12 +79,14 @@ function drawHexmap(map, layer){
       .attr("height", height);
 
   svg.append("g")
+  
       .attr("clip-path", "url(#clip)")
       .selectAll(".hexagon")
 
       // Use the hexbin d3.js plugin for
       // bulking data points into their 
       // overlapping "bin"
+
       .data(hexbin(points))
       .enter().append("path")
       .attr("class", "hexagon")
