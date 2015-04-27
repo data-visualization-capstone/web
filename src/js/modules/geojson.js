@@ -11,4 +11,3 @@ function geoJsonLayer(json) {
 
   return layer;
 }
-

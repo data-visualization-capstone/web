@@ -36,13 +36,14 @@
   <script src="//d3js.org/d3.hexbin.v0.min.js?5c6e4f0"></script>
   <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 
+  <!-- Libraries -->
+  <script src="js/lib/L.D3SvgOverlay.js"></script>
+  
   <script>
 
     /************************************
          Data Visualization Settings
      ************************************/
-
-
 
     // Map settings
     var options = {
@@ -54,6 +55,7 @@
       // Top left & bottom right coordinates
       // For reference, Boston is:
       // 42.3601° N (lat), 71.0589° W (long), or -71
+      
       viewport: [
         [42.329077, -71.108871],
         [42.374200, -71.032072]
@@ -61,7 +63,7 @@
 
       // Available layers
       layers : [],
-        
+
     }
 
     /************************************
@@ -73,14 +75,10 @@
     var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
 
     // Add layers when the map is ready.
-    map.on('ready', function(){
-      DV.update();
-    })
+    map.on('ready', function(){ DV.update(); })
 
     // Re-add layers when the map has changed.
-    map.on('viewreset', function(){
-      DV.update();
-    })
+    map.on('viewreset', function(){ DV.update(); })
     
     /************************************
          Add Default Data
@@ -88,6 +86,8 @@
 
     // Possible layers.
     options.layers = {
+
+      // Represent apartment price heatmap
       apartments : {
         
         // Set name for layer
@@ -121,6 +121,7 @@
           return point;
         }, 
       },
+
       twitter_traffic : {
 
         name: "Twitter Traffic",
@@ -128,6 +129,7 @@
         color: DV.utils.getColor(Math.random(0, 100)),
         data : null,
         card : "twitter_cached_card",
+        
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'traffic',
@@ -135,6 +137,7 @@
         width: 3,
 
       },
+
       twitter_pax : {
 
         name: "Twitter PAX",
@@ -142,6 +145,7 @@
         color: DV.utils.getColor(Math.random(0, 100)),
         data : null,
         card : "twitter_cached_card",
+
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'pax',
@@ -149,6 +153,7 @@
         width: 3,
 
       }, 
+
       mbta : {
         name : 'MBTA',
         type : 'geojson',
@@ -156,6 +161,7 @@
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
       },
+
       neighborhoods : {
         name : 'Neighborhoods',
         type : 'geojson',
@@ -163,22 +169,7 @@
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/bostonneighborhoods.geojson',
       },
-      }
-
-    // Used to format censuse data
-    function parseCensusRow(row) {
-
-      var parsedRow = {
-        id:         +row['tractid10'],
-        medianRent: +row['medianrent']
-      }
-
-      if (parsedRow.id && parsedRow.medianRent) {
-        return parsedRow;
-      } else {
-        return;
-      }
-    }
+    };
 
     /************************************
             Wire-up UI Elements
@@ -186,10 +177,12 @@
 
     // Load Menu Template
     $("#menu").load('templates/menu.tpl.html', function(result){        
+       
         // Initialize Defaults For Filter UI
         UI.initializeSliders();
+
         // UI.initializeHashtags(); 
-        UI.toggleOption();        
+        UI.toggleOption();
     });
 
     /************************************
@@ -199,11 +192,10 @@
     // Add NEIGHBORHOOD layer and card
     $.ajax({
       url: "/templates/card_templates/neighborhood_card.html"
-    })
-    .done(function( data ){
+    }).done(function(data){
       $("#menuBody").append(data);   
-    });    
+    });
+
   </script>
 </body>
-
 </html>

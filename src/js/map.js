@@ -195,6 +195,7 @@ function compileLayer(layer, callback){
     
         // Execute provided function for getting data.
         // Provide parameter. Example: Twitter Key
+
         layer.loadData(layer.parameter, function(resp){
             
             // Save data back to layer
@@ -350,13 +351,13 @@ DV.twitter.getStreamData = function(string, success, error){
   $.get(DV.url + "twitter/stream/" + string, function(resp){
       
       Loading.stop("tweet");
-      success(resp)
+      success(resp);
     })
     .fail(function() {
       
       Loading.stop("tweet");
-      console.error("Error fetching tweets: "  + resp)
-      error(resp)
+      console.error("Error fetching tweets: "  + resp);
+      error(resp);
     })
 };
 
@@ -371,11 +372,11 @@ DV.utils = {};
 // to the range of red -> green
 DV.utils.getColor = function(i){
 
-  if (i < 0){
+  if (i < 0) {
     i = 0;
-  } else if (i > 1){    
+  } else if (i > 1) {
     i = 1;
-  }
+  };
 
   var r = Math.floor(255 * i);
   var g = Math.floor(255 - 255 * i);

@@ -13,23 +13,20 @@ UI.elements = {};
 //Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
- 
-    if($(this).prop("checked") == true){
 
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+    if($(this).prop("checked") == true){
+        $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
     }
     else{
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+        $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
     }
   }); 
 } 
 
 UI.addAboutModal = function(){
-  $.ajax({
-    url: "../templates/about.html"
-  })
-  .done(function( content ){
-    $("body").append( content );
+  $.ajax({ url: "../templates/about.html" })
+  .done(function(content){
+    $("body").append(content);
   })
 }
 
@@ -51,7 +48,6 @@ UI.elements.toggleFilterCard = function(){
   // shows '.add_card'
   $(".card.add_card").toggleClass("expanded"); 
 }
-
 
 // adds card to dom
 UI.addCard = function(target){
@@ -141,8 +137,6 @@ UI.elements.toggleFilterList = function(){
   list.toggleClass("expanded");
 
 }
-
-
 
 /**************************
      DOM Manipulation
