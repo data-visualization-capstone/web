@@ -8,7 +8,9 @@ function geoJsonLayer(json) {
         opacity: 1,
         color: '#666',
         dashArray: '5',
+        fill : false,
         fillOpacity: 0,
+
         // color: feature.properties['COLOR'],
       }
     },
