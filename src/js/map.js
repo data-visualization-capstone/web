@@ -122,6 +122,7 @@ DV.layers.clear = function(){
 DV.update = function(){
 
   var layers = DV._layers;
+  console.log(layers)
 
   // Map Boundaries
   bounds = map.getBounds();
