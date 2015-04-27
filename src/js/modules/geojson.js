@@ -6,6 +6,14 @@ function geoJsonLayer(json) {
       return {
         color: feature.properties['COLOR']
       }
+    },
+    onEachFeature: function (feature, layer) {
+        layer.on('mouseover', function(){
+        	$("#nhood").html(feature.properties.Name)
+        })
+        layer.on('mouseout', function(){
+        	$("#nhood").html("")
+        })
     }
   });
 
