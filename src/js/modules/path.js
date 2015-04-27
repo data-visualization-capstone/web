@@ -44,6 +44,6 @@ function drawPath(map, layer){
       opacity: 1,
       lineJoin: 'round'
     });
-      
+
     return polyline;
 };
