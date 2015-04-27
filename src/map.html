@@ -151,6 +151,22 @@
 
       }, 
 
+      twitter_search: {
+
+        name: "Twitter Search",
+        type: "scatterplot",
+        color: DV.utils.getColor(Math.random(0, 100)),
+        data : null,
+        card : "twitter_search_card",
+
+        // // Dynamically load data
+        // loadData  : DV.twitter.getStream,
+        // parameter : 'pax',
+
+        // width: 3,
+
+      },
+
       mbta : {
         name : 'MBTA',
         type : 'geojson',
