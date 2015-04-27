@@ -53,7 +53,7 @@ function drawHexmap(map, layer){
   });
 
   var color = d3.scale.linear()
-      .domain([700, 3000])
+      .domain([500, 3500])
       .range(["white", "steelblue"])
       .interpolate(d3.interpolateLab)
 
@@ -98,18 +98,18 @@ function drawHexmap(map, layer){
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .style("fill", function(d) { 
         
-        // Ugly calculation for finding price per bedroom;
+        // Ugly calculation for finding average prie
         var sum = 0;
 
+        // For each apartment in the current bin
         for (var i = d.length - 1; i >= 0; i--) {
-          var pricePerBedroom = d[i][2];
-          sum += pricePerBedroom;
+          var price = d[i][2];
+          sum += price;
         };
 
-        var average = sum / d.length
-        return color(average); 
+        return color(sum / d.length); 
       })
 
-      .style("opacity", .6);
+      .style("opacity", .8);
 }
 
