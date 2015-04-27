@@ -163,11 +163,6 @@ DV.update = function(){
       case "geojson":
         leaflet_layer = geoJsonLayer(layer.data);
         break;
-
-      // TOPOJSON
-      case "topojson":
-        leaflet_layer = censusLayer(layer.data);
-        break;
     }
 
 
@@ -285,8 +280,8 @@ DV.twitter = {};
 
 // Add a new layer getting data from twitter.
 // Support 2 types of tweets:
-//   "search" - Search the twitter API for tweets
-//   "stream" - Use cached tweets that we've recorded
+//   - "search" - Search the twitter API for tweets
+//   - "stream" - Use cached tweets that we've recorded
 
 // Fetch tweets from twitter search API.
 // Provide the element where the user

@@ -162,69 +162,6 @@ UI.toggleSideNav = function(element){
   toggle.html(toggle.hasClass("out") ? "Hide Menu" : "Show Menu");
 }
 
-// Toggles a pre-set tweet.
-// take in the DOM element that was clicked.
-// example: <li onclick="UI.toggleTweet(this)"....
-// UI.toggleTweet = function(obj){
-    
-//     // Show loading indicator.
-//     Loading.start("tweet");  
-
-//     // The DOM element that was selected
-//     var object = $(obj);
-
-//     // Get list of classes on that DOM element.
-//     var classes = object.attr('class');
-
-//     // Is this tweet active? 
-//     var active = classes.indexOf("active") > -1;
-
-//     // Get the content of that DOM element.
-//     var string = object.html();
-
-//     // Toggle Off
-//     if (active) {
-
-//       // Remove layer
-//       DV.layers.delete("tweet" + string);
-
-//       Loading.stop("tweet");
-
-//       // Toggle Class
-//       object.removeClass("active")
-
-//     // Toggle On
-//     } else {
-
-//       // Get tweets that were cached from the stream.
-//       DV.twitter.getStream(string, function(resp){
-        
-//         // Add layer
-//         DV.layers.add({
-//           name: "Twitter " + string,
-//           type: "scatterplot",
-//           color: DV.utils.getColor(Math.random(0, 100)),
-//           data : resp,
-//           width: 3,
-//         });
-
-//         object.addClass("active")
-
-//         Loading.stop("tweet");
-
-//       }, function(){
-
-//         // @TODO User Feedback
-
-//         object.addClass("active")
-//         Loading.stop("tweet");
-
-//       });
-
-//     }
-// }
-
-
 // Initializes ALL RANGE SLIDERS (RS)
 UI.initializeSliders = function(){
 
@@ -259,38 +196,3 @@ UI.initializeSliders = function(){
   linkInput('.price');
   linkInput('.footage');
 }
-
-
-/*******************************
-    Adding a Card (abstract)
-********************************/
-// UI.newCard = function(icon_class, header){
-
-//   var menu = document.getElementById("menuBody"),
-//       card = document.createElement("DIV"),
-//       left = document.createElement("DIV"),
-//       right = document.createElement("DIV"),
-//       title = document.createElement("H3"),
-//       title_text = header,
-//       title_text = document.createTextNode(title_text),
-//       icon_class = "fa fa-" + icon_class + " fa-2x",
-//       icon = document.createElement("I");
-
-//   card.setAttribute("class", "card");
-//   left.setAttribute("class",  "card_left");
-//   right.setAttribute("class", "card_right");
-//   icon.setAttribute("class", icon_class);
-
-//   title.appendChild(title_text);
-
-
-//   left.appendChild(icon);
-//   right.appendChild(title);
-
-//   card.appendChild(left);
-//   card.appendChild(right);
-  
-//   menu.appendChild(card);
-  
-//   return card;
-
