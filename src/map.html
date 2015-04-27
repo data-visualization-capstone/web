@@ -92,7 +92,7 @@
         
         // Set name for layer
         // used for unique ID
-        name : "apartments",
+        name : "Rent Prices",
 
         // Define representation of layer
         type: "hex",
@@ -163,24 +163,6 @@
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/bostonneighborhoods.geojson',
       },
-
-      // @TODO : Something about this creates
-      // an infinite loop....
-      //  {
-      //   name : 'census',
-      //   type : 'topojson',
-      //   loadData : DV.loadCSV,
-      //   parameter : '/js/data/census2010.csv',
-
-      //   map : function(row){
-      //       return parseCensusRow(row)
-      //   }, 
-
-      //   filter : function(row){
-      //       return (row) ? true : false;
-      //   }
-
-      // }
       }
 
     // Used to format censuse data
@@ -203,13 +185,7 @@
      ************************************/
 
     // Load Menu Template
-    $("#menu").load('templates/menu.tpl.html', function(result){
-        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", options.layers.apartments);  
-        // UI.elements.layerCheckbox("#toggle_mbta", red_line);
-        // UI.elements.heatmapScale("#squareFootage");
-        // UI.elements.heatmapScale("#bedrooms");
-        // UI.elements.heatmapScale("#rentPrice");        
-        
+    $("#menu").load('templates/menu.tpl.html', function(result){        
         // Initialize Defaults For Filter UI
         UI.initializeSliders();
         // UI.initializeHashtags(); 
