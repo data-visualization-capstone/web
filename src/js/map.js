@@ -170,7 +170,7 @@ DV.update = function(){
            layer.leaflet_layer = null;
         }
 
-        layer.leaflet_layer = geoJsonLayer(layer.data);
+        layer.leaflet_layer = geoJsonLayer(layer.data, layer);
         break;
     }
 

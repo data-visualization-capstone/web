@@ -1,23 +1,41 @@
 
 // This module exports a factory for creating leaflet geoJSON layer from MBTA geoJSON.
-function geoJsonLayer(json) {
+function geoJsonLayer(json, layerOptions) {
+
   var layer = L.geoJson(json, {
+
     style: function(feature) {
-      return {
-      	weight: 3,
+
+      // Default options
+      // (Used for Neighborhoods)
+      var opts = {
+        weight: 3,
         opacity: 1,
         color: '#666',
         dashArray: '5',
-        fill : false,
+        fill : true,
         fillOpacity: 0,
-
-        // color: feature.properties['COLOR'],
       }
+
+      // If a color is provided, update options
+      // (Used for MBTA lines)
+      var color = feature.properties['COLOR'];
+
+      if (color) {
+        opts.weight = 5;
+        opts.color = color;
+        opts.dashArray = null;
+      }
+
+      return opts;
     },
+
     onEachFeature: function (feature, layer) {
+
         layer.on('mouseover', function(){
         	$("#nhood").html(feature.properties.Name)
         })
+
         layer.on('mouseout', function(){
         	$("#nhood").html("")
         })
@@ -26,4 +44,3 @@ function geoJsonLayer(json) {
 
   return layer;
 }
-
