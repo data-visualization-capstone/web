@@ -33,11 +33,6 @@ UI.addAboutModal = function(){
 UI.removeAboutModal = function(){
   $("#modal_wrapper").remove();
 }
-// SHITTY CODE FOR RISE
-UI.hideApartments = function(){
-  $("#ui_apartment").hide();
-  DV.layers.delete('hexmap');
-}
 
 // Shows card to add filters
 UI.elements.toggleFilterCard = function(){
@@ -71,7 +66,10 @@ UI.removeCard = function(target){
   DV.layers.delete(card.attr("visualization"));
   $(target).closest(".card").remove();
 }
-
+UI.removeMap = function(target){
+  $('.leaflet-tile-pane').hide();
+  $(target).closest(".card").remove();
+}
 // Shows and hides dropdown menu to add filters
 // Dynamically populates dropdown
 UI.elements.toggleFilterList = function(){
