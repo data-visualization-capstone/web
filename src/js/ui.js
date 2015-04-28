@@ -66,7 +66,8 @@ UI.addCard = function(target){
 
     if($("#select_set").attr("card") == "twitter_cached_card"){
 
-      var header = $(".card:nth-of-type(1) .tweet_parameter"),
+      var card = $(".card:nth-of-type(1)"),
+          header = $(".card:nth-of-type(1) .tweet_parameter"),
           button = $(".card:nth-of-type(1) a"),
           title = $("#select_set").attr("parameter"),
           capTitle = title.charAt(0).toUpperCase() + title.substring(1);
@@ -74,6 +75,8 @@ UI.addCard = function(target){
 
       header.html(capTitle);
 
+      card.attr("visualization", "twitter_" + title);
+      console.log("TITLE" + title)
       DV.twitter.addStream(title); 
 
     } 
