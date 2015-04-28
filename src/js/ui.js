@@ -31,6 +31,11 @@ UI.addAboutModal = function(){
 }
 
 UI.removeAboutModal = function(){
+
+  // Flag the modal as seen
+  localStorage.setItem("about_modal_read", true);
+
+  // Make it go away
   $("#modal_wrapper").remove();
 }
 
