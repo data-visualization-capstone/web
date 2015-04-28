@@ -109,7 +109,7 @@ UI.addTweet = function(target){
     header.append("<p>" + capTitle + "</p>");  
 
     card.attr("visualization", "twitter_" + title);     
-    DV.twitter.addStream(title); 
+    DV.twitter.addSearch(target); 
 
     UI.removeSearch()
 
