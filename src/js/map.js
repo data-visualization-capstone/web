@@ -362,6 +362,9 @@ DV.twitter.addLayer = function(string, loadDataFunction){
     // add layer object
     DV.layers.add(layer);
 
+    // color name of tweet on card
+    $(".card:nth-of-type(1) .tweet_parameter").css("color", currentColor);
+    
     colorCount ++;    
   }
   else{

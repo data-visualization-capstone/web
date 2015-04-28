@@ -53,7 +53,7 @@ UI.elements.toggleFilterCard = function(){
 UI.addCard = function(target){
 
   $.ajax({
-    url: "/templates/card_templates/" + $(target).attr("card") + ".html"
+    url: "/templates/card_templates/" + $(target).attr("card") + ".html?cache_reset=" + Math.random() + ""
   })
   .done(function( data ){
 
@@ -73,7 +73,7 @@ UI.addCard = function(target){
           capTitle = title.charAt(0).toUpperCase() + title.substring(1);
 
 
-      header.html(capTitle);
+      header.append("<p>" + capTitle + "</p>");
 
       card.attr("visualization", "twitter_" + title);
       DV.twitter.addStream(title); 
@@ -93,8 +93,9 @@ UI.addTweet = function(target){
   
   var title = target.val();
 
+
   $.ajax({
-    url: "/templates/card_templates/twitter_cached_card.html",
+    url: "/templates/card_templates/twitter_cached_card.html?cache_reset=" + Math.random() + "",
   })
   .done(function( data ){
 
@@ -105,7 +106,7 @@ UI.addTweet = function(target){
         button = $(".card:nth-of-type(1) a"),
         capTitle = title.charAt(0).toUpperCase() + title.substring(1); 
 
-    header.html(capTitle);  
+    header.append("<p>" + capTitle + "</p>");  
 
     card.attr("visualization", "twitter_" + title);     
     DV.twitter.addStream(title); 
@@ -131,6 +132,9 @@ UI.makeSelection = function(target){
 UI.removeCard = function(target){ 
   var card = $(target).closest(".card");
   DV.layers.delete(card.attr("visualization"));
+  if( $(target).closest(".card").hasClass("twitter_card") ){
+    colorCount --;
+  }
   $(target).closest(".card").remove();
 }
 
