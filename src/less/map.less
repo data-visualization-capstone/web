@@ -16,7 +16,12 @@ body#map-content{
   z-index: 10001;
   position: absolute;
   border-radius:0px;
-  padding:15px 25px;
+  padding: 16px 13px 15px 18px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-style: italic;
+  opacity: .88;
 }
 
 #legend {
@@ -201,6 +206,9 @@ body#map-content{
 }
 
 #menu{
+  p {
+    letter-spacing: 0em;
+  }
 
   /** /// All DOM Elements Inside #menu /// **/
 
@@ -227,10 +235,11 @@ body#map-content{
       h1{
         margin-left: 20px;
         color:#FFF;
-        font-size: 20px;
-        padding: 10px 0px;
+        font-weight: 900;
+        font-size: 16px;
+        padding: 14px 0px 13px;
         line-height: normal;
-        letter-spacing: .06em;
+        letter-spacing: .3em;
       } 
     }
 
@@ -250,21 +259,25 @@ body#map-content{
         width: 100%;
         -moz-box-shadow: 0 4px 2px -2px #343434;
         -webkit-box-shadow: 0 4px 2px -2px #343434;
-        box-shadow: 0 4px 2px -2px #343434;          
+        box-shadow: 0 4px 2px -2px #343434;         
 
         p{
-          font-size: 18px;
           float:left;
           color:#fff; 
           margin-bottom: 0px;
-          margin-left: 10px;         
+          margin-left: 10px;
+          font-size: 16px;
+          text-transform: uppercase;
+          letter-spacing: .2em;
+          font-weight: 700;  
+
         }
         i{
           float: right;
           color:#fff;
           margin-bottom: 0px;
           margin-right: 10px;
-          margin-top: 5px;            
+          margin-top: 5px;           
         }
       }
 
@@ -275,7 +288,7 @@ body#map-content{
         box-shadow: 0 4px 3px -1px #343434; 
 
         p{
-          font-size: 18.1px;
+          font-size: 16.1px;
         }
         i{
           font-size: 14.1px;
@@ -296,7 +309,10 @@ body#map-content{
         box-shadow: 0 4px 2px -2px #343434;          
 
         p{
-          font-size: 18px;
+          font-size: 16px;
+          text-transform: uppercase;
+          letter-spacing: .2em;
+          font-weight: 700;  
           float:left;
           color:#fff; 
           margin-bottom: 0px;
@@ -348,26 +364,34 @@ body#map-content{
 
           h3{
             margin: 0px;
-            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 17px;
           }
 
           input, input:focus {
             border: none;
             border-bottom: solid 2px #9B9B9B;
-            margin-bottom: 5px;
+            margin-top: 0px;
+            margin-bottom: 6px;
             outline: 0;
+            font-size: 16px;
+          }
+
+          p {
+            font-size: 14px;
           }
 
 
           .button {
             border-radius: 3px;
             color: #fff;
-            background-color: #00bcd3;
+            background-color: #00BCD4;
             display: inline-block;
-            padding: 10px;
+            padding: 7px 12px 8px;
             font-size: 15px;
             margin-right: 10px;
             font-weight: 600;
+            margin-top: 5px;
           }
 
           .button.cancel {            
@@ -410,11 +434,12 @@ body#map-content{
             width: 100%;
             height: 24px;
             border-bottom:solid 2px #9B9B9B;
+            margin-top: 7px;
 
             p{
               float: left;
-              font-size: 12px;
-              color: #D4D4D4;
+              font-size: 14px;
+              color: #888;
               margin-bottom: 0px;
             }
             i{
@@ -437,8 +462,8 @@ body#map-content{
             list-style: none;
             position: relative;
             z-index: 20;
-            padding: 0px;
-            background-color: #D4D4D4;
+            padding: 2px 0px;
+            background-color: #ececec;
             vertical-align: middle;
 
             a.select_option{
@@ -446,12 +471,14 @@ body#map-content{
               padding-top: 6px;
               padding-left: 10px;
               box-sizing: border-box;   
-              color:#000;
+              color:#555;
               position: relative;
               display: block;
-              height: 25px;
-              font-size: 12px;
-              width: 100%;          
+              height: 34px;
+              font-size: 14px;
+              width: 100%;
+              font-weight: 600;   
+              padding: 7px 11px;    
             }
 
             a.select_option:hover{
@@ -468,16 +495,18 @@ body#map-content{
           position: relative;
           width: 100%;
           height: 45px;
-          padding-top: 10px;
           box-sizing: border-box;
           display: none;
+          font-size: 15px;
+          font-weight: 600;
+          margin-top: 10px;
 
           a{
             color:#fff;
-            padding: 10px;
+            padding: 7px 12px 8px;
             box-sizing: border-box;
             position: relative;
-            top:9px;
+            top: 17px;
             border-radius: 2px;
           }
           a#add_to_map{
@@ -485,8 +514,8 @@ body#map-content{
             margin-right: 5px;
           }
           a#add_cancel{
-            background-color: #D4D4D4;
-            color:#9B9B9B;
+            background-color: #cfcfcf;
+            color: #5c5c5c;
           }
         }        
       }
