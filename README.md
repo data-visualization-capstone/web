@@ -1,8 +1,6 @@
 # Data Visualization Capstone
-> Front End Website for Data Visualization Capstone.
-===========
 
-* Our goal was to provide a tool that users could use to explore and compare a variety of different data sources. *
+> Front End Website for Data Visualization Capstone. Our goal was to provide a tool that users could use to explore and compare a variety of different data sources.
 
 Demo
 ---
@@ -11,7 +9,7 @@ See an example: [vent8225.dyndns.org](http://vent8225.dyndns.org)
 Documentation
 ---
 
-** This Living Cities case study contextualizes Boston’s average rent prices with other relevant information. This additional context includes Boston neighborhood borders, MBTA lines, and social media posts within the city. By combining this information in a single tool, we seek to facilitate a greater understanding of where the viewer might want to live in Boston. **
+**This Living Cities case study contextualizes Boston’s average rent prices with other relevant information. This additional context includes Boston neighborhood borders, MBTA lines, and social media posts within the city. By combining this information in a single tool, we seek to facilitate a greater understanding of where the viewer might want to live in Boston.**
 
 Utilizing Leaflet.js and D3.js, this projects builds interactive maps of GPS and Geolocation data.
 
@@ -19,7 +17,7 @@ Utilizing Leaflet.js and D3.js, this projects builds interactive maps of GPS and
 Development
 ---
 
-```javascript
+```sh
 
 # Download the repository from GitHub
 $ cd ~/path/to/folder/
@@ -42,7 +40,7 @@ $ grunt
 
 > We use Grunt to do things like compile LESS and concatenate JS libraries. Run `grunt` or `grunt watch` to run the default task which will build the app every time source files are saved. This is configured in `Gruntfile.js`
 
-```javascript
+```sh
 # Run a Simple HTTP Server.
 $ npm start
 ```
@@ -165,26 +163,21 @@ Once we know what a layer looks like, we can use the following functions to mani
 
 // PUT - Add a layer to the map.
 // See above for an example of a 'layer' object
-DV.layers.add = function(layer){
-}
+DV.layers.add = function(layer){ ... }
 
 // SET - Update a layer from the settings.
 // See above for an example of a 'layer' object
-DV.layers.update = function(layerId, layer){
-}
+DV.layers.update = function(layerId, layer){ ... }
 
 // DELETE - Delete a layer from the map.
-DV.layers.delete = function(id){
-}
+DV.layers.delete = function(id){ ... }
 
 // Find a layer. Requires a key and a value,
 // and returns a match if it exists
-DV.layers.find = function(key, value){
-}
+DV.layers.find = function(key, value){ ... }
 
 // Clear current layers
-DV.layers.clear = function(){
-}
+DV.layers.clear = function(){ ... }
 
 ```
 
@@ -224,6 +217,5 @@ Special Thanks
 
 > Tutorials
 
-For converting Google Location Data's .kml file into a usable JSON object, thanks to stsvilik's [Xml-to-JSON converter](https://github.com/stsvilik/Xml-to-JSON).
-
-For the original demo of utilizing D3.js on top of Leaflet, we followed Chris Zetter's [Voronoi maps](http://chriszetter.com/blog/2014/06/14/visualising-supermarkets-with-a-voronoi-diagram/) guide. You can find the [original project here](https://github.com/zetter/voronoi-maps).
+- [Xml-to-JSON converter](https://github.com/stsvilik/Xml-to-JSON) by stsvilik
+- [Voronoi maps](http://chriszetter.com/blog/2014/06/14/visualising-supermarkets-with-a-voronoi-diagram/) by Chris Zetter 
