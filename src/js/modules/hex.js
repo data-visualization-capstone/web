@@ -33,7 +33,7 @@ function drawHexmap(map, layer){
 
     // Remove points that are outside current viewport
     if (!bounds.contains(latlng)) { return false };
-    
+
     // Convert Latitude and Longitude into a Mapable
     // point using leaflet's LayerPoint API.
     var point = map.latLngToLayerPoint(latlng);
@@ -58,12 +58,12 @@ function drawHexmap(map, layer){
       .interpolate(d3.interpolateLab)
 
   var hexbin = d3.hexbin()
-      .size([width, height])
+      .size([2000, 2000])
       .radius(layer.width);
 
   // Create an SVG elemnt for plotting points on
   var svg = d3.select(map.getPanes().overlayPane)
-      
+
       .append("svg")
       .attr('id', layer.id)
       .attr("class", "leaflet-zoom-hide")
@@ -72,7 +72,7 @@ function drawHexmap(map, layer){
       .append("g")
 
   // clipPath is a trick for rendering custom
-  // svg shapes. It restricts the region of 
+  // svg shapes. It restricts the region of
   // a shape where color can be applied.
   svg.append("clipPath")
 
@@ -83,12 +83,12 @@ function drawHexmap(map, layer){
       .attr("height", height);
 
   svg.append("g")
-  
+
       .attr("clip-path", "url(#clip)")
       .selectAll(".hexagon")
 
       // Use the hexbin d3.js plugin for
-      // bulking data points into their 
+      // bulking data points into their
       // overlapping "bin"
 
       .data(hexbin(points))
@@ -96,8 +96,8 @@ function drawHexmap(map, layer){
       .attr("class", "hexagon")
       .attr("d", hexbin.hexagon())
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .style("fill", function(d) { 
-        
+      .style("fill", function(d) {
+
         // Ugly calculation for finding average prie
         var sum = 0;
 
@@ -107,7 +107,7 @@ function drawHexmap(map, layer){
           sum += price;
         };
 
-        return color(sum / d.length); 
+        return color(sum / d.length);
       })
 
       .style("opacity", .8);
