@@ -16,7 +16,7 @@ body#map-content{
   z-index: 10001;
   position: absolute;
   border-radius:0px;
-  padding: 16px 13px 15px 18px;
+  padding: 16px 14px 15px 18px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: .3em;
@@ -225,6 +225,19 @@ body#map-content{
     -webkit-transition: transform 0.5s ease; 
     transition: transform 0.5s ease; 
 
+    .livingCitiesHeader {
+    background: -webkit-linear-gradient(rgba(54, 193, 210, 0.88), rgba(98, 147, 205, 0.78)); 
+    background: -o-linear-gradient(rgba(54, 193, 210, 0.88), rgba(98, 147, 205, 0.78)); 
+    background: -moz-linear-gradient(rgba(54, 193, 210, 0.88), rgba(98, 147, 205, 0.78)); 
+    background: linear-gradient(rgba(54, 193, 210, 0.88), rgba(98, 147, 205, 0.78));
+      img {
+        width: 30px;
+        margin-left: 16px;
+        margin-top: 7px;
+        margin-bottom: 2px;
+      }
+    }
+
     .menuHeader{
       width: 100%;
       clear:both;
@@ -236,7 +249,7 @@ body#map-content{
         margin-left: 20px;
         color:#FFF;
         font-weight: 900;
-        font-size: 16px;
+        font-size: 15px;
         padding: 14px 0px 13px;
         line-height: normal;
         letter-spacing: .3em;
@@ -254,7 +267,7 @@ body#map-content{
         border-radius: 1px;          
         background-color: #00BCD4;
         float: left;
-        padding:10px 0px;
+        padding: 10px 2px;
         margin-bottom: 10px;
         width: 100%;
         -moz-box-shadow: 0 4px 2px -2px #343434;
@@ -301,7 +314,7 @@ body#map-content{
         background-color: #9B9B9B;
         opacity: .8;
         float: left;
-        padding:10px 0px;
+        padding:10px 2px;
         margin-bottom: 10px;
         width: 100%;
         -moz-box-shadow: 0 4px 2px -2px #343434;
@@ -372,7 +385,7 @@ body#map-content{
             border: none;
             border-bottom: solid 2px #9B9B9B;
             margin-top: 0px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             outline: 0;
             font-size: 16px;
           }
@@ -432,19 +445,21 @@ body#map-content{
             position: relative;
             float: left;
             width: 100%;
-            height: 24px;
+            height: 25px;
             border-bottom:solid 2px #9B9B9B;
             margin-top: 7px;
 
             p{
               float: left;
-              font-size: 14px;
+              font-size: 15px;
               color: #888;
               margin-bottom: 0px;
             }
             i{
               float: right;
-              color: #9B9B9B;            
+              color: #9B9B9B;
+              padding-top: 2px;
+              font-size: 17px;            
             }
           }
           .card_left{
@@ -462,7 +477,7 @@ body#map-content{
             list-style: none;
             position: relative;
             z-index: 20;
-            padding: 2px 0px;
+            padding: 0px;
             background-color: #ececec;
             vertical-align: middle;
 
@@ -499,7 +514,6 @@ body#map-content{
           display: none;
           font-size: 15px;
           font-weight: 600;
-          margin-top: 10px;
 
           a{
             color:#fff;
