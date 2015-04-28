@@ -146,8 +146,23 @@
         loadData: null,
       },
 
-      twitter_traffic : {
+      twitter_boston : {
 
+        name: "Twitter Boston",
+        id: "twittet_boston",
+        type: "scatterplot",
+        data : null,
+        card : "twitter_cached_card",
+        
+        // Dynamically load data
+        loadData  : DV.twitter.getStream,
+        parameter : 'boston',
+
+        width: 3,
+
+      },
+      
+      twitter_traffic :{
         name: "Twitter Traffic",
         id: "twittet_traffic",
         type: "scatterplot",
@@ -158,20 +173,19 @@
         loadData  : DV.twitter.getStream,
         parameter : 'traffic',
 
-        width: 3,
-
+        width: 3,        
       },
-      
-      twitter_pax : {
 
-        name: "Twitter PAX",
-        id: "twitter_pax",
+      twitter_snow : {
+
+        name: "Twitter Snow",
+        id: "twitter_snow",
         type: "scatterplot",
         data : null,
         card : "twitter_cached_card",
         // Dynamically load data
         loadData  : DV.twitter.getStream,
-        parameter : 'pax',
+        parameter : 'snow',
 
         width: 3,
 
