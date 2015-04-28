@@ -250,6 +250,7 @@ body#map-content{
       h1{
         margin-left: 20px;
         color:#FFF;
+        float: left;
 
         font-weight: 900;
         font-size: 15px;
@@ -262,7 +263,7 @@ body#map-content{
       i{
         float: right;
         color: #9B9B9B;
-        margin-right: 20px;
+        margin-right: 32px;
         margin-top: 10px;
         font-size: 20px;
       }
@@ -276,6 +277,7 @@ body#map-content{
       /** /// All DOM Elements Inside #menuBody /// **/
 
       a#add_filter{
+        display: flex;
         border-radius: 1px;          
         background-color: #00BCD4;
         float: left;
@@ -298,11 +300,12 @@ body#map-content{
 
         }
         i{
-          float: right;
+          position: absolute;
+          right: 22px;
           color:#fff;
           margin-bottom: 0px;
           margin-right: 10px;
-          margin-top: 3px;           
+          margin-top: 2px;           
         }
       }
 
@@ -311,13 +314,6 @@ body#map-content{
         -moz-box-shadow: 0 4px 3px -1px #343434;
         -webkit-box-shadow: 0 3px 1px -1px #343434;
         box-shadow: 0 4px 3px -1px #343434; 
-
-        p{
-          font-size: 14.1px;
-        }
-        i{
-          font-size: 14.1px;
-        }
       }
 
       div#add_filter_disabled{
@@ -436,6 +432,7 @@ body#map-content{
           display: flex;
           width: 20px;
           padding: 10px 0px;
+          margin-right: 4px;
           box-sizing: border-box;
 
           a{
