@@ -64,7 +64,7 @@ UI.addCard = function(target){
     // add card to DOM
     $("#added_cards").prepend(data);   
 
-    if($("#select_set").attr("card") == "twitter_cached_card"){
+    if(target.attr("card") == "twitter_cached_card"){
 
       var card = $(".card:nth-of-type(1)"),
           header = $(".card:nth-of-type(1) .tweet_parameter"),
@@ -76,7 +76,6 @@ UI.addCard = function(target){
       header.html(capTitle);
 
       card.attr("visualization", "twitter_" + title);
-      console.log("TITLE" + title)
       DV.twitter.addStream(title); 
 
     } 
@@ -86,7 +85,35 @@ UI.addCard = function(target){
   });
 
 }
+UI.removeSearch = function(){
+    $("#twitter_search").remove();
+    DV.layers.delete(options.layers.twitter_search);  
+}
+UI.addTweet = function(target){
+  
+  var title = target.val();
 
+  $.ajax({
+    url: "/templates/card_templates/twitter_cached_card.html",
+  })
+  .done(function( data ){
+
+    $("#added_cards").prepend( data );
+
+    var card = $(".card:nth-of-type(1)"),
+        header = $(".card:nth-of-type(1) .tweet_parameter"),
+        button = $(".card:nth-of-type(1) a"),
+        capTitle = title.charAt(0).toUpperCase() + title.substring(1); 
+
+    header.html(capTitle);  
+
+    card.attr("visualization", "twitter_" + title);     
+    DV.twitter.addStream(title); 
+
+    UI.removeSearch()
+
+  });
+}
 UI.makeSelection = function(target){
   $("#select_set p").html($(target).html());
   $("#select_set p").css("color", "#000");

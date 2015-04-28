@@ -1,13 +1,13 @@
 <!-- Twitter Search -->
-<div class="card">
+<div class="card" id="twitter_search">
     <div class="card_left">
         <i class="fa fa-twitter fa-2x"></i>
     </div>
 
     <div class="card_right">
         <h3>Twitter Search</h3>
-        <input id="twitter_key" /><br>
-        <div class="button" onclick="DV.twitter.addSearch('#twitter_key')">Search Twitter</div>
-        <div class="button cancel">Cancel</div>
+        <input id="twitter_key" card="twitter_cached_card" /><br>
+        <div class="button" onclick="UI.addTweet($('#twitter_key'));">Search Twitter</div>
+        <div class="button cancel" onclick="UI.removeSearch();">Cancel</div>
     </div>
 </div>
