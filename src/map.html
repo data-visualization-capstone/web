@@ -232,6 +232,12 @@
       $("#added_cards").append(data);   
     });
 
+    // Open the ABOUT modal if the user is 
+    // visiting the site for their first time.
+    if (!JSON.parse(localStorage.getItem("about_modal_read"))){
+      UI.addAboutModal();
+    }
+
   </script>
 </body>
 </html>
