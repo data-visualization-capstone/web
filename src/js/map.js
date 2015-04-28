@@ -133,7 +133,7 @@ DV.update = function(){
   
   // @ TODO:
   // Clear data before populating
-  $("#rentprices").remove()
+  $("#apartments").remove()
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
