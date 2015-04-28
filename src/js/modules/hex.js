@@ -53,8 +53,8 @@ function drawHexmap(map, layer){
   });
 
   var color = d3.scale.linear()
-      .domain([500, 3500])
-      .range(["#FFFFFF", "#000000"])
+      .domain([500, 4000])
+      .range(["white", "steelblue"])
       .interpolate(d3.interpolateLab)
 
   var hexbin = d3.hexbin()
