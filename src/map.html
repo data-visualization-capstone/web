@@ -208,14 +208,14 @@
     $.ajax({
       url: "/templates/card_templates/map_card.html",
     }).done(function( data ){
-      $("#menuBody").append(data);
+      $("#added_cards").append(data);
     });
 
-    // Add NEIGHBORHOOD layer and card
+    // Add APARTMENT layer and card
     $.ajax({
-      url: "/templates/card_templates/neighborhood_card.html"
+      url: "/templates/card_templates/apartment_card.html"
     }).done(function( data ){
-      $("#menuBody").append(data);   
+      $("#added_cards").append(data);   
     });
 
   </script>

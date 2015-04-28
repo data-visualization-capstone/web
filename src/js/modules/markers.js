@@ -21,6 +21,7 @@ function drawMarkers(map, layer){
       fillColor: layer.color,
       fillOpacity: 1,
       radius: 5,
+      stroke: (5 / 3)
     })
 
     // Create a new popup object

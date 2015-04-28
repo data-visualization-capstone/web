@@ -35,20 +35,11 @@
                 <div id="select_list"></div>
 
                 <div class="card_buttons">
+                    <a href="javascript:void(0)" id="add_to_map" onclick="UI.addCard($('#select_set'));">Add to map</a>
                     <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.toggleFilterCard();">Cancel</a>
                 </div>
             </div>
         </div>
-
-        
-        <!-- Clear -->
-<!--         <div class="card" onclick="DV.layers.clear()">
-            <div class="card_left">
-                <i class="fa fa-trash-o fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>Clear Layers</h3></div>
-        </div> -->
-
+        <div id="added_cards"></div>
     </div>
 </div>

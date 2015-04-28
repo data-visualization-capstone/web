@@ -115,8 +115,8 @@ function drawScatterplot(map, layer){
           .attr("x2", next.x)
           .attr("y2", next.y)
           
-          .style("stroke", (current.color) ? current.color : layer.color)
-          .style("stroke-width", layer.width)
+          .style("stroke", "black")
+          .style("stroke-width", layer.width / 3)
           .style("opacity", 1);
 
       };

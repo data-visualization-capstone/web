@@ -11,7 +11,7 @@ function geoJsonLayer(json, layerOptions) {
       var opts = {
         weight: 3,
         opacity: 1,
-        color: '#666',
+        color: '#000000',
         dashArray: '5',
         fill : true,
         fillOpacity: 0,

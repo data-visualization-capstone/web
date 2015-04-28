@@ -51,13 +51,20 @@ UI.addCard = function(target){
     url: "/templates/card_templates/" + $(target).attr("card") + ".html"
   })
   .done(function( data ){
-    $("#menuBody").append(data);
-
-    // Hides filter list
-    UI.elements.toggleFilterList();
+    $("#added_cards").prepend(data);
+    $("#select_set p").html("Select a data set");
+    $("#select_set p").css("color", "#D4D4D4");    
     UI.elements.toggleFilterCard();    
   });
 
+}
+
+UI.makeSelection = function(target){
+  $("#select_set p").html($(target).html());
+  $("#select_set p").css("color", "#000");
+  $("#select_set").attr("card", $(target).attr("card"));
+  $("#select_list").removeClass("expanded");
+  $("#select_list").empty();  
 }
 
 // @TODO: Fix bug when removing hexmap
@@ -66,74 +73,66 @@ UI.removeCard = function(target){
   DV.layers.delete(card.attr("visualization"));
   $(target).closest(".card").remove();
 }
+
+// Seperate function to remove map layer
+// since it's not a leaflet feature
 UI.removeMap = function(target){
   $('.leaflet-tile-pane').hide();
   $(target).closest(".card").remove();
 }
+
 // Shows and hides dropdown menu to add filters
 // Dynamically populates dropdown
 UI.elements.toggleFilterList = function(){
   var list = $("#select_list");
 
-  // When dropdown isn't visible...
-  if(list.css("display") == "none"){
-    var active_layers = [];
-    // create list of all possible layer names
-    var all_layers = Object.keys(options.layers);
-
-    // create list of all active layer names
-    for(i = 0; i < DV._layers.length; i++){
-      active_layers.push(DV._layers[i].id);
-    }
-
-    // itterate through all layers
-    for(i = 0; i < all_layers.length; i ++){
-      // Get name of current layer 
-      var name = all_layers[i];
-
-      // if the current layer NOT ACTIVE...
-      if( $.inArray( name, active_layers ) < 0 ){
-        
-            // create <a>
-        var obj = document.createElement("A"),
-
-            // create textnode containg name of layer
-            text = document.createTextNode(options.layers[name].name);
-        
-        // Set class of object
-        obj.setAttribute("class", "select_option");
-
-        // prevents <a> from reloading page
-        obj.setAttribute("href", "javascript:void(0)");
-
-        // Which card gets added to the dom?
-        obj.setAttribute("card", options.layers[name].card);
-
-        // Bind addCard function
-        obj.setAttribute("onclick", "UI.addCard(this)");
-
-        // put name in <a>
-        obj.appendChild(text);
-
-        // add whole object to dropdown
-        document.getElementById("select_list").appendChild(obj);
-
-      }
-      else{
-        console.log("" + name + " is active");
-      }
-    }
-  }
-
-  // if dropdown is visible...
-  else{
-
-    // empty the dropdown
-    list.empty();
-  }
-
   list.toggleClass("expanded");
+  var active_layers = [];
+  // create list of all possible layer names
+  var all_layers = Object.keys(options.layers);
 
+  // create list of all active layer names
+  for(i = 0; i < DV._layers.length; i++){
+    active_layers.push(DV._layers[i].id);
+  }
+
+  // itterate through all layers
+  for(i = 0; i < all_layers.length; i ++){
+    // Get name of current layer 
+    var name = all_layers[i];
+
+    // if the current layer NOT ACTIVE...
+    if( $.inArray( name, active_layers ) < 0 ){
+      
+          // create <a>
+      var obj = document.createElement("A"),
+
+          // create textnode containg name of layer
+          text = document.createTextNode(options.layers[name].name);
+      
+      // Set class of object
+      obj.setAttribute("class", "select_option");
+
+      // prevents <a> from reloading page
+      obj.setAttribute("href", "javascript:void(0)");
+
+      // Which card gets added to the dom?
+      obj.setAttribute("card", options.layers[name].card);
+
+      // Bind addCard function
+      obj.setAttribute("onclick", "UI.makeSelection(this);");
+
+      // put name in <a>
+      obj.appendChild(text);
+
+      // add whole object to dropdown
+      document.getElementById("select_list").appendChild(obj);
+
+    }
+    else{
+      console.log("" + name + " is active");
+    }
+  }
 }
 
 /**************************
