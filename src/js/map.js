@@ -177,6 +177,12 @@ DV.update = function(){
 
         layer.leaflet_layer = geoJsonLayer(layer.data, layer);
         break;
+
+      case "map":
+
+        console.log("map");
+
+        break;
     }
 
 
@@ -253,7 +259,10 @@ function compileLayer(layer, callback){
 function formatLayer(layer){
 
   // Ensure the layer ID exists
-  var layer = generateId(layer);
+
+  if(layer.id == null){
+    var layer = generateId(layer);
+  }
 
   // Support layer.filter function
   if (layer.map){
@@ -284,7 +293,7 @@ function generateId(layer){
       layer.name = 'default';
     }
 
-    layer.id = layer.name.replace(/\s/g, '').toLowerCase();
+    layer.id 
 
     return layer;
 }
@@ -319,7 +328,8 @@ DV.twitter.addSearch = function(element){
 
 DV.twitter.addStream = function(string){
 
-  DV.twitter.addLayer(string, DV.twitter.getStreamData)
+  DV.twitter.addLayer(string, DV.twitter.getStreamData); 
+
 }
 
 // Helper function for adding different types of t
@@ -341,6 +351,7 @@ DV.twitter.addLayer = function(string, loadDataFunction){
     // Create layer object
     var layer = {
         name: "Twitter " + string,
+        id : "twitter_" + string,
         type: "scatterplot",
         color: currentColor,
         loadData : loadDataFunction,
@@ -350,7 +361,8 @@ DV.twitter.addLayer = function(string, loadDataFunction){
 
     // add layer object
     DV.layers.add(layer);
-    colorCount ++;
+
+    colorCount ++;    
   }
   else{
     alert("you have too many tweets bro!");

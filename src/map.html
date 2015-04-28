@@ -104,6 +104,8 @@
         // used for unique ID
         name : "Rent Prices",
 
+        id : "apartments",
+
         // Define representation of layer
         type: "hex",
 
@@ -134,13 +136,17 @@
 
       map : {
         name: "Map",
+        id: "map",
+        type: "map",
+        data : null,
         card: "map_card",
-
+        loadData: null,
       },
 
       twitter_traffic : {
 
         name: "Twitter Traffic",
+        id: "twittet_traffic",
         type: "scatterplot",
         data : null,
         card : "twitter_cached_card",
@@ -156,10 +162,10 @@
       twitter_pax : {
 
         name: "Twitter PAX",
+        id: "twitter_pax",
         type: "scatterplot",
         data : null,
         card : "twitter_cached_card",
-
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'pax',
@@ -171,21 +177,23 @@
       twitter_search: {
 
         name: "Twitter Search",
+        id: "twitter_search",
         type: "scatterplot",
         data : null,
         card : "twitter_search_card",
 
-        // // Dynamically load data
-        // loadData  : DV.twitter.getStream,
-        // parameter : 'pax',
+        // Dynamically load data
+        loadData  : DV.twitter.getStream,
+        parameter : 'pax',
 
-        // width: 3,
+        width: 3,
 
       },
 
       mbta : {
         name : 'MBTA',
         type : 'geojson',
+        id : 'mbta',
         card : 'mbta_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
@@ -193,6 +201,7 @@
 
       neighborhoods : {
         name : 'Neighborhoods',
+        id : 'neighborhoods',
         type : 'geojson',
         card : 'neighborhood_card',
         loadData : DV.utils.loadJSON,

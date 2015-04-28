@@ -51,10 +51,30 @@ UI.addCard = function(target){
     url: "/templates/card_templates/" + $(target).attr("card") + ".html"
   })
   .done(function( data ){
-    $("#added_cards").prepend(data);
+
+    // reset styles for "select data set"
     $("#select_set p").html("Select a data set");
-    $("#select_set p").css("color", "#D4D4D4");    
-    UI.elements.toggleFilterCard();    
+    $("#select_set p").css("color", "#D4D4D4");
+
+    // add card to DOM
+    $("#added_cards").prepend(data);   
+
+    if($("#select_set").attr("card") == "twitter_cached_card"){
+
+      var header = $(".card:nth-of-type(1) .tweet_parameter"),
+          button = $(".card:nth-of-type(1) a"),
+          title = $("#select_set").attr("parameter"),
+          capTitle = title.charAt(0).toUpperCase() + title.substring(1);
+
+
+      header.html(capTitle);
+
+      DV.twitter.addStream(title); 
+
+    } 
+
+    UI.elements.toggleFilterCard(); 
+    
   });
 
 }
@@ -63,6 +83,11 @@ UI.makeSelection = function(target){
   $("#select_set p").html($(target).html());
   $("#select_set p").css("color", "#000");
   $("#select_set").attr("card", $(target).attr("card"));
+  if( $(target).attr("card") == "twitter_cached_card" ){
+
+    $("#select_set").attr("parameter", $(target).attr("parameter"));
+
+  }
   $("#select_list").removeClass("expanded");
   $("#select_list").empty();  
 }
@@ -85,54 +110,69 @@ UI.removeMap = function(target){
 // Dynamically populates dropdown
 UI.elements.toggleFilterList = function(){
   var list = $("#select_list");
+  if(list.css("display") == "none"){
 
-  list.toggleClass("expanded");
-  var active_layers = [];
-  // create list of all possible layer names
-  var all_layers = Object.keys(options.layers);
+    // placholder for active layers
+    var active_layers = [];
 
-  // create list of all active layer names
-  for(i = 0; i < DV._layers.length; i++){
-    active_layers.push(DV._layers[i].id);
-  }
+    // create list of all possible layer names
+    var all_layers = Object.keys(options.layers);
 
-  // itterate through all layers
-  for(i = 0; i < all_layers.length; i ++){
-    // Get name of current layer 
-    var name = all_layers[i];
+    // create list of all active layer names
+    for(i = 0; i < DV._layers.length; i++){
+      active_layers.push(DV._layers[i].id);
+    } 
 
-    // if the current layer NOT ACTIVE...
-    if( $.inArray( name, active_layers ) < 0 ){
-      
-          // create <a>
-      var obj = document.createElement("A"),
+    // itterate through all layers
+    for(i = 0; i < all_layers.length; i ++){
+      // Get name of current layer 
+      var name = all_layers[i];
 
-          // create textnode containg name of layer
-          text = document.createTextNode(options.layers[name].name);
-      
-      // Set class of object
-      obj.setAttribute("class", "select_option");
+      console.log(name);
 
-      // prevents <a> from reloading page
-      obj.setAttribute("href", "javascript:void(0)");
+      // if the current layer NOT ACTIVE...
+      if( $.inArray( name, active_layers ) < 0 ){
+        
+        if(name != "map" || $(".leaflet-tile-pane").css("display") == "none"){
+              // create <a>
+          var obj = document.createElement("A"),
 
-      // Which card gets added to the dom?
-      obj.setAttribute("card", options.layers[name].card);
+              // create textnode containg name of layer
+              text = document.createTextNode(options.layers[name].name);
+          
+          // Set class of object
+          obj.setAttribute("class", "select_option");
 
-      // Bind addCard function
-      obj.setAttribute("onclick", "UI.makeSelection(this);");
+          // prevents <a> from reloading page
+          obj.setAttribute("href", "javascript:void(0)");
 
-      // put name in <a>
-      obj.appendChild(text);
+          // Which card gets added to the dom?
+          obj.setAttribute("card", options.layers[name].card);
 
-      // add whole object to dropdown
-      document.getElementById("select_list").appendChild(obj);
+          if (options.layers[name].card == "twitter_cached_card") {
+            obj.setAttribute("parameter", options.layers[name].parameter);
+          };
 
+          // Bind addCard function
+          obj.setAttribute("onclick", "UI.makeSelection(this);");
+
+          // put name in <a>
+          obj.appendChild(text);
+
+          // add whole object to dropdown
+          document.getElementById("select_list").appendChild(obj);
+
+        }
+      }
+      else{
+        console.log("" + name + " is active");
+      }
     }
-    else{
-      console.log("" + name + " is active");
-    }
   }
+  else{
+    list.empty();
+  }
+  list.toggleClass("expanded");  
 }
 
 /**************************
