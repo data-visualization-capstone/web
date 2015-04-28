@@ -21,19 +21,20 @@ function drawMarkers(map, layer){
       fillColor: layer.color,
       fillOpacity: 1,
       radius: 5,
+      stroke: (5 / 3)
     })
 
     // Create a new popup object
     var popup = L.popup()
       .setLatLng(latLng)
-      .setContent(p.message)
+      .setContent("<div class='header' style='background-color:" + layer.color + "'><i class='fa fa-twitter fa-2x'></i><p>Twitter</p></div>" + p.message)
 
     // Add popup to the circle
     circle.bindPopup(popup);
 
     markers.addLayer(circle);
-  })
 
+  })
   
   // Return layer group
   return markers;

@@ -6,9 +6,6 @@
 // Returns a leaflet polyline
 function drawPath(map, layer){
   
-    // Clear layer if previously existing.
-    // @TODO
-      
     // Create map-able set of points. For each point,
     // convert the lat/long into a plottable x/y position
     var points = layer.data.filter(function(p) {
@@ -47,6 +44,6 @@ function drawPath(map, layer){
       opacity: 1,
       lineJoin: 'round'
     });
-      
+
     return polyline;
 };

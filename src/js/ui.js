@@ -10,101 +10,204 @@ var UI = {};
 // Initialize wrapper
 UI.elements = {};
 
-// Shows/Hides Filtering for heatmap based on selected scale 
+//Shows/Hides Filtering for heatmap based on selected scale 
 UI.toggleOption = function(){
   $("input[type=radio]").each(function(){
- 
-    if($(this).prop("checked") == true){
 
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
+    if($(this).prop("checked") == true){
+        $(this).closest(".scaleOption").children(".optionBody").css("display", "block");
     }
     else{
-      $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
+        $(this).closest(".scaleOption").children(".optionBody").css("display", "none");
     }
   }); 
 } 
 
-// SHITTY CODE FOR RISE
-UI.hideApartments = function(){
-  $("#ui_apartment").hide();
-  DV.layers.delete('hexmap');
+UI.addAboutModal = function(){
+  $.ajax({ url: "../templates/about.html" })
+  .done(function(content){
+    $("body").append(content);
+  })
 }
 
-UI.showRed = function(){
-  if($("#red_line").prop("checked") == true){
-    DV.layers.add(red_line);
-  }
-  else{
-    DV.layers.delete('redline');
-  }
-}
-UI.showOrange = function(){
-  if($("#orange_line").prop("checked") == true){
-    DV.layers.add(orange_line);
-  }
-  else{
-    DV.layers.delete('orangeline');
-  }
-}
-UI.hideMBTA = function(){
-  $("#ui_mbta").hide();
-  DV.layers.delete('orangeline');  
-  DV.layers.delete('redline');  
-  $("#red_line").prop("checked", false);
-  $("#orange_line").prop("checked", false);
+UI.removeAboutModal = function(){
+
+  // Flag the modal as seen
+  localStorage.setItem("about_modal_read", true);
+
+  // Make it go away
+  $("#modal_wrapper").remove();
 }
 
-UI.elements.expandElement = function(selector){
-    if(selector == '.card.add_card'){
-      $("#add_filter, #add_filter_disabled").toggle();          
-    }  
+// Shows card to add filters
+UI.elements.toggleFilterCard = function(){
 
-    if(selector == '#select_list'){
+  // enables and disables 'Explore...' button
+  $("#add_filter, #add_filter_disabled").toggle();
 
-      $(".select_option").click(function(){
-        if($(this).attr("icon") == "home"){
-          $("#ui_apartment").show();
+  // shows '.add_card'
+  $(".card.add_card").toggleClass("expanded"); 
+}
+
+// adds card to dom
+UI.addCard = function(target){
+
+  $.ajax({
+    url: "/templates/card_templates/" + $(target).attr("card") + ".html"
+  })
+  .done(function( data ){
+
+    // reset styles for "select data set"
+    $("#select_set p").html("Select a data set");
+    $("#select_set p").css("color", "#D4D4D4");
+
+    // add card to DOM
+    $("#added_cards").prepend(data);   
+
+    if(target.attr("card") == "twitter_cached_card"){
+
+      var card = $(".card:nth-of-type(1)"),
+          header = $(".card:nth-of-type(1) .tweet_parameter"),
+          button = $(".card:nth-of-type(1) a"),
+          title = $("#select_set").attr("parameter"),
+          capTitle = title.charAt(0).toUpperCase() + title.substring(1);
+
+
+      header.html(capTitle);
+
+      card.attr("visualization", "twitter_" + title);
+      DV.twitter.addStream(title); 
+
+    } 
+
+    UI.elements.toggleFilterCard(); 
+    
+  });
+
+}
+UI.removeSearch = function(){
+    $("#twitter_search").remove();
+    DV.layers.delete(options.layers.twitter_search);  
+}
+UI.addTweet = function(target){
+  
+  var title = target.val();
+
+  $.ajax({
+    url: "/templates/card_templates/twitter_cached_card.html",
+  })
+  .done(function( data ){
+
+    $("#added_cards").prepend( data );
+
+    var card = $(".card:nth-of-type(1)"),
+        header = $(".card:nth-of-type(1) .tweet_parameter"),
+        button = $(".card:nth-of-type(1) a"),
+        capTitle = title.charAt(0).toUpperCase() + title.substring(1); 
+
+    header.html(capTitle);  
+
+    card.attr("visualization", "twitter_" + title);     
+    DV.twitter.addStream(title); 
+
+    UI.removeSearch()
+
+  });
+}
+UI.makeSelection = function(target){
+  $("#select_set p").html($(target).html());
+  $("#select_set p").css("color", "#000");
+  $("#select_set").attr("card", $(target).attr("card"));
+  if( $(target).attr("card") == "twitter_cached_card" ){
+
+    $("#select_set").attr("parameter", $(target).attr("parameter"));
+
+  }
+  $("#select_list").removeClass("expanded");
+  $("#select_list").empty();  
+}
+
+// @TODO: Fix bug when removing hexmap
+UI.removeCard = function(target){ 
+  var card = $(target).closest(".card");
+  DV.layers.delete(card.attr("visualization"));
+  $(target).closest(".card").remove();
+}
+
+// Seperate function to remove map layer
+// since it's not a leaflet feature
+UI.removeMap = function(target){
+  $('.leaflet-tile-pane').hide();
+  $(target).closest(".card").remove();
+}
+
+// Shows and hides dropdown menu to add filters
+// Dynamically populates dropdown
+UI.elements.toggleFilterList = function(){
+  var list = $("#select_list");
+  if(list.css("display") == "none"){
+
+    // placholder for active layers
+    var active_layers = [];
+
+    // create list of all possible layer names
+    var all_layers = Object.keys(options.layers);
+
+    // create list of all active layer names
+    for(i = 0; i < DV._layers.length; i++){
+      active_layers.push(DV._layers[i].id);
+    } 
+
+    // itterate through all layers
+    for(i = 0; i < all_layers.length; i ++){
+      // Get name of current layer 
+      var name = all_layers[i];
+
+      console.log(name);
+
+      // if the current layer NOT ACTIVE...
+      if( $.inArray( name, active_layers ) < 0 ){
+        
+        if(name != "map" || $(".leaflet-tile-pane").css("display") == "none"){
+              // create <a>
+          var obj = document.createElement("A"),
+
+              // create textnode containg name of layer
+              text = document.createTextNode(options.layers[name].name);
           
-          $("#ui_apartment .card_delete a").click(function(){
-            UI.hideApartments()
-          });
+          // Set class of object
+          obj.setAttribute("class", "select_option");
 
-          DV.layers.add(options.layers.apartments);
+          // prevents <a> from reloading page
+          obj.setAttribute("href", "javascript:void(0)");
 
-          UI.elements.expandElement("#select_list");          
+          // Which card gets added to the dom?
+          obj.setAttribute("card", options.layers[name].card);
+
+          if (options.layers[name].card == "twitter_cached_card") {
+            obj.setAttribute("parameter", options.layers[name].parameter);
+          };
+
+          // Bind addCard function
+          obj.setAttribute("onclick", "UI.makeSelection(this);");
+
+          // put name in <a>
+          obj.appendChild(text);
+
+          // add whole object to dropdown
+          document.getElementById("select_list").appendChild(obj);
+
         }
-        else if($(this).attr("icon") == "subway"){
-          $("#ui_mbta").show();
-
-          $("#ui_mbta .card_delete a").click(function(){UI.hideMBTA()});
-
-          $("#red_line").click(function(){
-            UI.showRed();         
-          });
-
-          $("#orange_line").click(function(){
-            UI.showOrange();
-          });
-
-          DV.layers.add(options.layers.mbta)
-        }
-        if($(this).attr("icon") == "neighborhoods"){
-          $("#ui_neighborhoods").show();
-          
-          $("#ui_neighborhoods .card_delete a").click(function(){
-            UI.hideApartments()
-          });
-
-          DV.layers.add(options.layers.neighborhoods);
-
-          UI.elements.expandElement("#select_list");          
-        }
-
-        UI.elements.expandElement(".card.add_card");          
-      });    
+      }
+      else{
+        console.log("" + name + " is active");
+      }
     }
-
-    $("" + selector + "").toggleClass("expanded");
+  }
+  else{
+    list.empty();
+  }
+  list.toggleClass("expanded");  
 }
 
 /**************************
@@ -124,69 +227,6 @@ UI.toggleSideNav = function(element){
   // Set Text
   toggle.html(toggle.hasClass("out") ? "Hide Menu" : "Show Menu");
 }
-
-// Toggles a pre-set tweet.
-// take in the DOM element that was clicked.
-// example: <li onclick="UI.toggleTweet(this)"....
-// UI.toggleTweet = function(obj){
-    
-//     // Show loading indicator.
-//     Loading.start("tweet");  
-
-//     // The DOM element that was selected
-//     var object = $(obj);
-
-//     // Get list of classes on that DOM element.
-//     var classes = object.attr('class');
-
-//     // Is this tweet active? 
-//     var active = classes.indexOf("active") > -1;
-
-//     // Get the content of that DOM element.
-//     var string = object.html();
-
-//     // Toggle Off
-//     if (active) {
-
-//       // Remove layer
-//       DV.layers.delete("tweet" + string);
-
-//       Loading.stop("tweet");
-
-//       // Toggle Class
-//       object.removeClass("active")
-
-//     // Toggle On
-//     } else {
-
-//       // Get tweets that were cached from the stream.
-//       DV.twitter.getStream(string, function(resp){
-        
-//         // Add layer
-//         DV.layers.add({
-//           name: "Twitter " + string,
-//           type: "scatterplot",
-//           color: DV.utils.getColor(Math.random(0, 100)),
-//           data : resp,
-//           width: 3,
-//         });
-
-//         object.addClass("active")
-
-//         Loading.stop("tweet");
-
-//       }, function(){
-
-//         // @TODO User Feedback
-
-//         object.addClass("active")
-//         Loading.stop("tweet");
-
-//       });
-
-//     }
-// }
-
 
 // Initializes ALL RANGE SLIDERS (RS)
 UI.initializeSliders = function(){
@@ -222,39 +262,3 @@ UI.initializeSliders = function(){
   linkInput('.price');
   linkInput('.footage');
 }
-
-
-
-/**************************
-    Adding a Card
-****************************/
-// UI.newCard = function(icon_class, header){
-
-//   var menu = document.getElementById("menuBody"),
-//       card = document.createElement("DIV"),
-//       left = document.createElement("DIV"),
-//       right = document.createElement("DIV"),
-//       title = document.createElement("H3"),
-//       title_text = header,
-//       title_text = document.createTextNode(title_text),
-//       icon_class = "fa fa-" + icon_class + " fa-2x",
-//       icon = document.createElement("I");
-
-//   card.setAttribute("class", "card");
-//   left.setAttribute("class",  "card_left");
-//   right.setAttribute("class", "card_right");
-//   icon.setAttribute("class", icon_class);
-
-//   title.appendChild(title_text);
-
-
-//   left.appendChild(icon);
-//   right.appendChild(title);
-
-//   card.appendChild(left);
-//   card.appendChild(right);
-  
-//   menu.appendChild(card);
-  
-//   return card;
-

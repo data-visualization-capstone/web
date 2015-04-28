@@ -10,8 +10,21 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
   <link href="/build/style.css" rel="stylesheet" />
   <title>Data Visualization Capstone</title>
-</head>
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 
+</head>
 <body id="map-content">
   
   <!-- Sidebar -->
@@ -43,8 +56,6 @@
          Data Visualization Settings
      ************************************/
 
-
-
     // Map settings
     var options = {
 
@@ -55,6 +66,7 @@
       // Top left & bottom right coordinates
       // For reference, Boston is:
       // 42.3601° N (lat), 71.0589° W (long), or -71
+      
       viewport: [
         [42.329077, -71.108871],
         [42.374200, -71.032072]
@@ -62,7 +74,7 @@
 
       // Available layers
       layers : [],
-        
+
     }
 
     /************************************
@@ -71,38 +83,43 @@
 
     // Global variable for map object
     // Initialize Leaflet map
-    var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+    var map = L.mapbox.map('map', options.map_key, {
+      minZoom: 12,
+      maxZoom: 16,
+    }).fitBounds(options.viewport);
 
     // Add layers when the map is ready.
-    map.on('ready', function(){
-      DV.update();
-    })
+    map.on('ready', function(){ DV.update(); })
 
     // Re-add layers when the map has changed.
-    map.on('viewreset', function(){
-      DV.update();
-    })
+    map.on('viewreset', function(){ DV.update(); })
     
     /************************************
          Add Default Data
     ************************************/
-
     // Possible layers.
     options.layers = {
+
+      // Represent apartment price heatmap
       apartments : {
         
         // Set name for layer
         // used for unique ID
-        name : "Hex Map",
+        name : "Rent Prices",
+
+        id : "apartments",
 
         // Define representation of layer
         type: "hex",
+
+        // Card from templates/card_templates 
+        card: "apartment_card",
 
         // Data from sample-data.js
         data : sample_data.apartments,
         
         // Pixel width
-        width: 15,
+        width: 20,
 
         // Define custom color. Used if points
         //  on't have a color parameter.
@@ -111,7 +128,7 @@
         // Custom function to filter data set.
         // Use to remove duplicates or process.
         filter : function(point){
-          return point.value > 2000;
+          return point.value > 500;
         },
         // Apply function to every point
         // Useful for computing color.
@@ -119,13 +136,24 @@
           return point;
         }, 
       },
+
+      map : {
+        name: "Map",
+        id: "map",
+        type: "map",
+        data : null,
+        card: "map_card",
+        loadData: null,
+      },
+
       twitter_traffic : {
 
         name: "Twitter Traffic",
+        id: "twittet_traffic",
         type: "scatterplot",
-        color: DV.utils.getColor(Math.random(0, 100)),
         data : null,
-
+        card : "twitter_cached_card",
+        
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'traffic',
@@ -133,13 +161,14 @@
         width: 3,
 
       },
+      
       twitter_pax : {
 
         name: "Twitter PAX",
+        id: "twitter_pax",
         type: "scatterplot",
-        color: DV.utils.getColor(Math.random(0, 100)),
         data : null,
-
+        card : "twitter_cached_card",
         // Dynamically load data
         loadData  : DV.twitter.getStream,
         parameter : 'pax',
@@ -147,72 +176,80 @@
         width: 3,
 
       }, 
+
+      twitter_search: {
+
+        name: "Twitter Search",
+        id: "twitter_search",
+        type: "scatterplot",
+        data : null,
+        card : "twitter_search_card",
+
+        // Dynamically load data
+        loadData  : DV.twitter.getStream,
+        parameter : 'pax',
+
+        width: 3,
+
+      },
+
       mbta : {
         name : 'MBTA',
         type : 'geojson',
+        id : 'mbta',
+        card : 'mbta_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/MBTARapidTransitLines.json',
       },
+
       neighborhoods : {
         name : 'Neighborhoods',
+        id : 'neighborhoods',
         type : 'geojson',
+        card : 'neighborhood_card',
         loadData : DV.utils.loadJSON,
         parameter : '/js/data/bostonneighborhoods.geojson',
       },
-
-      // @TODO : Something about this creates
-      // an infinite loop....
-      //  {
-      //   name : 'census',
-      //   type : 'topojson',
-      //   loadData : DV.loadCSV,
-      //   parameter : '/js/data/census2010.csv',
-
-      //   map : function(row){
-      //       return parseCensusRow(row)
-      //   }, 
-
-      //   filter : function(row){
-      //       return (row) ? true : false;
-      //   }
-
-      // }
-      }
-
-    // Used to format censuse data
-    function parseCensusRow(row) {
-
-      var parsedRow = {
-        id:         +row['tractid10'],
-        medianRent: +row['medianrent']
-      }
-
-      if (parsedRow.id && parsedRow.medianRent) {
-        return parsedRow;
-      } else {
-        return;
-      }
-    }
+    };
 
     /************************************
             Wire-up UI Elements
      ************************************/
 
     // Load Menu Template
-    $("#menu").load('templates/menu.tpl.html', function(result){
-        // UI.elements.layerCheckbox("#toggle_apartment_heatmaps", options.layers.apartments);  
-        // UI.elements.layerCheckbox("#toggle_mbta", red_line);
-        // UI.elements.heatmapScale("#squareFootage");
-        // UI.elements.heatmapScale("#bedrooms");
-        // UI.elements.heatmapScale("#rentPrice");        
-        
+    $("#menu").load('templates/menu.tpl.html', function(result){        
+       
         // Initialize Defaults For Filter UI
         UI.initializeSliders();
+
         // UI.initializeHashtags(); 
-        UI.toggleOption();        
+        UI.toggleOption();
     });
+
+    /************************************
+            Init Default Layers
+     ************************************/    
     
+     // Add MAP layer and card
+    $.ajax({
+      url: "/templates/card_templates/map_card.html",
+    }).done(function( data ){
+      $("#added_cards").append(data);
+    });
+
+    // Add APARTMENT layer and card
+    $.ajax({
+      url: "/templates/card_templates/apartment_card.html"
+    }).done(function( data ){
+      $("#added_cards").append(data);   
+    });
+
+    // Open the ABOUT modal if the user is 
+    // visiting the site for their first time.
+    if (!JSON.parse(localStorage.getItem("about_modal_read"))){
+      UI.addAboutModal();
+    }
+
   </script>
 </body>
-
 </html>

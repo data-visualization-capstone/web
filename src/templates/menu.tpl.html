@@ -8,10 +8,13 @@
     </div>
     <div class="menuHeader">
         <h1>DATA FILTERS</h1>
+        <a id="about_us" href="javascript:void(0)" style="float:right;" onclick="UI.addAboutModal();">        
+            <i class="fa fa-question trans x2"></i>
+        </a>
     </div>
 
     <div id="menuBody">
-        <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.expandElement('.card.add_card');">
+        <a href="javascript:void(0)" id="add_filter" class="trans x2" onclick="UI.elements.toggleFilterCard();">
             <p style="float:left;" class="trans x2">Explore more information</p>
             <i class="fa fa-plus trans x2" style="float:right;"></i>
         </a>
@@ -19,6 +22,7 @@
             <p style="float:left;" class="trans x2">Explore more information</p>
             <i class="fa fa-plus trans x2" style="float:right;"></i>
         </div>
+        
         <div class="card add_card trans x2">
             <div class="card_left">
                 <i class="fa fa-plus fa-2x"></i>
@@ -26,118 +30,20 @@
 
             <div class="card_right">
                 <h3>Add more information</h3>
-                <a href="javascript:void(0)" id="select_set" class="select_set" onclick="UI.elements.expandElement('#select_list');">
+                <a href="javascript:void(0)" id="select_set" class="select_set" onclick="UI.elements.toggleFilterList();">
                     <p>Select a data set</p>
                     <i class="fa fa-angle-down"></i>
                 </a>
-                <div id="select_list">
-                    <a href="javascript:void(0)" class="select_option" icon="subway">MBTA Lines</a>
-                    <a href="javascript:void(0)" class="select_option" icon="home">Apartment Rent Prices</a>
-                    <a href="javascript:void(0)" class="select_option" icon="neighborhoods">Boston Neighborhoods</a>
-                </div>
+
+                <!-- Dropdown menu -->
+                <div id="select_list"></div>
+
                 <div class="card_buttons">
-                    <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.expandElement('.card.add_card');">Cancel</a>
+                    <a href="javascript:void(0)" id="add_to_map" onclick="UI.addCard($('#select_set'));">Add to map</a>
+                    <a href="javascript:void(0)" id="add_cancel" onclick="UI.elements.toggleFilterCard();">Cancel</a>
                 </div>
             </div>
         </div>
-
-        <!-- MBTA -->
-        <div class="card" id="ui_mbta" style="display:none;">
-            <div class="card_left">
-                <i class="fa fa-subway fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>MBTA</h3>
-                <div class="menuSection"></div>
-            </div>
-            <div class="card_delete">
-                <a href="javascript:void(0);">
-                    <i class="fa fa-times fa-lg"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Apartment Prices -->
-        <div class="card" id="ui_apartment" style="display:none;">
-            <div class="card_left">
-                <i class="fa fa-home fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>Apartment Rent Heatmap</h3>
-                <div class="menuSection">
-                    <p>Explore rent prices in different areas of Boston.</p>
-                    
-                    <span style="display:inline;">$</span>
-                    <span class="price_link_lower" style="display:inline;"></span>
-                    <span class="price_link_upper" style="float:right; display:inline;"></span>
-                    <span style="display:inline; float:right;">$</span>
-                    <div class="price range"></div>
-                    <div style="text-align:center; height:10px;">
-                        <span>500- 4,000 dollars a month</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card_delete">
-                <a href="javascript:void(0);">
-                    <i class="fa fa-times fa-lg"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Neighborhoods -->
-        <!-- http://bl.ocks.org/awoodruff/728754e48c11a94b522b -->
-        <div class="card" id="ui_neighborhoods" style="display:none;">
-            <div class="card_left">
-                <i class="fa fa-map fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>Neighborhoods</h3>
-                <div>
-                    <p>Show Boston neighborhood borders</p>
-                    <p>Hovering over: <span id="nhood">Back Bay</span></p>
-                </div>
-
-            </div>
-            <div class="card_delete">
-                <a href="javascript:void(0);">
-                    <i class="fa fa-times fa-lg"></i>
-                </a>
-            </div>
-        </div>
-    
-        <!-- Twitter -->
-        <div class="card">
-            <div class="card_left">
-                <i class="fa fa-twitter fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>Twitter Cached</h3>
-                <div class="button" onclick="DV.twitter.addStream('baseball')">Baseball</div>
-            </div>
-        </div>
-
-        <!-- Twitter -->
-        <div class="card">
-            <div class="card_left">
-                <i class="fa fa-twitter fa-2x"></i>
-            </div>
-
-            <div class="card_right">
-                <h3>Twitter Search</h3>
-                <input id="twitter_key" /><br>
-                <div class="button" onclick="DV.twitter.addSearch('#twitter_key')">Search Twitter</div>
-                <div class="button cancel">Cancel</div>
-            </div>
-        </div>
-        
-        <!-- Clear -->
-        <div class="card" onclick="DV.layers.clear()">
-            <div class="card_left">
-                <i class="fa fa-trash-o fa-2x"></i>
-            </div>
-            <div class="card_right">
-                <h3>Clear Layers</h3></div>
-        </div>
-
+        <div id="added_cards"></div>
     </div>
 </div>

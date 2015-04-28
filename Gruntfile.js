@@ -27,7 +27,6 @@ module.exports = function(grunt) {
           'src/js/modules/scatterplot.js',
           'src/js/modules/markers.js',
           'src/js/modules/geojson.js',
-          'src/js/modules/topojson.js',
 
         ],
         dest: 'src/build/build.js',

@@ -6,7 +6,6 @@
 // http://bost.ocks.org/mike/leaflet/
 // chriszetter.com/blog/2014/06/15/building-a-voronoi-map-with-d3-and-leaflet/
 
-
 function drawScatterplot(map, layer){
 
     // Clear layer if previously existing.
@@ -17,6 +16,7 @@ function drawScatterplot(map, layer){
 
     // Create an SVG elemnt for plotting points on
     var svg = d3.select(map.getPanes().overlayPane).append("svg")
+
       .attr('id', layer.id)
       .attr("class", "leaflet-zoom-hide")
 
@@ -27,6 +27,7 @@ function drawScatterplot(map, layer){
     // Add a "g" (group) element. Organizes points
     // and ensures that layer aligns with leaflet.
     var g = svg.append("g")
+
       .attr('id', layer.id)
       .attr("class", "leaflet-zoom-hide")
 
@@ -73,6 +74,7 @@ function drawScatterplot(map, layer){
     }
 
     svg.selectAll("circle")
+
       .data(points)
       .enter().append("circle")
       .attr("class", "point")
@@ -107,12 +109,14 @@ function drawScatterplot(map, layer){
         var next = points[i + 1];
 
         svg.append("line")
+
           .attr("x1", current.x)
           .attr("y1", current.y)
           .attr("x2", next.x)
           .attr("y2", next.y)
-          .style("stroke", (current.color) ? current.color : layer.color)
-          .style("stroke-width", layer.width)
+          
+          .style("stroke", "black")
+          .style("stroke-width", layer.width / 3)
           .style("opacity", 1);
 
       };

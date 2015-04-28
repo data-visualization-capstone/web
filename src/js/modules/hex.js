@@ -7,15 +7,15 @@
 // http://bl.ocks.org/mbostock/4248145
 
 function drawHexmap(map, layer){
-  
-  // Clear layer if previously existing.
-  // $("#" + layer.id).remove()
-  // console.log($("#" + layer.id))
 
   // http://bl.ocks.org/mbostock/4248145
   var width = map.getSize().x;
   var height = map.getSize().y;
 
+  // Current zoom level ~[0 - 19]
+  var zoom = map._zoom
+
+  // Filtered array
   var points = [];
 
   // Create map-able set of points. For each point,
@@ -33,7 +33,7 @@ function drawHexmap(map, layer){
 
     // Remove points that are outside current viewport
     if (!bounds.contains(latlng)) { return false };
-    
+
     // Convert Latitude and Longitude into a Mapable
     // point using leaflet's LayerPoint API.
     var point = map.latLngToLayerPoint(latlng);
@@ -47,22 +47,24 @@ function drawHexmap(map, layer){
       p.bedrooms = 1;
     }
 
-    points.push([point.x, point.y, p.value / p.bedrooms]);
+    points.push([point.x, point.y, p.value]);
 
     return true;
   });
 
   var color = d3.scale.linear()
-      .domain([600, 2500])
-      .range(["white", "steelblue"])
-      .interpolate(d3.interpolateLab);
+      .domain([500, 3500])
+      .range(["#FFFFFF", "#000000"])
+      .interpolate(d3.interpolateLab)
 
   var hexbin = d3.hexbin()
-      .size([width, height])
+      .size([2000, 2000])
       .radius(layer.width);
 
   // Create an SVG elemnt for plotting points on
-  var svg = d3.select(map.getPanes().overlayPane).append("svg")
+  var svg = d3.select(map.getPanes().overlayPane)
+
+      .append("svg")
       .attr('id', layer.id)
       .attr("class", "leaflet-zoom-hide")
       .style("width",  map.getSize().x + 'px')
@@ -70,9 +72,10 @@ function drawHexmap(map, layer){
       .append("g")
 
   // clipPath is a trick for rendering custom
-  // svg shapes. It restricts the region of 
+  // svg shapes. It restricts the region of
   // a shape where color can be applied.
   svg.append("clipPath")
+
       .attr("id", "clip")
       .append("rect")
       .attr("class", "mesh")
@@ -80,31 +83,33 @@ function drawHexmap(map, layer){
       .attr("height", height);
 
   svg.append("g")
+
       .attr("clip-path", "url(#clip)")
       .selectAll(".hexagon")
 
       // Use the hexbin d3.js plugin for
-      // bulking data points into their 
+      // bulking data points into their
       // overlapping "bin"
+
       .data(hexbin(points))
       .enter().append("path")
       .attr("class", "hexagon")
       .attr("d", hexbin.hexagon())
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .style("fill", function(d) { 
-        
-        // Ugly calculation for finding price per bedroom;
+      .style("fill", function(d) {
+
+        // Ugly calculation for finding average prie
         var sum = 0;
 
+        // For each apartment in the current bin
         for (var i = d.length - 1; i >= 0; i--) {
-          var pricePerBedroom = d[i][2];
-          sum += pricePerBedroom;
+          var price = d[i][2];
+          sum += price;
         };
 
-        var average = sum / d.length
-        return color(average); 
+        return color(sum / d.length);
       })
 
-      .style("opacity", .6);
+      .style("opacity", .8);
 }
 

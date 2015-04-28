@@ -19,8 +19,6 @@ var DV = {
   // Layer Data
   _layers : [],
 
-  _leaflet_layers : [],
-
   // Layer CRUD Methods
   layers : {},
 
@@ -33,20 +31,15 @@ var DV = {
 // PUT - Add a layer to the map.
 DV.layers.add = function(layer){
 
-  // @TODO: Prevent Duplicates
-  // Prevent duplicates
-  // if (DV.layers.find("name", layer.name)) return;
-
     // Converts to valid layer object
     compileLayer(layer, function(layer){
 
         var layer = layer;
 
-        // @TODO: Prevent Duplicates
+        // Store placeholder for leaflet reference
+        layer.leaflet_layer = null;
 
         DV._layers.push(layer);
-
-        console.log(DV._layers);
 
         // Refresh view
         DV.update();
@@ -107,8 +100,9 @@ DV.layers.clear = function(){
   
   console.log("Clearing Layers...");
 
-  _.each(DV._leaflet_layers, function(l){
-    map.removeLayer(l);
+  _.each(DV._layers, function(l){
+    if (l.leaflet_layer);
+    map.removeLayer(l.leaflet_layer);
   })
   
   // Empty local list
@@ -120,8 +114,17 @@ DV.layers.clear = function(){
 
 // Iterate through, and place layers onto Leaflet map
 DV.update = function(){
+  
+  for (i in map._layers){
+    var current = map._layers[i];
+
+    if (current._path){
+      map.removeLayer(current);
+    }
+  }
 
   var layers = DV._layers;
+  console.log(layers)
 
   // Map Boundaries
   bounds = map.getBounds();
@@ -130,30 +133,35 @@ DV.update = function(){
   
   // @ TODO:
   // Clear data before populating
-  $("#hexmap").remove()
+  $("#apartments").remove()
 
   // Iterate through layers
 	for (var i = layers.length - 1; i >= 0; i--) {
     
     var layer = layers[i]; // Current Layer
 
-    var leaflet_layer = null;
+    layer.leaflet_layer = null;
 
     switch (layer.type) {
       
       // SCATTERPLOT
       case "scatterplot":
         // drawScatterplot(map, layer);
-        leaflet_layer = drawMarkers(map, layer);
+        layer.leaflet_layer = drawMarkers(map, layer);
         break;
         
       // PATH
       case "path":
-        leaflet_layer = drawPath(map, layer);
+        layer.leaflet_layer = drawPath(map, layer);
         break;
         
       // HEX
       case "hex":
+
+        if (layer.leaflet_layer) {
+           map.removeLayer(layer.leaflet_layer)
+           layer.leaflet_layer = null;
+        }
 
         // @TODO: Store as layerGroup
         drawHexmap(map, layer);
@@ -161,12 +169,19 @@ DV.update = function(){
 
       // GEOJSON
       case "geojson":
-        leaflet_layer = geoJsonLayer(layer.data);
+
+        if (layer.leaflet_layer) {
+           map.removeLayer(layer.leaflet_layer)
+           layer.leaflet_layer = null;
+        }
+
+        layer.leaflet_layer = geoJsonLayer(layer.data, layer);
         break;
 
-      // TOPOJSON
-      case "topojson":
-        leaflet_layer = censusLayer(layer.data);
+      case "map":
+
+        console.log("map");
+
         break;
     }
 
@@ -174,14 +189,16 @@ DV.update = function(){
     // If our data is represented as a proper
     // leaflet layer object, lets add it to the map.
 
-    if (leaflet_layer){
+    if (layer.leaflet_layer){
 
       // Store for refernece
-      DV._leaflet_layers.push(leaflet_layer);
+      // DV._leaflet_layers.push(leaflet_layer);
 
       // Add to map
-      map.addLayer(leaflet_layer);
+      map.addLayer(layer.leaflet_layer);
     }
+
+    console.log(DV._layers)
 	}
 }
 
@@ -200,6 +217,7 @@ function compileLayer(layer, callback){
     
         // Execute provided function for getting data.
         // Provide parameter. Example: Twitter Key
+
         layer.loadData(layer.parameter, function(resp){
             
             // Save data back to layer
@@ -241,7 +259,10 @@ function compileLayer(layer, callback){
 function formatLayer(layer){
 
   // Ensure the layer ID exists
-  var layer = generateId(layer);
+
+  if(layer.id == null){
+    var layer = generateId(layer);
+  }
 
   // Support layer.filter function
   if (layer.map){
@@ -272,7 +293,7 @@ function generateId(layer){
       layer.name = 'default';
     }
 
-    layer.id = layer.name.replace(/\s/g, '').toLowerCase();
+    layer.id 
 
     return layer;
 }
@@ -285,8 +306,8 @@ DV.twitter = {};
 
 // Add a new layer getting data from twitter.
 // Support 2 types of tweets:
-//   "search" - Search the twitter API for tweets
-//   "stream" - Use cached tweets that we've recorded
+//   - "search" - Search the twitter API for tweets
+//   - "stream" - Use cached tweets that we've recorded
 
 // Fetch tweets from twitter search API.
 // Provide the element where the user
@@ -307,32 +328,45 @@ DV.twitter.addSearch = function(element){
 
 DV.twitter.addStream = function(string){
 
-  DV.twitter.addLayer(string, DV.twitter.getStreamData)
+  DV.twitter.addLayer(string, DV.twitter.getStreamData); 
+
 }
 
 // Helper function for adding different types of t
 // twitter data
+var colorCount = 0;
+
 DV.twitter.addLayer = function(string, loadDataFunction){
-  
-  // Error Checking
-  // @TODO: User Feedback
-  if (!string) { console.error("Invalid Twitter String."); return; }
 
-  // Show loading indicator.
-  Loading.start("tweet");
+  if(colorCount < DV.utils.twitterColors.length){
+    var currentColor = DV.utils.twitterColors[colorCount];
+    
+    // Error Checking
+    // @TODO: User Feedback
+    if (!string) { console.error("Invalid Twitter String."); return; }
 
-  // Create layer object
-  var layer = {
-      name: "Twitter " + string,
-      type: "scatterplot",
-      color: DV.utils.getColor(Math.random(0, 100)),
-      loadData : loadDataFunction,
-      parameter : string,
-      width: 3,
-  }  
+    // Show loading indicator.
+    Loading.start("tweet");
 
-  // add layer object
-  DV.layers.add(layer);
+    // Create layer object
+    var layer = {
+        name: "Twitter " + string,
+        id : "twitter_" + string,
+        type: "scatterplot",
+        color: currentColor,
+        loadData : loadDataFunction,
+        parameter : string,
+        width: 3,
+    }  
+
+    // add layer object
+    DV.layers.add(layer);
+
+    colorCount ++;    
+  }
+  else{
+    alert("you have too many tweets bro!");
+  }
 }
 
 // GET /twitter/search/:string
@@ -355,13 +389,13 @@ DV.twitter.getStreamData = function(string, success, error){
   $.get(DV.url + "twitter/stream/" + string, function(resp){
       
       Loading.stop("tweet");
-      success(resp)
+      success(resp);
     })
     .fail(function() {
       
       Loading.stop("tweet");
-      console.error("Error fetching tweets: "  + resp)
-      error(resp)
+      console.error("Error fetching tweets: "  + resp);
+      error(resp);
     })
 };
 
@@ -371,23 +405,8 @@ DV.twitter.getStreamData = function(string, success, error){
 
 DV.utils = {};
 
-// Maps the input number to the output
-// color. Input between 0 and 100 maps
-// to the range of red -> green
-DV.utils.getColor = function(i){
-
-  if (i < 0){
-    i = 0;
-  } else if (i > 1){    
-    i = 1;
-  }
-
-  var r = Math.floor(255 * i);
-  var g = Math.floor(255 - 255 * i);
-  var b = 0;
-
-  return '#' + DV.utils.componentToHex(r) + DV.utils.componentToHex(g) + DV.utils.componentToHex(b);
-};
+// Colors for twitter points
+DV.utils.twitterColors = ["#A0E181", "#AE7AA9", "#718ECB", "#EA7572", "#FDB12E", "#00BCB2", "#7935FF", "#8E2440"];
 
 // http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 DV.utils.componentToHex = function(c) {
