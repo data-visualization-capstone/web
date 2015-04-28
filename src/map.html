@@ -83,7 +83,10 @@
 
     // Global variable for map object
     // Initialize Leaflet map
-    var map = L.mapbox.map('map', options.map_key).fitBounds(options.viewport);
+    var map = L.mapbox.map('map', options.map_key, {
+      minZoom: 12,
+      maxZoom: 16,
+    }).fitBounds(options.viewport);
 
     // Add layers when the map is ready.
     map.on('ready', function(){ DV.update(); })
