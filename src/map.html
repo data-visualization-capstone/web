@@ -4,25 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/css/semantic-ui.css" rel="stylesheet" />
-  <link href="/css/nouislider.css" rel="stylesheet" />
+  <link href="./css/semantic-ui.css" rel="stylesheet" />
+  <link href="./css/nouislider.css" rel="stylesheet" />
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">  
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />  
-  <link href="/build/style.css" rel="stylesheet" />
+  <link href="./build/style.css" rel="stylesheet" />
   <title>Data Visualization Capstone</title>
-  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="./favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
 
 </head>
 <body id="map-content">
@@ -40,10 +40,10 @@
   <div id="loading" class="spin" style="display: none;"></div>
 
   <!-- Data Visualization Script -->
-  <script src="build/build.js"></script>
+  <script src="/src/build/build.js"></script>
 
   <!-- Load in Sample Data -->
-  <script src="js/data/apartments.js"></script>
+  <script src="/src/js/data/apartments.js"></script>
   
   <!-- External -->
   <script src="//api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js"></script>
@@ -213,7 +213,7 @@
         id : 'mbta',
         card : 'mbta_card',
         loadData : DV.utils.loadJSON,
-        parameter : '/js/data/MBTARapidTransitLines.json',
+        parameter : '/src/js/data/MBTARapidTransitLines.json',
       },
 
       neighborhoods : {
@@ -222,7 +222,7 @@
         type : 'geojson',
         card : 'neighborhood_card',
         loadData : DV.utils.loadJSON,
-        parameter : '/js/data/bostonneighborhoods.geojson',
+        parameter : '/src/js/data/bostonneighborhoods.geojson',
       },
     };
 
@@ -231,7 +231,7 @@
      ************************************/
 
     // Load Menu Template
-    $("#menu").load('templates/menu.tpl.html', function(result){        
+    $("#menu").load('./templates/menu.tpl.html', function(result){        
        
         // Initialize Defaults For Filter UI
         UI.initializeSliders();
@@ -246,14 +246,14 @@
     
      // Add MAP layer and card
     $.ajax({
-      url: "/templates/card_templates/map_card.html",
+      url: "./templates/card_templates/map_card.html",
     }).done(function( data ){
       $("#added_cards").append(data);
     });
 
     // Add APARTMENT layer and card
     $.ajax({
-      url: "/templates/card_templates/apartment_card.html"
+      url: "./templates/card_templates/apartment_card.html"
     }).done(function( data ){
       $("#added_cards").append(data);   
     });

@@ -1,9 +1,9 @@
 {
   "name": "data-visualization-capstone",
   "version": "0.1.0",
-  "repository" : { 
-    "type" : "git", 
-    "url" : "git@github.com:data-visualization-capstone/web.git"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:data-visualization-capstone/web.git"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -17,5 +17,8 @@
   },
   "scripts": {
     "start": "http-server ./src -a 0.0.0.0 -p 8888"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6"
   }
 }

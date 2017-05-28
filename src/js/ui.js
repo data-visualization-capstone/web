@@ -24,7 +24,7 @@ UI.toggleOption = function(){
 } 
 
 UI.addAboutModal = function(){
-  $.ajax({ url: "../templates/about.html" })
+  $.ajax({ url: "src/templates/about.html" })
   .done(function(content){
     $("body").append(content);
   })
@@ -53,7 +53,7 @@ UI.elements.toggleFilterCard = function(){
 UI.addCard = function(target){
 
   $.ajax({
-    url: "/templates/card_templates/" + $(target).attr("card") + ".html?cache_reset=" + Math.random() + ""
+    url: "/src/templates/card_templates/" + $(target).attr("card") + ".html?cache_reset=" + Math.random() + ""
   })
   .done(function( data ){
 
@@ -62,7 +62,7 @@ UI.addCard = function(target){
     $("#select_set p").css("color", "#D4D4D4");
 
     // add card to DOM
-    $("#added_cards").prepend(data);   
+    $("#added_cards").prepend(data);
 
     if(target.attr("card") == "twitter_cached_card"){
 
@@ -95,7 +95,7 @@ UI.addTweet = function(target){
 
 
   $.ajax({
-    url: "/templates/card_templates/twitter_cached_card.html?cache_reset=" + Math.random() + "",
+    url: "src/templates/card_templates/twitter_cached_card.html?cache_reset=" + Math.random() + "",
   })
   .done(function( data ){
 
