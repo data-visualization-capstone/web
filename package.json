@@ -22,6 +22,14 @@
   "dependencies": {
     "connect": "^3.6.2",
     "ejs": "^2.5.6",
-    "serve-static": "^1.12.3"
+    "serve-static": "^1.12.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-less": "^0.12.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "http-server": "^0.6.1"
   }
 }
