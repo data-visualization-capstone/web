@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build-heroku": "npm install && bower install && grunt build && npm start"
+    "build-heroku": "npm install -g bower && npm install -g grunt && npm install && bower install && grunt build && npm start"
   },
   "dependencies": {
     "connect": "^3.6.2",
