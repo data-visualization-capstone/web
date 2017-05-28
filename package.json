@@ -16,7 +16,7 @@
     "http-server": "^0.6.1"
   },
   "scripts": {
-    "start": "http-server ./src -a 0.0.0.0 -p 8888"
+    "start": "node server.js"
   },
   "dependencies": {
     "ejs": "^2.5.6"
